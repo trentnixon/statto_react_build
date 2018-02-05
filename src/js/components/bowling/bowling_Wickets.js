@@ -28,8 +28,6 @@ export default class batting_runs extends React.Component {
                             <Chart_Bar_Wickets {... this.props}/>
                         </div>
 
-                        
-
                         <div class="darkWrapper"> 
                             2-fa, 3fa, 4fa, 5-fa etc
                         </div>
