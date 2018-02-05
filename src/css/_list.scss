@@ -14,3 +14,10 @@ ul.list{
         }
     }
 }
+
+ul.list.noborder{
+    padding: 10px 0;
+    li{
+        border: none;
+    }
+}
