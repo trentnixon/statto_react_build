@@ -1,0 +1,79 @@
+/* Header & content  elements */
+
+// Small Content Pods with HZ Rule
+
+.row{
+.contentpod-item{
+    padding: 0px !important;
+    div{
+        @include content-pod-basic();
+        @include border-radius(3px);
+
+    h4{
+        color:$bodyWhite;
+        font-size: 1.2em;
+        margin: 0 0 3px;
+        font-weight: 100;
+    }
+    p.value{
+        font-size: 2em;
+    font-weight: 100;
+    margin: 5px 0 0px 0;
+    text-align: right;
+    
+    }
+    p.sub{
+        font-size: .8em;
+        text-align: left;}
+    }
+
+    hr{
+        margin: 0px 0 5px;
+        background-color: $tone1;
+        height: 1px;
+        border: none;
+        border-radius: 2px;
+    }
+}
+}
+
+
+
+
+/* Last 10 games listed on dashboard */
+.row{
+    .recent-game-item{
+
+            @include content-pod-basic();
+            @include border-radius(3px);
+            margin: 2px 0 5px 0;
+
+        div{
+            
+            div.game-header{
+                text-align: center;
+                h4{
+                    color:$tone2;
+                    font-size: 1.2em;
+                    margin: 0 0 7px;
+                    font-weight: 100;
+                }
+
+                h5{
+                    color: $bodyWhite;
+                    font-size: .9em;
+                    font-weight: 100;
+                    margin:0 0 10px 0;
+                
+                }
+            }
+        
+            div.info{
+                text-align: right;
+                font-size: 1.1em;
+                line-height: 1.3em;
+                padding: 0 10px;
+            }
+        }
+    }
+}

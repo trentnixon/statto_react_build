@@ -1,0 +1,366 @@
+/* Login */
+/* STATTO Overwrites to the main theme */
+
+#statto-app{
+.login{
+    font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    color: $bodyWhite;
+
+    .login-header{
+        padding: 110px 15px 0;
+        color: $bodyWhite;
+
+        .logo{ }
+
+        h1{
+            margin: 0;
+            font-size: 2.5em;
+            line-height: 1.8em;
+            font-weight: 100;
+        }
+        h2{
+            margin: 0;
+            font-size: .9em;
+            line-height: 1.3em;
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+    }
+
+
+    /* Login Content */
+
+
+    .login-content{
+        width: 550px;
+        clear:both;
+        margin-top: 10px;
+        display: inline-block;
+
+        .darkWrapper{  margin: 5px 0 10px; }
+        
+        h3{
+            color: $bodyWhite;
+            margin: 6px 0 0;
+            display: inline-block;
+            font-size: 1.3em;
+            line-height: 2em;
+            float: none;
+            clear: both;
+
+            small{ color: $bodyWhite; }
+        }
+
+        .login-wr-container{
+            margin: 0 10%;
+            width: 80%;
+            padding: 10px 0%;
+
+            .wr_at_a_glance{
+                
+                .fa{color: $bodyWhite;  }
+                > .fa:nth-child(1){
+                    font-size: 2.2em;
+                    float: left;
+                   
+                }
+
+                span{
+                    font-size: .9em;
+                    color: $bodyWhite;
+                    margin: 0 0 0 10px;
+                    line-height: 29px;
+                    display: inline-block;
+                    float: left;
+                }
+            }
+        }
+        .login_btn{
+                font-size: 17px;
+                margin: 14px 0px;     
+        }
+    }
+}
+}
+
+
+/* ********************************************************************************** */
+/* Media Querys */
+/* ********************************************************************************** */
+
+/* ********************************************************* */
+/* Ipad/Tablets * ***************************** */
+/* ********************************************************* */
+
+
+
+/* iPad pro (portrait) ----------- */
+@media only screen 
+and (min-device-width : 1024px) 
+and (max-device-width : 1366px) 
+and (orientation : portrait) {
+	/* Home page Podcast Items */
+    #app{
+        #page-container{
+            .login {
+                margin: 40% 0;  
+            }
+        }
+    }
+
+}
+
+@media only screen 
+and (min-device-width : 1024px) 
+and (max-device-width : 1366px) 
+and (orientation : landscape) {
+	/* Home page Podcast Items */
+    #app{
+        #page-container{
+            .login {
+                margin: 22% 0;  
+            }
+        }
+    }
+	/* End Home Page */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+	
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+#app{
+    #page-container{
+        .login {
+            margin: 22% 0;  
+        }
+    }
+}
+
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	/* Styles */	
+    #app{
+        #page-container{
+            .login {
+                margin: 40% 0;  
+            }
+        }
+    }
+}
+
+/* ********************************************************* */
+/* Large Smart Phones * ***************************** */
+/* ********************************************************* */
+
+
+/* Catch ALL Phone Devices (portrait and landscape) ----------- */ 
+@media only screen and (max-device-width: 736px) {		
+	/* Styles */
+
+    #app{
+        #page-container{
+            .login {
+                margin: 0;
+                height: 100%;
+                
+                .login-content{  
+                        padding: 0px 20px; 
+                    
+                        .reg-notification{
+                            text-align: center;
+                        }
+
+                        .login-wr-container{
+                            margin: 7px 5%;
+                            width: 90%;
+                            padding: 10px 0%;
+                            display: inline-block;
+                            
+                            .wr_at_a_glance{
+                                color: #999; 
+                                .fa{ }
+                                > .fa:nth-child(1){
+                                    font-size: 1.8em;
+                                   
+                                }
+                                span{
+                                    font-size: .9em;
+                                    margin: 0 0 0 5px;
+                                    line-height: 23px;
+                                }
+                            }
+                        }
+                    }
+
+                .login-header {
+                    padding: 0;
+                    margin-left: 0;
+                    position: static;
+                    padding: 120px 15px 0;
+                    
+                    .icon{display: none;}
+                    .brand{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+} 
+
+
+
+@media only screen and (max-device-width: 736px)and 
+	(orientation: portrait) {
+
+}
+
+
+@media only screen and (max-device-width: 736px)and 
+(orientation: landscape) {
+
+    #app{ 
+        #page-container{ 
+            .login{ 
+                .login-header{
+                    padding: 30px 15px 0px;
+                }
+                .login-content {
+                    padding: 0px 20px;
+                    p.m-t-20{ display: none;}
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/* iphone 6 plus (portrait and landscape) ----------- */
+@media only screen and 
+	(max-device-width: 736px) and 
+	(min-device-width: 414px) and 
+	(orientation: portrait){
+	/* Styles */
+
+}
+
+@media only screen and 
+	(max-device-width: 736px) and 
+	(min-device-width: 414px) and 
+	(orientation: landscape){
+	/* Styles */
+	
+}
+
+
+/* iphone 6 (portrait and landscape) ----------- */
+@media only screen and 
+	(min-device-width: 375px) and 
+	(max-device-width: 667px) and (orientation: portrait)
+	{
+	/* Styles */
+
+
+}
+
+
+@media only screen and 
+	(min-device-width: 375px) and 
+	(max-device-width: 667px) and (orientation: landscape)
+	{
+	/* Styles */
+
+
+}
+/* ********************************************************* */
+/* Smart Phones * ***************************** */
+/* ********************************************************* */
+
+
+
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px)
+and (max-device-height : 568px)
+ and (orientation: portrait){
+	/* Styles */
+
+}
+
+@media only screen and 
+	(min-device-width: 320px) and 
+	(max-device-width: 568px) and (orientation: landscape){
+	/* Styles */
+
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+	/* Styles */
+
+}
+
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-device-width  : 412px) and (orientation: portrait){
+/* Styles */
+
+		
+
+}
+@media only screen 
+and (max-device-width  : 412px) and (orientation: landscape){
+	/* Styles */
+
+}
+
+
+
+
+@media only screen 
+and (max-device-width  : 360px) and (orientation: portrait){
+	/* Styles */
+
+}
+
+@media only screen 
+and (max-device-width  : 360px) and (orientation: landscape){
+	
+}
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+
+
+
+

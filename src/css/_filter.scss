@@ -1,0 +1,65 @@
+#Filter{
+
+
+    background-color: white;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    margin: 0 -15px;
+    height: 100%;
+
+    .filter-header{
+        background-color: $tone1;
+        padding: 20px 10px;
+        h2{
+            font-size:1.1em;
+            margin: 0;
+            color: $bodyWhite;
+
+            .material-icons{
+                margin: -4px 10px 0;
+                float: right;
+            }
+        }
+
+    }
+    
+    .filter-group{
+            margin: 5px 10px;
+            padding: 15px 0px;
+            border-bottom: 1px solid $tone2;
+            text-align: center;
+
+            h2{
+                font-size: 1.2em;
+                margin: 0 0 14px 0 ;
+                text-align: center;
+                
+                .material-icons{
+                    margin: -4px 10px 0;
+                    float: right;
+                }
+            }
+
+        }
+    
+    .done{
+        color: $bodyWhite;
+        position: fixed;
+        bottom: 5px;
+        min-width: 98% !important;
+        margin: 0 1%;
+    }
+}
+
+#Filter.hide{
+    bottom:-100px;
+    opacity: 0;
+    transition: all .8s ;
+}
+
+#Filter.show{
+    bottom: 0;
+    opacity: 1;
+    transition: all .8s ;
+}

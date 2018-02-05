@@ -1,0 +1,19 @@
+.world_ranking_table{
+
+    @include content-pod-basic();
+    @include border-radius(3px);
+
+    .world_ranking_header{
+        color:$tone1;
+    }
+
+    .Table_label{
+        color: $tone1;
+        text-align: left;
+    }
+    .world_ranking_row{
+        
+        margin: 5px 0;
+        text-align: right;
+    }
+}

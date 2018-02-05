@@ -1,0 +1,246 @@
+/* Statto Scorecard */
+#Scorecard{
+    
+    .fetch_new_scorecard{
+
+        h2{
+            font-size: 1.3em;
+            font-family: 100;
+            line-height: 1.4em;
+            text-align: center;
+        }
+        p{
+            margin: 7px 10px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+    }
+
+
+    .Tabs{
+        position: fixed;
+        bottom: 40px;
+        width: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        display: inline-block;
+    }
+    #scorecard_Result{
+        @include border-radius(3px);
+        @include content-pod-basic();
+        padding: 5px 14px;
+
+        h2{
+            color:$bodyWhite;
+            font-size: 1.1em;
+            line-height: 1.5em;
+            margin: 0;
+        }
+    }
+    #scorecard_Score_Summary{
+        display: flex;
+        h1{
+            font-size: 1.2em;
+            line-height: 1.3em;
+            color: $bodyWhite;
+            border-bottom: 4px solid;
+            padding: 0 0 10px 0;
+            margin: 10px 0 0;
+            min-height: 60px;
+        }
+        h2{ 
+                color: $bodyWhite;
+               
+                font-size: 2em;
+                line-height: 1.3em;
+                margin: 0 10px 0 0;
+                text-align: right;
+                font-weight: 100;
+            }
+
+        h3{ 
+                color: $bodyWhite; 
+                text-align: right;
+                font-size: .9em;
+                margin: 0 10px 0 0;
+            }
+
+
+        .scoreA{
+            padding: 0 5px 0 0;
+            h1
+            { border-color: $tone1;
+            }
+           
+        }
+        .scoreB{ 
+            padding: 0  0 0 5px;
+            h1{
+                border-color: $tone2;
+            } 
+        }
+
+    }
+
+    #scorecard_Meta{
+        
+        padding: 20px 0;
+        text-align: center;
+        
+        
+        h2{
+            font-weight: 100;
+            font-size: 1.3em;
+            line-height: 1.5em;
+            color: $bodyWhite;
+            margin: 3px 0;
+
+            
+        }
+        h2.tone{
+            color: $tone2;
+        }
+
+        h3{
+            font-weight: 100;
+            font-size: .9em;
+            line-height: .9em;
+            margin: 10px 0;
+            color: $bodyWhite;
+        }
+    }
+
+    #scorecard_TeamSheets{
+        padding: 0 0 30px 0;
+
+        h2{
+            color: $tone1;
+            text-align: center;
+            font-size: 2em;
+            font-weight: 100;
+            margin: 5px 0 10px 0;
+
+        }
+        h3{
+            color: $tone2;
+            font-size: 1.4em;
+            margin: 0 0 14px 0;
+            line-height: 1.3em;
+            min-height: 50px;
+        }
+
+        .TeamA{
+            text-align: left;
+            padding: 0 3px;
+        }
+        
+        .TeamB{
+            text-align: right;
+            padding: 0 3px;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li{
+                color: $bodyWhite;
+                font-size: 1.1em;
+                font-weight: 100;
+                margin: 0;
+                padding: 1px 0;
+            }
+        }
+    }
+
+    #Display_The_Scorecard{
+        padding:  0 0 60px 0;
+
+        h2{
+            color: $bodyWhite;
+            font-size: 1.6em;
+            font-weight: 100;
+            line-height: 1.5em;
+            margin: 0;
+        }
+
+        h2.secondInnings{ margin-top:30px;}
+
+        h3{
+            color: $bodyWhite;
+            font-size: 1.5em;
+            font-weight: 400;
+            line-height: 1.5em;
+            margin: 10px 0 7px 0;
+            text-align: right;
+            border-top: .5px solid;
+            padding: 5px 10px 0 0px;
+        }
+
+        .Display_innings{
+
+            .player{
+                color: $bodyWhite;
+                padding: 3px 0;
+
+                .name{
+                    font-size: 1.1em;
+                    line-height: 1em;
+                    font-weight: 100;
+
+                    .howout{
+                        font-size: .8em;
+   
+                        margin-left: 20px;
+                        font-weight: 400;
+                        color: $tone1;
+                    }
+                }
+
+                .int{
+                    font-size: 1em;
+                }
+            }
+
+            
+            .batting{
+                
+            }
+
+            .bowling{
+                
+            }
+        }
+    }
+
+
+/* Charts */
+    #scorecard_Stats{
+
+        .scorecard_Charts{
+
+                .header{
+                        font-size: 1.3em;
+                        margin: 20px 0px 10px;
+
+                        .col-xs-12{ color: $tone1;}
+                        .col-xs-4{ color: $bodyWhite;}
+
+                        .row{ padding:0;}
+                }
+                
+                .scorecard_chart_line{
+                    .row{
+                        color: $bodyWhite;
+                        padding: 2px 0;
+                        font-size: 1.1em;
+                        font-weight: 100;
+                        div{ }
+                        .perc{ font-size: .9em; color: $tone3;  padding: 0; }
+                    }
+                }
+        }
+    }
+}

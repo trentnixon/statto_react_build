@@ -1,0 +1,82 @@
+/* Pace Loader Setting - Added in v1.5 */
+
+.pace-inactive {
+    @include opacity(0);
+}
+.pace.pace-inactive {
+    z-index: 0;
+}
+.ie8 .pace-inactive,
+.ie8 .pace .pace-activity {
+    display: none;
+}
+.pace {
+    background: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020;
+    @include transition(opacity 1s);
+}
+.pace-progress {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 3px;
+    background: $teal_500;
+    z-index: 2000;
+    @include transition(width 1s);
+}
+.pace:before {
+    content: '';
+    background: none;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    height: 3px;
+}
+.pace .pace-activity {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    top: 71px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+    border: solid 2px transparent;
+    border-top-color: $teal_500;
+    border-left-color: $teal_500;
+    border-radius: 10px;
+    @include animation(pace-adjust-huener 400ms linear infinite);
+}
+@-webkit-keyframes pace-adjust-huener {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes pace-adjust-huener {
+  0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes pace-adjust-huener {
+  0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes pace-adjust-huener {
+  0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes pace-adjust-huener {
+  0% { transform: rotate(0deg); transform: rotate(0deg); }
+  100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+.pace-top .pace:before,
+.pace-top .pace-progress {
+    top: 0;
+}
+.pace-top .pace .pace-activity {
+    top: 11px;
+}

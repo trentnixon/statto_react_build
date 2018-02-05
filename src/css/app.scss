@@ -1,0 +1,126 @@
+/*@import 'bootstrap/bootstrap';
+
+@import '_page_setting';
+@import '_header';
+@import '_top_menu';
+@import '_sidebar';
+
+@import '_footer';
+@import '_component_list';
+/*@import '_helper';
+@import '_widget_list';
+@import '_plugin_list';
+@import '_page_list';
+@import '_responsive';
+@import '_pace_loader';
+@import 'theme/_default';*/
+
+
+
+@import '_variable';
+@import '_mixins';
+
+@import  './pages/_page_login.scss';
+@import  './pages/_page_scorecard.scss';
+@import  './pages/_page_career.scss';
+
+@import '_content';
+@import '_header';
+@import '_buttons';
+@import '_list';
+@import '_filter';
+/*Pages*/
+@import  './pages/_page_dashboard.scss';
+@import '_content_pod';
+
+
+html {
+    
+    body{
+        font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
+        /*  background: #355C7D;  /* fallback for old browsers */
+        /*  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+        /* background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-image: url('/statto/wp-content/themes/statto/assets/img/statto_bg_001.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+    
+    
+        .tone1{ color: $tone1;}
+        .tone2{ color: $tone2;}
+        .tone3{ color: $tone3;}
+        .tone4{ color: $tone4;}
+        .white{ color: $bodyWhite;}
+        .black{ color: $bodyBlack;}
+
+        
+
+        .darkWrapper{
+            @include content-pod-basic(); 
+            margin: 5px -10px 10px ;
+
+            h1{
+                margin: 7px 0 0 !important;
+                text-align: right;
+                font-size: 1em !important;
+                border-bottom: .5px solid $bodyWhite;
+                padding-bottom: 10px;
+                color: $bodyWhite;
+            }
+        }
+
+        .lightWrapper{
+            @include content-pod-basic(); 
+            background-color: $tone4Opacity;
+            margin: 5px -10px 10px ;
+
+            h1{
+                margin: 7px 0 0 !important;
+                text-align: right;
+                font-size: 1em !important;
+                border-bottom: .5px solid $bodyWhite;
+                padding-bottom: 10px;
+                color: $bodyBlack;
+            }
+            
+        }
+    }
+}
+
+#statto-app{
+    
+    .nopadding{ padding:0;}
+    .nomargin{ margin:0;}
+    
+    .text-right{ text-align: right;}
+    .go_back{ float: left; margin: 0 5px 0 -5px ;}
+    .go_to{ float: left; margin: 0 5px 0 -5px ; 
+        a{
+
+           text-align: center;
+            display: inline;
+            font-size: 1em;
+            line-height: .5em;
+            margin-bottom: 0;
+            color: $tone4;
+            i{
+                font-size: 2.5em;
+                float: right;
+            }
+            p{ }
+        }
+        
+    }
+
+    
+}
+
+
+.StattoTabs{
+   > div{background-color: rgba(44, 44, 44, 1) !important;}
+}
+
+.StattoTab{
+    background-color: white;
+    color: black;
+}

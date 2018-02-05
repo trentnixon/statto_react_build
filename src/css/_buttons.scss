@@ -1,0 +1,18 @@
+
+button.btn.btn-success, a.btn.btn-success{
+    background: $tone1;
+    border-color: $tone1;
+    color:$bodyWhite;
+}
+
+button.btn.btn-warning{
+    background: $tone2;
+    border-color: $tone2;
+    color:$bodyWhite;
+}
+
+
+.forceUpdate{
+    background-color:$tone3;
+    margin:10px 0;
+}

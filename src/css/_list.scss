@@ -1,0 +1,16 @@
+ul.list{
+    margin:0;
+    padding:0;
+    list-style: none;
+
+    li{
+        border-bottom:1px solid $tone1;
+        padding: 3px 10px;
+        p{
+            color:$bodyWhite;
+            margin: 0;
+            line-height: 1.5em;
+            font-size: 1em;
+        }
+    }
+}
