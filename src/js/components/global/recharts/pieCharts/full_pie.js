@@ -22,13 +22,20 @@ const styles ={
 }
 
 const RADIAN = Math.PI / 180;  
-let data;
+let data=[];
 export default class PieChart_Semi extends React.Component {
     componentWillMount(){ 
-        data = this.props.data;
+        data=[];
+      //  console.log('New Data ', this.props.data);
      }
+    
+    shouldComponentUpdate(nextProps, nextState){ return true;}
+    
+    componentWillUpdate(nextProps, nextState){} 
+    
     render () {
-        return (
+        data = this.props.data;
+        return ( 
             <ResponsiveContainer width='100%' height={250}>
                     <PieChart >
                         <Pie

@@ -20,7 +20,6 @@ import Batting from "./components/batting/batting";
         
 import Bowling from "./components/bowling/bowling";
         import Bowling_overview from "./components/bowling/bowling_overview";
-        import Bowling_career from "./components/bowling/bowling_career";
         import Bowling_Wickets from  "./components/bowling/bowling_Wickets";
         import Bowling_AES from "./components/bowling/bowling_AES";
         import Bowling_Played_For from "./components/bowling/bowling_teams";
