@@ -28,6 +28,7 @@
 @import '_header';
 @import '_buttons';
 @import '_list';
+@import '_form_guide';
 @import '_filter';
 /*Pages*/
 @import  './pages/_page_dashboard.scss';
@@ -67,6 +68,12 @@ html {
                 padding-bottom: 10px;
                 color: $bodyWhite;
             }
+            h3{
+                text-align: right;
+                margin: 4px 0 0 0 !important;
+                line-height: 1.4em;
+                color: $bodyWhite !important;
+            }
         }
 
         .lightWrapper{
@@ -84,6 +91,12 @@ html {
             }
             
         }
+
+        .gradient{
+            background: #a8c0ff; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #a8c0ff, #3f2b96); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #a8c0ff 1%, #3f2b96 99%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        } 
     }
 }
 

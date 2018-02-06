@@ -14,7 +14,7 @@ export function Store_Player_Games(Player_Games){
                     let Store_Games=[];
                       //  console.log(data);
                         data.map((game,i)=>{
-                         //   console.log(game.acf.game_raw_data)
+                            // console.log(game.acf.game_raw_data)
                             Store_Games.push(JSON.parse(game.acf.game_raw_data))
                         })
             

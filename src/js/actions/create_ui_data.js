@@ -50,7 +50,7 @@ function collect_Team_Names(data, filter){
 
     data.map((games,i)=>{
 	
-		if(typeof  games[filter] === 'undefined'){ teamArray.push('Team Missing'); console.log(games[filter])}
+		if(typeof  games[filter] === 'undefined'){ teamArray.push('Team Missing');}
 		else{ teamArray.push(games[filter]); }
         
     })

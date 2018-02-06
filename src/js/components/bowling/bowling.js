@@ -34,7 +34,7 @@ export default class Display_Player_Bowling_Home extends React.Component {
                 Link:'bowling/aes'
             },
             {
-                title:'Goals',
+                title:'Form guide & Goals',
                 icon:this.props.UI.icons.bowling,
                 Link:'bowling/goals'
             },

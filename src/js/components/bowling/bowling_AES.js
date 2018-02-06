@@ -60,7 +60,7 @@ while(i < length){
                                 LineEco.push({'Year':TheseYears[i].Year,'Economy': parseFloat(progressive_Economy.toFixed(2)),'Career':data.career_form.Bowling_Economy_Rate})
                               }
                             if (isFinite(progressive_StrikeRate)) {
-                                LineSR.push({'Year':TheseYears[i].Year,'Strikerate': parseFloat(progressive_StrikeRate.toFixed(2)),'Career':data.career_form.Bowling_Economy_Rate})
+                                LineSR.push({'Year':TheseYears[i].Year,'Strikerate': parseFloat(progressive_StrikeRate.toFixed(2)),'Career':data.career_form.Bowling_Strike_Rate})
                               } 
 
                         } 
