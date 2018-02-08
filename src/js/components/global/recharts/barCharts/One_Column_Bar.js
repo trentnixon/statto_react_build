@@ -36,7 +36,6 @@ export default class Two_Column_Bar_Chart extends React.Component {
     
       handleChange = (event, index, value) => {
         this.setState({value});
-        //console.log("Filter Me", value, this.props.data);
         data=[];
         if(value != 0){
             this.props.data.map((game,i)=>{
@@ -50,7 +49,6 @@ export default class Two_Column_Bar_Chart extends React.Component {
         else{
             data = this.props.data;
         }
-        console.log(data)
       };
 
     componentWillMount(){ 

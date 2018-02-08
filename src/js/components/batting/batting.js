@@ -61,7 +61,7 @@ export default class Display_Player_Batting_Home extends React.Component {
         ];
      }
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){}
+    componentWillUpdate(nextProps, nextState){  }
     
     render() {
             return ( 

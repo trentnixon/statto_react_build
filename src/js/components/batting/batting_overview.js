@@ -48,7 +48,7 @@ export default class batting_career extends React.Component {
             },
             {  
                 title:"Strike Rate", 
-                value:0,
+                value:this.props.Player.career_form.Batting_StrikeRate.toFixed(2),
                 sub:"", 
                 width:"col-xs-6"
             },

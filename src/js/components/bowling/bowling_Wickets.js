@@ -30,7 +30,7 @@ export default class batting_runs extends React.Component {
 
                         <FAS {... this.props} />
                         
-
+                        <p> Add in list table like the batting for best bowling, lest runs, most runs, etc </p>
                 </div>
              ); 
       }

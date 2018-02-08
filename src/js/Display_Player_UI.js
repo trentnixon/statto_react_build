@@ -50,6 +50,10 @@ export default class Display_Player_UI extends React.Component {
                 if(nextProps.UI.filter.process == true){
                         filter_json(nextProps.Player.raw_json, nextProps.UI.filter)
                 }
+                
+        }
+    componentDidUpdate(){ 
+          //  ReactDOM.findDOMNode(this).scrollIntoView(); console.log(ReactDOM.findDOMNode); 
         }
 
     render() {

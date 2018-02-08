@@ -16,6 +16,8 @@ export default class Radial_Two_Part extends React.Component {
                 <div class="darkWrapper">
                     <Section_Header header={this.props.title}  />
                     <Radial_two_part data={this.props.data} />  
+                    <p>:: ADD FILTER TO THIS :: Avg vs SR etc :: </p>
+                    <p> Add this to Bowling </p> 
                 </div>
         ); 
       }

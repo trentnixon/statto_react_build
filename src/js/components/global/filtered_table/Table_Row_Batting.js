@@ -46,7 +46,7 @@ const styles ={
       borderRadius: '10px',
       fontSize: '9px',
       fontWeight: '100',
-      position: 'fixed',
+      position: 'absolute', 
       width: '15px',
       height: '15px',
       lineHeight: '1em',
