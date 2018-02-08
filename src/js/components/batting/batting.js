@@ -17,15 +17,25 @@ export default class Display_Player_Batting_Home extends React.Component {
         breadcrumbs('batting','parent');
 
          Batting_Navigation =[
-            {
+            { 
                 title:'Overview',
                 icon:this.props.UI.icons.dashboard,
                 Link:'batting/overview'
             },
             {
-                title:'Career',
+                title:'Runs',
                 icon:this.props.UI.icons.history,
-                Link:'batting/career'
+                Link:'batting/runs'
+            },
+            {
+                title:'Innings, A, S',
+                icon:this.props.UI.icons.history,
+                Link:'batting/innings'
+            },
+            {
+                title:'Form Guide & Goals',
+                icon:this.props.UI.icons.history,
+                Link:'batting/goals'
             },
             {
                 title:'Batting Positions',
@@ -36,6 +46,17 @@ export default class Display_Player_Batting_Home extends React.Component {
                 title:'Dismissals',
                 icon:this.props.UI.icons.achievements,
                 Link:'batting/dismissals'
+            },
+            {
+                title:'Played For',
+                icon:this.props.UI.icons.team,
+                Link:'batting/teams'
+            }
+            ,
+            {
+                title:'Opposition',
+                icon:this.props.UI.icons.achievements,
+                Link:'batting/opposition'
             }
         ];
      }

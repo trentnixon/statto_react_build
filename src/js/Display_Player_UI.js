@@ -13,11 +13,15 @@ import home from "./components/home/home";
 import dashboard from "./components/home/dashboard";
 import history from "./components/history/history"; 
 import Batting from "./components/batting/batting";
-        import Batting_career from "./components/batting/batting_career";
-        import Batting_overview from "./components/batting/batting_overview";
-        import Batting_positions from "./components/batting/batting_positions";
-        import Batting_dismissals from "./components/batting/batting_dismissals";
-        
+         import Batting_overview from "./components/batting/batting_overview";
+         import Batting_Runs from "./components/batting/batting_runs";
+         import Batting_Innings from "./components/batting/batting_innings";
+         import Batting_positions from "./components/batting/batting_positions";
+         import Batting_dismissals from "./components/batting/batting_dismissals";
+         import Batting_Goals from "./components/batting/batting_goals";
+        import Batting_Teams from "./components/batting/batting_teams";
+        import Batting_Oppo from "./components/batting/batting_oppo";
+
 import Bowling from "./components/bowling/bowling";
         import Bowling_overview from "./components/bowling/bowling_overview";
         import Bowling_Wickets from  "./components/bowling/bowling_Wickets";
@@ -61,7 +65,13 @@ export default class Display_Player_UI extends React.Component {
                                                 
                                                 <Route exact path="/:playerid/batting" render={()=><Batting {... this.props } />}  />
                                                         <Route  path="/:playerid/batting/overview"       render={()=><Batting_overview {... this.props } />}      />     
-                                                        <Route  path="/:playerid/batting/career"        render={()=><Batting_career {... this.props } />}       />  
+                                                        <Route  path="/:playerid/batting/runs"       render={()=><Batting_Runs {... this.props } />}          />
+                                                        <Route  path="/:playerid/batting/innings"       render={()=><Batting_Innings {... this.props } />}          />
+                                                        <Route  path="/:playerid/batting/goals"       render={()=><Batting_Goals {... this.props } />}          />
+                                                        <Route  path="/:playerid/batting/teams"       render={()=><Batting_Teams {... this.props } />}          />
+                                                        <Route  path="/:playerid/batting/opposition"       render={()=><Batting_Oppo {... this.props } />}          />
+                                                        
+                                                       
                                                         <Route  path="/:playerid/batting/positions"     render={()=><Batting_positions {... this.props } />}    />
                                                         <Route  path="/:playerid/batting/dismissals"    render={()=><Batting_dismissals {... this.props } />}   />
                                                 

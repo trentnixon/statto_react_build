@@ -6,7 +6,7 @@ import SwipeableViews from 'react-swipeable-views';
 var _ = require('lodash');
 
 // Get Slides
-import Runs from "./components/runs/Slide_Runs";
+import Runs from "./batting_runs";
 import Innings from "./components/innings/batting_innings";
 import Teams from "./components/teams/batting_teams";
 import Oppo from "./components/oppo/batting_oppo";
@@ -18,7 +18,7 @@ const styles = {
     headline: {
       fontSize: 24,
       paddingTop: 16,
-      marginBottom: 12,
+      marginBottom: 12, 
       fontWeight: 400,
     },
     slide: {

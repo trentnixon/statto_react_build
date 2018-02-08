@@ -121,9 +121,7 @@ export default class batting_career extends React.Component {
                     <World_ranking_circle value={this.props.Player.batting_world_ranking[0].ranking} />
                         
                         <Section_Header header="Career" />
-                            <Content_Pod data={Content_1} />
-                                <Go_to_component label="More" path={this.props.match.url+"/batting/innings"} />
-                        
+                            <Content_Pod data={Content_1} />        
 
                     <World_ranking_progression Rankings = {this.props.Player.batting_world_ranking} dataKey="ranking" />
                         
@@ -135,8 +133,7 @@ export default class batting_career extends React.Component {
                             />
                             
                             <Content_Pod data={content_push_2} />
-                                <Go_to_component label="Runs" path={this.props.match.url+"/batting/runs"}/>
-                </div>
+               </div>
              ); 
       }
   }

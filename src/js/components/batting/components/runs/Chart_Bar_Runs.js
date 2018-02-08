@@ -11,7 +11,7 @@ export default class batting_runs extends React.Component {
     constructor() { super();  }
     
     BarData(data){
-       // console.log(data)
+        BarData=[]
         data.map((game,i)=>{
                 //{name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
                 if( isNaN(parseInt(game.Batting_BallsFaced)) == false)
@@ -20,15 +20,14 @@ export default class batting_runs extends React.Component {
                 }
         })
 
-        console.log(BarData);
         return BarData.reverse();
     }
 
     
     componentWillMount(){ 
-           //  console.log( this.props)
-            BarData = this.BarData(this.props.Player.filtered_json);
-            Years =CollectYears(this.props.Player.filtered_json);
+                BarData=[];    
+                BarData = this.BarData(this.props.Player.filtered_json);
+                Years =CollectYears(this.props.Player.filtered_json);
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
