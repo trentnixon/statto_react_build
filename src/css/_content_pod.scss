@@ -35,6 +35,24 @@
         border-radius: 2px;
     }
 }
+
+.contentpod-item.gradient{ div{ p.sub{
+    padding: 2px 10px;
+    border-radius: 3px;
+    color:$bodyWhite;
+}}}
+.contentpod-item.gradient_10{ div{ p.sub{@include percentage_gradient($tone3,0%,10%);}}}
+.contentpod-item.gradient_20{ div{ p.sub{@include percentage_gradient($tone3,0%,20%);}}}
+.contentpod-item.gradient_30{ div{ p.sub{@include percentage_gradient($tone3,0%,40%);}}}
+.contentpod-item.gradient_40{ div{ p.sub{@include percentage_gradient($tone1,0%,50%);}}}
+.contentpod-item.gradient_50{ div{ p.sub{@include percentage_gradient($tone1,10%,60%);}}}
+.contentpod-item.gradient_60{ div{ p.sub{@include percentage_gradient($tone1,20%,70%);}}}
+.contentpod-item.gradient_70{ div{p.sub{@include percentage_gradient($tone1,40%,80%);}}}
+.contentpod-item.gradient_80{ div{p.sub{@include percentage_gradient($tone1,60%,90%);}}}
+.contentpod-item.gradient_90{ div{ p.sub{@include percentage_gradient($tone4,80%,100%);}}}
+.contentpod-item.gradient_100{ div{ p.sub{@include percentage_gradient($tone4,100%,100%);}}}
+
+
 }
 
 

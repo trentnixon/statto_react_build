@@ -33,6 +33,13 @@
        -moz-animation: $animation;
             animation: $animation;
 }
+
+@mixin percentage_gradient($color, $percentStart, $percentFinish){
+    background: $color; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $color, transparent); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $color $percentStart, transparent $percentFinish); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 /*
 @mixin generate-button-styling ($buttonClassName, $buttonTextColor, $defaultColor, $hoverColor, $btnGroupBorderColor )
 {

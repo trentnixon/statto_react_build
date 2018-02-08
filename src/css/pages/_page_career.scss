@@ -9,12 +9,10 @@
         z-index: 99;
         display: inline-block;
     }
+}
 
-
-    .ListItem{
-        button{ 
-            svg{ color: white !important;}
-        }
+.ListItem{
+    button{ 
+        svg{ color: white !important;}
     }
-
 }

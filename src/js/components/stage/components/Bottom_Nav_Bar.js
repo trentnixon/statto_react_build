@@ -20,6 +20,7 @@ const LabelStyles = {
    backgroundColor:'rgba(44, 44, 44, .95)',
    borderTop:'1px solid white',
    lineHeight:'1.5em',
+   zIndex:999
   };
 
   const ButtonStyles = {
@@ -61,6 +62,7 @@ class BottomNavigationExampleSimple extends Component {
         <BottomNavigation 
           style={LabelStyles} 
           selectedIndex={this.state.selectedIndex}
+          className="ListItem"
         >
               <BottomNavigationItem
                 icon={homeIcon}

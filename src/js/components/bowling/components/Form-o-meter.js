@@ -11,12 +11,12 @@ export default class Form_o_Meter extends React.Component {
     constructor() { super();  }
     
     perc_check(perc){
-        if(perc > 100){
+      /*  if(perc > 100){
             return 100
         }
         else{
             
-        }
+        }*/
         return perc;
     }
 
@@ -46,6 +46,7 @@ export default class Form_o_Meter extends React.Component {
                 {name: 'Average',       uv: this.perc_check(perc_AVG.toFixed(0)),     pv:perc_AVG.toFixed(0),  fill: '#95c467'},
                 {name: 'Economy',       uv: this.perc_check(perc_EC.toFixed(0)),      pv:perc_EC.toFixed(0),   fill: '#be5b5e'},
                 {name: 'Strike Rate',   uv: this.perc_check(perc_SR.toFixed(0)),      pv:perc_SR.toFixed(0),   fill: '#bebb5b'},
+                {name: '',   uv: 200,      pv:200,   fill: 'transparent'},
         )
    
  }
