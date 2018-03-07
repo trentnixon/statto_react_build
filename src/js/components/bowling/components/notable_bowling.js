@@ -1,7 +1,7 @@
 import React from "react";
-import Section_Header from "../../../global/Section_Header";
+import Section_Header from "../../global/Section_Header";
 import SelectField from 'material-ui/SelectField';
-import  LinktoScorecard from "../../../scorecards/components/Link_to_Scorecard";
+import  LinktoScorecard from "../../scorecards/components/Link_to_Scorecard";
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -30,16 +30,16 @@ const styles ={
 
 // Get Components
 let NotableScores=[],HighScores;
-export default class batting_runs extends React.Component {
+export default class Bowling_Notable_Table extends React.Component {
     state = { value: 0, };
     constructor() { super(); }
 
     removeZero(data ,min=0,max=1000){
         let NewData=[]
         data.map((game,i)=>{
-            if(game.Runs_Bare != 0 
-                &&  game.Runs_Bare > min
-                &&  game.Runs_Bare < max
+            if(game.Bowling_OversBowled != 0 
+                &&  game.Bowling_OversBowled > min
+                &&  game.Bowling_OversBowled < max
             ){
                 NewData.push(game)
             }
@@ -65,9 +65,30 @@ export default class batting_runs extends React.Component {
        // console.log(value, this.props.Player.raw_json);
         this.setState({value});
         let SetData=[];
-        if(value == 0){ this.createList(this.props.Player.raw_json, 'Runs_Bare',true,0,1000);}
-        if(value == 1){ this.createList(this.props.Player.raw_json, 'Runs_Bare',false,0,1000);}
-        if(value == 2){ this.createList(this.props.Player.raw_json, 'Batting_BallsFaced_Int',true,0,1000);}
+        if(value == 0){ 
+                SetData = _.sortBy(this.props.Player.raw_json, 'for');
+                this.createList(SetData.reverse(), 'wickets',true,0,8);
+            }
+        if(value == 1){ 
+                this.props.Player.raw_json.map((game,i)=>{
+                    if(game.Bowling_OversBowled > '3'){SetData.push(game)}
+                })
+
+                this.createList(SetData,'for',false,0,8);
+            }
+        if(value == 2){ 
+                this.createList(this.props.Player.raw_json, 'for',true,0,8);
+            }
+        if(value == 3){ 
+                this.props.Player.raw_json.map((game,i)=>{
+                    if(game.Bowling_OversBowled > '4'){SetData.push(game)}
+                })
+                SetData = _.sortBy(SetData, 'for');
+                this.createList(SetData.reverse(), 'wickets',true,0,8);
+            }
+       
+       
+        /* if(value == 2){ this.createList(this.props.Player.raw_json, 'Batting_BallsFaced_Int',true,0,1000);}
         if(value == 3){ this.createList(this.props.Player.raw_json, 'Batting_BallsFaced_Int',false,20,1000);}
         if(value == 4){ this.createList(this.props.Player.raw_json, 'Batting_BallsFaced_Int',true,0,20);}
         if(value == 5){ 
@@ -76,19 +97,19 @@ export default class batting_runs extends React.Component {
                     if(game.notout == 'true'){ SetData.push(game) }
                 })
                 this.createList(SetData.reverse(),'Runs_Bare',true,0,1000);
-            }
+            }*/
 
       }
 
 
-    componentWillMount(){  this.createList(this.props.Player.raw_json, 'Runs_Bare',true,0,1000); }
+    componentWillMount(){  this.createList(this.props.Player.raw_json, 'wickets',true,0,8); }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     
     render() {
             return ( 
                 <div class="darkWrapper">
-                       <Section_Header header="Notable Scores"/>
+                       <Section_Header header="Notable Bowling Performances"/>
                     <div class="filter-Container" style={styles.filter}> 
                             {
                                 <MuiThemeProvider>
@@ -102,12 +123,10 @@ export default class batting_runs extends React.Component {
                                         fullWidth={true}
                                     >
                                     
-                                        <MenuItem value="0"  primaryText="Top 10  - Highest Scores" />
-                                        <MenuItem value="1"  primaryText="Top 10  - Lowest Scores" />
-                                        <MenuItem value="2"  primaryText="Most Balls Faced" />
-                                        <MenuItem value="3"  primaryText="Fewest Balls over 20 Runs" />
-                                        <MenuItem value="4"  primaryText="Most Balls under 20 runs" />
-                                        <MenuItem value="5"  primaryText="Top Scores &amp; Not Out" />
+                                        <MenuItem value="0"  primaryText="Best Figures (All)" />
+                                        <MenuItem value="3"  primaryText="Best Figures (4 overs)" />
+                                        <MenuItem value="1"  primaryText="Least Runs (min 3 overs)" />
+                                        <MenuItem value="2"  primaryText="Most Runs Conceeded" />
                                     
                                     </SelectField>
                                 </MuiThemeProvider>
@@ -119,7 +138,7 @@ export default class batting_runs extends React.Component {
                                     return(
                                         <li key={i} class="row nomargin">
                                            
-                                                <div class="col-xs-12 nopadding nomargin text-center tone2">{game.Batting_Runscored}  off {game.Batting_BallsFaced} balls <span class="pull-right"><LinktoScorecard ID={game.GameID}/></span> </div>
+                                                <div class="col-xs-12 nopadding nomargin text-center tone2">{game.Bowling_Figures}  off {game.Bowling_OversBowled} overs <span class="pull-right"><LinktoScorecard ID={game.GameID}/></span> </div>
                                                 
                                                 <div class="col-xs-5 text-left  nopadding tone1">{game.Team} </div>
                                                 <div class="col-xs-2 text-center"> vs </div>

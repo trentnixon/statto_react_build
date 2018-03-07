@@ -6,6 +6,7 @@ import World_ranking_circle from "../_Pages/Career/world_ranking_circle";
 import World_ranking_progression from "../_Pages/Career/World_ranking_Progression";
 import Go_to_component from "../global/go_to_component";
 import Content_Pod from "../_Pages/Career/Career_Content_Pods";
+import FAS from "./components/fas";
 
 // actions 
 import {breadcrumbs} from  "../../actions/ui";
@@ -68,10 +69,9 @@ export default class Bowling_Overview extends React.Component {
                         
                         <Section_Header header="Career" />
                             <Content_Pod data={Content_1} />
-                                <Go_to_component label="More" path={this.props.match.url+"/batting/innings"} />
-                        
+                                
                     <World_ranking_progression Rankings = {this.props.Player.bowling_world_ranking}   dataKey="ranking" />
-                
+                    <FAS {... this.props} />
                 </div> 
              ); 
       }

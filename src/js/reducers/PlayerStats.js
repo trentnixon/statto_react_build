@@ -13,6 +13,7 @@ const InitialState ={
 			FoundGames:0,
 			GamesAdded:0
 			},
+		over_the_years:false,
 		Player_single_Data_Points:{},
 		PLAYER_META:{
 			PLAYER_SET:false,
@@ -121,7 +122,10 @@ const Player_stat_reducer = (state=InitialState, action) =>{
 							}
 					break
 			}
-
+			case "PLAYER_OVER_THE_YEARS":{
+					return {...state, over_the_years:action.payload}
+					break
+				}
 			}
 		return state;
 	}

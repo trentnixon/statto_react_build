@@ -6,7 +6,7 @@ import axios from 'axios';
 var _ = require('lodash');
 
 import{Register_New_Player_Name,New_Player_WP_ID,New_Player_LMS_ID,New_Registration,New_Registration_Games_Played} from "./registration";
-import { single_data_points,calculate_team_stats } from "./create_ui_data";
+import { single_data_points,calculate_team_stats,AES } from "./create_ui_data";
 import {Create_Year_Filter_Array, Create_Team_Filter_Array,Create_Opposition_Filter_Array} from "./filters";
 import {Store_Player_Games} from "./games";
 
@@ -48,14 +48,17 @@ export function StorePlayerProfile(acf)
 
 						// send data to be cleaned
 						single_data_points(acf.raw_json);
-						//oppositions
-						calculate_team_stats(JSON.parse(acf.raw_json))
+						
 						
 						// Create UI Filter Arrays
 						Create_Year_Filter_Array(JSON.parse(acf.raw_json));
 						Create_Team_Filter_Array(JSON.parse(acf.raw_json));
 						Create_Opposition_Filter_Array(JSON.parse(acf.raw_json));
 					
+						// Create React Based Data Arrays
+						calculate_team_stats(JSON.parse(acf.raw_json));
+						AES(JSON.parse(acf.raw_json),JSON.parse(acf.career_form));
+
 						// Move these to another function to be called after data rendered
 						// SET_TRUE
 						store.dispatch({ type:"SET_TRUE", payload:true });

@@ -157,3 +157,119 @@ export function calculate_team_stats(data, filter){
 						
 						
 } 
+
+
+export function AES(data,career_form){
+	//console.log("Collect Years");
+	let LogYears=[],returnThis=[], returnArray=[];
+   
+    data.map((game,i)=>{
+        if(LogYears.indexOf(game.Year) == '-1')
+            {
+                LogYears.push(game.Year)
+            }
+	})
+	
+	//console.log(LogYears);
+	LogYears = LogYears.reverse();
+
+	// reverse years array to start at first game
+	let length=LogYears.length,i=0;
+	let LineAve=[],LineEco=[],LineSR=[];
+    let progressive_Average=0,progressive_Economy=0,progressive_StrikeRate=0,progressive_runs=0, progressive_wickets=0, progressive_overs=0;
+    let Batting_runs_and_balls=[];
+    
+
+while(i < length){
+    let bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
+	let batting_inn=0, BallsFaced=0,Batting_Runs=0, Batting_Average=0, notOuts=0,Batting_StrikeRate=0;
+        data.map((game,t)=>{
+			
+			//console.log(LogYears[i]);
+			
+			if(game.Year == LogYears[i])
+                {
+				// Bowling over the Years
+                if(parseInt(game.Bowling_OversBowled) > 0){
+                      //   
+                            WicketsTaken = parseInt(WicketsTaken) + parseInt(game.wickets);
+                            progressive_wickets = parseInt(progressive_wickets) + parseInt(game.wickets);
+                           
+                            RunsConceded = RunsConceded + parseInt(game.for);
+                            progressive_runs = progressive_runs + parseInt(game.for);
+                            
+                            OversBowled = OversBowled + parseInt(game.Bowling_OversBowled)
+                            progressive_overs = progressive_overs + parseInt(game.Bowling_OversBowled)
+
+                            bowling_inn++;
+                            
+                            progressive_Average = parseInt(progressive_runs)/parseInt(progressive_wickets);  
+                            progressive_Economy = progressive_runs/progressive_overs;
+                            progressive_StrikeRate = (progressive_overs * 5) /progressive_wickets;
+                            
+                            if (isFinite(progressive_Average)) {
+                                LineAve.push({'Year':LogYears[i],'Average': parseFloat(progressive_Average.toFixed(2)),'Career':career_form.Bowling_Average})
+                              }
+                          
+                            if (isFinite(progressive_Economy)) {
+                                LineEco.push({'Year':LogYears[i],'Economy': parseFloat(progressive_Economy.toFixed(2)),'Career':career_form.Bowling_Economy_Rate})
+                              }
+                            if (isFinite(progressive_StrikeRate)) {
+                                LineSR.push({'Year':LogYears[i],'Strikerate': parseFloat(progressive_StrikeRate.toFixed(2)),'Career':career_form.Bowling_Strike_Rate})
+                              } 
+						
+                        } 
+				// Batting over the year
+				
+				
+				if(game.DNB == 'false'){
+				//	console.log(game);
+						batting_inn++;
+
+						Batting_runs_and_balls.push({'Year':LogYears[i], Runs:game.Runs_Bare, Balls:game.Batting_BallsFaced_Int})
+						BallsFaced = BallsFaced + game.Batting_BallsFaced_Int;
+						Batting_Runs = Batting_Runs + game.Runs_Bare;
+						
+						if(game.notout == 'true'){ notOuts++;}
+					
+					}
+				}
+            })
+
+			let Yearinn=0;
+			// Batting
+			Yearinn = batting_inn-notOuts;
+			Batting_Average = Batting_Runs/Yearinn;
+			Batting_StrikeRate = Batting_Runs/BallsFaced*100;
+			// Bowling
+            EconomyRate = RunsConceded/OversBowled;
+		    BowlingstrikeRate = (OversBowled * 5) /WicketsTaken;
+            Bowling_Average= RunsConceded/WicketsTaken;
+        
+            returnThis.push({
+                'Wickets':WicketsTaken, 
+                'Year':LogYears[i],
+                'EconomyRate':EconomyRate.toFixed(2),
+                'BowlingstrikeRate':BowlingstrikeRate.toFixed(2),
+				'Bowling_Average':Bowling_Average.toFixed(2),
+				'Batting_Innings':batting_inn,
+				'Batting_Balls_Faced':BallsFaced,
+				'Batting_Notout':notOuts,
+				'Batting_Runs':Batting_Runs,
+				'Batting_Average':Batting_Average.toFixed(2),
+				'Batting_StrikeRate':Batting_StrikeRate.toFixed(2)
+
+            })
+            i++
+       } 
+	  
+	   console.log(returnThis,LineAve,LineEco);
+	   returnArray=[
+			returnThis,
+			LineAve,
+			LineEco,
+			LineSR,
+			Batting_runs_and_balls,
+	   ]
+	   store.dispatch({ type:"PLAYER_OVER_THE_YEARS", payload:returnArray });
+}
