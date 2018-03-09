@@ -2,7 +2,7 @@ import React from "react";
 
 import Content_Pod from "../../global/content_pod";
 
-let CareerRunsAveOverTenGames=0, CareerWicketsAveOverTenGames=0;
+let CareerRunsAveOverTenGames=0, CareerWicketsAveOverTenGames=0,PodData=[];
 export default class Display_Dashboard extends React.Component {
 
     constructor() { super();  }
@@ -61,8 +61,7 @@ export default class Display_Dashboard extends React.Component {
                         width="col-xs-6"
                     />
                 </div>
-                    
-                </div>
-             ); 
+            </div>
+        ); 
       }
   }

@@ -16,7 +16,7 @@ export default class Form_o_Meter extends React.Component {
         }
         else{
             
-        }*/
+        }*/ 
         return perc;
     }
 
@@ -27,24 +27,18 @@ export default class Form_o_Meter extends React.Component {
             let Career = this.props.Player.career_form;
             let Current = this.props.Player.form_guide;
 
-            perc_runs = Career.Bowling_RunsConceded / Career.Bowling_Innings_Count
-            perc_runs = perc_runs*Current.Bowling_Innings_Count;
+            perc_runs = Career.Batting_Total_Runs / Career.Batting_Innings_Count;
+            perc_runs = perc_runs * Current.Batting_Innings_Count;
 
-            perc_wickets = Career.Bowling_Wickets / Career.Bowling_Innings_Count
-            perc_wickets = perc_wickets*Current.Bowling_Innings_Count;
-            
-            perc_wickets =(Current.Bowling_Wickets/perc_wickets)*100;
-            perc_runs = (perc_runs/Current.Bowling_RunsConceded)*100;
-            perc_SR = (Career.Bowling_Strike_Rate/Current.Bowling_Strike_Rate)*100;
-            perc_AVG = (Career.Bowling_Average/Current.Bowling_Average)*100;
-            perc_EC = (Career.Bowling_Economy_Rate/Current.Bowling_Economy_Rate)*100;
-            
+            perc_runs = (perc_runs/Current.Batting_Total_Runs)*100;
+          
+            perc_SR = (Career.Batting_StrikeRate/Current.Batting_StrikeRate)*100;
+            perc_AVG = (Career.Batting_Average/Current.Batting_Average)*100;
+           
            
             data.push(
-                {name: 'Wickets',       uv: this.perc_check(perc_wickets.toFixed(0)), pv:perc_wickets.toFixed(0),  fill: '#5bbeba'},
-                {name: 'Runs Conceded', uv: this.perc_check(perc_runs.toFixed(0)),    pv:perc_runs.toFixed(0),  fill: '#5b5ebe'},
-                {name: 'Average',       uv: this.perc_check(perc_AVG.toFixed(0)),     pv:perc_AVG.toFixed(0),  fill: '#95c467'},
-                {name: 'Economy',       uv: this.perc_check(perc_EC.toFixed(0)),      pv:perc_EC.toFixed(0),   fill: '#be5b5e'},
+                {name: 'Runs',       uv: this.perc_check(perc_runs.toFixed(0)), pv:perc_runs.toFixed(0),  fill: '#5bbeba'},
+                {name: 'Average', uv: this.perc_check(perc_AVG.toFixed(0)),    pv:perc_AVG.toFixed(0),  fill: '#5b5ebe'},
                 {name: 'Strike Rate',   uv: this.perc_check(perc_SR.toFixed(0)),      pv:perc_SR.toFixed(0),   fill: '#bebb5b'},
                 {name: '',   uv: 200,      pv:200,   fill: 'transparent'},
         )
@@ -53,7 +47,8 @@ export default class Form_o_Meter extends React.Component {
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
-    
+    //      
+                       
     render() {
             return ( 
                 <div>
