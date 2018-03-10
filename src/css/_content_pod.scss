@@ -5,9 +5,10 @@
 .row{
 .contentpod-item{
     padding: 0px !important;
+  
     div{
         @include content-pod-basic();
-        @include border-radius(3px);
+        //@include border-radius(3px);
 
     h4{
         color:$bodyWhite;

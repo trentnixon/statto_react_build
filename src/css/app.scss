@@ -42,10 +42,11 @@ html {
         /*  background: #355C7D;  /* fallback for old browsers */
         /*  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
         /* background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background-image: url('/statto/wp-content/themes/statto/assets/img/statto_bg_001.jpg');
-        background-size: cover;
+        background-image: url($BGTexture);
+        /*background-size: cover;
         background-attachment: fixed;
-    
+    */
+        background-color:white;
     
         .tone1{ color: $tone1;}
         .tone2{ color: $tone2;}
@@ -99,9 +100,11 @@ html {
     
     .nopadding{ padding:0;}
     .nomargin{ margin:0;}
-    
+    .margin20{ margin-left: -19px; margin-right: -19px; }
+
     .text-right{ text-align: right;}
     .go_back{ float: left; margin: 0 5px 0 -5px ;}
+    
     .go_to{ float: left; margin: 0 5px 0 -5px ; 
         a{
 
@@ -132,3 +135,5 @@ html {
     background-color: white;
     color: black;
 }
+
+

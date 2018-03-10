@@ -7,12 +7,12 @@
     z-index: 9;
 
     h2{
-        color: $bodyWhite;
+        color: $bodyBlack;
         font-size: 1.1em;
         margin: 0 0 0 30px;
         line-height: 1.6em;
         small{
-            color: $bodyWhite;
+            color: $bodyBlack;
             font-size: .7em;
         }
     }
@@ -20,7 +20,7 @@
         margin: 2px 0 0;
         font-size: .8em;
         text-transform: uppercase;
-        color: $bodyWhite;
+        color: $bodyBlack;
     }
 
     .filteractive{
@@ -35,3 +35,28 @@
     }
 
 }
+
+
+ /* Circel Top */
+ $size: 100px;
+ $boxShadow: inset 0 -7px 30px #929292;
+
+ #Half-Circle-Container{
+     background-color: white;
+     padding: 0 0 20px 0;
+     background-image: url($BGTexture);
+     
+     .Half-Circle-Top{
+         background: #b2f4fb;  /* fallback for old browsers */
+         background: -webkit-linear-gradient(to bottom, #b4f7fd, #88acd8);  /* Chrome 10-25, Safari 5.1-6 */
+         background: linear-gradient(to bottom, #b4f7fd, #88acd8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+         border-bottom-left-radius: $size * 2 90px;
+         border-bottom-right-radius: $size * 2 90px;
+         width: 110%;
+         margin: 0 -5%;
+         -moz-box-shadow:    $boxShadow;
+         -webkit-box-shadow: $boxShadow;
+         box-shadow:         $boxShadow;
+         padding: 65px 0 0 0;
+     }
+ }

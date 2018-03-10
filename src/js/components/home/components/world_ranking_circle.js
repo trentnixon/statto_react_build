@@ -71,20 +71,20 @@ const TwoLevelPieChart = React.createClass({
 
   	return (
         <ResponsiveContainer width='100%' height={250}>
-    	<PieChart >
-            <Pie 
-            activeIndex={this.state.activeIndex}
-            activeShape={renderActiveShape} 
-            data={data} 
-            cx={160} 
-            cy={110} 
-            innerRadius={88}
-            outerRadius={100} 
-            fill="#2c2c2c"
-            stroke='#1a1a1a'
-            onMouseEnter={this.onPieEnter}
-            />
-        </PieChart>
+        <PieChart >
+              <Pie 
+              activeIndex={this.state.activeIndex}
+              activeShape={renderActiveShape} 
+              data={data} 
+              cx="50%" 
+              cy={110} 
+              innerRadius={88}
+              outerRadius={100} 
+              fill="#383838"
+              stroke='#1a1a1a'
+              onMouseEnter={this.onPieEnter}
+              />
+          </PieChart>
        </ResponsiveContainer >
     );
   }

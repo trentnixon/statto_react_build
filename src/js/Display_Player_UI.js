@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Link} from 'react-router-dom';
 import { Provider } from "react-redux";
 // Actions
-
+ 
 import {filter_json} from "./actions/filters";
 // Structure
 import Bottom_Nav_Bar from "./components/stage/components/Bottom_Nav_Bar";
@@ -60,7 +60,7 @@ export default class Display_Player_UI extends React.Component {
             return (  
         <div>
                 <Top_Nav_Bar {... this.props}/>
-                        <div id="content" class="content">
+                        
                                 <Router>
                                         <div>  	
                                                 <Route exact path="/:playerid" component={home}/>
@@ -97,7 +97,7 @@ export default class Display_Player_UI extends React.Component {
                                                 <Route exact path="/:playerid/settings" component={settings} /> 
                                         </div>
                                 </Router>
-                        </div>
+                        
                 <Bottom_Nav_Bar {... this.props} />
         </div>
              ); 

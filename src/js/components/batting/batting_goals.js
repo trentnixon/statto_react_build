@@ -4,6 +4,7 @@ import Section_Subheader from "../global/Section_Subheader";
 
 import Form_o_Meter from "./components/batting_Form_o_meter";
 import FormGuidePods  from "../global/form_o_meter/Formguide_Pods";
+import Section_Goals from "./components/Section_Form_Goals";
 
 let PodData=[], CareerRuns;
 export default class Batting_Goals extends React.Component {
@@ -11,6 +12,9 @@ export default class Batting_Goals extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){
+        // Reset PodData
+        PodData=[];
+        
         let CareerWicketsAveOverTenGames = 10;
         let Career = this.props.Player.career_form;
         let Current = this.props.Player.form_guide;
@@ -22,8 +26,8 @@ export default class Batting_Goals extends React.Component {
         PodData.push(
                 {
                         title:"Runs" ,
-                        value:Current.Batting_Total_Runs,
-                        sub:'Expected Runs over '+Current.Bowling_Innings_Count+' Games : '+CareerRuns,
+                        value:Current.Batting_Total_Runs.toFixed(2),
+                        sub:'Expected Runs over '+Current.Bowling_Innings_Count+' Games : '+CareerRuns.toFixed(2),
                         width:"col-xs-12"
                 },
                 {
@@ -74,6 +78,7 @@ export default class Batting_Goals extends React.Component {
                     <Section_Subheader header={this.props.Player.form_guide.Bowling_Innings_Count + ' Innings counted'}/>
                     <Form_o_Meter {... this.props}/>
                     <FormGuidePods {...this.props} PodData={PodData}/>
+                    <Section_Goals {...this.props} />
                 </div>
              );
         }else{

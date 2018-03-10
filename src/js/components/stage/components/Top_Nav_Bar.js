@@ -7,7 +7,7 @@ import Go_Back from "../../global/go_back";
 
 const iconStyles = { 
     float:'left',
-    color:'#e9e9e9',
+    color:'#383838',
 };
   const LabelStyles = {
    position:'fixed',

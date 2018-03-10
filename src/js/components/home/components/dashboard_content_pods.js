@@ -18,33 +18,33 @@ export default class Display_Dashboard extends React.Component {
     render() {
             return ( 
                 <div>
-                    <div class="row">
+                    <div class="row margin20">
                    <Content_Pod 
                         title="Games Played"
                         value={this.props.Player.PLAYER_META.GAME_COUNT} 
                         sub="up from" 
-                        width="col-xs-6"
+                        width="col-xs-12 "
                     />
 
                     <Content_Pod 
                         title={"Runs Scored"}
                         value={this.props.Player.career_form.Batting_Total_Runs}
                         sub="up from" 
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
 
                     <Content_Pod 
                         title="Batting Average"
                         value={this.props.Player.career_form.Batting_Average} 
                         sub="up from" 
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
 
                     <Content_Pod 
                         title="Wickets"
                         value={this.props.Player.career_form.Bowling_Wickets}
                         sub="up from" 
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
                 </div>
                     

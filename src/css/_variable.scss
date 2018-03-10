@@ -3,14 +3,18 @@
 // body background
 $body_bg: #f7f7f7;
 
-$bodyWhite:#e9e9e9;
-$bodyBlack:#2c2c2c;
-$tone1:#5bbeba; 
-$tone2:#bebb5b;
-$tone3:#be5b5e;
-$tone4:#5b5ebe;
  
-$DarkOpacity:rgba(44, 44, 44, .5);
+$BGTexture :  '/statto/wp-content/themes/statto/assets/img/gray_jean.png';
+$bodyWhite:#fff;
+$bodyBlack:#383838;
+$ContentPodBG:#fefefe;
+ 
+ $tone1:#8aafda; 
+ $tone2:#dbaa8b;
+ $tone3:#be5b5e;
+ $tone4:#5b5ebe;
+
+ $DarkOpacity:rgba(44, 44, 44, .5);
 $LightOpacity:rgba(233, 233, 233, .5);
 
 $tone1Opacity:rgba(91, 190, 187, .5);
@@ -37,6 +41,22 @@ $sidebar_text_color: #cfd8dc;
 $default_link_color: #2196F3; // blue_500
 $default_link_hover_color: #0D47A1; // blue_900
 
+
+
+
+
+/* OLD */
+
+
+//$bodyWhite:#e9e9e9;
+//$bodyBlack:#2c2c2c;
+
+/*
+$tone1:#5bbeba; 
+$tone2:#bebb5b;
+$tone3:#be5b5e;
+$tone4:#5b5ebe;
+ */
 
 // Font Setting
 $body_font_size: 13px;
