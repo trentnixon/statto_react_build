@@ -1,0 +1,13 @@
+
+// Content
+.InfoBadge{
+    border:1px $tone2;
+    background-color: $tone2;
+    @include  border-radius(10px);
+    margin: -48px 20% 20px;
+    z-index: 99;
+    position: relative;
+    padding: 12px 20px;
+    text-align: center;
+    color:$bodyWhite;
+}

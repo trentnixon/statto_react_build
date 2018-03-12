@@ -25,7 +25,9 @@
 @import  './pages/_page_career.scss';
 
 @import '_content';
+@import './widget/statto_widgets';
 @import '_header';
+@import 'Navigation';
 @import '_buttons';
 @import '_list';
 @import '_form_guide';

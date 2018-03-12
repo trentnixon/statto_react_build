@@ -7,9 +7,10 @@ import { Provider } from "react-redux";
 import {filter_json} from "./actions/filters";
 // Structure
 import Bottom_Nav_Bar from "./components/stage/components/Bottom_Nav_Bar";
+import Drawer from "./components/stage/components/Drawer";
 import Top_Nav_Bar from "./components/stage/components/Top_Nav_Bar";
 // View
-import home from "./components/home/home";
+// import home from "./components/home/home";
 import dashboard from "./components/home/dashboard";
 import history from "./components/history/history"; 
 import Batting from "./components/batting/batting";
@@ -60,10 +61,10 @@ export default class Display_Player_UI extends React.Component {
             return (  
         <div>
                 <Top_Nav_Bar {... this.props}/>
-                        
+                       
                                 <Router>
                                         <div>  	
-                                                <Route exact path="/:playerid" component={home}/>
+                                                <Route exact path="/:playerid" component={dashboard}/>
                                                 <Route exact path="/:playerid/overview" component={dashboard}/>
                                                 <Route exact path="/:playerid/history" component={history} />
                                                 
@@ -97,8 +98,7 @@ export default class Display_Player_UI extends React.Component {
                                                 <Route exact path="/:playerid/settings" component={settings} /> 
                                         </div>
                                 </Router>
-                        
-                <Bottom_Nav_Bar {... this.props} />
+                <Drawer /> 
         </div>
              ); 
       }

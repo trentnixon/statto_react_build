@@ -2,6 +2,7 @@ import React from "react";
 
 import  {PieChart, Pie, Sector,ResponsiveContainer} from 'recharts';
 
+let data=[];
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -19,25 +20,40 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8}  textAnchor="middle" fill='#e9e9e9'>{payload.name} : {payload.value}</text>
       <Sector
         cx={cx}
         cy={cy}
-        innerRadius={94}
-        outerRadius={96}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill='#e9e9e9'
+        innerRadius={0}
+        outerRadius={90}
+        startAngle={0}
+        endAngle={360}
+        fill='#fff'
       />
+      <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={95}
+        outerRadius={97}
+        startAngle={0}
+        endAngle={360}
+        fill='#fff'
+      />
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill='#383838'>{payload.name} : {payload.value}</text>
+      
     </g>
   );
 };
+
+
+
 
 const TwoLevelPieChart = React.createClass({
 
 	getInitialState() {
     return {
       activeIndex: 0,
+      toggle:'Batting',
+      data:[{name: 'Batting', value: this.renderInt(this.props.Player.batting_world_ranking[0].ranking)}]
     };
   },
 
@@ -48,12 +64,17 @@ const TwoLevelPieChart = React.createClass({
     });
   },
 
-  componentWillMount(){ 
-     console.log(this.props.Player.batting_world_ranking[0].ranking)
-  //  console.log(this.props.Player.bowling_world_ranking[0])
-  //  console.log(this.props.Player.keeping_world_ranking[0])
+
+  HandleClick(event){ 
+      console.log(event);
+      this.setState({
+        data: [{name: event.currentTarget.dataset.title, value: this.renderInt(event.currentTarget.dataset.value)}],
+        toggle:event.currentTarget.dataset.title
+      });
+    },
+
+  componentWillMount(){},
   
-  },
 
   renderInt(value){
     if(value == undefined){value=0}
@@ -63,29 +84,32 @@ const TwoLevelPieChart = React.createClass({
 
 	render () {
 
-    const data = [
-        {name: 'Batting', value: this.renderInt(this.props.Player.batting_world_ranking[0].ranking)}, 
-        {name: 'Bowling', value: this.renderInt(this.props.Player.bowling_world_ranking[0].ranking)},
-        {name: 'Keeping', value: this.renderInt(this.props.Player.keeping_world_ranking[0].ranking)}
-   ];
-
   	return (
-        <ResponsiveContainer width='100%' height={250}>
+      <div>
+        <ResponsiveContainer width='100%' height={210}>
         <PieChart >
               <Pie 
-              activeIndex={this.state.activeIndex}
-              activeShape={renderActiveShape} 
-              data={data} 
-              cx="50%" 
-              cy={110} 
-              innerRadius={88}
-              outerRadius={100} 
-              fill="#383838"
-              stroke='#1a1a1a'
-              onMouseEnter={this.onPieEnter}
+                activeIndex={this.state.activeIndex}
+                activeShape={renderActiveShape} 
+                data={this.state.data} 
+                cx="50%" 
+                cy={100} 
+                innerRadius={0}
+                outerRadius={90} 
+                fill="#fff"
+                stroke='#fff'
+                onMouseEnter={this.onPieEnter}
               />
           </PieChart>
        </ResponsiveContainer >
+       <div class="text-center">
+          <div class="btn-group buttonGroup" role="group" aria-label="Pie-Selector">
+            <button type="button" onClick={this.HandleClick} data-title="Batting" data-value={this.props.Player.batting_world_ranking[0].ranking} class="btn btn-secondary active" id={this.state.toggle == 'Batting' ? 'active' : ''} >Batting</button>
+            <button type="button" onClick={this.HandleClick} data-title="Bowling" data-value={this.props.Player.bowling_world_ranking[0].ranking} class="btn btn-secondary" id={this.state.toggle == 'Bowling' ? 'active' : ''}>Bowling</button>
+            <button type="button" onClick={this.HandleClick} data-title="Keeping" data-value={this.props.Player.keeping_world_ranking[0].ranking} class="btn btn-secondary" id={this.state.toggle == 'Keeping' ? 'active' : ''}>Keeping</button>
+          </div>
+        </div>
+       </div>
     );
   }
 })

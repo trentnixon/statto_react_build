@@ -1,0 +1,19 @@
+.DisplayNav{
+    position: fixed;
+    bottom:10px;
+    right:10px;
+    background-color: $tone1 !important;
+}
+
+h1.Menu_Header{
+    font-size: 1.2em;
+    margin: 0 0 0 6px;
+    text-transform: uppercase;
+}
+
+.Menu_Appbar{
+    background-color: $tone1 !important;
+    -moz-box-shadow:  0px 2px 10px #929292 !important;
+         -webkit-box-shadow:0px 2px 10px #929292 !important;
+         box-shadow: 0px 2px 10px #929292 !important; 
+}

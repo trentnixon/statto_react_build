@@ -1,5 +1,4 @@
 import React from "react";
-import Section_Header from "../global/Section_Header";
 
 export default class Display_Player_Settings_Home extends React.Component {
 
@@ -16,8 +15,8 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     render() {
             return ( 
-                <div>
-                        <Section_Header header="Settings" />
+                <div class="InfoBadge">
+                       This is a info badge
                 </div>
              ); 
       }

@@ -19,12 +19,13 @@ export default class Display_Dashboard extends React.Component {
             return ( 
                 <div>
                     <div class="row margin20">
-                   <Content_Pod 
-                        title="Games Played"
-                        value={this.props.Player.PLAYER_META.GAME_COUNT} 
-                        sub="up from" 
-                        width="col-xs-12 "
-                    />
+                    <Content_Pod 
+                            title="Games Played"
+                            value={this.props.Player.PLAYER_META.GAME_COUNT} 
+                            sub="up from 20000"
+                            content="This is some content for the dropdown" 
+                            width="col-xs-12 "
+                        />
 
                     <Content_Pod 
                         title={"Runs Scored"}

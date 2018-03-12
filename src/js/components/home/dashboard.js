@@ -7,6 +7,7 @@ import Content_Wrapper from "../stage/components/Content_Wrapper";
 import WR_Circle from "./components/world_ranking_circle";
 
 // Content
+import Info_Badge from "../global/Info_Badge";
 import Content_Pod from "./components/dashboard_content_pods";
 import Last3Games from "./components/Last_3_Games";
 import World_Ranking_Table from "./components/dashboard_world_ranking_table";
@@ -41,6 +42,9 @@ export default class Display_dashboard extends React.Component {
                     </Half_Circle>
                     
                     <Content_Wrapper>
+                        <Info_Badge 
+                            Text={' Games Played : '+ this.props.Player.PLAYER_META.GAME_COUNT}
+                        />
                         <Content_Pod  {...this.props}/>
                         <Section_Header header="World Rankings" />
                             <World_Ranking_Table {...this.props} />

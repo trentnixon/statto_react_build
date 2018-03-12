@@ -59,4 +59,22 @@
          box-shadow:         $boxShadow;
          padding: 65px 0 0 0;
      }
+
+     .buttonGroup{
+        margin: 0 auto 50px;        
+        
+        button{
+            background-color: transparent;
+            border: 1px solid $tone2;
+           
+            color:$bodyWhite;
+            text-transform: uppercase;
+            box-shadow: none;
+        }
+
+        #active{
+            background-color: $tone2;
+            border: 1px solid $tone2;
+        }
+    }
  }
