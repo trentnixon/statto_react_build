@@ -25,18 +25,18 @@ const styles = {
   errorStyle: {
     color: orange500,
   },
-  underlineStyle: {
-    borderColor: orange500,
+	underlineStyle: {
+    borderColor: '#73b393',
   },
   MainColor:{
-	color:'#fff',
-	
+		color:'#383838',
+		fontWeight:'100'
  },
   floatingLabelStyle: {
-    color: orange500,
+    color: '#73b393',
   },
   floatingLabelFocusStyle: {
-    color: blue500,
+    color: '#73b393',
   },
 };
 var dataSource3 = [],  process=false, msg='';
@@ -107,7 +107,6 @@ export default class Register_User_Form extends React.Component {
 					<div class="form-group m-b-20">
 					<MuiThemeProvider>
 						<AutoComplete
-							  hintText="Use the LMS Player ID to register a new Player"
 							  dataSource={dataSource3}
 							  dataSourceConfig={dataSourceConfig}
 							  filter={AutoComplete.caseInsensitiveFilter}

@@ -34,7 +34,7 @@ render(){
 	
 	return(
 			<div class="row"> 
-				<Line percent={Percentage} strokeWidth="4" strokeColor="#D3D3D3" />
+				<Line percent={Percentage} strokeWidth="4" strokeColor="#88acd8" />
 				<p  class="pull-left">est time remaining : {TimeLeft}</p>
 				<p class="pull-right">{Percentage}% Complete.</p>
 			</div>

@@ -15,11 +15,11 @@ componentWillMount(){
 
 render(){
 	return(
-			<div class="m-t-20"> 
+			<div class="black"> 
 				<h3><i class="fa fa-user-plus" aria-hidden="true"></i> {this.props.REGISTRATION.New_Player_Name}</h3>
-                <p class="reg-notification">Collecting Data for {this.props.REGISTRATION.New_Player_Name} from the LMS website.</p>
+                <p class="reg-notification">Collecting Data for {this.props.REGISTRATION.New_Player_Name}.</p>
                 <MuiThemeProvider>
-                    <LinearProgress mode="indeterminate" />
+                    <LinearProgress mode="indeterminate" color='#73b393'/>
                 </MuiThemeProvider>
             </div>
 		)

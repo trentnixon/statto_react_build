@@ -23,17 +23,17 @@ const styles = {
     color: orange500,
   },
   underlineStyle: {
-    borderColor: orange500,
+    borderColor: '#73b393',
   },
   MainColor:{
-	color:'#fff',
-	
+		color:'#383838',
+		fontWeight:'100'
  },
   floatingLabelStyle: {
-    color: orange500,
+    color: '#73b393',
   },
   floatingLabelFocusStyle: {
-    color: blue500,
+    color: '#73b393',
   },
 };
 var dataSource3 = [],  process=false, msg='';
@@ -123,7 +123,7 @@ export default class LoginForm extends React.Component {
 							/>
 					</MuiThemeProvider>
 					</div>
-					<button type="submit" class="btn btn-success btn-block btn-lg"> {this.props.UI.icons.login} Fetch Career</button>
+					<button type="submit" class="btn btn-success btn-block btn-lg"> {this.props.UI.icons.login} Fetch Career </button>
 			</form>
 			
 		)

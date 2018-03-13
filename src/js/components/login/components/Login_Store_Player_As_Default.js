@@ -11,19 +11,19 @@ const styles = {
       marginBottom: 16,
     },
     thumbOff: {
-      backgroundColor: '#ffcccc',
+      backgroundColor: '#88acd8',
     }, 
     trackOff: {
-      backgroundColor: '#ff9d9d',
+      backgroundColor: '#88acd8',
     },
     thumbSwitched: {
-      backgroundColor: 'red',
+      backgroundColor: '#73b393',
     },
     trackSwitched: {
-      backgroundColor: '#ff9d9d',
+      backgroundColor: '#73b393',
     },
     labelStyle: {
-      color: '#e9e9e9',
+      color: '#383838',
       fontWeight:100
     },
   };
@@ -66,6 +66,10 @@ render(){
                     labelStyle={styles.labelStyle}
                     onToggle={this.toggle.bind(this)}
                     defaultToggled={Istoggled}
+                    thumbStyle={styles.thumbOff}
+                    trackStyle={styles.trackOff}
+                    thumbSwitchedStyle={styles.thumbSwitched}
+                    trackSwitchedStyle={styles.trackSwitched}
              />
         </MuiThemeProvider>
 		)

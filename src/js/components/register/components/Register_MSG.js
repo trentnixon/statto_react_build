@@ -24,7 +24,7 @@ export default class Register_MSG extends React.Component {
 render(){
 	return(
 			<div>
-                <p class="m-t-20">{msg}</p> 
+                <p class="text-center black">{msg}</p> 
             </div>
 		)
 	}			

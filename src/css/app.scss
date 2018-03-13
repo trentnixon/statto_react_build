@@ -19,11 +19,13 @@
 
 @import '_variable';
 @import '_mixins';
-
+/*Pages*/
 @import  './pages/_page_login.scss';
 @import  './pages/_page_scorecard.scss';
 @import  './pages/_page_career.scss';
+@import  './pages/_page_dashboard.scss';
 
+/*Widgets and components*/
 @import '_content';
 @import './widget/statto_widgets';
 @import '_header';
@@ -32,8 +34,6 @@
 @import '_list';
 @import '_form_guide';
 @import '_filter';
-/*Pages*/
-@import  './pages/_page_dashboard.scss';
 @import '_content_pod';
 
 
