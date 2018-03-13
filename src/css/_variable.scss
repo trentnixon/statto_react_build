@@ -42,11 +42,13 @@ $default_link_color: #2196F3; // blue_500
 $default_link_hover_color: #0D47A1; // blue_900
 
 
-
-
+// Font Setting
+$body_font_size: 13px;
+//$body_font_family: 'Roboto', "Helvetica Neue",Helvetica,Arial,sans-serif;
+$body_font_family: 'proxima_nova_ththin','Roboto', "Helvetica Neue",Helvetica,Arial,sans-serif;
+$ie8_body_font_family: Arial,sans-serif;
 
 /* OLD */
-
 
 //$bodyWhite:#e9e9e9;
 //$bodyBlack:#2c2c2c;
@@ -58,12 +60,9 @@ $tone3:#be5b5e;
 $tone4:#5b5ebe;
  */
 
-// Font Setting
-$body_font_size: 13px;
-$body_font_family: 'Roboto', "Helvetica Neue",Helvetica,Arial,sans-serif;
-$ie8_body_font_family: Arial,sans-serif;
 
 
+/*
 // Red
 $red_50: #FFEBEE;
 $red_100: #FFCDD2;
@@ -315,3 +314,4 @@ $black: #000;
 
 // white 
 $white: #fff;
+*/

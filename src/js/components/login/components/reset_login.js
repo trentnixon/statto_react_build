@@ -10,9 +10,7 @@ export default class Reset_Login extends React.Component {
     componentWillMount(){  }
 render(){
 	return(
-			<div>
-                <Link to="/" onClick={this.Reset_Login} class="btn btn-warning btn-icon btn-circle pull-right">{this.props.UI.icons.reset}</Link>	
-            </div>
+		    <Link to="/" onClick={this.Reset_Login} class="btn btn-warning btn-icon btn-circle pull-right">{this.props.UI.icons.reset}</Link>
 		)
 	}			
 }

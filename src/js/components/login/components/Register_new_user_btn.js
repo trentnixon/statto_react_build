@@ -16,7 +16,7 @@ export default class ReseRegister_User_Btn  extends React.Component {
     }
 render(){
 	return(
-			<div class="row">
+			<div class="row nomargin">
                 <center>
                     <p style={styles.p}>OR</p>
                     <Link to="/register" onClick={this.Reset_Login} class="btn btn-warning"> {this.props.UI.icons.addplayer} Register New Player </Link>	
