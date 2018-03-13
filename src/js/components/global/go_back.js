@@ -16,7 +16,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     render() {
             return ( 
                 <div onClick={this.goBack} class="pull-left go_back">
-                    <i class="material-icons tone4">backspace</i>
+                    <i class="material-icons tone2">backspace</i>
                 </div>
              ); 
       }

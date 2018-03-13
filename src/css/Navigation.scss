@@ -17,3 +17,13 @@ h1.Menu_Header{
          -webkit-box-shadow:0px 2px 10px #929292 !important;
          box-shadow: 0px 2px 10px #929292 !important; 
 }
+
+.Menu_Appbar_Bottom{
+    -moz-box-shadow:  0px 2px 10px #929292 !important;
+    -webkit-box-shadow:0px 2px 10px #929292 !important;
+    box-shadow: 0px 2px 10px #929292 !important; 
+    position: sticky !important;
+    bottom:0;
+    background-color: #fff !important;
+    z-index: 9;
+}

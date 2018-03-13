@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import {filter_json} from "./actions/filters";
 // Structure
 import Bottom_Nav_Bar from "./components/stage/components/Bottom_Nav_Bar";
-import Drawer from "./components/stage/components/Drawer";
+import Drawer from "./components/stage/Navigation/Drawer";
 import Top_Nav_Bar from "./components/stage/components/Top_Nav_Bar";
 // View
 // import home from "./components/home/home";
@@ -53,9 +53,7 @@ export default class Display_Player_UI extends React.Component {
                 }
                 
         }
-    componentDidUpdate(){ 
-          //  ReactDOM.findDOMNode(this).scrollIntoView(); console.log(ReactDOM.findDOMNode); 
-        }
+    componentDidUpdate(){ }
 
     render() {
             return (  
@@ -68,8 +66,7 @@ export default class Display_Player_UI extends React.Component {
                                                 <Route exact path="/:playerid/overview" component={dashboard}/>
                                                 <Route exact path="/:playerid/history" component={history} />
                                                 
-                                                <Route exact path="/:playerid/batting" render={()=><Batting {... this.props } />}  />
-                                                        <Route  path="/:playerid/batting/overview"       render={()=><Batting_overview {... this.props } />}      />     
+                                                <Route exact path="/:playerid/batting" render={()=><Batting_overview {... this.props } />}  />
                                                         <Route  path="/:playerid/batting/runs"       render={()=><Batting_Runs {... this.props } />}          />
                                                         <Route  path="/:playerid/batting/innings"       render={()=><Batting_Innings {... this.props } />}          />
                                                         <Route  path="/:playerid/batting/goals"       render={()=><Batting_Goals {... this.props } />}          />
@@ -80,16 +77,14 @@ export default class Display_Player_UI extends React.Component {
                                                         <Route  path="/:playerid/batting/positions"     render={()=><Batting_positions {... this.props } />}    />
                                                         <Route  path="/:playerid/batting/dismissals"    render={()=><Batting_dismissals {... this.props } />}   />
                                                 
-                                                <Route exact path="/:playerid/bowling" render={()=><Bowling {... this.props } />} />
-                                                        <Route  path="/:playerid/bowling/overview"      render={()=><Bowling_overview {... this.props } />}       />
+                                                        <Route exact path="/:playerid/bowling" render={()=><Bowling_overview {... this.props } />} />
                                                         <Route  path="/:playerid/bowling/wickets"       render={()=><Bowling_Wickets {... this.props } />}       />
                                                         <Route  path="/:playerid/bowling/aes"       render={()=><Bowling_AES {... this.props } />}       />
                                                         <Route  path="/:playerid/bowling/goals"       render={()=><Bowling_Goals {... this.props } />}       />
                                                         <Route  path="/:playerid/bowling/playedfor"       render={()=><Bowling_Played_For {... this.props } />}       />
                                                         <Route  path="/:playerid/bowling/opposition"       render={()=><Bowling_Opposition {... this.props } />} />
 
-                                                <Route exact path="/:playerid/keeping" render={()=><Keeping {... this.props } />}  />
-                                                        <Route  path="/:playerid/keeping/overview"        render={()=><Keeping_overview {... this.props } />}       />
+                                                        <Route exact path="/:playerid/keeping" render={()=><Keeping_overview {... this.props } />}  />          
                                                         <Route  path="/:playerid/keeping/career"        render={()=><Keeping_career {... this.props } />}       />
 
                                                 <Route exact path="/:playerid/teams" component={teams} />
@@ -98,7 +93,7 @@ export default class Display_Player_UI extends React.Component {
                                                 <Route exact path="/:playerid/settings" component={settings} /> 
                                         </div>
                                 </Router>
-                <Drawer /> 
+                <Drawer {... this.props} /> 
         </div>
              ); 
       }

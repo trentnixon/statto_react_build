@@ -14,7 +14,7 @@ export default class Display_Player_Settings_Home extends React.Component {
                 <div class="row">
                     <div class="pull-right go_to ">
                         <Link to={this.props.path}>
-                            <i class="material-icons tone4">subdirectory_arrow_right</i>
+                            <i class="material-icons tone2">subdirectory_arrow_right</i>
                             <p>{this.props.label}</p>
                         </Link>
                     </div>
