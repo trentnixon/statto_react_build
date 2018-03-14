@@ -81,21 +81,21 @@
 
             @include content-pod-basic();
             @include border-radius(3px);
-            margin: 2px 0 5px 0;
+            margin: 5px 0;
 
         div{
             
             div.game-header{
                 text-align: center;
                 h4{
-                    color:$tone2;
-                    font-size: 1.2em;
+                    color:$bodyBlack;
+                    font-size: 1.6em;
                     margin: 0 0 7px;
                     font-weight: 100;
                 }
 
                 h5{
-                    color: $bodyWhite;
+                    color: $tone2;
                     font-size: .9em;
                     font-weight: 100;
                     margin:0 0 10px 0;
@@ -108,6 +108,7 @@
                 font-size: 1.1em;
                 line-height: 1.3em;
                 padding: 0 10px;
+                color:$bodyBlack;
             }
         }
     }

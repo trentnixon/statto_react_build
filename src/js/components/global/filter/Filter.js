@@ -10,8 +10,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 const style = {
   marginRight: 20,
   position:'fixed',
-  bottom:65,
-  right:-10,
+  bottom:10,
+  left:5,
   zIndex:99
 };
 
@@ -58,6 +58,7 @@ export default class Display_History_Filter extends React.Component {
                             mini={true} 
                             style={style}
                             onClick={this.displayFilter.bind(this)}
+                            backgroundColor="#b37383"
                         >
                             <ContentAdd />
                         </FloatingActionButton>

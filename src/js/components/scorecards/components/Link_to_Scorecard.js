@@ -31,7 +31,7 @@ export default class Display_Player_Settings_Home extends React.Component {
         if(!isNaN(findKey)){
             return ( 
                 <Link to={"/"+this.props.PLAYER.PLAYER_META.WP_ID+"/scorecard/"+this.props.ID}> 
-                    <i class="material-icons tone1">launch</i> 
+                    <i class="material-icons tone3">launch</i> 
                 </Link>
               ); 
         }else{
@@ -39,7 +39,7 @@ export default class Display_Player_Settings_Home extends React.Component {
         }
             return ( 
                 <Link  to={"/"+this.props.PLAYER.PLAYER_META.WP_ID+"/scorecard/"+this.props.ID}> 
-                    <i class="material-icons tone3">file_download</i> 
+                    <i class="material-icons tone4">file_download</i> 
                 </Link>
              ); 
       }

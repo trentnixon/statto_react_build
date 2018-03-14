@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import Display_User_History from "../global/recent_game_pod";
 import Section_Header from "../global/Section_Header";
 import History_Filter from "../global/filter/Filter";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+import Half_Circle from "../stage/components/Half_Circle_Top";
+
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
 
 let history;
 @connect((store) =>{
@@ -17,6 +22,7 @@ export default class Display_History extends React.Component {
    
     componentWillMount(){
           history = this.props.Player.filtered_json;
+          breadcrumbs('History','parent');
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
@@ -27,9 +33,10 @@ export default class Display_History extends React.Component {
     render() {
             return ( 
                 <div>
-                 
+                 <Half_Circle>
                     <Section_Header header="History" />
-                    
+                </Half_Circle>
+                <Content_Wrapper>
                     <History_Filter {... this.props}/>
                     <div class="row">
                         {
@@ -53,6 +60,7 @@ export default class Display_History extends React.Component {
                              })
                         }
                     </div>
+                    </Content_Wrapper>
                 </div>
              ); 
       }

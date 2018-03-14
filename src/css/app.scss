@@ -30,7 +30,7 @@ html {
         /*  background: #355C7D;  /* fallback for old browsers */
         /*  background: -webkit-linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
         /* background: linear-gradient(to bottom, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background-image: url($BGTexture);
+       
         /*background-size: cover;
         background-attachment: fixed;
     */
@@ -53,15 +53,15 @@ html {
                 margin: 7px 0 0 !important;
                 text-align: right;
                 font-size: 1em !important;
-                border-bottom: .5px solid $bodyWhite;
+                border-bottom: .5px solid $bodyBlack;
                 padding-bottom: 10px;
-                color: $bodyWhite;
+                color: $bodyBlack;
             }
             h3{
                 text-align: right;
                 margin: 4px 0 0 0 !important;
                 line-height: 1.4em;
-                color: $bodyWhite !important;
+                color: $bodyBlack !important;
             }
         }
 
@@ -86,6 +86,9 @@ html {
 
 #statto-app{
     
+    background-image: url($BGTexture);
+
+
     .nopadding{ padding:0;}
     .nomargin{ margin:0;}
     .margin20{ margin-left: -19px; margin-right: -19px; }

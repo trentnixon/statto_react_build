@@ -58,7 +58,22 @@
          -webkit-box-shadow: $boxShadow;
          box-shadow:         $boxShadow;
          padding: 65px 0 0 0;
-     }
+     
+        .section-header{
+
+                margin: 0px 0% 0px;
+                position: relative;
+                text-align: center;
+                font-size: 2.3em;
+                margin: 0;
+                padding: 0 0 20px;
+            h1{
+                margin: 0;
+                padding: 0;
+            }
+        }
+     
+        }
 
      .buttonGroup{
         margin: 0 auto 50px;        

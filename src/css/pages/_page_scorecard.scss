@@ -18,9 +18,10 @@
 
 
     .Tabs{
-        position: fixed;
+       // position: fixed;
         bottom: 40px;
-        width: 100%;
+        width: 92%;
+        margin:0 4%;
         left: 0;
         right: 0;
         z-index: 99;
@@ -30,6 +31,7 @@
         @include border-radius(3px);
         @include content-pod-basic();
         padding: 5px 14px;
+        background-color: $tone3;
 
         h2{
             color:$bodyWhite;
@@ -40,18 +42,18 @@
     }
     #scorecard_Score_Summary{
         display: flex;
+        margin: 0 7% 5%;
         h1{
-            font-size: 1.2em;
-            line-height: 1.3em;
+            font-size: 1.4em;
+            line-height: 1.1em;
             color: $bodyWhite;
             border-bottom: 4px solid;
             padding: 0 0 10px 0;
             margin: 10px 0 0;
-            min-height: 60px;
+            min-height: 55px;
         }
         h2{ 
                 color: $bodyWhite;
-               
                 font-size: 2em;
                 line-height: 1.3em;
                 margin: 0 10px 0 0;
@@ -70,14 +72,14 @@
         .scoreA{
             padding: 0 5px 0 0;
             h1
-            { border-color: $tone1;
+            { border-color: $tone2;
             }
            
         }
         .scoreB{ 
             padding: 0  0 0 5px;
             h1{
-                border-color: $tone2;
+                border-color: $tone3;
             } 
         }
 
@@ -87,13 +89,13 @@
         
         padding: 20px 0;
         text-align: center;
-        
+        color: $bodyBlack;
         
         h2{
             font-weight: 100;
             font-size: 1.3em;
             line-height: 1.5em;
-            color: $bodyWhite;
+           
             margin: 3px 0;
 
             
@@ -107,7 +109,6 @@
             font-size: .9em;
             line-height: .9em;
             margin: 10px 0;
-            color: $bodyWhite;
         }
     }
 
@@ -146,7 +147,7 @@
             list-style: none;
 
             li{
-                color: $bodyWhite;
+                color: $bodyBlack;
                 font-size: 1.1em;
                 font-weight: 100;
                 margin: 0;
@@ -159,7 +160,7 @@
         padding:  0 0 60px 0;
 
         h2{
-            color: $bodyWhite;
+            color: $bodyBlack;
             font-size: 1.6em;
             font-weight: 100;
             line-height: 1.5em;
@@ -169,7 +170,7 @@
         h2.secondInnings{ margin-top:30px;}
 
         h3{
-            color: $bodyWhite;
+            color: $bodyBlack;
             font-size: 1.5em;
             font-weight: 400;
             line-height: 1.5em;
@@ -182,7 +183,7 @@
         .Display_innings{
 
             .player{
-                color: $bodyWhite;
+                color: $bodyBlack;
                 padding: 3px 0;
 
                 .name{
@@ -219,6 +220,11 @@
 /* Charts */
     #scorecard_Stats{
 
+        .darkWrapper{
+            margin: 0 -3px 15px;
+            padding: 10px;
+        }
+
         .scorecard_Charts{
 
                 .header{
@@ -226,21 +232,31 @@
                         margin: 20px 0px 10px;
 
                         .col-xs-12{ color: $tone1;}
-                        .col-xs-4{ color: $bodyWhite;}
+                        .col-xs-4{ color: $bodyBlack;}
 
                         .row{ padding:0;}
                 }
                 
                 .scorecard_chart_line{
                     .row{
-                        color: $bodyWhite;
+                        color: $bodyBlack;
                         padding: 2px 0;
-                        font-size: 1.1em;
+                        font-size: 1em;
                         font-weight: 100;
                         div{ }
                         .perc{ font-size: .9em; color: $tone3;  padding: 0; }
                     }
                 }
         }
+   
+        .ballstorunsfaced{
+            .header{
+                .col-xs-4{
+                    font-size:.8em;
+                }
+            }
+        }
+
     }
+   
 }

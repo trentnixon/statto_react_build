@@ -1,13 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+import Half_Circle from "../stage/components/Half_Circle_Top";
+
 import Section_Header from "../global/Section_Header";
 
 import Store_Player_As_Default from "../login/components/Login_Store_Player_As_Default";
 import  Update_Status from "../update/components/Update_Settings_Status";
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
 
 @connect((store) =>{
         return{
-            UI: store.UI,
+            UI: store.UI, 
             Player: store.PLAYER
         }
     })
@@ -15,21 +20,20 @@ export default class Display_Player_Settings_Home extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ 
-            console.log( this.props)
-    }
-    
+    componentWillMount(){ breadcrumbs('Settings','parent'); }
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-           //console.log(this.props.match.params.playerid, this.props.UI.items.Player) 
-       }
+    componentWillUpdate(nextProps, nextState){}
     
     render() {
             return ( 
-                <div>
-                        <Section_Header header="About" />
-                       <ul class="list">
-                                <li>
+        <div>
+                <Half_Circle>
+                        <Section_Header header="Settings" />
+                </Half_Circle>
+        <Content_Wrapper>
+                <Section_Header header="About" />
+                <ul class="list">
+                        <li>
                                         <p>Profile Name : {this.props.Player.PLAYER_META.UserName}</p>
                                 </li>
                                 <li>
@@ -43,7 +47,7 @@ export default class Display_Player_Settings_Home extends React.Component {
                                 </li>
                                 
                         </ul>
-                        <Section_Header header="Settings" />
+                        <Section_Header header="Store Player" />
                                 <ul class="list">
                                         <li> <Store_Player_As_Default {... this.props}/></li>
                                 </ul>
@@ -52,9 +56,8 @@ export default class Display_Player_Settings_Home extends React.Component {
                                 <li> <Update_Status {...this.props}/> </li>
                                 <li> <p>Profile update # : {this.props.Player.PLAYER_META.update_interation}</p> </li>
                         </ul>
-                
-                        
-                </div>
+                </Content_Wrapper>
+        </div>
              ); 
       }
   }

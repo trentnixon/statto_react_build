@@ -11,7 +11,7 @@ export default class scorecard_chart_line extends React.Component {
             return ( 
                 <div class="scorecard_chart_line">
                     <div class="row nomargin">
-                        <div class="col-xs-4">{this.props.title}</div>
+                        <div class="col-xs-4 nopadding">{this.props.title}</div>
                         
                         <div class="col-xs-2 text-right">{this.props.Balls}</div>
                         <div class="col-xs-2 perc">({this.props.BallsPercentage.toFixed(1)}%)</div>

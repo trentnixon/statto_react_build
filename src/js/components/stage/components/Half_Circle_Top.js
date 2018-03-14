@@ -1,5 +1,5 @@
 import React from "react";
-import { Parallax } from 'react-parallax';
+import { Parallax,Background  } from 'react-parallax';
 
 
 export default class Half_Circle_Top extends React.Component {
@@ -15,10 +15,14 @@ export default class Half_Circle_Top extends React.Component {
             return ( 
                <div id="Half-Circle-Container"> 
                 
-                    <Parallax strength={400} bgHeight="550px" >
+                    <Parallax 
+                        strength={300} 
+                    >
                         <div class="Half-Circle-Top">
                             {this.props.children}
+                            
                         </div>
+                        
                     </Parallax>
                 
                 </div>

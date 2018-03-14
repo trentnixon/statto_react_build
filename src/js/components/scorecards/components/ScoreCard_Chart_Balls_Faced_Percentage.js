@@ -71,12 +71,12 @@ export default class Display_Game_Stats extends React.Component {
             SecondInningsStats = this.CreateStats(SecondInnings, this.props.SelectedGame.Second_Overs, this.props.SelectedGame.Second_Score); 
             
             return ( 
-                <div class="scorecard_Charts darkWrapper" >
+                <div class="scorecard_Charts darkWrapper ballstorunsfaced" >
                     
                     <Section_Header header="Runs to Balls Faced by Order" />
 
                     <div class="row nomargin header">
-                        <div class="col-xs-12">{this.props.SelectedGame.Batted_First}</div>
+                        <div class="col-xs-12 nopadding">{this.props.SelectedGame.Batted_First}</div>
                         <div class="col-xs-4 col-xs-offset-4 text-center">Balls Faced </div>
                         <div class="col-xs-4  text-center"> Runs</div>
                     </div>
@@ -105,7 +105,7 @@ export default class Display_Game_Stats extends React.Component {
                     />
 
                     <div class="row nomargin header">
-                        <div class="col-xs-12">{this.props.SelectedGame.Batting_Second}</div>
+                        <div class="col-xs-12 nopadding">{this.props.SelectedGame.Batting_Second}</div>
                         <div class="col-xs-4 col-xs-offset-4 text-center">Balls Faced </div>
                         <div class="col-xs-4  text-center"> Runs</div>
                     </div>
