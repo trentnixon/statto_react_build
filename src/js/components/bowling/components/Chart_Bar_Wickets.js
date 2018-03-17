@@ -23,7 +23,7 @@ export default class batting_runs extends React.Component {
         console.log(BarData);
         return BarData.reverse();
     }
-
+ 
     
     componentWillMount(){ 
            //  console.log( this.props)

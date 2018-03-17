@@ -10,7 +10,7 @@ const styles ={
         borderRadius:'5px',
     },
     label:{
-        color:'white',
+        color:'#383838',
     },
     item:{ }
 }
@@ -29,8 +29,8 @@ export default class Simple_Line_Chart extends React.Component {
             margin={{top: 20, right: 0, left: -25, bottom: 20}}
         >
             
-            <XAxis dataKey="Year" stroke="#e9e9e9"/>
-            <YAxis  stroke="#e9e9e9" />
+            <XAxis dataKey="Year" stroke="#383838"/>
+            <YAxis  stroke="#383838" />
             
             <Tooltip
                 offset={20} 
@@ -41,8 +41,8 @@ export default class Simple_Line_Chart extends React.Component {
 
                 <Legend verticalAlign="top" iconType="circle" align="right"/>
 
-                <Line type="natural" dataKey={this.props.dataKey1} stroke="#5bbeba" dot={false} />
-                <Line type="natural" dataKey={this.props.dataKey2} stroke="#bebb5b" dot={false} />
+                <Line type="natural" dataKey={this.props.dataKey1} stroke="#88acd8" dot={false} />
+                <Line type="natural" dataKey={this.props.dataKey2} stroke="#73b393" dot={false} />
                 
       </LineChart>
       </ResponsiveContainer>

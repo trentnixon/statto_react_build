@@ -53,12 +53,13 @@ export default class batting_runs extends React.Component {
     
     render() {
             return ( 
-                <div>
+                <div class="Header_Line_Chart">
                     <Triple_LineChart 
                         Data={LineChart_By_Year} 
                         dataKey1="Average" 
                         dataKey2="Economy" 
                         dataKey3="StrikeRate" 
+                        axisColor="#fff"
                     />
                 </div>
              ); 

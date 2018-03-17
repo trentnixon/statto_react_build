@@ -9,12 +9,12 @@ var _ = require('lodash');
 
 const styles ={
     wrapper:{
-        backgroundColor:'rgba(44, 44, 44, .5)',
+        //backgroundColor:'rgba(44, 44, 44, .5)',
         borderColor:'transparent',
         borderRadius:'5px',
     },
     label:{
-        color:'white',
+        color:'#383838',
     },
     item:{ },
     filter:{

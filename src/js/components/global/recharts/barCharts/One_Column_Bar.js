@@ -17,7 +17,7 @@ const styles ={
         color:'#383838',
     },
     tipLabel:{
-        color:'#fff',
+        color:'#383838',
     },
     item:{ },
     filter:{

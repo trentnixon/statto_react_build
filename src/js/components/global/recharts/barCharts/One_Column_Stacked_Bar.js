@@ -14,7 +14,7 @@ const styles ={
         borderRadius:'5px',
     },
     label:{
-        color:'white',
+        color:'#383838',
     },
     item:{ },
     filter:{

@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 
+import Fade from 'react-reveal/Fade';
+
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
-
-
 
 // Title
 class CardTitle extends React.Component {
@@ -56,7 +55,7 @@ export default class Display_Content_Pod extends React.Component {
     
     render() {
             return ( 
-               
+                <Fade bottom>
                 <div class={ 'contentpod-item '+ this.props.width}>
                     <MuiThemeProvider>
                         <Card 
@@ -74,6 +73,7 @@ export default class Display_Content_Pod extends React.Component {
                         </Card>
                     </MuiThemeProvider>    
                 </div>    
+                </Fade>
              ); 
       }
   }
