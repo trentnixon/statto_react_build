@@ -1,5 +1,8 @@
 import React from "react";
 import Section_Header from "../global/Section_Header";
+import Half_Circle from "../stage/components/Half_Circle_Top";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+
 import OppoTable from "../global/filtered_table/Table_Batting";
 
 export default class Batting_Opposition extends React.Component {
@@ -16,7 +19,10 @@ export default class Batting_Opposition extends React.Component {
     render() {
             return ( 
                 <div>
+                    <Half_Circle>
                        <Section_Header header="Opposition" />
+                    </Half_Circle>
+                    <Content_Wrapper>
                        <OppoTable 
                             TableData={this.props.Player.opposition_stats}
                             {... this.props}
@@ -24,6 +30,7 @@ export default class Batting_Opposition extends React.Component {
                             Title="Played Against"
                             NestedDisplay="Team"
                         /> 
+                    </Content_Wrapper>
                 </div>
              ); 
       }

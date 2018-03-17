@@ -31,7 +31,7 @@ export default class batting_runs extends React.Component {
 
                         <Double_Line_Chart  
                             data={this.props.Player.over_the_years[1]} 
-                            dataKey1="Average" 
+                             dataKey1="Average" 
                             dataKey2="Career" 
                         /> 
 

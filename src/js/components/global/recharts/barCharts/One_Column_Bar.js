@@ -14,7 +14,10 @@ const styles ={
         borderRadius:'5px',
     },
     label:{
-        color:'white',
+        color:'#383838',
+    },
+    tipLabel:{
+        color:'#fff',
     },
     item:{ },
     filter:{
@@ -87,22 +90,22 @@ export default class Two_Column_Bar_Chart extends React.Component {
                     }
             </div>
 
-        <ResponsiveContainer width='100%' height={200}>
+        <ResponsiveContainer width='100%' height={200}> 
             <BarChart  
                     data={data}
                     margin={{top: 20, right: 0, left: -30, bottom: 5}}
                     barGap={0}
                     barCategoryGap={0}
             >
-            <XAxis dataKey="name" stroke="#e9e9e9"/>
-            <YAxis stroke="#e9e9e9"/>
+            <XAxis dataKey="name" stroke="#383838"/>
+            <YAxis stroke="#383838"/>
                 
                 <Tooltip offset={20} 
                     wrapperStyle={styles.wrapper}
-                    labelStyle={styles.label}
+                    labelStyle={styles.tipLabel}
                     itemStyle={styles.item}
                 />
-                <Bar dataKey={this.props.datakey} fill="#5bbeba" />
+                <Bar dataKey={this.props.datakey} fill="#88acd8" />
             </BarChart>
         </ResponsiveContainer>
         <p class="tone1" style={styles.p}> {this.props.countType} {data.length} </p>

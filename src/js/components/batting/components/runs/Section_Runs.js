@@ -16,10 +16,16 @@ export default class batting_runs extends React.Component {
     
     render() {
             return ( 
-                <div class="darkWrapper">
-                        <Chart_Pie_Runs_Over_Years {... this.props}/>
-                        <Chart_Line_Growth {... this.props} />
-                        <Bar_Chart_Runs {... this.props}/>
+                <div>
+                        <div class="darkWrapper">
+                            <Chart_Pie_Runs_Over_Years {... this.props}/>
+                        </div>
+                        <div class="darkWrapper">
+                            <Chart_Line_Growth {... this.props} />
+                        </div>
+                        <div class="darkWrapper">
+                            <Bar_Chart_Runs {... this.props}/>
+                        </div>
                 </div>
              ); 
       }

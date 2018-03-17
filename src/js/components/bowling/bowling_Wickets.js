@@ -1,5 +1,8 @@
 import React from "react";
 import Section_Header from "../global/Section_Header";
+import Half_Circle from "../stage/components/Half_Circle_Top";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+
 
 // Import Components    
 import Chart_Pie_Wickets_Over_Years from "./components/Chart_Pie_Wickets_Over_Years";
@@ -17,8 +20,10 @@ export default class batting_runs extends React.Component {
     render() {
             return ( 
                 <div>
+                    <Half_Circle>
                         <Section_Header header={this.props.Player.career_form.Bowling_Wickets + " Career Wickets."} />
-                       
+                    </Half_Circle>
+                    <Content_Wrapper>   
                         <Most_for_and_Against  {... this.props} />
                        
                         <div class="darkWrapper"> 
@@ -28,7 +33,7 @@ export default class batting_runs extends React.Component {
                             <Chart_Bar_Wickets {... this.props}/>
                         </div>
                         <Notable_Bowling {... this.props}/>
-                        
+                    </Content_Wrapper>
                 </div>
              ); 
       }

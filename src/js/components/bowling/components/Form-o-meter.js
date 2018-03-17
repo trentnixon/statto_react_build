@@ -57,13 +57,8 @@ export default class Form_o_Meter extends React.Component {
     render() {
             return ( 
                 <div>
-                        <div class="darkWrapper">
-                            <Section_Header header="Form-o-Meter" />
-                            <Section_Subheader header="Form Guide is based on a % of your current form against your career stats" />
-                        
-                            <Sprial_Form_o_Meter data={data} />
-                            <Form_Status data={data} Name={this.props.Player.PLAYER_META.UserName} />
-                        </div>
+                    <Sprial_Form_o_Meter data={data} />
+                    <Form_Status data={data} Name={this.props.Player.PLAYER_META.UserName} />  
                 </div>
              ); 
       }

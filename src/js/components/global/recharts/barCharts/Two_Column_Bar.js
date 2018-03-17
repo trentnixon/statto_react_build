@@ -27,16 +27,16 @@ export default class Two_Column_Bar_Chart extends React.Component {
                     barGap={2}
                     barCategoryGap={5}
             >
-            <XAxis dataKey="name" stroke="#e9e9e9"/>
-            <YAxis stroke="#e9e9e9"/>
+            <XAxis dataKey="name" stroke="#383838"/>
+            <YAxis stroke="#383838"/>
                 
                 <Tooltip offset={20} 
                     wrapperStyle={styles.wrapper}
                     labelStyle={styles.label}
                     itemStyle={styles.item}
                 />
-                <Bar dataKey="First" fill="#5bbeba" />
-                <Bar dataKey="Second" fill="#bebb5b" />
+                <Bar dataKey="First" fill="#88acd8" />
+                <Bar dataKey="Second" fill="#dbaa8b" />
             
             </BarChart>
         </ResponsiveContainer>

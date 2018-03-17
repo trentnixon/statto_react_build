@@ -14,7 +14,7 @@ const styles ={
         borderRadius:'5px',
     },
     label:{
-        color:'white',
+        color:'#383838',
     },
     item:{ },
     filter:{
@@ -96,7 +96,7 @@ export default class batting_runs extends React.Component {
                                         value={this.state.value}
                                         onChange={this.handleChange}
                                         maxHeight={200}
-                                        floatingLabelText="Options"
+                                        floatingLabelText="Filter Results"
                                         floatingLabelStyle={styles.label}
                                         labelStyle={styles.label}
                                         fullWidth={true}

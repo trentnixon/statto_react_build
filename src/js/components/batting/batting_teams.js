@@ -1,4 +1,8 @@
 import React from "react";
+
+import Half_Circle from "../stage/components/Half_Circle_Top";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+
 import Section_Header from "../global/Section_Header";
 import TeamTable from "../global/filtered_table/Table_Batting";
 
@@ -6,26 +10,27 @@ export default class Batting_Teams extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ 
-            console.log( this.props)
-    }
+    componentWillMount(){ }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-           //console.log(this.props.match.params.playerid, this.props.UI.items.Player) 
-       }
+    componentWillUpdate(nextProps, nextState){ }
     
     render() {
             return ( 
                 <div> 
-                        <Section_Header header="Teams" />
+                    <Half_Circle>
+                        <Section_Header header="Teams Played For" />
+                    </Half_Circle>
+                    <Content_Wrapper>
+                        
                         <TeamTable 
                             TableData={this.props.Player.team_played_for_stats}
                             {... this.props}
-                            Filter="Filter Team"
+                            Filter="Filter Teams"
                             Title="Teams i have Played for"
                             NestedDisplay="Opposition"
                         />
+                    </Content_Wrapper>
                 </div>
              ); 
       }

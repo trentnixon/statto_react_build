@@ -101,21 +101,21 @@ export default class Section_Form_Guide extends React.Component {
                         title={"Beat career average of "+ Goals_Wickets_Average[0] +' Wickets a year'}
                         value={Goals_Wickets_Average[1] +' of '+Goals_Wickets_Average[0]} 
                         sub={Goals_Wickets_Average[3] +'% complete'}
-                        width={"col-xs-12 gradient gradient_"+Goals_Wickets_Average[2] }
+                        width={"col-xs-12 goal gradient gradient_"+Goals_Wickets_Average[2] }
                     />
 
                     <Content_Pod 
                         title={"Beat Last years total : "+ Goals_Last_Years_Total[0] +' Wickets'}
                         value={Goals_Last_Years_Total[1] +' of '+Goals_Last_Years_Total[0]} 
                         sub={Goals_Last_Years_Total[3] +'% complete'}
-                        width={"col-xs-12 gradient gradient_"+Goals_Last_Years_Total[2] }
+                        width={"col-xs-12 goal gradient gradient_"+Goals_Last_Years_Total[2] }
                     />
 
                     <Content_Pod 
                         title={"Less than "+ Goals_Runs_Average[0] +' Runs Conceded'}
                         value={Goals_Runs_Average[1] +' of '+Goals_Runs_Average[0]} 
                         sub={Goals_Runs_Average[3] +'% complete'}
-                        width={"col-xs-12 gradient gradient_"+Goals_Runs_Average[2] }
+                        width={"col-xs-12 goal gradient gradient_"+Goals_Runs_Average[2] }
                     />
                 </div>
             </div>

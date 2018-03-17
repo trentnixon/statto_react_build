@@ -96,16 +96,16 @@ export default class Two_Column_Bar_Chart extends React.Component {
                     barGap={0}
                     barCategoryGap={0}
             >
-            <XAxis dataKey="name" stroke="#e9e9e9"/>
-            <YAxis stroke="#e9e9e9"/>
+            <XAxis dataKey="name" stroke="#383838"/>
+            <YAxis stroke="#383838"/>
                 
                 <Tooltip offset={20} 
                     wrapperStyle={styles.wrapper}
                     labelStyle={styles.label}
                     itemStyle={styles.item}
                 />
-                <Bar dataKey={this.props.datakey1} stackId="a" fill="#be5b5e" />
-                <Bar dataKey={this.props.datakey2}  stackId="a" fill="#5bbeba" />
+                <Bar dataKey={this.props.datakey1} stackId="a" fill="#88acd8" />
+                <Bar dataKey={this.props.datakey2}  stackId="a" fill="#73b393" />
             </BarChart>
         </ResponsiveContainer>
         <p class="tone1" style={styles.p}> {this.props.countType} {data.length} </p>

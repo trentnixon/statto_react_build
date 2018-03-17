@@ -29,13 +29,12 @@ const styles = {
       padding: '0 10px',
     },
     tabs:{
-        color:'#e9e9e9'
+        color:'#fff',
     },
     inkbar:{
-        backgroundColor:'#bebb5b'
+        backgroundColor:'#88acd8' ,
     }
   };
-
 
 export default class Display_Scorecard extends React.Component {
 
@@ -71,9 +70,9 @@ export default class Display_Scorecard extends React.Component {
                                     inkBarStyle={styles.inkbar}
                                 >
                                         <Tab label="Summary" value={0} style={styles.tabs} className="StattoTab" />
-                                        <Tab label="Teams" value={1} />
-                                        <Tab label="Scorecard" value={2} />
-                                        <Tab label="Stats" value={3} />
+                                        <Tab label="Teams" value={1} style={styles.tabs}/>
+                                        <Tab label="Scorecard" value={2} style={styles.tabs}/>
+                                        <Tab label="Stats" value={3} style={styles.tabs}/>
                                 </Tabs>
                             </MuiThemeProvider>
                             </div>

@@ -35,14 +35,14 @@ export default class Display_Dashboard extends React.Component {
                         title="Runs Conceded"
                         value={this.props.Player.form_guide.Bowling_RunsConceded} 
                         sub={'Career Average : '+ CareerRunsAveOverTenGames.toFixed(2) + ' runs'}
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
 
                     <Content_Pod 
                         title="Economy"
                         value={this.props.Player.form_guide.Bowling_Economy_Rate} 
                         sub={'Career Economy : '+this.props.Player.career_form.Bowling_Economy_Rate}
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
 
                     <Content_Pod 
@@ -50,7 +50,7 @@ export default class Display_Dashboard extends React.Component {
                         value={this.props.Player.form_guide.Bowling_Average} 
                         sub={'Career Average : '+this.props.Player.career_form.Bowling_Average}
 
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
 
                     <Content_Pod 
@@ -58,7 +58,7 @@ export default class Display_Dashboard extends React.Component {
                         value={this.props.Player.form_guide.Bowling_Strike_Rate}
                         sub={'Career Strike Rate : '+this.props.Player.career_form.Bowling_Strike_Rate}
 
-                        width="col-xs-6"
+                        width="col-xs-12"
                     />
                 </div>
             </div>

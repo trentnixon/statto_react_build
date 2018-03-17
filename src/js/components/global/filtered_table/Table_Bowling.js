@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Table_Row from "./Table_Row_Bowling";
+
 import Section_Header from "../Section_Header";
 import {List} from 'material-ui/List';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -9,31 +11,27 @@ var _ = require('lodash');
 import {collect_Team_Names} from "../../../actions/career"
 
 
-import Table_Row from "./Table_Row_Bowling";
 
 const styles ={
-    list:{
-        marginBottom:0,
-        marginLeft:0,
-        marginRight:0,
-        marginTop:0,
-        padding:'0 0 0 0',
-        color:'#e9e9e9',
-    },
-    hintStyle:{
-      color:'#e9e9e9',
-      fontWeight:100,
-      fontSize:14,
-    },
-    underlineStyle:{
-      borderColor :'#e9e9e9',
-    },
-    inputStyle:{
-      color:'#e9e9e9',
-    },
-    underlineFocusStyle:{
-      borderColor :'#e9e9e9',
-    }
+  list:{
+      margin:'10px -20px',
+      padding:'0px',
+      color:'#383838',
+  },
+  hintStyle:{
+    color:'#383838',
+    fontWeight:100,
+    fontSize:14,
+  },
+  underlineStyle:{
+    borderColor :'#383838',
+  },
+  inputStyle:{
+    color:'#383838',
+  },
+  underlineFocusStyle:{
+    borderColor :'#383838',
+  }
 }
 
 
@@ -73,8 +71,6 @@ export default class ListExampleNested extends React.Component {
 
     return (
       <div>
-        <div class="lightWrapper"> 
-          
           <MuiThemeProvider>
             <TextField
               hintText={this.props.Filter}
@@ -86,10 +82,7 @@ export default class ListExampleNested extends React.Component {
               fullWidth={true}
             />
           </MuiThemeProvider>
-       
-        </div>
-      <div class="darkWrapper">  
-       <Section_Header header={this.props.Title} />
+
         <MuiThemeProvider>
           <List  style={styles.list} >
             <Table_Row 
@@ -98,8 +91,6 @@ export default class ListExampleNested extends React.Component {
             />
           </List>
         </MuiThemeProvider>
-      </div>
-        
       </div>
     );
   }

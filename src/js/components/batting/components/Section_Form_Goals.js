@@ -63,7 +63,7 @@ export default class Section_Form_Guide extends React.Component {
         LastYearsRuns = this.findTotal(Player.raw_json,UI.filter.years[1].Year,'Runs_Bare')
        // LastYearsWickets = this.findTotal(Player.raw_json,UI.filter.years[1].Year,'wickets')
 
-       console.log(Player.raw_json, Player.career_form)
+      // console.log(Player.raw_json, Player.career_form)
       
        Goals_Runs_Average = this.CreatePodData(
             Player.raw_json,
@@ -103,7 +103,7 @@ export default class Section_Form_Guide extends React.Component {
                         title={"Beat Career Average of "+ Goals_Runs_Average[0] +' Runs a Year'}
                         value={Goals_Runs_Average[1] +' of '+Goals_Runs_Average[0]} 
                         sub={Goals_Runs_Average[3] +'% complete'}
-                        width={"col-xs-12 gradient gradient_"+Goals_Runs_Average[2] }
+                        width={"col-xs-12 goal gradient gradient_"+Goals_Runs_Average[2] }
                     />
 
 
@@ -111,11 +111,10 @@ export default class Section_Form_Guide extends React.Component {
                         title={"Beat Last years total of  "+ Goals_Batting_LastYearsRuns[0] +' Runs'}
                         value={Goals_Batting_LastYearsRuns[1] +' of '+Goals_Batting_LastYearsRuns[0]} 
                         sub={Goals_Batting_LastYearsRuns[3] +'% complete'}
-                        width={"col-xs-12 gradient gradient_"+Goals_Batting_LastYearsRuns[2] }
+                        width={"col-xs-12 goal gradient gradient_"+Goals_Batting_LastYearsRuns[2] }
                     />
-
                 </div>
             </div>
         )
       }
-  }
+  } 

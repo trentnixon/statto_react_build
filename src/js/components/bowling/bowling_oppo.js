@@ -1,6 +1,8 @@
 import React from "react";
 import Section_Header from "../global/Section_Header";
 import TeamTable from "../global/filtered_table/Table_Bowling";
+import Half_Circle from "../stage/components/Half_Circle_Top";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
 
 export default class Table_Bowling_Teams extends React.Component {
 
@@ -8,10 +10,14 @@ export default class Table_Bowling_Teams extends React.Component {
     componentWillMount(){  }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
-    
+     
     render() {
             return ( 
                 <div>
+                    <Half_Circle>
+                        <Section_Header header="Opposition" />
+                    </Half_Circle>
+                    <Content_Wrapper>
                         <TeamTable 
                             TableData={this.props.Player.opposition_stats}
                             {... this.props}
@@ -19,7 +25,7 @@ export default class Table_Bowling_Teams extends React.Component {
                             Title="Played Against"
                             NestedDisplay="Team"
                         />
-                           
+                    </Content_Wrapper>
                 </div>
              ); 
       }

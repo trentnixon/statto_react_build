@@ -21,3 +21,58 @@ ul.list.noborder{
         border: none;
     }
 }
+
+
+.ListItem{
+    @include content-pod-basic();
+    @include border-radius(3px);
+    font-family:$body_font_family;
+        button{ display: none !important;}
+        h4{
+            font-size: 1.3em;
+            margin: 0 10px 10px 0;
+            color: #383838;
+            font-family:$body_font_family;
+            border-bottom: .5px solid;
+            padding: 0 0 8px 0;
+
+            span{
+                text-align: RIGHT;
+                float: RIGHT;
+                font-size: .8em;
+                line-height: 1.3em;
+                color:$tone1;
+                i{
+                    float: left;
+                    margin-top: -2px;
+                    margin-right: 3px;
+                }
+            }
+        
+    }   
+   
+    .Secondary{
+        font-family:$body_font_family;
+        display:block !important;
+        color:white !important;
+        font-Size: .9em !important;
+       line-Height: 20px !important;
+       height:auto !important;
+       margin: 2px -10px !important;
+    }
+}
+
+.List-Of-Teams-Header{
+    @include border-radius(3px);
+    font-family:$body_font_family !important;
+    background-color: $bodyBlack !important;
+}
+
+.List-Of-Games{   
+        font-family:$body_font_family !important; background-color: #f1f1f1 !important; @include border-radius(3px); 
+            
+        i{  
+            float: right;
+            margin-top: -5px;
+        }
+}

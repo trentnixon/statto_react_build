@@ -7,55 +7,32 @@ import LinkToScoreCard from "../../scorecards/components/Link_to_Scorecard";
 
 const styles ={
     listItem:{
-        color:'#e9e9e9',
-        padding:'0 0 0 0',
-        marginBottom:0,
+        color:'#383838',
+        margin: '5px 5px 0',
+        padding: '10px',
+        backgroundColor:'white',
+        zIndex:'0',
     },
-    Secondary:{
-      display:'block', 
-      color:'white',
-      fontSize: '11px',
-      lineHeight: '20px',
-      height: 'auto',
-      margin: '2px -10px',
-    },
+    Secondary:{},
     nested:{
-      padding:'15px 4px 7px',
-      backgroundColor: 'rgba(44, 44, 44, .9)',
-      marginBottom:'20px',
-      borderBottom:'.5px solid #e9e9e9'
+      padding:'0px 7px 0px',
+      marginBottom:'10px',
     },
-    NestedlistItem:{
-
+    NestedlistItem:{ 
+       
     },
     NestedinnerDivStyle:{
-      color:'#e9e9e9',
-      fontSize:'13px',
+      color:'#383838',
+      fontSize:'.9em',
       marginLeft:0,
-      padding:'5px 15px'
+      padding:'5px 15px 0',
     },
     innerDivStyle:{
-      color:'#e9e9e9',
+      color:'#383838',
       padding:'15px 5px 7px 15px',
-      borderBottom:'.5px solid #e9e9e9'
     },
-    badge:{
-      margin: '0px 0 0 3px',
-      backgroundColor: '#5b5ebe',
-      padding: '3px 0px',
-      borderRadius: '10px',
-      fontSize: '9px',
-      fontWeight: '100',
-      position: 'absolute',
-      width: '15px',
-      height: '15px',
-      lineHeight: '1em',
-      textAlign: 'center',
-      marginTop: '-8px',
-      marginLeft: '-2px',
-    }
 }
-
+ 
 let Nested=[];
 export default class Display_Player_Settings_Home extends React.Component {
 
@@ -77,12 +54,13 @@ this.props.data.map((TableRow,i)=>{
                         key={0}
                         style={styles.NestedlistItem}
                         innerDivStyle={styles.NestedinnerDivStyle}
+                        className="List-Of-Teams-Header"
                         primaryText={
                                   <div class="row">
-                                      <div class="col-xs-7 nopadding tone2"> Team </div>
-                                      <div class="col-xs-2 nopadding tone2 text-center"> Fig</div>
-                                      <div class="col-xs-2 nopadding tone2 text-center">OB</div>
-                                      <div class="col-xs-1 nopadding tone2"> </div>
+                                      <div class="col-xs-7 nopadding white"> Team </div>
+                                      <div class="col-xs-2 nopadding white text-center"> Fig</div>
+                                      <div class="col-xs-2 nopadding white text-center">OB</div>
+                                      <div class="col-xs-1 nopadding white"> </div>
                                   </div>
                         }
                         style={styles.listItem}
@@ -95,6 +73,7 @@ this.props.data.map((TableRow,i)=>{
                         key={game.GameID+i}
                         style={styles.NestedlistItem}
                         innerDivStyle={styles.NestedinnerDivStyle}
+                        className="List-Of-Games"
                         primaryText={
                                         <div class="row">
                                               <div class="col-xs-7 nopadding "> {game[this.props.NestedDisplay]} </div>
@@ -113,16 +92,16 @@ this.props.data.map((TableRow,i)=>{
                 style={styles.listItem}
                 primaryText={
                     <div class="row">
-                        <div class="col-xs-12 nopadding"> {TableRow.Team} <span style={styles.badge} >{TableRow.bowling_inn}</span> </div>
+                        <div class="col-xs-12 nopadding"> <h4>{TableRow.Team.length > 25 ? TableRow.Team.substring(0,25)+'...' : TableRow.Team}  <span><i class="material-icons">account_circle</i> {TableRow.bowling_inn} </span>  </h4></div>
                     </div>
                 }
                 
                 secondaryText={
-                        <div class="row" style={styles.Secondary}>
-                            <div class="col-xs-3 nopadding tone1"> Wickets {TableRow.WicketsTaken} </div>
-                            <div class="col-xs-3 nopadding tone1"> EC {TableRow.EconomyRate} </div>
-                            <div class="col-xs-3 nopadding tone1"> AVG {TableRow.Bowling_Average}  </div>
-                            <div class="col-xs-3 nopadding tone1"> SR {TableRow.BowlingstrikeRate} </div>
+                        <div class="row Secondary" >
+                            <div class="col-xs-3 nopadding tone2"> {TableRow.WicketsTaken}  Wickets </div>
+                            <div class="col-xs-3 nopadding tone1"> EC : {TableRow.EconomyRate != 'Infinity' ? TableRow.EconomyRate : '*'}</div>
+                            <div class="col-xs-3 nopadding tone1"> AVG : {TableRow.Bowling_Average != 'Infinity' ? TableRow.Bowling_Average : '*'}  </div>
+                            <div class="col-xs-3 nopadding tone1"> SR : {TableRow.BowlingstrikeRate != 'Infinity' ? TableRow.BowlingstrikeRate : '*'} </div>
                         </div>
                 }
                 secondaryTextLines={2}

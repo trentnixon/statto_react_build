@@ -1,10 +1,15 @@
-
-
-
 #form_status{
+    margin: 0 8% 50px;
+    display: inline-block;
+    width: 84%;
+    padding: 0;
+
+    display: inline-block;
     h2{
-        font-size:1.1em;
-        color: $tone1;
+        font-size: 1.1em;
+    color: #fff;
+    margin: 15px 0 0;
+    line-height: 1.2em;
     }
-    p{ font-size: .9em; }
+    p{ font-size: .9em;  color: $bodyWhite; }
 }

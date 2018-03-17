@@ -15,7 +15,7 @@ class CardTitle extends React.Component {
         return(
             <div>
                 <i class="material-icons tone2 cardIcon">hdr_weak</i>
-                <h4>{this.props.title} </h4>
+                <h4>{this.props.title}</h4>
                 <p class="value">{this.props.value}</p>
                 <hr/>
             </div>
@@ -25,7 +25,7 @@ class CardTitle extends React.Component {
 
 // Sub Title
 class CardSubTitle extends React.Component {
-    render(){
+    render(){ 
         return(
             <div>
                 <p class="sub">{this.props.Sub}</p>

@@ -11,7 +11,7 @@ export default class Content_Wrapper extends React.Component {
     
     render() {
             return ( 
-                <div id="content" class="content">
+                <div id="content" class={"content " + this.props.AddClass}>
                        {this.props.children}
                 </div>
              ); 

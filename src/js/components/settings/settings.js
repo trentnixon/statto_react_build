@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Content_Wrapper from "../stage/components/Content_Wrapper";
 import Half_Circle from "../stage/components/Half_Circle_Top";
-
+ 
 import Section_Header from "../global/Section_Header";
 
 import Store_Player_As_Default from "../login/components/Login_Store_Player_As_Default";

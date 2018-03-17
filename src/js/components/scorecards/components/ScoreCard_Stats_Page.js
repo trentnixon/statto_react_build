@@ -20,7 +20,6 @@ export default class Display_Game_Stats extends React.Component {
     render() {
             return ( 
                 <div id="scorecard_Stats">
-                    <Section_Header header="The Breakdown" />
                     <Run_Rate_Comparison {... this.props} />
                     <Batting_Position_Comparison {... this.props} />
                     <Balls_Faced {... this.props}/>

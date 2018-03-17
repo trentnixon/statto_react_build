@@ -37,9 +37,9 @@ export default class Form_o_Meter extends React.Component {
            
            
             data.push(
-                {name: 'Runs',       uv: this.perc_check(perc_runs.toFixed(0)), pv:perc_runs.toFixed(0),  fill: '#5bbeba'},
-                {name: 'Average', uv: this.perc_check(perc_AVG.toFixed(0)),    pv:perc_AVG.toFixed(0),  fill: '#5b5ebe'},
-                {name: 'Strike Rate',   uv: this.perc_check(perc_SR.toFixed(0)),      pv:perc_SR.toFixed(0),   fill: '#bebb5b'},
+                {name: 'Runs',       uv: this.perc_check(perc_runs.toFixed(0)), pv:perc_runs.toFixed(0),  fill: '#dbaa8b'},
+                {name: 'Average', uv: this.perc_check(perc_AVG.toFixed(0)),    pv:perc_AVG.toFixed(0),  fill: '#73b393'},
+                {name: 'Strike Rate',   uv: this.perc_check(perc_SR.toFixed(0)),      pv:perc_SR.toFixed(0),   fill: '#b37383'},
                 {name: '',   uv: 200,      pv:200,   fill: 'transparent'},
         )
    
@@ -51,14 +51,9 @@ export default class Form_o_Meter extends React.Component {
                        
     render() {
             return ( 
-                <div>
-                        <div class="darkWrapper">
-                            <Section_Header header="Form-o-Meter" />
-                            <Section_Subheader header="Form Guide is based on a % of your current form against your career stats" />
-                        
+                <div> 
                             <Sprial_Form_o_Meter data={data} />
                             <Form_Status data={data} Name={this.props.Player.PLAYER_META.UserName} />
-                        </div>
                 </div>
              ); 
       }

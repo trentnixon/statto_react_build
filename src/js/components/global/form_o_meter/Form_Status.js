@@ -39,8 +39,8 @@ export default class Form_Status extends React.Component {
 
             return ( 
                 <div id="form_status">
+                        <h2>Analysis : Recent performances indicate that {this.props.Name} is at <span class="black"> {FormPerc.toFixed(2)} % </span> of there career stats</h2>
                         <h2>Review : {this.props.Name} is in {FormMsg}</h2>
-                        <p>Current performances indicate that {this.props.Name} is at <span class="tone2"> {FormPerc.toFixed(2)} % </span> of there career stats</p>
                 </div>
              ); 
       }

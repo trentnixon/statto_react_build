@@ -11,7 +11,7 @@ export default class Section_header extends React.Component {
     render() {
             return ( 
                 <div class="section-subheader">
-                    <h3>{this.props.header}</h3>
+                    <h3>{this.props.Icon} {this.props.header}</h3>
                 </div>  
              ); 
       }

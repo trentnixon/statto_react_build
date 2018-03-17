@@ -19,16 +19,29 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8}  textAnchor="middle" fill='#e9e9e9'>{payload.name} : {payload.value}</text>
+     <Sector
+        cx={cx}
+        cy={cy}
+        innerRadius={0}
+        outerRadius={90}
+        startAngle={0}
+        endAngle={360}
+        startAngle={startAngle}
+        endAngle={endAngle}
+        fill='#fff'
+      />
       <Sector
         cx={cx}
         cy={cy}
-        innerRadius={94}
-        outerRadius={96}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill='#e9e9e9'
+        innerRadius={95}
+        outerRadius={97}
+        startAngle={0}
+        endAngle={360}
+        fill='#fff'
       />
+       <text x={cx} y={cy} dy={8}  textAnchor="middle"  fill='#383838'>{payload.name} : {payload.value}</text>
+      
+
     </g>
   );
 };
@@ -55,7 +68,7 @@ const TwoLevelPieChart = React.createClass({
     value = parseInt(value);
     return value;
   },
-
+ 
 	render () {
 
     const data = [
@@ -69,10 +82,10 @@ const TwoLevelPieChart = React.createClass({
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape} 
                 data={data} 
-                cx={160} 
-                cy={110} 
-                innerRadius={88}
-                outerRadius={100} 
+                cx="50%" 
+                cy={100} 
+                innerRadius={0}
+                outerRadius={90}
                 fill="#5bbeba"
                 stroke='#5bbeba'
                 onMouseEnter={this.onPieEnter}

@@ -38,7 +38,6 @@ export default class Display_Dashboard extends React.Component {
                 <div>
                     <div class="row">
                         {Last3Games}
-                        Link to History (need a global link design)
                     </div>
                 </div>
              ); 

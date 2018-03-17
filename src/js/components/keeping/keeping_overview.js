@@ -1,6 +1,8 @@
 import React from "react";
 
-
+import Half_Circle from "../stage/components/Half_Circle_Top";
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+import Info_Badge from "../global/Info_Badge";
 import Section_Header from "../global/Section_Header";
 import World_ranking_circle from "../_Pages/Career/world_ranking_circle";
 import World_ranking_progression from "../_Pages/Career/World_ranking_Progression";
@@ -26,13 +28,13 @@ export default class batting_career extends React.Component {
                 title:"Catches", 
                 value:this.props.Player.career_form.Keeping_Catches,
                 sub:"", 
-                width:"col-xs-6"
+                width:"col-xs-12"
             },
             {  
                 title:"Stumpings", 
                 value:this.props.Player.career_form.keeper_Stumping,
                 sub:"", 
-                width:"col-xs-6"
+                width:"col-xs-12"
             }
         )
     }
@@ -43,14 +45,15 @@ export default class batting_career extends React.Component {
     render() {
             return ( 
                 <div>
-                    
-                    <World_ranking_circle value={this.props.Player.keeping_world_ranking[0].ranking} />
-                        
+                    <Half_Circle>
+                        <World_ranking_circle value={this.props.Player.keeping_world_ranking[0].ranking} />
+                    </Half_Circle>
+                    <Content_Wrapper>
+                    <Info_Badge Text="KEEPING" />
                         <Section_Header header="Career" />
                             <Content_Pod data={Content_1} />
-                                
-                    <World_ranking_progression Rankings = {this.props.Player.keeping_world_ranking} dataKey="ranking"  />
-                
+                        <World_ranking_progression Rankings = {this.props.Player.keeping_world_ranking} dataKey="ranking"  />
+                    </Content_Wrapper>
                 </div> 
              ); 
       }

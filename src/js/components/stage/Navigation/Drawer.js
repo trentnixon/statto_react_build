@@ -54,9 +54,10 @@ const styles = {
     ],
     Batting:[
         {title:'Overview', Link:'/batting/', icon:"account_circle"},
-        {title:'Formguide', Link:'/batting/goals', icon:"show_chart"},
+        {title:'Formguide', Link:'/batting/formguide', icon:"show_chart"},
         {title:'Runs', Link:'/batting/runs' ,icon:"directions_runs"},
         {title:'Average & Strike rate', Link:'/innings', icon:"multiline_chart"},
+        {title:'Goals', Link:'/batting/goals', icon:"gps_fixed"},
         //{title:'Dismissals', Link:'/batting/' ,icon:"sentiment_dissatisfied"},
         // {title:'Positions', Link:'/batting/' , icon:"format_list_numbered"},
         {title:'For', Link:'/batting/teams' ,icon:"people"},
@@ -64,9 +65,10 @@ const styles = {
     ],
     Bowling:[
         {title:'Overview', Link:'/bowling/',icon:"account_circle"},
-        {title:'Formguide', Link:'/bowling/goals',icon:"show_chart"},
+        {title:'Formguide', Link:'/bowling/formguide',icon:"show_chart"},
         {title:'Wickets', Link:'/bowling/wickets', icon:"transfer_within_a_station"},
         {title:'AES', Link:'/bowling/aes',icon:"multiline_chart"},
+        {title:'Goals', Link:'/bowling/goals',icon:"gps_fixedlt"},
         {title:'For', Link:'/bowling/playedfor' ,icon:"people"},
         {title:'Against', Link:'/bowling/opposition',icon:"people_outline"},
     ],

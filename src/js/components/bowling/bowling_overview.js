@@ -1,8 +1,11 @@
 import React from "react";
 
-
-import Section_Header from "../global/Section_Header";
+import Half_Circle from "../stage/components/Half_Circle_Top";
 import World_ranking_circle from "../_Pages/Career/world_ranking_circle";
+
+import Content_Wrapper from "../stage/components/Content_Wrapper";
+import Info_Badge from "../global/Info_Badge";
+import Section_Header from "../global/Section_Header";
 import World_ranking_progression from "../_Pages/Career/World_ranking_Progression";
 import Go_to_component from "../global/go_to_component";
 import Content_Pod from "../_Pages/Career/Career_Content_Pods";
@@ -29,25 +32,25 @@ export default class Bowling_Overview extends React.Component {
                 title:"Overs Bowled", 
                 value:this.props.Player.career_form.Bowling_oversBowled,
                 sub:"", 
-                width:"col-xs-6"
+                width:"col-xs-12"
             },
             {  
                 title:"Wickets Taken", 
                 value:this.props.Player.career_form.Bowling_Wickets,
                 sub:"", 
-                width:"col-xs-6"
+                width:"col-xs-12"
             },
             {  
                 title:"Runs Conceded", 
                 value:this.props.Player.career_form.Bowling_RunsConceded,
                 sub:"", 
-                width:"col-xs-6"
+                width:"col-xs-12"
             },
             {  
                 title:"Economy", 
                 value:this.props.Player.career_form.Bowling_Economy_Rate,
                 sub:"", 
-                width:"col-xs-6"
+                width:"col-xs-12"
             },
             {  
                 title:"Average", 
@@ -64,14 +67,18 @@ export default class Bowling_Overview extends React.Component {
     render() {
             return ( 
                 <div>
-                    
-                    <World_ranking_circle value={this.props.Player.bowling_world_ranking[0].ranking} />
-                        
+                    <Half_Circle>
+                        <World_ranking_circle value={this.props.Player.bowling_world_ranking[0].ranking} />
+                    </Half_Circle>    
+                    <Content_Wrapper>
+                    <Info_Badge Text="BOWLING" />
+                    <World_ranking_progression Rankings = {this.props.Player.bowling_world_ranking}   dataKey="ranking" />
+                            
                         <Section_Header header="Career" />
                             <Content_Pod data={Content_1} />
                                 
-                    <World_ranking_progression Rankings = {this.props.Player.bowling_world_ranking}   dataKey="ranking" />
-                    <FAS {... this.props} />
+                        <FAS {... this.props} />
+                    </Content_Wrapper>
                 </div> 
              ); 
       }
