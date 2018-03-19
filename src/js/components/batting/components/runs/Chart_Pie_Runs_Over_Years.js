@@ -13,9 +13,7 @@ export default class batting_runs extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-            console.log( this.props)
-            Piechart_Runs_By_Year = piechartYears(this.props.Player.filtered_json, 'Year', 'Batting_Runscored');
-           
+        Piechart_Runs_By_Year = piechartYears(this.props.Player.filtered_json, 'Year', 'Batting_Runscored'); 
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

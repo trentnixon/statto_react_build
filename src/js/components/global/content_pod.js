@@ -37,9 +37,14 @@ class CardSubTitle extends React.Component {
 class CardContent extends React.Component {
     render(){
         return(
-            <div>
-                {this.props.content}
-                [LINK]
+            <div class="row nomargin" >
+                <div class="col-xs-7">
+                    Chart in here
+                </div>
+                <div class="col-xs-5">
+                    {this.props.content}
+                    [LINK]
+                </div>
             </div>
         )
     }
@@ -69,7 +74,10 @@ export default class Display_Content_Pod extends React.Component {
                                 className="Contentpod-Header"
                             />
     
-                            <CardText expandable={true}><CardContent content={this.props.content}/> </CardText>
+                            <CardText expandable={true}>
+                                <CardContent content={this.props.content}/>     
+                            </CardText>
+
                         </Card>
                     </MuiThemeProvider>    
                 </div>    

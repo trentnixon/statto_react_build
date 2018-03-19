@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import  {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer} from 'recharts';
 
 
-let data=[], SelectTheme='Light', Theme;
+let data=[], SelectTheme='Dark', Theme;
 @connect((store) =>{
     return{
         UI: store.UI,
@@ -21,10 +21,10 @@ export default class Simple_Line_Chart extends React.Component {
 	render () {
   	return (
         <ResponsiveContainer width='100%' height={200}>
-        <LineChart 
-            data={data}
-            margin={{top: 20, right: 0, left: -15, bottom: 5}}
-        >
+            <LineChart 
+                data={data}
+                margin={{top: 20, right: 0, left: -15, bottom: 5}}
+            >
             
             <XAxis dataKey="Year" stroke={Theme.axis}/>
             <YAxis  stroke={Theme.axis} />

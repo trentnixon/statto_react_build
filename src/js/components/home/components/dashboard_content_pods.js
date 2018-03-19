@@ -5,15 +5,9 @@ import Content_Pod from "../../global/content_pod";
 export default class Display_Dashboard extends React.Component {
 
     constructor() { super();  }
-    
-    componentWillMount(){ 
-           // console.log(this.props.Player)
-    }
-    
+    componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-          //  console.log(nextProps.Player.PLAYER_META.GAME_COUNT) 
-       }
+    componentWillUpdate(nextProps, nextState){ }
     
     render() {
             return ( 
@@ -32,6 +26,8 @@ export default class Display_Dashboard extends React.Component {
                         value={this.props.Player.career_form.Batting_Total_Runs}
                         sub="up from" 
                         width="col-xs-12"
+                        content=""
+                        Link="/rus" 
                     />
 
                     <Content_Pod 
