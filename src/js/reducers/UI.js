@@ -41,7 +41,44 @@ const InitialState ={
 	breadcrumbs:{
 		parent:'Home',
 		child:false
+	},
+	Themes:{
+		Dark:{
+			colors:['#88acd8',  '#73b393','#dbaa8b', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
+			axis:'#383838',
+			label:{
+				color:'#383838',
+			},
+			Tooltip:{
+				wrapper:{ 
+					backgroundColor:'rgba(44, 44, 44, .5)',
+					borderColor:'transparent',
+					borderRadius:'5px',
+				},
+				label:{
+					color:'#fff',
+				},
+				Style:{color:'#fff',}
+			}
+		},
+		Light:{
+			colors:['#88acd8', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
+			axis:'#fff',
+			label:'#383838',
+			Tooltip:{
+				wrapper:{ 
+					backgroundColor:'rgba(44, 44, 44, .5)',
+					borderColor:'transparent',
+					borderRadius:'5px',
+				},
+				label:{
+					color:'#fff',
+				},
+				Style:{color:'#fff',}
+			}
+		}
 	}
+
 }
 
 const User_reducer = (state=InitialState, action) =>{

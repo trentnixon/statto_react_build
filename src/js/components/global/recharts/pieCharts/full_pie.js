@@ -5,28 +5,23 @@
  */
 
 import React from "react";
+import { connect } from "react-redux";
 import  {PieChart, Pie, Legend,Sector, Cell,ResponsiveContainer,Tooltip} from 'recharts';
 
-const COLORS = ['#88acd8', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'];
-
-const styles ={
-    wrapper:{
-        backgroundColor:'rgba(44, 44, 44, .5)',
-        borderColor:'transparent',
-        borderRadius:'5px',
-    },
-    Piewrapper:{
-    },
-    label:{color:'white', },
-    item:{color:'white',  }
-}
-
 const RADIAN = Math.PI / 180;  
-let data=[];
+let data=[], SelectTheme='Dark', Theme;
+
+@connect((store) =>{
+    return{
+        UI: store.UI,
+    }
+})
+
 export default class PieChart_Semi extends React.Component {
     componentWillMount(){ 
         data=[];
-      //  console.log('New Data ', this.props.data);
+        if(this.props.Theme){ SelectTheme = this.props.Theme;}
+        Theme = this.props.UI.Themes[SelectTheme];
      }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
@@ -51,16 +46,16 @@ export default class PieChart_Semi extends React.Component {
                             margin={{top: 20, right: 0, left: 0, bottom: 20}}
                             >
                                 {
-                                data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
+                                data.map((entry, index) => <Cell key={index} fill={Theme.colors[index % Theme.colors.length]}/>)
                             }
                             </Pie>  
                             <Tooltip
-                                offset={0} 
-                                wrapperStyle={styles.wrapper}
-                                labelStyle={styles.label}
-                                itemStyle={styles.item}
+                                offset={20} 
+                                wrapperStyle={Theme.Tooltip.wrapper}
+                                labelStyle={Theme.Tooltip.label}
+                                itemStyle={Theme.Tooltip.Style}
                             />  
-                            <Legend wrapperStyle={styles.Piewrapper} verticalAlign="bottom" iconType="circle" align="center"/>   
+                            <Legend  verticalAlign="bottom" iconType="circle" align="center"/>   
                     </PieChart>
             </ResponsiveContainer>
             );

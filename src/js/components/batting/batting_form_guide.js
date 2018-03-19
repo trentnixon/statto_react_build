@@ -75,7 +75,7 @@ export default class Batting_Goals extends React.Component {
     
 
     render() {
-            if(this.props.Player.form_guide.Batting_Innings_Count > 1){
+            if(this.props.Player.form_guide.Batting_Innings_Count != false){
             return ( 
                 <div>
                         <Half_Circle >

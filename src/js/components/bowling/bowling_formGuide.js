@@ -24,7 +24,7 @@ export default class batting_runs extends React.Component {
     componentWillUpdate(nextProps, nextState){}
     
     render() {
-        if(this.props.Player.form_guide.Bowling_Innings_Count > 1){
+        if(this.props.Player.form_guide.Bowling_Innings_Count != false){
             return ( 
                 <div>
                     <Half_Circle>

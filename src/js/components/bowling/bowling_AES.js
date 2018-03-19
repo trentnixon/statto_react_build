@@ -24,7 +24,7 @@ export default class batting_runs extends React.Component {
             return ( 
             <div>
                 <Half_Circle>
-                    <Triple_Line {...this.props} />
+                    <Triple_Line {...this.props}  Theme="Light" />
                 </Half_Circle>
                 
                 <Content_Wrapper>

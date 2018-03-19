@@ -25,7 +25,11 @@ export default class Batting_Career_World_Ranking_Progression extends React.Comp
             <div>
                 <div class="darkWrapper">
                     <Section_Header header="World Ranking Progression"  />
-                    <Simple_Line Data={this.props.Rankings} dataKey={this.props.dataKey}  />
+                    <Simple_Line 
+                        Data={this.props.Rankings} 
+                        dataKey={this.props.dataKey}  
+                        Theme='Dark'
+                    />
                     
                 </div>
                 <div class="row"> 

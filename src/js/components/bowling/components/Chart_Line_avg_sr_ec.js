@@ -60,6 +60,7 @@ export default class batting_runs extends React.Component {
                         dataKey2="Economy" 
                         dataKey3="StrikeRate" 
                         axisColor="#fff"
+                        Theme={this.props.Theme}
                     />
                 </div>
              ); 

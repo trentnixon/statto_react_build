@@ -1,23 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 import  {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer} from 'recharts';
 
-let data=[];
-
-const styles ={
-    wrapper:{
-        backgroundColor:'rgba(44, 44, 44, .5)',
-        borderColor:'transparent',
-        borderRadius:'5px',
-    },
-    label:{
-        color:'#383838',
-    },
-    item:{ }
-}
+let data=[], SelectTheme='Dark', Theme;
+@connect((store) =>{
+    return{
+        UI: store.UI,
+    }
+})
 export default class Simple_Line_Chart extends React.Component {
     componentWillMount(){ 
         data=[];
-        
+        if(this.props.Theme){ SelectTheme = this.props.Theme;}
+        Theme = this.props.UI.Themes[SelectTheme];
     }
 
 	render () {
@@ -29,20 +24,20 @@ export default class Simple_Line_Chart extends React.Component {
             margin={{top: 20, right: 0, left: -25, bottom: 20}}
         >
             
-            <XAxis dataKey="Year" stroke="#383838"/>
-            <YAxis  stroke="#383838" />
+            <XAxis dataKey="Year" stroke={Theme.axis}/>
+            <YAxis  stroke={Theme.axis} />
             
             <Tooltip
                 offset={20} 
-                wrapperStyle={styles.wrapper}
-                labelStyle={styles.label}
-                itemStyle={styles.item}
+                wrapperStyle={Theme.Tooltip.wrapper}
+                labelStyle={Theme.Tooltip.label}
+                itemStyle={Theme.Tooltip.Style}
             />
 
                 <Legend verticalAlign="top" iconType="circle" align="right"/>
 
-                <Line type="natural" dataKey={this.props.dataKey1} stroke="#88acd8" dot={false} />
-                <Line type="natural" dataKey={this.props.dataKey2} stroke="#73b393" dot={false} />
+                <Line type="natural" dataKey={this.props.dataKey1} stroke={Theme.colors[0]} dot={false} />
+                <Line type="natural" dataKey={this.props.dataKey2} stroke={Theme.colors[1]} dot={false} />
                 
       </LineChart>
       </ResponsiveContainer>

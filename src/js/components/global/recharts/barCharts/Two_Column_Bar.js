@@ -1,22 +1,20 @@
 import React from "react";
+import { connect } from "react-redux";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer} from 'recharts';
 
-const styles ={
-    wrapper:{
-        backgroundColor:'rgba(44, 44, 44, .5)',
-        borderColor:'transparent',
-        borderRadius:'5px',
-    },
-    label:{
-        color:'white',
-    },
-    item:{ }
-}
-let data=[];
+
+let data=[], SelectTheme='Dark', Theme;
+@connect((store) =>{
+    return{
+        UI: store.UI,
+    }
+})
 export default class Two_Column_Bar_Chart extends React.Component {
     componentWillMount(){ 
         data=[];
         data = this.props.data;
+        if(this.props.Theme){ SelectTheme = this.props.Theme;}
+        Theme = this.props.UI.Themes[SelectTheme];
      }
     render () {
   	return (
@@ -27,16 +25,17 @@ export default class Two_Column_Bar_Chart extends React.Component {
                     barGap={2}
                     barCategoryGap={5}
             >
-            <XAxis dataKey="name" stroke="#383838"/>
-            <YAxis stroke="#383838"/>
+            <XAxis dataKey="name" stroke={Theme.axis}/>
+            <YAxis stroke={Theme.axis}/>
                 
-                <Tooltip offset={20} 
-                    wrapperStyle={styles.wrapper}
-                    labelStyle={styles.label}
-                    itemStyle={styles.item}
+                <Tooltip 
+                    offset={20} 
+                    wrapperStyle={Theme.Tooltip.wrapper}
+                    labelStyle={Theme.Tooltip.label}
+                    itemStyle={Theme.Tooltip.Style}
                 />
-                <Bar dataKey="First" fill="#88acd8" />
-                <Bar dataKey="Second" fill="#dbaa8b" />
+                <Bar dataKey="First" fill={Theme.colors[0]} />
+                <Bar dataKey="Second" fill={Theme.colors[1]} />
             
             </BarChart>
         </ResponsiveContainer>

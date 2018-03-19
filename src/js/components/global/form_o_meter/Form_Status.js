@@ -10,9 +10,14 @@ export default class Form_Status extends React.Component {
 
         FormPerc=0;
         perc_Base=0
+        
+        console.log(this.props.data);
+
         this.props.data.map((perc,i)=>{ 
             if(perc.name.length>0){
-                FormPerc = parseFloat(FormPerc) + parseFloat(perc.pv); 
+                FormPerc = parseFloat(FormPerc) + parseFloat(perc.uv); 
+
+                console.log(perc.name+ ' FormPerc '+ FormPerc)
                 perc_Base ++;
             }
         })

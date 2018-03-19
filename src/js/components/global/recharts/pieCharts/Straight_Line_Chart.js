@@ -5,15 +5,23 @@
  */
 
 import React from "react";
+import { connect } from "react-redux";
 import  {PieChart, Pie, Legend,Sector, Cell,ResponsiveContainer,Tooltip} from 'recharts';
 
-const COLORS = ['#88acd8', '#dbaa8b', '#73b393', '#b37383']; 
 
 const RADIAN = Math.PI / 180;  
-let data;
+let data, SelectTheme='Dark', Theme;
+
+@connect((store) =>{
+    return{
+        UI: store.UI,
+    }
+})
 export default class PieChart_Semi extends React.Component {
     componentWillMount(){ 
         data = this.props.data;
+        if(this.props.Theme){ SelectTheme = this.props.Theme;}
+        Theme = this.props.UI.Themes[SelectTheme];
      }
     render () {
         return (
@@ -33,10 +41,15 @@ export default class PieChart_Semi extends React.Component {
                             label={true}
                             >
                                 {
-                                data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
+                                data.map((entry, index) => <Cell key={index} fill={Theme.colors[index % Theme.colors.length]}/>)
                             }
                             </Pie>  
-                            <Tooltip/>     
+                            <Tooltip
+                                offset={20} 
+                                wrapperStyle={Theme.Tooltip.wrapper}
+                                labelStyle={Theme.Tooltip.label}
+                                itemStyle={Theme.Tooltip.Style}
+                            />    
                     </PieChart>
             </ResponsiveContainer>
             );

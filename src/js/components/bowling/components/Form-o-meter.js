@@ -11,12 +11,9 @@ export default class Form_o_Meter extends React.Component {
     constructor() { super();  }
     
     perc_check(perc){
-      /*  if(perc > 100){
-            return 100
-        }
-        else{
-            
-        }*/
+
+        perc == 'Infinity' ? perc = 0:perc = perc;
+        console.log(perc);
         return perc;
     }
 
