@@ -62,7 +62,7 @@ const InitialState ={
 			}
 		},
 		Light:{
-			colors:['#88acd8', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
+			colors:['#996b4e', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
 			axis:'#fff',
 			label:'#383838',
 			Tooltip:{

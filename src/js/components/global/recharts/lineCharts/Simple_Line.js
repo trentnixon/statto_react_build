@@ -23,7 +23,7 @@ export default class Simple_Line_Chart extends React.Component {
         <ResponsiveContainer width='100%' height={200}>
         <LineChart 
             data={data}
-            margin={{top: 20, right: 0, left: -25, bottom: 5}}
+            margin={{top: 20, right: 0, left: -15, bottom: 5}}
         >
             
             <XAxis dataKey="Year" stroke={Theme.axis}/>

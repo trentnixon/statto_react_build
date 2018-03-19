@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import  {Radar, RadarChart, PolarGrid, Legend,
          PolarAngleAxis, PolarRadiusAxis,ResponsiveContainer,Tooltip} from 'recharts';
-
-k
+         
 let  SelectTheme='Dark', Theme;
 @connect((store) =>{
     return{

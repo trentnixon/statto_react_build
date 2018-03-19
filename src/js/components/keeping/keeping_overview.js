@@ -1,8 +1,10 @@
 import React from "react";
 
 import Half_Circle from "../stage/components/Half_Circle_Top";
+import Pie_vs_Line from "../_Pages/Career/Pie_vs_Line_Header";    
 import Content_Wrapper from "../stage/components/Content_Wrapper";
 import Info_Badge from "../global/Info_Badge";
+import World_Ranking_Figures from "../_Pages/Career/World_ranking_Figures";
 import Section_Header from "../global/Section_Header";
 import World_ranking_circle from "../_Pages/Career/world_ranking_circle";
 import World_ranking_progression from "../_Pages/Career/World_ranking_Progression";
@@ -46,13 +48,19 @@ export default class batting_career extends React.Component {
             return ( 
                 <div>
                     <Half_Circle>
-                        <World_ranking_circle value={this.props.Player.keeping_world_ranking[0].ranking} />
+                     <Pie_vs_Line 
+                            {... this.props}
+                            Pie={this.props.Player.keeping_world_ranking[0].ranking}
+                            Line={this.props.Player.keeping_world_ranking}
+                            dataKey="ranking"
+                        />
                     </Half_Circle>
                     <Content_Wrapper>
                     <Info_Badge Text="KEEPING" />
+                        <World_Ranking_Figures Rankings={this.props.Player.keeping_world_ranking}/>
+      
                         <Section_Header header="Career" />
                             <Content_Pod data={Content_1} />
-                        <World_ranking_progression Rankings = {this.props.Player.keeping_world_ranking} dataKey="ranking"  />
                     </Content_Wrapper>
                 </div> 
              ); 

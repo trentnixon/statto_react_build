@@ -1,8 +1,7 @@
 import React from "react";
 
 import  {PieChart, Pie, Sector,ResponsiveContainer} from 'recharts';
-
-
+ 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
@@ -77,7 +76,7 @@ const TwoLevelPieChart = React.createClass({
 
   	return (
         <ResponsiveContainer width='100%' height={250}>
-    	<PieChart >
+    	  <PieChart >
             <Pie 
                 activeIndex={this.state.activeIndex}
                 activeShape={renderActiveShape} 
