@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "../../global/wrapper";
 import Section_Header from "../../global/Section_Header";
 import Simple_Line from "../../global/recharts/lineCharts/Simple_Line";
-import Content_Pod from "../../global/content_pod";
+import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
 let current, best=99999, worst=0;
 export default class Batting_Career_World_Ranking_Progression extends React.Component {

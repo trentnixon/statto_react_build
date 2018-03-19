@@ -162,6 +162,7 @@ export function calculate_team_stats(data, filter){
 export function AES(data,career_form){
 	//console.log("Collect Years");
 	let LogYears=[],returnThis=[], returnArray=[];
+	let notout_arr=[], Ducks_arr=[];
    
     data.map((game,i)=>{
         if(LogYears.indexOf(game.Year) == '-1')
@@ -183,9 +184,11 @@ export function AES(data,career_form){
 while(i < length){
     let bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
 	let batting_inn=0, BallsFaced=0,Batting_Runs=0, Batting_Average=0, notOuts=0,Batting_StrikeRate=0;
-        data.map((game,t)=>{
+	let Batting_Ducks=0,Batting_teen=0,Batting_20=0,Batting_30=0,Batting_40=0,Batting_50=0,Batting_100=0;
+	   
+	data.map((game,t)=>{
 			
-			//console.log(LogYears[i]);
+			// console.log(LogYears[i]);
 			
 			if(game.Year == LogYears[i])
                 {
@@ -223,15 +226,27 @@ while(i < length){
 				
 				
 				if(game.DNB == 'false'){
-				//	console.log(game);
+					   // console.log(game);
 						batting_inn++;
 
 						Batting_runs_and_balls.push({'Year':LogYears[i], Runs:game.Runs_Bare, Balls:game.Batting_BallsFaced_Int})
 						BallsFaced = BallsFaced + game.Batting_BallsFaced_Int;
 						Batting_Runs = Batting_Runs + game.Runs_Bare;
 						
-						if(game.notout == 'true'){ notOuts++;}
-					
+						if(game.notout == 'true'){ 
+								notOuts++;
+								notout_arr.push(game)
+							}
+						if(game.Runs_Bare == 0 && game.notout == 'false'){
+								Batting_Ducks++;
+								Ducks_arr.push(game)
+							}
+						if(game.Runs_Bare>9 && game.Runs_Bare<20){Batting_teen++;}
+						if(game.Runs_Bare>19 && game.Runs_Bare<30){Batting_20++;}
+						if(game.Runs_Bare>29 && game.Runs_Bare<40){Batting_30++;}
+						if(game.Runs_Bare>39 && game.Runs_Bare<50){Batting_40++;}
+						if(game.Runs_Bare>49 && game.Runs_Bare<99){Batting_50++;}
+						if(game.Runs_Bare>99){Batting_100++;}
 					}
 				}
             })
@@ -245,7 +260,7 @@ while(i < length){
             EconomyRate = RunsConceded/OversBowled;
 		    BowlingstrikeRate = (OversBowled * 5) /WicketsTaken;
             Bowling_Average= RunsConceded/WicketsTaken;
-        
+		
             returnThis.push({
                 'Wickets':WicketsTaken, 
                 'Year':LogYears[i],
@@ -255,6 +270,13 @@ while(i < length){
 				'Batting_Innings':batting_inn,
 				'Batting_Balls_Faced':BallsFaced,
 				'Batting_Notout':notOuts,
+				'Batting_Ducks':Batting_Ducks,
+				'Batting_teen':Batting_teen,
+				'Batting_20':Batting_20,
+				'Batting_30':Batting_30,
+				'Batting_40':Batting_40,
+				'Batting_50':Batting_50,
+				'Batting_100':Batting_100,
 				'Batting_Runs':Batting_Runs,
 				'Batting_Average':Batting_Average.toFixed(2),
 				'Batting_StrikeRate':Batting_StrikeRate.toFixed(2)
@@ -263,13 +285,24 @@ while(i < length){
             i++
        } 
 	  
-	   console.log(returnThis,LineAve,LineEco);
+/**
+		* List Arrangements
+	   * Would liek to do this differently
+	   * 
+		0= notouts
+		1= ducks
+
+	*/
+	   
 	   returnArray=[
 			returnThis,
 			LineAve,
 			LineEco,
 			LineSR,
 			Batting_runs_and_balls,
+			[notout_arr,Ducks_arr]
 	   ]
+
+	   console.log(returnArray);
 	   store.dispatch({ type:"PLAYER_OVER_THE_YEARS", payload:returnArray });
 }

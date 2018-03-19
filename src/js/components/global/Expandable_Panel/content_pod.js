@@ -1,0 +1,52 @@
+import React from "react";
+
+import Fade from 'react-reveal/Fade';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+
+import Expandable_Title from "./Expandable_Title";
+import Expandable_SubTitle from "./Expandable_SubTitle";
+import Expandable_Content from "./Expandable_Content";
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+export default class Display_Content_Pod extends React.Component {
+
+    constructor() { super();  }
+    
+    componentWillMount(){  }
+    shouldComponentUpdate(nextProps, nextState){ return true;}
+    componentWillUpdate(nextProps, nextState){ }
+    
+    render() {
+            return ( 
+                <Fade bottom>
+                <div class={ 'contentpod-item '+ this.props.width}>
+                    <MuiThemeProvider>
+                        <Card 
+                            className="Contentpod-Card"
+                        >
+                            <CardHeader
+                                title = {<Expandable_Title title={this.props.title} value={this.props.value} />} 
+                                subtitle={<Expandable_SubTitle Sub={this.props.sub} />}
+                                actAsExpander={true}
+                                showExpandableButton={false}
+                                className="Contentpod-Header"
+                            />
+    
+                            <CardText expandable={true}>
+                                <Expandable_Content 
+                                    content={this.props.content}
+                                    data={this.props.data}
+                                    filter={this.props.filter}
+                                    Link={this.props.Link}
+                                    List={this.props.List}
+                                    type={this.props.type}
+                                />     
+                            </CardText>
+                        </Card>
+                    </MuiThemeProvider>    
+                </div>    
+                </Fade>
+             ); 
+      }
+  }

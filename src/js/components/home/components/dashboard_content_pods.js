@@ -1,6 +1,6 @@
 import React from "react";
 
-import Content_Pod from "../../global/content_pod";
+import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
 export default class Display_Dashboard extends React.Component {
 

@@ -2,7 +2,7 @@ import React from "react";
 
 import Section_Header from "../../global/Section_Header";
 import Section_Subheader from "../../global/Section_Subheader";
-import Content_Pod from "../../global/content_pod";
+import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
 let Goals_Batting_LastYearsRuns=[],Goals_Average_50s=[],Goals_Runs_Average=[];
 let LastYearsRuns=0;

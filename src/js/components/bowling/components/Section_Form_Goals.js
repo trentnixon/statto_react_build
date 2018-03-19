@@ -2,7 +2,7 @@ import React from "react";
 
 import Section_Header from "../../global/Section_Header";
 import Section_Subheader from "../../global/Section_Subheader";
-import Content_Pod from "../../global/content_pod";
+import Content_Pod from "../../global/Expandable_Panel/content_pod";
 let Goals_Wickets_Average=[],Goals_Last_Years_Total=[],Goals_Runs_Average=[];
 let LastYearsWickets=0;
 export default class Section_Form_Guide extends React.Component {

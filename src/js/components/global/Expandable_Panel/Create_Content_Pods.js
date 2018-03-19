@@ -10,25 +10,26 @@ export default class Carrer_Content_Pods extends React.Component {
     
     render() {
             return ( 
-                <div>
                      <div class="row">
                         {
                             this.props.data.map((pods,i)=>{
                                 return(
-                                    
                                     <Content_Pod 
                                         key={i} 
                                         title={pods.title}
                                         value={pods.value}
                                         sub={pods.sub} 
                                         width={pods.width}
-                                        
+                                        data={pods.data}
+                                        filter={pods.filter}
+                                        Link={pods.Link}
+                                        List={pods.list}
+                                        type={pods.type}
                                     />
                                 )
                             })
                         }
                      </div>
-                </div>
              ); 
       }
   }

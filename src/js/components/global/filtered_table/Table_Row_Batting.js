@@ -44,7 +44,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     render() {
             return ( 
-                <div> 
+                <div>  
 { 
 this.props.data.map((TableRow,i)=>{
         

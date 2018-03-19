@@ -1,7 +1,7 @@
 import React from "react";
 import Section_Header from "../../global/Section_Header";
 
-import Content_Pod from "../../global/content_pod";
+import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
 let two=0,three=0,four=0,five=0,six=0,seven=0;
 export default class Bowling_fas extends React.Component {

@@ -19,7 +19,7 @@ export default class batting_runs extends React.Component {
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     
-    render() {
+    render() { 
     
             return ( 
             <div>
