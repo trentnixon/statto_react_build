@@ -12,7 +12,7 @@ export default class Expandable_Link extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-        Display_Link='>';
+        Display_Link='';
         if(this.props.Link){ Display_Link = 
             <div class="col-xs-12 nopadding Expandable_Click_through">
                 <Link to={this.props.Link}>

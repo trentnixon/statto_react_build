@@ -17,17 +17,17 @@ export default class Expandable_List extends React.Component {
                                 <div class="col-xs-7 nopadding "> {game.Opposition} </div>
                                 <div class="col-xs-2 nopadding text-center"> {game.Batting_Runscored}</div>
                                 <div class="col-xs-2 nopadding text-center">{game.Batting_BallsFaced}</div>
-                                <div class="col-xs-1 nopadding text-center"> <Link_to_Scorecard ID={game.GameID}/> </div>
+                                <div class="col-xs-1 nopadding text-center"><Link_to_Scorecard ID={game.GameID}/> </div>
                             </div>                  
                         )
                     }
                     else if(this.props.type == 'bowling'){
                         return(
                             <div key={i}  class="row List-Of-Games">
-                                <div class="col-xs-7 nopadding "> {game.Opposition} </div>
-                                <div class="col-xs-2 nopadding text-center"> {game.Bowling_Figures}</div>
+                                <div class="col-xs-7 nopadding ">{game.Opposition}</div>
+                                <div class="col-xs-2 nopadding text-center">{game.Bowling_Figures}</div>
                                 <div class="col-xs-2 nopadding text-center">{game.Bowling_OversBowled}</div>
-                                <div class="col-xs-1 nopadding text-center"> <Link_to_Scorecard ID={game.GameID}/> </div>
+                                <div class="col-xs-1 nopadding text-center"><Link_to_Scorecard ID={game.GameID}/></div>
                             </div>
                         )
                     }

@@ -22,7 +22,7 @@ export default class Expandable_Pie extends React.Component {
     
     render() {
             return ( 
-                <div>  {Display_Pie} </div>
+                <div> {Display_Pie} </div>
              ); 
       }
   }

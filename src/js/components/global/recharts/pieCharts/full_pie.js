@@ -32,7 +32,7 @@ export default class PieChart_Semi extends React.Component {
         data = this.props.data;
         return ( 
             <ResponsiveContainer width='100%' height={250}>
-                    <PieChart >
+                    <PieChart>
                         <Pie
                             data={data} 
                             cx="50%" 
@@ -44,18 +44,18 @@ export default class PieChart_Semi extends React.Component {
                             paddingAngle={3}
                             label={true}
                             margin={{top: 20, right: 0, left: 0, bottom: 20}}
-                            >
+                        >
                                 {
                                 data.map((entry, index) => <Cell key={index} fill={Theme.colors[index % Theme.colors.length]}/>)
                             }
-                            </Pie>  
-                            <Tooltip
+                        </Pie>  
+                        <Tooltip
                                 offset={20} 
                                 wrapperStyle={Theme.Tooltip.wrapper}
                                 labelStyle={Theme.Tooltip.label}
                                 itemStyle={Theme.Tooltip.Style}
-                            />  
-                            <Legend wrapperStyle={Theme.Legend} verticalAlign="bottom" iconType="circle" align="center"/>   
+                        />  
+                        <Legend wrapperStyle={Theme.Legend} verticalAlign="bottom" iconType="circle" align="center"/>   
                     </PieChart>
             </ResponsiveContainer>
             );
