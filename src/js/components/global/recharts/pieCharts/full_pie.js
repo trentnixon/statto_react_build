@@ -55,7 +55,7 @@ export default class PieChart_Semi extends React.Component {
                                 labelStyle={Theme.Tooltip.label}
                                 itemStyle={Theme.Tooltip.Style}
                             />  
-                            <Legend  verticalAlign="bottom" iconType="circle" align="center"/>   
+                            <Legend wrapperStyle={Theme.Legend} verticalAlign="bottom" iconType="circle" align="center"/>   
                     </PieChart>
             </ResponsiveContainer>
             );

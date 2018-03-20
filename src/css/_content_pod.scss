@@ -6,6 +6,15 @@
 .contentpod-item{
     padding: 0px !important;
   
+    .card_active{
+        background-color: $bodyBlack !important;
+
+        .Contentpod-Header{ 
+            h4{ color: $bodyWhite;}
+            p.value{  color: $bodyWhite;}
+        }
+    }
+
     >div{
         @include content-pod-basic();
         //@include border-radius(3px);
@@ -54,7 +63,25 @@
             }
     }
 
-    
+    .content_list{
+        .Expandable_Chart{
+            margin: -20px 0 25px;
+        }
+
+        .List-Of-Games{
+            clear: both;
+            margin: 2px -15px;
+            padding: 7px;
+            background-color: $tone1 !important;
+            color: #fff;
+            i{
+                margin-top: -1px;
+            }
+            i.tone3{
+                color:#fff;
+            }
+        }
+    }
 }
 
 

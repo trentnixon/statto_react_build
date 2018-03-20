@@ -34,7 +34,7 @@ export default class Simple_Line_Chart extends React.Component {
                 itemStyle={Theme.Tooltip.Style}
             />
 
-                <Legend verticalAlign="top" iconType="circle" align="right"/>
+                <Legend verticalAlign="top" wrapperStyle={Theme.Legend} iconType="circle" align="right"/>
 
                 <Line type="natural" dataKey={this.props.dataKey1} stroke={Theme.colors[0]} dot={false} />
                 <Line type="natural" dataKey={this.props.dataKey2} stroke={Theme.colors[1]} dot={false} />

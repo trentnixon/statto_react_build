@@ -38,6 +38,8 @@ export default class Overview_Achievement_List extends React.Component {
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Batting_teen',
+                list:this.props.Player.over_the_years[5][2],
+                type:'batting'
             },
             {
                 title:"20's", 
@@ -46,6 +48,8 @@ export default class Overview_Achievement_List extends React.Component {
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Batting_20',
+                list:this.props.Player.over_the_years[5][3],
+                type:'batting'
             },
             {
                 title:"30's", 
@@ -54,6 +58,8 @@ export default class Overview_Achievement_List extends React.Component {
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Batting_30',
+                list:this.props.Player.over_the_years[5][4],
+                type:'batting'
             },
             {
                 title:"40's", 
@@ -62,6 +68,8 @@ export default class Overview_Achievement_List extends React.Component {
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Batting_40',
+                list:this.props.Player.over_the_years[5][5],
+                type:'batting'
             },
             {
                 title:"50's", 
@@ -70,6 +78,8 @@ export default class Overview_Achievement_List extends React.Component {
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Batting_50',
+                list:this.props.Player.over_the_years[5][6],
+                type:'batting'
             },
             {
                 title:"100's", 
@@ -78,6 +88,8 @@ export default class Overview_Achievement_List extends React.Component {
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Batting_100',
+                list:this.props.Player.over_the_years[5][7],
+                type:'batting'
             },
         )
     }

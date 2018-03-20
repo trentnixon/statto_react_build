@@ -30,7 +30,7 @@ export default class Radial_Two_Part extends React.Component {
                     labelStyle={Theme.Tooltip.label}
                     itemStyle={Theme.Tooltip.Style}
             />
-            <Legend verticalAlign="top" iconType="circle" align="right"/>
+            <Legend verticalAlign="top" wrapperStyle={Theme.Legend} iconType="circle" align="right"/>
             <PolarAngleAxis dataKey="year" stroke={Theme.axis} fill={Theme.axis} />
             </RadarChart>
         </ResponsiveContainer>

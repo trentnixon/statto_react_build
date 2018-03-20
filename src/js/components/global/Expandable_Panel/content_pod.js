@@ -11,8 +11,17 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class Display_Content_Pod extends React.Component {
 
-    constructor() { super();  }
+    constructor() { super(); 
+        this.state = {
+        cardStatus: false
+     } }
     
+     clickHandle(){
+         // console.log(this.state.cardStatus)
+         if(this.state.cardStatus == false){this.setState({cardStatus:true}); }
+         else{this.setState({cardStatus:false}); }
+    }
+
     componentWillMount(){  }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
@@ -24,6 +33,8 @@ export default class Display_Content_Pod extends React.Component {
                     <MuiThemeProvider>
                         <Card 
                             className="Contentpod-Card"
+                            onExpandChange={() => this.clickHandle()}
+                            className={this.state.cardStatus == true ? 'card_active': 'not'}
                         >
                             <CardHeader
                                 title = {<Expandable_Title title={this.props.title} value={this.props.value} />} 

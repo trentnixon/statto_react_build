@@ -22,12 +22,11 @@ export default class Expandable_Content extends React.Component {
             })
         }
 
-        if(data.length > 0){Display_Pie = <div class="col-xs-12"><Full_Pie data={data}/></div>}
+        if(data.length > 0){Display_Pie = <div class="col-xs-12 Expandable_Chart"><Full_Pie data={data} Theme="Light" /></div>}
         if(this.props.Link){ Display_Link = <div class="col-xs-12">[LINK]</div>}
         if(this.props.List){
             if(this.props.List.length > 0){
                 Display_List = this.props.List.map((game,i)=>{
-                    console.log(game)
                     if(this.props.type == 'batting'){
                         return(
                             <div key={i}  class="row List-Of-Games">
@@ -59,7 +58,7 @@ export default class Expandable_Content extends React.Component {
     
     render() {
             return ( 
-                <div class="row nomargin" >
+                <div class="row nomargin content_list" >
                     {Display_Link}                
                     {Display_Pie}
                     {Display_List}

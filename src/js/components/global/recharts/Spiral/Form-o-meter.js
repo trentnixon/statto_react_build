@@ -43,7 +43,7 @@ export default class Form_o_Meter extends React.Component {
            
           <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={90} />
           <RadialBar minAngle={0}  maxAngle={180} label={{fill:'#fff'}} background={{ fill: 'transparent' }} clockWise={true} dataKey='uv'/>
-            <Legend  verticalAlign="bottom" iconType="circle" align="center" />
+            <Legend  wrapperStyle={Theme.Legend} verticalAlign="bottom" iconType="circle" align="center" />
           </RadialBarChart>
         </ResponsiveContainer>
       );

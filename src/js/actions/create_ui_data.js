@@ -162,7 +162,7 @@ export function calculate_team_stats(data, filter){
 export function AES(data,career_form){
 	//console.log("Collect Years");
 	let LogYears=[],returnThis=[], returnArray=[];
-	let notout_arr=[], Ducks_arr=[];
+	let notout_arr=[], Ducks_arr=[], arr_teen=[], arr_20=[], arr_30=[], arr_40=[], arr_50=[], arr_100=[];
    
     data.map((game,i)=>{
         if(LogYears.indexOf(game.Year) == '-1')
@@ -241,12 +241,18 @@ while(i < length){
 								Batting_Ducks++;
 								Ducks_arr.push(game)
 							}
-						if(game.Runs_Bare>9 && game.Runs_Bare<20){Batting_teen++;}
-						if(game.Runs_Bare>19 && game.Runs_Bare<30){Batting_20++;}
-						if(game.Runs_Bare>29 && game.Runs_Bare<40){Batting_30++;}
-						if(game.Runs_Bare>39 && game.Runs_Bare<50){Batting_40++;}
-						if(game.Runs_Bare>49 && game.Runs_Bare<99){Batting_50++;}
-						if(game.Runs_Bare>99){Batting_100++;}
+						if(game.Runs_Bare>9 && game.Runs_Bare<20){
+							Batting_teen++;
+							arr_teen.push(game)
+						}
+						if(game.Runs_Bare>19 && game.Runs_Bare<30){
+								Batting_20++;
+								arr_20.push(game);
+							}
+						if(game.Runs_Bare>29 && game.Runs_Bare<40){Batting_30++; arr_30.push(game);}
+						if(game.Runs_Bare>39 && game.Runs_Bare<50){Batting_40++; arr_40.push(game);}
+						if(game.Runs_Bare>49 && game.Runs_Bare<99){Batting_50++; arr_50.push(game);}
+						if(game.Runs_Bare>99){Batting_100++; arr_100.push(game);}
 					}
 				}
             })
@@ -300,7 +306,7 @@ while(i < length){
 			LineEco,
 			LineSR,
 			Batting_runs_and_balls,
-			[notout_arr,Ducks_arr]
+			[notout_arr,Ducks_arr,arr_teen,arr_20,arr_30,arr_40,arr_50,arr_100]
 	   ]
 
 	   console.log(returnArray);
