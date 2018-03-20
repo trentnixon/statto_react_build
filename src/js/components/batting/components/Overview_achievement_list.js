@@ -8,8 +8,7 @@ export default class Overview_Achievement_List extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-            console.log( this.props.Player.over_the_years[0])
-             // Second content pods
+        // Second content pods
         Display_Overview_Achievement_List=[];
         Display_Overview_Achievement_List.push(
             {
@@ -95,9 +94,7 @@ export default class Overview_Achievement_List extends React.Component {
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-           //console.log(this.props.match.params.playerid, this.props.UI.items.Player) 
-       }
+    componentWillUpdate(nextProps, nextState){}
     
     render() {
             return ( <Content_Pod data={Display_Overview_Achievement_List} /> ); 

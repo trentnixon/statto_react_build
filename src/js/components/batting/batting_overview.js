@@ -1,16 +1,16 @@
 import React from "react";
 
 import Half_Circle from "../stage/components/Half_Circle_Top";
-import Pie_vs_Line from "../_Pages/Career/Pie_vs_Line_Header";    
+    import Pie_vs_Line from "../_Pages/Career/Pie_vs_Line_Header";    
     
 import Content_Wrapper from "../stage/components/Content_Wrapper";
     import Info_Badge from "../global/Info_Badge";
     import World_Ranking_Figures from "../_Pages/Career/World_ranking_Figures";
     import Section_Header from "../global/Section_Header";
-    import Go_to_component from "../global/go_to_component";
-    import Content_Pod from "../global/Expandable_Panel/Create_Content_Pods";
+    //import Go_to_component from "../global/go_to_component";
+    //import Content_Pod from "../global/Expandable_Panel/Create_Content_Pods";
     import Radial from "../_Pages/Career/Radial_Two_Part";
-
+    import Carrer_Overview_List from "./components/Overview_Career_list";
     import Achievement_Overview from "./components/Overview_achievement_list";
 
 
@@ -27,43 +27,6 @@ export default class batting_career extends React.Component {
        // set BC
        breadcrumbs('batting > Overview','parent');
        RadialData = runsvsballs(this.props.Player.filtered_json)
-
-        Content_1=[];
-        // Create Content pod arrays to pass off to the compoent
-       // first content pods
-        Content_1.push(
-            {  
-                title:"Innings Count", 
-                value:this.props.Player.career_form.Batting_Innings_Count,
-                sub:"", 
-                width:"col-xs-12"
-            },
-            {  
-                title:"Total Runs", 
-                value:this.props.Player.career_form.Batting_Total_Runs,
-                sub:"", 
-                width:"col-xs-12"
-            },
-            {  
-                title:"Average", 
-                value:this.props.Player.career_form.Batting_Average,
-                sub:"", 
-                width:"col-xs-12"
-            },
-            {  
-                title:"Strike Rate", 
-                value:this.props.Player.career_form.Batting_StrikeRate.toFixed(2),
-                sub:"", 
-                width:"col-xs-12"
-            },
-            {  
-                title:"Highest Score", 
-                value:this.props.Player.career_form.Batting_Highest_Score,
-                sub:"", 
-                width:"col-xs-12"
-            }
-        )
-
        
     }
 
@@ -82,21 +45,16 @@ export default class batting_career extends React.Component {
                         />
                         
                     </Half_Circle>
+
                     <Content_Wrapper>   
                         <Info_Badge Text="BATTING" />   
-                        <World_Ranking_Figures Rankings={this.props.Player.batting_world_ranking}/>
-
+                            <World_Ranking_Figures Rankings={this.props.Player.batting_world_ranking}/>
                         <Section_Header header="Career" />
-                            <Content_Pod data={Content_1} />  
-
+                            <Carrer_Overview_List {... this.props}/>
                         <Section_Header header="Runs Over View" />
-                           
-                        <Radial 
-                                title="Runs vs Balls"
-                                data={RadialData}
-                            />
-                        
-                        <Achievement_Overview {... this.props}/>
+                            <Radial title="Runs vs Balls" data={RadialData} />
+                        <Section_Header header="Achievement Overview" />
+                            <Achievement_Overview {... this.props}/>
                     </Content_Wrapper>
                </div>
              ); 

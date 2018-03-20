@@ -2,6 +2,8 @@ import React from "react";
 
 import Fade from 'react-reveal/Fade';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import ActionAndroid from 'material-ui/svg-icons/navigation/expand-less';
 
 import Expandable_Title from "./Expandable_Title";
 import Expandable_SubTitle from "./Expandable_SubTitle";
@@ -13,13 +15,13 @@ export default class Display_Content_Pod extends React.Component {
 
     constructor() { super(); 
         this.state = {
-        cardStatus: false
+        cardStatus: false,
+        expanded: false,
      } }
     
      clickHandle(){
-         // console.log(this.state.cardStatus)
-         if(this.state.cardStatus == false){this.setState({cardStatus:true}); }
-         else{this.setState({cardStatus:false}); }
+         if(this.state.cardStatus == false){this.setState({cardStatus:true,expanded: true}); }
+         else{this.setState({cardStatus:false,expanded: false}); }
     }
 
     componentWillMount(){  }
@@ -33,6 +35,7 @@ export default class Display_Content_Pod extends React.Component {
                     <MuiThemeProvider>
                         <Card 
                             className="Contentpod-Card"
+                            expanded={this.state.expanded} 
                             onExpandChange={() => this.clickHandle()}
                             className={this.state.cardStatus == true ? 'card_active': 'not'}
                         >
@@ -53,10 +56,16 @@ export default class Display_Content_Pod extends React.Component {
                                     List={this.props.List}
                                     type={this.props.type}
                                 />     
+
+                                <FlatButton 
+                                    icon={<ActionAndroid color="#fff" />}
+                                    onClick={() => this.clickHandle()} 
+                                    className="Close_Expand"
+                                />
                             </CardText>
                         </Card>
-                    </MuiThemeProvider>    
-                </div>    
+                    </MuiThemeProvider>  
+                 </div>    
                 </Fade>
              ); 
       }

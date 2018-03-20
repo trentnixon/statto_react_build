@@ -56,7 +56,7 @@ const styles = {
         {title:'Overview', Link:'/batting/', icon:"account_circle"},
         {title:'Formguide', Link:'/batting/formguide', icon:"show_chart"},
         {title:'Runs', Link:'/batting/runs' ,icon:"directions_runs"},
-        {title:'Average & Strike rate', Link:'/innings', icon:"multiline_chart"},
+        {title:'Average & Strike rate', Link:'/batting/innings', icon:"multiline_chart"},
         {title:'Goals', Link:'/batting/goals', icon:"gps_fixed"},
         //{title:'Dismissals', Link:'/batting/' ,icon:"sentiment_dissatisfied"},
         // {title:'Positions', Link:'/batting/' , icon:"format_list_numbered"},

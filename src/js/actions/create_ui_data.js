@@ -184,7 +184,7 @@ export function AES(data,career_form){
 while(i < length){
     let bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
 	let batting_inn=0, BallsFaced=0,Batting_Runs=0, Batting_Average=0, notOuts=0,Batting_StrikeRate=0;
-	let Batting_Ducks=0,Batting_teen=0,Batting_20=0,Batting_30=0,Batting_40=0,Batting_50=0,Batting_100=0;
+	let Batting_Ducks=0,Batting_teen=0,Batting_20=0,Batting_30=0,Batting_40=0,Batting_50=0,Batting_100=0, Batting_HS=0;
 	   
 	data.map((game,t)=>{
 			
@@ -233,6 +233,7 @@ while(i < length){
 						BallsFaced = BallsFaced + game.Batting_BallsFaced_Int;
 						Batting_Runs = Batting_Runs + game.Runs_Bare;
 						
+						if(game.Runs_Bare > Batting_HS){ Batting_HS = game.Runs_Bare}
 						if(game.notout == 'true'){ 
 								notOuts++;
 								notout_arr.push(game)
@@ -275,6 +276,7 @@ while(i < length){
 				'Bowling_Average':Bowling_Average.toFixed(2),
 				'Batting_Innings':batting_inn,
 				'Batting_Balls_Faced':BallsFaced,
+				'Batting_HS':Batting_HS,
 				'Batting_Notout':notOuts,
 				'Batting_Ducks':Batting_Ducks,
 				'Batting_teen':Batting_teen,

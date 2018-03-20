@@ -1,23 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import  {RadialBarChart,Text,Tooltip,Label,LabelList, RadialBar,PolarAngleAxis, Legend,ResponsiveContainer} from 'recharts';
 
-// ['#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'];
-// const COLORS = ['#88acd8', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'];
-
-const styles ={
-    wrapper:{
-        backgroundColor:'rgba(44, 44, 44, .5)',
-        borderColor:'transparent',
-        borderRadius:'5px',
-    },
-    label:{
-        color:'white',
-    },
-    item:{ color:'white', }
-}
-
-
-
+let SelectTheme='Dark', Theme;
+@connect((store) =>{
+  return{
+      UI: store.UI,
+  }
+})
 export default class Form_o_Meter extends React.Component {
 
     renderCustomizedLabel = (data) => {
@@ -35,7 +25,10 @@ export default class Form_o_Meter extends React.Component {
           </Text>
         );
       };
-    componentWillMount(){ }
+    componentWillMount(){ 
+      if(this.props.Theme){ SelectTheme = this.props.Theme;}
+      Theme = this.props.UI.Themes[SelectTheme];
+    }
 	render () {
         return (
         <ResponsiveContainer width='100%' height={210}>
