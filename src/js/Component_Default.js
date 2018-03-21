@@ -9,14 +9,12 @@ export default class Display_Player_Settings_Home extends React.Component {
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-           //console.log(this.props.match.params.playerid, this.props.UI.items.Player) 
-       }
+    componentWillUpdate(nextProps, nextState){ }
     
     render() {
             return ( 
-                <div class="InfoBadge">
-                       This is a info badge
+                <div>
+                       This is a Default
                 </div>
              ); 
       }

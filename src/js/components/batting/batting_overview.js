@@ -49,6 +49,7 @@ export default class batting_career extends React.Component {
                     <Content_Wrapper>   
                         <Info_Badge Text="BATTING" />   
                             <World_Ranking_Figures Rankings={this.props.Player.batting_world_ranking}/>
+                            <p>Last 3 Batting performaces</p>
                         <Section_Header header="Career" />
                             <Carrer_Overview_List {... this.props}/>
                         <Section_Header header="Runs Over View" />

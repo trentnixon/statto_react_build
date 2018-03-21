@@ -10,7 +10,7 @@ import Triple_Line from "./components/Chart_Line_avg_sr_ec";
 // Charts
 import Pie_Metric_over_the_years from "./components/Chart_Pie_Metric_Over_The_Years";
 import Double_Line_Chart from "./components/Chart_Metric_Lines";
-import List_Best_AEC from "./components/List_Best_AES";
+import List_Best_AEC from "../_Pages/AES/List_Best_AES";
  
 let AES;
 export default class batting_runs extends React.Component {
@@ -18,7 +18,7 @@ export default class batting_runs extends React.Component {
     componentWillMount(){ }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
-    
+     
     render() { 
     
             return ( 

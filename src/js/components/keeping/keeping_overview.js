@@ -9,7 +9,9 @@ import Section_Header from "../global/Section_Header";
 import World_ranking_circle from "../_Pages/Career/world_ranking_circle";
 import World_ranking_progression from "../_Pages/Career/World_ranking_Progression";
 import Go_to_component from "../global/go_to_component";
-import Content_Pod from "../_Pages/Career/Career_Content_Pods";
+//import Content_Pod from "../_Pages/Career/Career_Content_Pods";
+import Content_Pod from "../global/Expandable_Panel/Create_Content_Pods";
+
 
 // actions 
 import {breadcrumbs} from  "../../actions/ui";

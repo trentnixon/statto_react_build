@@ -9,7 +9,7 @@ export default class Overview_Achievement_List extends React.Component {
     
     componentWillMount(){ 
         
-        console.log(this.props.Player.PLAYER_META.WP_ID)
+        // console.log(this.props.Player.PLAYER_META.WP_ID)
         Link_Prefix = '/'+this.props.Player.PLAYER_META.WP_ID+'/batting/'
         // Second content pods
         Display_Overview_Achievement_List=[];

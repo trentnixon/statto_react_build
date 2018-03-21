@@ -161,7 +161,7 @@ export function calculate_team_stats(data, filter){
 
 export function AES(data,career_form){
 	//console.log("Collect Years");
-	let LogYears=[],returnThis=[], returnArray=[];
+	let LogYears=[],returnThis=[], returnArray=[], for_arr={for_2:[],for_3:[],for_4:[],for_5:[],for_6:[],for_7:[]};
 	let notout_arr=[], Ducks_arr=[], arr_teen=[], arr_20=[], arr_30=[], arr_40=[], arr_50=[], arr_100=[];
    
     data.map((game,i)=>{
@@ -182,7 +182,8 @@ export function AES(data,career_form){
     
 
 while(i < length){
-    let bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
+	let bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
+	let bowling_2=0,bowling_3=0,bowling_4=0,bowling_5=0,bowling_6=0,bowling_7=0;
 	let batting_inn=0, BallsFaced=0,Batting_Runs=0, Batting_Average=0, notOuts=0,Batting_StrikeRate=0;
 	let Batting_Ducks=0,Batting_teen=0,Batting_20=0,Batting_30=0,Batting_40=0,Batting_50=0,Batting_100=0, Batting_HS=0;
 	   
@@ -219,7 +220,14 @@ while(i < length){
                               }
                             if (isFinite(progressive_StrikeRate)) {
                                 LineSR.push({'Year':LogYears[i],'Strikerate': parseFloat(progressive_StrikeRate.toFixed(2)),'Career':career_form.Bowling_Strike_Rate})
-                              } 
+							  } 
+							  
+							if(parseInt(game.wickets) == 2){bowling_2++; for_arr['for_2'].push(game);}
+							if(parseInt(game.wickets) == 3){bowling_3++; for_arr['for_3'].push(game);}
+							if(parseInt(game.wickets) == 4){bowling_4++; for_arr['for_4'].push(game);}
+							if(parseInt(game.wickets) == 5){bowling_5++; for_arr['for_5'].push(game);}
+							if(parseInt(game.wickets) == 6){bowling_6++; for_arr['for_6'].push(game);}
+							if(parseInt(game.wickets) == 7){bowling_7++; for_arr['for_7'].push(game);}
 						
                         } 
 				// Batting over the year
@@ -274,6 +282,14 @@ while(i < length){
                 'EconomyRate':EconomyRate.toFixed(2),
                 'BowlingstrikeRate':BowlingstrikeRate.toFixed(2),
 				'Bowling_Average':Bowling_Average.toFixed(2),
+				'Bowling_OversBowled':OversBowled,
+				'Bowling_RunsConceded':RunsConceded,
+				'Bowling_2':bowling_2,
+				'Bowling_3':bowling_3,
+				'Bowling_4':bowling_4,
+				'Bowling_5':bowling_5,
+				'Bowling_6':bowling_6,
+				'Bowling_7':bowling_7,
 				'Batting_Innings':batting_inn,
 				'Batting_Balls_Faced':BallsFaced,
 				'Batting_HS':Batting_HS,
@@ -308,7 +324,8 @@ while(i < length){
 			LineEco,
 			LineSR,
 			Batting_runs_and_balls,
-			[notout_arr,Ducks_arr,arr_teen,arr_20,arr_30,arr_40,arr_50,arr_100]
+			[notout_arr,Ducks_arr,arr_teen,arr_20,arr_30,arr_40,arr_50,arr_100],
+			for_arr
 	   ]
 
 	   console.log(returnArray);

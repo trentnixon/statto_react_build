@@ -4,16 +4,16 @@ import Section_Header from "../../global/Section_Header";
 let Team, Oppo;
 export default class List_Best_SEC extends React.Component {
 
-    constructor() { super();  } 
+    constructor() { super();  }
     
     findBest(data)
     {
-        let Best=0,Club;
+        let Best=10000,Club;
         data.map((game,i)=>{
             if(game.Games.length  > 1)
                 {
                     if (isFinite(game[this.props.filter])) { 
-                        if(parseFloat(game[this.props.filter]) > Best)
+                        if(parseFloat(game[this.props.filter]) < Best)
                             {
                                 Best = game[this.props.filter];
                                 Club = game.Team;
@@ -36,10 +36,10 @@ export default class List_Best_SEC extends React.Component {
             return ( 
                 <div>
                     <Section_Header header={this.props.header} />
-                    <ul class="list noborder">
-                        <li>For : <span class="tone1">{Team[1]} : {Team[0]} {this.props.Tag}</span></li>
-                        <li>Against : <span class="tone3"> {Oppo[1]} : {Oppo[0]} {this.props.Tag} </span> </li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-xs-6 text-right tone1"><h4>For</h4> <span class="tone1">{Team[1]} : {Team[0]} {this.props.Tag}</span></div>
+                        <div class="col-xs-6 tone3"><h4>Against </h4> <span class="tone3"> {Oppo[1]} : {Oppo[0]} {this.props.Tag} </span> </div>
+                    </div>
                 </div>
              ); 
       }

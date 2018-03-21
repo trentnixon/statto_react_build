@@ -6,11 +6,13 @@ import Info_Badge from "../global/Info_Badge";
 import Section_Header from "../global/Section_Header";
 import Runs_Stacked from "./components/Chart_Bar_Stacked_Runs_Balls";
 import Pie_Metric_over_the_years from  "./components/Chart_Pie_Metric_Innings_over_The_Years";
-import List_Best_AES from "./components/List_Best_AES";
+
+import List_Best_AES from "../_Pages/AES/List_Best_AES";
+import Triple_Line from "./components/Chart_Line_avg_sr_ec";
+
 export default class Display_Player_Settings_Home extends React.Component {
 
     constructor() { super();  }
-    
     componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
@@ -19,12 +21,12 @@ export default class Display_Player_Settings_Home extends React.Component {
             return ( 
                 <div>
                         <Half_Circle>
-                                <Section_Header header="Averages" />
+                                <Triple_Line {...this.props}  Theme="Light" />
                         </Half_Circle>
                         <Content_Wrapper>
-                                <Info_Badge  Text="A,E,S" />
+                                <Info_Badge  Text="I,A,S" />
                          
-                        <Section_Header header="By The Innings" />
+                        <Section_Header header="Innings" />
                         
                                 <Wrapper>
                                         <List_Best_AES 
@@ -40,10 +42,7 @@ export default class Display_Player_Settings_Home extends React.Component {
                                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Innings"/>
                                 </Wrapper>
                                 
-                                <Wrapper>
-                                       
-                                        <Runs_Stacked {...this.props}/>
-                                </Wrapper>
+                                
 
                         <Section_Header header="Balls Faced" />
                                 <Wrapper>
@@ -55,25 +54,28 @@ export default class Display_Player_Settings_Home extends React.Component {
                                         />
                                 </Wrapper>
                                 <Wrapper>
+                                        <Section_Header header="Balls Faced over the Years" />
                                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Balls_Faced"/>
+                                </Wrapper>
+                                <Wrapper>
+                                        <Runs_Stacked {...this.props}/>
                                 </Wrapper>
                                 
                         <Section_Header header="Averages" />
                                 <Wrapper>
-                                <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Average"/>
+                                        <List_Best_AES 
+                                                Tag="Averages"
+                                                header="Average (2 Game Min)"
+                                                filter="Avg"
+                                                {...this.props}
+                                        />
                                 </Wrapper>
                                 <Wrapper>
-                                <List_Best_AES 
-                                        Tag="Averages"
-                                        header="Average (2 Game Min)"
-                                        filter="Avg"
-                                        {...this.props}
-                                />
+                                <Section_Header header="Averages over the Years" />
+                                        <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Average"/>
                                 </Wrapper>
+                                
                         <Section_Header header="Strike Rate" />
-                                <Wrapper>
-                                        <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_StrikeRate"/>
-                                </Wrapper>
                                 <Wrapper>
                                         <List_Best_AES 
                                                 Tag="Strike Rate"
@@ -81,6 +83,10 @@ export default class Display_Player_Settings_Home extends React.Component {
                                                 filter="SR"
                                                 {...this.props}
                                         />
+                                </Wrapper>
+                                <Wrapper>
+                                        <Section_Header header="STrike Rate over the Years" />
+                                        <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_StrikeRate"/>
                                 </Wrapper>
                         </Content_Wrapper>
                 </div>
