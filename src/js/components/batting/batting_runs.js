@@ -19,7 +19,7 @@ export default class Batting_Runs extends React.Component {
                 <div>
                     <Half_Circle>
                         <Section_Header header={this.props.Player.career_form.Batting_Total_Runs + " Career Runs."} />
-                    </Half_Circle> 
+                    </Half_Circle>  
                     <Content_Wrapper>   
                         <Section_Runs {... this.props}/>
                         <Section_Scores {... this.props} />

@@ -1,6 +1,7 @@
 'use strict';
 var webpack = require('webpack');
 process.traceDeprecation = true;
+
 var config = {
   context: __dirname + '/src', // `__dirname` is root of project and `src` is source
   entry: {

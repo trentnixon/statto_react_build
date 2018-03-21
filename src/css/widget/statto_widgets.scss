@@ -4,7 +4,7 @@
     border:1px $tone2;
     background-color: $tone2;
     @include  border-radius(10px);
-    margin: -42px 20% 20px;
+    margin: -42px 10% 20px;
     z-index: 99;
     position: relative;
     padding: 12px 20px;
@@ -30,4 +30,31 @@
 }
 
 
+.LastGameFigures{
+    
+    padding: 25px 30px 20px;
+    margin: -48px -20px 20px !important;
+    background-color:$bodyBlack;
+
+    h1{
+        color:$bodyWhite !important;
+    }
+
+    h2{
+        color:$bodyWhite;
+        text-align: center;
+        line-height: 1.3em;
+        font-size: 1.5em;
+        margin: 0 0 5px;
+    }
+    h3{}
+    h4{
+        color:$bodyWhite;
+        text-align: center;
+        margin: 0;
+        line-height: 1em;
+        font-size: .9em;
+    }
+    
+}
 

@@ -3,7 +3,7 @@ import Section_Header from "../../../global/Section_Header";
 
 import {CollectYears} from  "../../../../actions/career";
 
-import Single_Bar from "../../../global/recharts/barCharts/One_Column_Bar";
+import Single_Bar from "../../../global/recharts/barCharts/One_Column_Bar_With_Filter";
 
 let BarData=[], Years;
 export default class batting_runs extends React.Component {

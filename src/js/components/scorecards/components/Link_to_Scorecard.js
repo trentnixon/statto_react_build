@@ -16,7 +16,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     componentWillMount(){ 
         
-        console.log(this.props.PLAYER.PLAYER_META.WP_ID);
+        //console.log(this.props.PLAYER.PLAYER_META.WP_ID);
 
         if(this.props.GAMES.Game_Data_Stored == true)
             { findKey = _.findKey(this.props.GAMES.Game_Data, { 'GameID': this.props.ID}); }
@@ -35,12 +35,12 @@ export default class Display_Player_Settings_Home extends React.Component {
                 </Link>
               ); 
         }else{
-
-        }
             return ( 
                 <Link  to={"/"+this.props.PLAYER.PLAYER_META.WP_ID+"/scorecard/"+this.props.ID}> 
                     <i class="material-icons tone4">file_download</i> 
                 </Link>
              ); 
+        }
+            
       }
   }

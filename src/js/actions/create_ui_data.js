@@ -158,6 +158,11 @@ export function calculate_team_stats(data, filter){
 						
 } 
 
+/**
+ * MOVE all of this to the Back end process!
+ * Send as a complete json from the DB
+ * 
+ */
 
 export function AES(data,career_form){
 	//console.log("Collect Years");

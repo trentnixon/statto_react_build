@@ -37,7 +37,6 @@ const styles = {
 // actions 
 import {breadcrumbs} from  "../../actions/ui";
 
-
 export default class batting_career extends React.Component {
 
     constructor(props) {
