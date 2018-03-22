@@ -49,10 +49,8 @@ export default class Display_dashboard extends React.Component {
                             Text={' Games Played : '+ this.props.Player.PLAYER_META.GAME_COUNT}
                         />
                         
-                        <Naked_Wrapper>                        
-                            <Last_Game_Figures {... this.props}/>
-                        </Naked_Wrapper>
-                        
+                        <Last_Game_Figures {... this.props}/>
+                                
                         <Naked_Wrapper>
                             <Section_Header header="Latest Runs" />
                             <Recent_Scores {... this.props}/>

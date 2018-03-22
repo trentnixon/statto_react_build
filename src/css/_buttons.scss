@@ -11,8 +11,28 @@ button.btn.btn-warning{
     color:$bodyWhite;
 }
 
-
 .forceUpdate{
     background-color:$tone3;
     margin:10px 0;
+}
+
+.btn-statto{
+    @include border-radius(3px);
+    background-color: $tone3;
+    margin: 25px 0 0px;
+    text-align: center;
+    padding: 10px;
+   a{
+       color: $bodyWhite;
+       i{
+        color: $bodyWhite;
+        vertical-align: middle;
+        display: inline-block;
+       }
+       p{
+           margin: 0 0 0 10px;
+           display: inline-block;
+           vertical-align: middle;
+       }
+   }
 }
