@@ -34,8 +34,8 @@ export default class Display_Player_Settings_Home extends React.Component {
             return ( 
                 <div class="btn-statto">
                 <Link to={"/"+this.props.PLAYER.PLAYER_META.WP_ID+"/scorecard/"+this.props.ID}> 
-                    <i class="material-icons white">launch</i>  
-                    {text}
+                {text} <i class="material-icons white">launch</i>  
+                    
                 </Link>
                 </div>
               ); 
@@ -43,8 +43,8 @@ export default class Display_Player_Settings_Home extends React.Component {
             return ( 
                 <div class="btn-statto">
                 <Link  to={"/"+this.props.PLAYER.PLAYER_META.WP_ID+"/scorecard/"+this.props.ID}> 
-                    <i class="material-icons tone4">file_download</i>  
-                    {text}
+                {text} <i class="material-icons tone4">file_download</i>  
+                   
                 </Link>
                 </div>
              ); 

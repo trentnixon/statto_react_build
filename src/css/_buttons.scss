@@ -19,7 +19,7 @@ button.btn.btn-warning{
 .btn-statto{
     @include border-radius(3px);
     background-color: $tone3;
-    margin: 25px 0 0px;
+    margin: 25px 5% 0px;
     text-align: center;
     padding: 10px;
    a{
@@ -30,9 +30,10 @@ button.btn.btn-warning{
         display: inline-block;
        }
        p{
-           margin: 0 0 0 10px;
+           margin: 0 10px;
            display: inline-block;
            vertical-align: middle;
+           font-size: 1.2em;
        }
    }
 }

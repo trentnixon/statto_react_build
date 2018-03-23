@@ -1,14 +1,73 @@
 import React from "react";
+import { Carousel } from 'react-responsive-carousel';
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 import Section_Header from "../../global/Section_Header";
 import Section_Sub_Header from "../../global/Section_Subheader";
 import Link_to_scorecard from "../../scorecards/components/Link_to_Scorecard_Button";
 
+let Last5Games;
 export default class Display_Player_Settings_Home extends React.Component {
 
     constructor() { super();  }
     
+    timeDifference(date1,date2) {
+    
+
+        let difference = date1.toFixed(0) - date2.toFixed(0);
+        difference = difference.toFixed(0);
+        
+        let daysDifference = Math.floor(difference/60/60/24);
+        difference -= daysDifference*60*60*24
+
+        let hoursDifference = Math.floor(difference/60/60);
+        difference -= hoursDifference*60*60
+
+        let minutesDifference = Math.floor(difference/60);
+        difference -= minutesDifference*60
+
+        let secondsDifference = Math.floor(difference);
+
+        if(daysDifference > 0){ 
+            
+            return daysDifference + ' Days Ago'; 
+        } 
+        
+        else if(hoursDifference > 0) { return hoursDifference  + ' Hours Ago';}
+        
+        else{return minutesDifference  + ' Minutes Ago'; }
+
+    }
+
     componentWillMount(){ 
-            console.log( this.props.Player.last_ten_games["0"])
+            console.log( this.props.Player.last_ten_games)
+            let lastUpdate;
+            
+
+                           
+            Last5Games = this.props.Player.last_ten_games.map((game,i)=>{
+                //   console.log(game) 
+                   if(i < 5){ 
+                    lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(game.timestamp) ) 
+            
+                   return(<div key={i}>
+                            <Section_Header header={game.Opposition} />
+                                <Section_Sub_Header header={'Played '+ lastUpdate} />
+                            <div class="col-xs-5 nopadding">
+                                <h2>Runs : {game.Batting_Runscored}</h2>
+                                <h4>{game.Batting_BallsFaced} Balls </h4>
+                            </div>
+                            <div class="col-xs-7 nopadding">
+                                <h2>Figures : {game.Bowling_Figures}</h2>
+                                <h4>{game.Bowling_OversBowled} Overs </h4>
+                            </div>
+                            <div class="col-xs-12 nopadding ">
+                                <Link_to_scorecard ID={game.GameID}/>       
+                            </div>
+                        </div>
+                      )
+                   } 
+               })
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
@@ -17,19 +76,17 @@ export default class Display_Player_Settings_Home extends React.Component {
     render() {
             return ( 
                 <div class="row LastGameFigures">
-                        <Section_Header header={'Last Game : '+this.props.Player.last_ten_games["0"].Opposition} />
-                        <Section_Sub_Header header={'Played '+ this.props.Player.last_ten_games["0"].timestamp+' days ago'} />
-                    <div class="col-xs-6 nopadding">
-                        <h2>Runs : {this.props.Player.last_ten_games["0"].Batting_Runscored}</h2>
-                        <h4>{this.props.Player.last_ten_games["0"].Batting_BallsFaced} Balls </h4>
-                    </div>
-                    <div class="col-xs-6 nopadding">
-                        <h2>Figures : {this.props.Player.last_ten_games["0"].Bowling_Figures}</h2>
-                        <h4>{this.props.Player.last_ten_games["0"].Bowling_OversBowled} Overs </h4>
-                    </div>
-                    <div class="col-xs-12 nopadding ">
-                        <Link_to_scorecard ID={this.props.Player.last_ten_games["0"].GameID}/>       
-                    </div>
+                   <Carousel 
+                        showThumbs={false} 
+                        autoPlay={true} 
+                        interval={9000}
+                        transitionTime={800}
+                        showIndicators={false}
+                        showStatus={false}
+                        infiniteLoop={true}
+                    >
+                        {Last5Games}
+                    </Carousel>
                 </div>
              ); 
       }

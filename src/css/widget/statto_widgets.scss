@@ -30,14 +30,43 @@
 }
 
 
+.download_Scorecard{
+    h1{ }
+
+    h2{
+        font-size: 1.8em;
+        line-height: 1em;
+
+        i{
+            font-size: 2em;
+            float: left;
+            margin: 1px 9px 30px 0;
+        }
+    }
+
+    p{
+        margin: 20px 0 0;
+        text-align: center;
+    }
+}
+
 .LastGameFigures{
     
-    padding: 25px 30px 20px;
-    margin: -48px -20px 20px !important;
-    background-color:$bodyBlack;
+    padding: 0px 30px 30px;
+    margin: 0px !important;
 
-    h1{
-        color:$bodyWhite !important;
+    .section-header{
+        padding-bottom: 0 !important;
+        h1{
+            color:$bodyWhite !important;
+            font-size: 1em;
+        }
+    }
+    .section-subheader{
+        h3{ 
+            font-size: 1em !important;
+            margin: 5px 5px 10px;
+        }
     }
 
     h2{
@@ -47,7 +76,7 @@
         font-size: 1.5em;
         margin: 0 0 5px;
     }
-    h3{}
+   
     h4{
         color:$bodyWhite;
         text-align: center;
@@ -56,5 +85,10 @@
         font-size: .9em;
     }
     
+    .carousel{ 
+        .slide{
+            background-color: transparent;
+        }
+    }
 }
 
