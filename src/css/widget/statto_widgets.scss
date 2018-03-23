@@ -50,6 +50,40 @@
     }
 }
 
+
+    .Top_Teams{
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+    .MyTopTeam{
+        span{
+                font-size: 2.5em;
+                color:$tone1;
+            }
+        h1{
+            margin: 5px 0;
+            font-size: 1.8em;
+            line-height: 1em;
+        }
+        h2{
+            font-size: 1.2em;
+            margin: 0;
+        }   
+    }
+    .MySupportTeam{
+        span{font-size: 2em;
+            color:$tone3;}
+        h1{
+            margin: 5px 0 10px;
+            font-size: 1.3em;
+            line-height: 1em;
+        }
+        h2{
+            font-size: 1em;
+            margin: 0;
+        }   
+    }
+
 .LastGameFigures{
     
     padding: 0px 30px 30px;
