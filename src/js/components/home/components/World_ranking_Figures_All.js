@@ -1,46 +1,78 @@
 import React from "react";
-import FontAwesome from 'react-fontawesome';
+//import FontAwesome from 'react-fontawesome';
+import { Link } from 'react-router-dom'
+import Naked_Wrapper from "../../global/Naked_wrapper";
+//import Section_Header from "../../global/Section_Header";
+//import Simple_Line from "../../global/recharts/lineCharts/Simple_Line";
+//import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
-import Wrapper from "../../global/wrapper";
-import Section_Header from "../../global/Section_Header";
-import Simple_Line from "../../global/recharts/lineCharts/Simple_Line";
-import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
-let current, best=99999, worst=0;
+const Trending_icon={
+    up:{icon:<i class="material-icons WorldRanking tone3">trending_up</i>},
+    down:{icon:<i class="material-icons WorldRanking tone4">trending_down</i>},
+    flat:{icon:<i class="material-icons WorldRanking tone2">trending_flat</i>},
+}
+
+let batting,bowling,keeping,
+    batting_display = Trending_icon.flat.icon,
+    bowling_display = Trending_icon.flat.icon,
+    keeping_display = Trending_icon.flat.icon;
+
 export default class Batting_Career_World_Ranking_Progression extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ }  
+    findIcon(now,prev,Trending_icon){
+        if(now>prev){
+            return Trending_icon.down.icon
+        } 
+        else if(now<prev){return Trending_icon.up.icon}
+        else{return Trending_icon.flat.icon}
+    }
+
+    componentWillMount(){ 
+        batting = this.props.Player.batting_world_ranking
+        bowling = this.props.Player.bowling_world_ranking
+        keeping = this.props.Player.keeping_world_ranking
+        
+        batting_display = this.findIcon(batting["0"].ranking,batting["1"].ranking,Trending_icon)
+        bowling_display = this.findIcon(bowling["0"].ranking,bowling["1"].ranking,Trending_icon)
+        
+        if(keeping.length > 1){keeping_display = this.findIcon(keeping["0"].ranking,keeping["1"].ranking,Trending_icon)}
+
+        
+    }  
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ } 
     
     render() {
             return ( 
-            <div>
+            <Naked_Wrapper>
                     <div class="row world_Ranking_Emoticons" > 
                         <div class="col-xs-4">
                         <h4>Batting</h4>
-                        <FontAwesome 
-                            name='meh-o'
-                            className='Emoticon WorldRanking tone2'
-                        />
-                            
-                            <h3>{this.props.Player.batting_world_ranking["0"].ranking}</h3>
+                        <Link to={"/"+this.props.Player.PLAYER_META.WP_ID+"/batting/"}>
+                            {batting_display}
+                        </Link>
+                        <h3>{this.props.Player.batting_world_ranking["0"].ranking}</h3>
                         </div>
 
                         <div class="col-xs-4">
                             <h4>Bowling</h4>
-                            <FontAwesome name='smile-o'  className='Emoticon WorldRanking tone3'/>
+                            <Link to={"/"+this.props.Player.PLAYER_META.WP_ID+"/bowling/"}>
+                                {bowling_display}
+                            </Link>
                             <h3>{this.props.Player.bowling_world_ranking["0"].ranking}</h3>
                         </div>
                         <div class="col-xs-4">
                             <h4>Keeping</h4> 
-                            <FontAwesome name='frown-o' className='Emoticon WorldRanking tone4'/>
-                            <h3>{this.props.Player.batting_world_ranking["0"].ranking}</h3>
+                            <Link to={"/"+this.props.Player.PLAYER_META.WP_ID+"/keeping/"}>
+                                {keeping_display}
+                            </Link>
+                            <h3>{this.props.Player.keeping_world_ranking["0"].ranking}</h3>
                         </div>
                     </div>
-            </div>
+            </Naked_Wrapper>
         ); 
       }
   }

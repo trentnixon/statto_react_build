@@ -56,6 +56,16 @@ export default class Display_Player_Settings_Home extends React.Component {
                                 <li> <Update_Status {...this.props}/> </li>
                                 <li> <p>Profile update # : {this.props.Player.PLAYER_META.update_interation}</p> </li>
                         </ul>
+
+                        <Section_Header header="Icons" />
+                        <ul className="list">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+
                 </Content_Wrapper>
         </div>
              ); 

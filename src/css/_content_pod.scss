@@ -13,6 +13,9 @@
             h4{ color: $bodyWhite;}
             p.value{  color: $bodyWhite;}
         }
+        p.sub{
+            color:$bodyWhite;
+        }
     }
 
     >div{
@@ -88,6 +91,7 @@
         min-width: 20px !important;
     }
 
+    
     .Expandable_Click_through{
         @include border-radius(3px);
          background-color: $tone3;

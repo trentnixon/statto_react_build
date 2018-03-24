@@ -187,7 +187,7 @@ export function AES(data,career_form){
     
 
 while(i < length){
-	let bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
+	let Games=0, bowling_inn=0,GameFigures=0, WicketsTaken=0,RunsConceded=0, Bowling_Average=0, EconomyRate=0,BowlingstrikeRate=0, OversBowled=0;
 	let bowling_2=0,bowling_3=0,bowling_4=0,bowling_5=0,bowling_6=0,bowling_7=0;
 	let batting_inn=0, BallsFaced=0,Batting_Runs=0, Batting_Average=0, notOuts=0,Batting_StrikeRate=0;
 	let Batting_Ducks=0,Batting_teen=0,Batting_20=0,Batting_30=0,Batting_40=0,Batting_50=0,Batting_100=0, Batting_HS=0;
@@ -196,9 +196,11 @@ while(i < length){
 			
 			// console.log(LogYears[i]);
 			
+
 			if(game.Year == LogYears[i])
                 {
 				// Bowling over the Years
+				Games++;
                 if(parseInt(game.Bowling_OversBowled) > 0){
                       //   
                             WicketsTaken = parseInt(WicketsTaken) + parseInt(game.wickets);
@@ -283,7 +285,8 @@ while(i < length){
 		
             returnThis.push({
                 'Wickets':WicketsTaken, 
-                'Year':LogYears[i],
+				'Year':LogYears[i],
+				'Games':Games,
                 'EconomyRate':EconomyRate.toFixed(2),
                 'BowlingstrikeRate':BowlingstrikeRate.toFixed(2),
 				'Bowling_Average':Bowling_Average.toFixed(2),

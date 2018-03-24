@@ -15,7 +15,7 @@
 
 
 .world_Ranking_Emoticons{
-    margin: 0 -20px 40px;
+    margin: 20px -20px 40px;
     text-align: center;
 
     h3{
@@ -58,7 +58,7 @@
     .MyTopTeam{
         span{
                 font-size: 2.5em;
-                color:$tone1;
+                color:$bodyWhite;
             }
         h1{
             margin: 5px 0;
@@ -71,8 +71,10 @@
         }   
     }
     .MySupportTeam{
-        span{font-size: 2em;
-            color:$tone3;}
+        span{
+            font-size: 2em;
+            color:$bodyBlack;
+        }
         h1{
             margin: 5px 0 10px;
             font-size: 1.3em;
