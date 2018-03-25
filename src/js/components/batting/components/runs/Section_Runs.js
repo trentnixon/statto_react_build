@@ -8,7 +8,7 @@ import Bar_Chart_Runs from "./Chart_Bar_Runs";
 
 import Chart_Line_Growth from "./Chart_Line_Run_Growth";
 import Radial from "../../../_Pages/Career/Radial_Two_Part";
-
+import Chart_Pie_Runs_Over_Years from "./Chart_Pie_Runs_Over_Years";
 import {runsvsballs} from  "../../../../actions/ui";
 let RadialData;
 
@@ -25,10 +25,10 @@ export default class batting_runs extends React.Component {
             return ( 
                 <div>
                         <NakedWrapper>
-                            <Chart_Line_Growth {... this.props} />
+                            <Chart_Pie_Runs_Over_Years {... this.props}/>
                         </NakedWrapper>
                         <NakedWrapper>
-                            <Radial title="Runs vs Balls" data={RadialData} />
+                            <Radial title="Runs against Balls" data={RadialData} />
                         </NakedWrapper>
                         <NakedWrapper>
                             <Bar_Chart_Runs {... this.props}/>

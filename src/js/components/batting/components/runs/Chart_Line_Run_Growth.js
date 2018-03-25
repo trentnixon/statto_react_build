@@ -35,9 +35,11 @@ export default class batting_runs extends React.Component {
     
     render() {
             return ( 
-                <div>
-                    <Section_Header header="Run Growth" />
-                    <Simple_Line_Chart Data={LineChart_By_Year} dataKey="Runs" Theme="Dark" />
+                <div class="Header_Line_Chart">
+                    <Simple_Line_Chart 
+                        Data={LineChart_By_Year} 
+                        dataKey="Runs" 
+                        Theme="Light" />
                 </div>
              ); 
       }

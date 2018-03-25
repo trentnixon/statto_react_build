@@ -2,20 +2,21 @@ import React from "react";
 //import Content_Pod from "../../_Pages/Career/Career_Content_Pods";
 import Content_Pod from "../../global/Expandable_Panel/Create_Content_Pods";
 
-let Content=[],Link_Prefix;
+let Content=[],Link_Prefix,OvertheYears,NumofYears;
 export default class List_Overview_career extends React.Component {
 
     constructor() { super();  }
     
     componentWillMount(){ 
-            console.log( this.props)
+        OvertheYears = this.props.Player.over_the_years["0"];
+        NumofYears = OvertheYears.length -1;
             Content=[];
             Link_Prefix = '/'+this.props.Player.PLAYER_META.WP_ID+'/bowling/'
         Content.push(
             {  
                 title:"Overs Bowled", 
                 value:this.props.Player.career_form.Bowling_oversBowled,
-                sub:"", 
+                sub:OvertheYears[NumofYears].Bowling_OversBowled + " Overs bowled in  " + OvertheYears[NumofYears].Year,
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Bowling_OversBowled',
@@ -24,7 +25,7 @@ export default class List_Overview_career extends React.Component {
             {  
                 title:"Wickets Taken", 
                 value:this.props.Player.career_form.Bowling_Wickets,
-                sub:"", 
+                sub:OvertheYears[NumofYears].Wickets + " Wickets Taken in  " + OvertheYears[NumofYears].Year, 
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Wickets',
@@ -33,14 +34,14 @@ export default class List_Overview_career extends React.Component {
             {  
                 title:"Runs Conceded", 
                 value:this.props.Player.career_form.Bowling_RunsConceded,
-                sub:"", 
+                sub:OvertheYears[NumofYears].Bowling_RunsConceded + " Runs Conceded in  " + OvertheYears[NumofYears].Year,  
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Bowling_RunsConceded',
             },{  
                 title:"Economy", 
                 value:this.props.Player.career_form.Bowling_Economy_Rate,
-                sub:"", 
+                sub:"Bowling Economy of " + OvertheYears[NumofYears].EconomyRate + " in  " + OvertheYears[NumofYears].Year,  
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'EconomyRate',
@@ -48,7 +49,7 @@ export default class List_Overview_career extends React.Component {
             },{  
                 title:"Average", 
                 value:this.props.Player.career_form.Bowling_Average,
-                sub:"", 
+                sub:"Bowling Average of " + OvertheYears[NumofYears].Bowling_Average + " in  " + OvertheYears[NumofYears].Year,  
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'Bowling_Average',
@@ -57,7 +58,7 @@ export default class List_Overview_career extends React.Component {
             {  
                 title:"Strike Rate", 
                 value:this.props.Player.career_form.Bowling_Strike_Rate,
-                sub:"", 
+                sub:"Strike rate  of " + OvertheYears[NumofYears].BowlingstrikeRate + " in  " + OvertheYears[NumofYears].Year,  
                 width:"col-xs-12",
                 data:this.props.Player.over_the_years[0],
                 filter:'BowlingstrikeRate',

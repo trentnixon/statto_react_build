@@ -33,8 +33,9 @@ const styles ={
 // Get Components
 let NotableScores=[],HighScores;
 export default class batting_runs extends React.Component {
-    state = { value: 0, };
+    
     constructor() { super(); }
+    state = { value: 0, };
 
     removeZero(data ,min=0,max=1000){
         let NewData=[]
@@ -53,8 +54,8 @@ export default class batting_runs extends React.Component {
         NotableScores = data.slice();
         NotableScores = this.removeZero(NotableScores,MinrunLimt,MaxrunLimit);
         NotableScores = _.sortBy(NotableScores, filter);
-        
-        console.log(NotableScores);
+         
+        //console.log(NotableScores);
 
        // NotableScores.map((game,i)=>{ console.log(game.notout)})
 
@@ -88,6 +89,7 @@ export default class batting_runs extends React.Component {
     componentWillUpdate(nextProps, nextState){}
     
     render() {
+ 
             return ( 
                 <NakedWrapper> 
                        <Section_Header header="Notable Scores"/>
@@ -103,13 +105,12 @@ export default class batting_runs extends React.Component {
                                         labelStyle={styles.label}
                                         fullWidth={true}
                                     >
-                                    
-                                        <MenuItem value="0"  primaryText="Top 10  - Highest Scores" />
-                                        <MenuItem value="1"  primaryText="Top 10  - Lowest Scores" />
-                                        <MenuItem value="2"  primaryText="Most Balls Faced" />
-                                        <MenuItem value="3"  primaryText="Fewest Balls over 20 Runs" />
-                                        <MenuItem value="4"  primaryText="Most Balls under 20 runs" />
-                                        <MenuItem value="5"  primaryText="Top Scores &amp; Not Out" />
+                                        <MenuItem value={0}  primaryText="Top 10  - Highest Scores" />
+                                        <MenuItem value={1}  primaryText="Top 10  - Lowest Scores" />
+                                        <MenuItem value={2}  primaryText="Most Balls Faced" />
+                                        <MenuItem value={3}  primaryText="Fewest Balls over 20 Runs" />
+                                        <MenuItem value={4}  primaryText="Most Balls under 20 runs" />
+                                        <MenuItem value={5}  primaryText="Top Scores &amp; Not Out" />
                                     
                                     </SelectField>
                                 </MuiThemeProvider>

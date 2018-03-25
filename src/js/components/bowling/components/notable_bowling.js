@@ -123,10 +123,10 @@ export default class Bowling_Notable_Table extends React.Component {
                                         fullWidth={true}
                                     >
                                     
-                                        <MenuItem value="0"  primaryText="Best Figures (All)" />
-                                        <MenuItem value="3"  primaryText="Best Figures (4 overs)" />
-                                        <MenuItem value="1"  primaryText="Least Runs (min 3 overs)" />
-                                        <MenuItem value="2"  primaryText="Most Runs Conceeded" />
+                                        <MenuItem value={0}  primaryText="Best Figures (All)" />
+                                        <MenuItem value={3}  primaryText="Best Figures (4 overs)" />
+                                        <MenuItem value={1}  primaryText="Least Runs (min 3 overs)" />
+                                        <MenuItem value={2}  primaryText="Most Runs Conceeded" />
                                     
                                     </SelectField>
                                 </MuiThemeProvider>

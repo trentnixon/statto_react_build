@@ -70,7 +70,7 @@ export default class One_Column_Bar_Chart_With_Filter extends React.Component {
 
         if(this.props.Theme){ SelectTheme = this.props.Theme;}
         Theme = this.props.UI.Themes[SelectTheme];
-
+ 
      }
     render () {
 

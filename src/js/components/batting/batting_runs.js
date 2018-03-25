@@ -5,8 +5,8 @@ import Info_Badge from "../global/Info_Badge";
 import Section_Header from "../global/Section_Header";
 import Section_Runs from "./components/runs/Section_Runs";
 import Section_Scores from "./components/runs/Section_Scores";
-import Chart_Pie_Runs_Over_Years from "./components/runs/Chart_Pie_Runs_Over_Years";
 
+import Chart_Line_Growth from "./components/runs/Chart_Line_Run_Growth";
 export default class Batting_Runs extends React.Component {
 
     constructor() { super();  }
@@ -20,11 +20,11 @@ export default class Batting_Runs extends React.Component {
             return ( 
                 <div>
                     <Half_Circle>
-                        <Chart_Pie_Runs_Over_Years {... this.props}/>
+                        <Chart_Line_Growth {... this.props} />
                     </Half_Circle>  
                     <Content_Wrapper>   
                         <Info_Badge Text="RUNS" />
-                        <Section_Runs {... this.props}/>
+                        <Section_Runs {... this.props}/> 
                         <Section_Scores {... this.props} />
                     </Content_Wrapper>
                 </div>

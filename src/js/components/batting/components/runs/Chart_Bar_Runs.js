@@ -36,7 +36,7 @@ export default class batting_runs extends React.Component {
     render() {
             return ( 
                 <div>
-                        <Section_Header header="Runs at a view" />
+                        <Section_Header header="Runs by the Game" />
                         <Single_Bar data={BarData} datakey="Runs" Years={Years} countType="Innings Count : "/>
                 </div>
              ); 
