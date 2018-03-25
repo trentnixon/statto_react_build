@@ -1,4 +1,6 @@
 import React from "react";
+import DarkWrapper from "../../../global/wrapper";
+import NakedWrapper from "../../../global/Naked_wrapper";
 import Section_Header from "../../../global/Section_Header";
 import SelectField from 'material-ui/SelectField';
 import  LinktoScorecard from "../../../scorecards/components/Link_to_Scorecard";
@@ -87,7 +89,7 @@ export default class batting_runs extends React.Component {
     
     render() {
             return ( 
-                <div class="darkWrapper">
+                <NakedWrapper> 
                        <Section_Header header="Notable Scores"/>
                     <div class="filter-Container" style={styles.filter}> 
                             {
@@ -129,7 +131,7 @@ export default class batting_runs extends React.Component {
                                 })
                             }
                         </ul>
-                </div>
+                </NakedWrapper>
              ); 
       }
   }

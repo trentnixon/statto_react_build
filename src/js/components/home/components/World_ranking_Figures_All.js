@@ -1,10 +1,7 @@
 import React from "react";
-//import FontAwesome from 'react-fontawesome';
+
 import { Link } from 'react-router-dom'
 import Naked_Wrapper from "../../global/Naked_wrapper";
-//import Section_Header from "../../global/Section_Header";
-//import Simple_Line from "../../global/recharts/lineCharts/Simple_Line";
-//import Content_Pod from "../../global/Expandable_Panel/content_pod";
 
 
 const Trending_icon={
@@ -18,7 +15,7 @@ let batting,bowling,keeping,
     bowling_display = Trending_icon.flat.icon,
     keeping_display = Trending_icon.flat.icon;
 
-export default class Batting_Career_World_Ranking_Progression extends React.Component {
+export default class World_Ranking_Progression extends React.Component {
 
     constructor() { super();  }
     
@@ -35,9 +32,8 @@ export default class Batting_Career_World_Ranking_Progression extends React.Comp
         bowling = this.props.Player.bowling_world_ranking
         keeping = this.props.Player.keeping_world_ranking
         
-        batting_display = this.findIcon(batting["0"].ranking,batting["1"].ranking,Trending_icon)
-        bowling_display = this.findIcon(bowling["0"].ranking,bowling["1"].ranking,Trending_icon)
-        
+        if(batting.length > 1){batting_display = this.findIcon(batting["0"].ranking,batting["1"].ranking,Trending_icon)}
+        if(bowling.length > 1){bowling_display = this.findIcon(bowling["0"].ranking,bowling["1"].ranking,Trending_icon)}
         if(keeping.length > 1){keeping_display = this.findIcon(keeping["0"].ranking,keeping["1"].ranking,Trending_icon)}
 
         

@@ -8,7 +8,7 @@ import Info_Badge from "../global/Info_Badge";
 import World_Ranking_Figures from "../_Pages/Career/World_ranking_Figures";
 import Section_Header from "../global/Section_Header";
 import Go_to_component from "../global/go_to_component";
-
+import Lastest_Figures from "./components/Latest_Figures";
 import FAS from "./components/fas";
 import List_Overview_Career from  "./components/List_Overview_Career";
 
@@ -41,8 +41,8 @@ export default class Bowling_Overview extends React.Component {
                     <Content_Wrapper>
                     <Info_Badge Text="BOWLING" />
                         <World_Ranking_Figures Rankings={this.props.Player.bowling_world_ranking}/>
-
-                        <p>Last 3 bowling performaces</p>
+                        <Section_Header header="Recent Figures" />
+                        <Lastest_Figures {... this.props} />
                         <Section_Header header="Career" />
                             <List_Overview_Career {... this.props}/>
                         <Section_Header header="Achievements" />   

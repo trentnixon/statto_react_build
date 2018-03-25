@@ -22,8 +22,7 @@ export default class batting_runs extends React.Component {
     render() {
             return ( 
                 <div>
-                    <Section_Header header="Runs over the Years" />
-                    <Full_Pie data={Piechart_Runs_By_Year}/>
+                    <Full_Pie Theme="Light" data={Piechart_Runs_By_Year}/>
                 </div>
              ); 
       }

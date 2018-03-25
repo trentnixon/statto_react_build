@@ -43,9 +43,8 @@ export default class Display_dashboard extends React.Component {
          // set BC
         breadcrumbs('Dashboard','parents');
         OvertheYears = this.props.Player.over_the_years["0"]
-       // RadialData = runsvsballs(this.props.Player.filtered_json)
         NumofYears = OvertheYears.length -1;
-        console.log('NumofYears',NumofYears,OvertheYears[NumofYears] )
+       
         Runs_Text=[
             {  
                 title:"Games Played", 

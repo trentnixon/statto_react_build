@@ -7,17 +7,15 @@ import Content_Wrapper from "../stage/components/Content_Wrapper";
     import Info_Badge from "../global/Info_Badge";
     import World_Ranking_Figures from "../_Pages/Career/World_ranking_Figures";
     import Section_Header from "../global/Section_Header";
-    //import Go_to_component from "../global/go_to_component";
-    //import Content_Pod from "../global/Expandable_Panel/Create_Content_Pods";
-    import Radial from "../_Pages/Career/Radial_Two_Part";
+    import LatestScores from "./components/Latest_Scores";
     import Carrer_Overview_List from "./components/Overview_Career_list";
     import Achievement_Overview from "./components/Overview_achievement_list";
 
 
 // actions 
-import {breadcrumbs,runsvsballs} from  "../../actions/ui";
+import {breadcrumbs} from  "../../actions/ui";
 
-let Content_1=[], RadialData;
+let Content_1=[];
 export default class batting_career extends React.Component {
 
     constructor() { super();  }
@@ -26,7 +24,6 @@ export default class batting_career extends React.Component {
     componentWillMount(){ 
        // set BC
        breadcrumbs('batting > Overview','parent');
-       RadialData = runsvsballs(this.props.Player.filtered_json)
        
     }
 
@@ -49,11 +46,11 @@ export default class batting_career extends React.Component {
                     <Content_Wrapper>   
                         <Info_Badge Text="BATTING" />   
                             <World_Ranking_Figures Rankings={this.props.Player.batting_world_ranking}/>
-                            <p>Last 3 Batting performaces</p>
+                        <Section_Header header="Recent Scores" />
+                            <LatestScores {... this.props} />
                         <Section_Header header="Career" />
                             <Carrer_Overview_List {... this.props}/>
-                        <Section_Header header="Runs Over View" />
-                            <Radial title="Runs vs Balls" data={RadialData} />
+                       
                         <Section_Header header="Achievement Overview" />
                             <Achievement_Overview {... this.props}/>
                     </Content_Wrapper>
