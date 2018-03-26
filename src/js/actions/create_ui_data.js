@@ -104,9 +104,9 @@ function calc_Stats(team,data,filter){
 		// create ave, sr nouts( for aveger) store in array and send back
 		//Batting
 		Avg =  Runs/(inn-NO);
-		Avg =  Avg.toFixed(2);
+		Avg =  parseFloat(Avg.toFixed(2));
 		SR=    Runs/Balls*100;
-		SR =  SR.toFixed(2);
+		SR =  parseFloat(SR.toFixed(2));
 		// Bowling
 		
 		EconomyRate = RunsConceded/OversBowled;
@@ -124,9 +124,9 @@ function calc_Stats(team,data,filter){
 		ReturnThis['RunsConceded'] = RunsConceded;
 		ReturnThis['WicketsTaken'] = WicketsTaken;
 		ReturnThis['OversBowled'] = OversBowled;
-		ReturnThis['EconomyRate'] = EconomyRate.toFixed(2);
-		ReturnThis['BowlingstrikeRate'] = BowlingstrikeRate.toFixed(2);
-		ReturnThis['Bowling_Average'] = Bowling_Average.toFixed(2);
+		ReturnThis['EconomyRate'] = parseFloat(EconomyRate.toFixed(2));
+		ReturnThis['BowlingstrikeRate'] = parseFloat(BowlingstrikeRate.toFixed(2));
+		ReturnThis['Bowling_Average'] = parseFloat(Bowling_Average.toFixed(2));
 		ReturnThis['bowling_inn'] = bowling_inn;
 		
 		//console.log(ReturnThis);
