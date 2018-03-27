@@ -2,7 +2,8 @@ import React from "react";
 
 import Section_Header from "../../global/Section_Header";
 import Section_Subheader from "../../global/Section_Subheader";
-import Content_Pod from "../../global/Expandable_Panel/content_pod";
+
+import Naked_Goals_wrapper  from "../../global/Naked_Goals_wrapper";
 let Goals_Wickets_Average=[],Goals_Last_Years_Total=[],Goals_Runs_Average=[];
 let LastYearsWickets=0;
 export default class Section_Form_Guide extends React.Component {
@@ -96,26 +97,27 @@ export default class Section_Form_Guide extends React.Component {
                 <Section_Header header={"Goals for "+this.props.UI.filter.years[0].Year} />
                 <Section_Subheader header="Calculated from your most recent playing year"/>
                 <div class="row">
-                    
-                    <Content_Pod 
+
+
+                    <Naked_Goals_wrapper 
                         title={"Beat career average of "+ Goals_Wickets_Average[0] +' Wickets a year'}
                         value={Goals_Wickets_Average[1] +' of '+Goals_Wickets_Average[0]} 
                         sub={Goals_Wickets_Average[3] +'% complete'}
-                        width={"col-xs-12 goal gradient gradient_"+Goals_Wickets_Average[2] }
+                        width={Goals_Wickets_Average[2] }
                     />
 
-                    <Content_Pod 
+                    <Naked_Goals_wrapper 
                         title={"Beat Last years total : "+ Goals_Last_Years_Total[0] +' Wickets'}
                         value={Goals_Last_Years_Total[1] +' of '+Goals_Last_Years_Total[0]} 
                         sub={Goals_Last_Years_Total[3] +'% complete'}
-                        width={"col-xs-12 goal gradient gradient_"+Goals_Last_Years_Total[2] }
+                        width={Goals_Last_Years_Total[2] }
                     />
 
-                    <Content_Pod 
+                    <Naked_Goals_wrapper 
                         title={"Less than "+ Goals_Runs_Average[0] +' Runs Conceded'}
                         value={Goals_Runs_Average[1] +' of '+Goals_Runs_Average[0]} 
                         sub={Goals_Runs_Average[3] +'% complete'}
-                        width={"col-xs-12 goal gradient gradient_"+Goals_Runs_Average[2] }
+                        width={Goals_Runs_Average[2] }
                     />
                 </div>
             </div>

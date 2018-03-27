@@ -2,7 +2,8 @@ import React from "react";
 
 import Section_Header from "../../global/Section_Header";
 import Section_Subheader from "../../global/Section_Subheader";
-import Content_Pod from "../../global/Expandable_Panel/content_pod";
+//import Content_Pod from "../../global/Expandable_Panel/content_pod";
+import Naked_Goals_wrapper  from "../../global/Naked_Goals_wrapper";
 
 let Goals_Batting_LastYearsRuns=[],Goals_Average_50s=[],Goals_Runs_Average=[];
 let LastYearsRuns=0;
@@ -99,19 +100,19 @@ export default class Section_Form_Guide extends React.Component {
                 <Section_Header header={"Goals for "+this.props.UI.filter.years[0].Year} />
                 <Section_Subheader header="Calculated from your most recent playing year"/>
                 <div class="row">
-                <Content_Pod 
+                <Naked_Goals_wrapper 
                         title={"Beat Career Average of "+ Goals_Runs_Average[0] +' Runs a Year'}
                         value={Goals_Runs_Average[1] +' of '+Goals_Runs_Average[0]} 
                         sub={Goals_Runs_Average[3] +'% complete'}
-                        width={"col-xs-12 goal gradient gradient_"+Goals_Runs_Average[2] }
+                        width={Goals_Runs_Average[2] }
                     />
 
 
-                    <Content_Pod 
+                <Naked_Goals_wrapper 
                         title={"Beat Last years total of  "+ Goals_Batting_LastYearsRuns[0] +' Runs'}
                         value={Goals_Batting_LastYearsRuns[1] +' of '+Goals_Batting_LastYearsRuns[0]} 
                         sub={Goals_Batting_LastYearsRuns[3] +'% complete'}
-                        width={"col-xs-12 goal gradient gradient_"+Goals_Batting_LastYearsRuns[2] }
+                        width={Goals_Batting_LastYearsRuns[2] }
                     />
                 </div>
             </div>

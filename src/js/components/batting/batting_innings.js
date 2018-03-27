@@ -28,28 +28,28 @@ export default class Display_Player_Settings_Home extends React.Component {
                         <Content_Wrapper>
                                 <Info_Badge  Text="I,A,S" />
                          
-                      
-                                
-
-                                <Naked_Wrapper>
-                                        <Section_Header header="# Innings over the years" />
-                                        <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Innings"/>
-                                </Naked_Wrapper>
-                                
+                        <Section_Header header="Innings" />
                                 <Naked_Wrapper>
                                         <List_Best_AES 
-                                                Tag="Innings"
+                                                Tag=""
                                                 header="Most Innings (3 Game Min)"
                                                 filter="INN"
                                                 order="desc"
                                                 {...this.props}
                                          />
                                 </Naked_Wrapper>
+                                
+                                <Naked_Wrapper>
+                                        <Section_Header header="# Innings over the years" />
+                                        <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Innings"/>
+                                </Naked_Wrapper>
+                                
+                               <hr /> 
 
                         <Section_Header header="Balls Faced" />
                                 <Naked_Wrapper>
                                         <List_Best_AES 
-                                                Tag="Balls Faced"
+                                                Tag=""
                                                 header="Most Balls Faced (3 Game Min)"
                                                 filter="Balls"
                                                 order="desc"
@@ -64,10 +64,12 @@ export default class Display_Player_Settings_Home extends React.Component {
                                         <Runs_Stacked {...this.props}/>
                                 </Naked_Wrapper>
                                 
+                                <hr />
+
                         <Section_Header header="Averages" />
                                 <Naked_Wrapper>
                                         <List_Best_AES 
-                                                Tag="Averages"
+                                                Tag=""
                                                 header="Average (3 Game Min)"
                                                 filter="Avg"
                                                 order="desc"
@@ -79,10 +81,12 @@ export default class Display_Player_Settings_Home extends React.Component {
                                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Average"/>
                                 </Naked_Wrapper>
                                 
+                                <hr />
+
                         <Section_Header header="Strike Rate" />
                                 <Naked_Wrapper>
                                         <List_Best_AES 
-                                                Tag="Strike Rate"
+                                                Tag=""
                                                 header="Strike Rate (3 Game Min)"
                                                 filter="SR"
                                                 order="desc"

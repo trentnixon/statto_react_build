@@ -35,7 +35,7 @@ export default class batting_runs extends React.Component {
                     <Section_Header header="Averages" />             
                     <Naked_Wrapper>
                         <List_Best_AEC 
-                                Tag="Runs per Wicket"
+                                Tag=""
                                 header="Best Averages (3 Game Min)"
                                 filter="Bowling_Average"
                                 order="asc"
@@ -48,7 +48,7 @@ export default class batting_runs extends React.Component {
                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Bowling_Average"/>
                 </Naked_Wrapper>
                 <Naked_Wrapper>
-                        <Section_Header header="Carrer Average against Current " />
+                        <Section_Header header="Career Average against Current " />
                         <Double_Line_Chart  
                             data={this.props.Player.over_the_years[1]} 
                              dataKey1="Average" 
@@ -56,11 +56,12 @@ export default class batting_runs extends React.Component {
                         /> 
                 </Naked_Wrapper>
         
+                <hr />
         
-        <Section_Header header="Bowling  Economy" />
+                <Section_Header header="Bowling  Economy" />
                 <Naked_Wrapper>
                         <List_Best_AEC 
-                            Tag="Runs per Over"
+                            Tag=""
                             header="Best Economy (3 Game Min)"
                             filter="EconomyRate"
                             order="asc"
@@ -72,7 +73,7 @@ export default class batting_runs extends React.Component {
                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="EconomyRate" />
                  </Naked_Wrapper>
                  <Naked_Wrapper>     
-                        <Section_Header header="Carrer Economy against Current " />  
+                        <Section_Header header="Career Economy against Current " />  
                         <Double_Line_Chart 
                             data={this.props.Player.over_the_years[2]} 
                             dataKey1="Economy" 
@@ -80,12 +81,13 @@ export default class batting_runs extends React.Component {
                         />
                 </Naked_Wrapper>
         
+                <hr />
         
                 <Section_Header header=" Strike Rate" />
                 <Naked_Wrapper>
 
                         <List_Best_AEC 
-                            Tag="Balls per Wicket"
+                            Tag=""
                             header="Best Strikerate (3 Game Min)"
                             filter="BowlingstrikeRate"
                             order="asc"
@@ -97,7 +99,7 @@ export default class batting_runs extends React.Component {
                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="BowlingstrikeRate"/>
                 </Naked_Wrapper>
                 <Naked_Wrapper>  
-                    <Section_Header header="Carrer Strike Rate against Current " />    
+                    <Section_Header header="Career Strike Rate against Current " />    
                         <Double_Line_Chart 
                             data={this.props.Player.over_the_years[3]} 
                             dataKey1="Strikerate" 

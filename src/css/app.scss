@@ -82,6 +82,10 @@ html {
         }
        
     }
+
+
+    // Margins Classes
+    .mt20{margin-top: 20px !important;}
 }
 
 #statto-app{
@@ -93,6 +97,11 @@ html {
     .nomargin{ margin:0;}
     .margin20{ margin-left: -19px; margin-right: -19px; }
 
+    hr{
+        border-color: #b7b7b7;
+        margin-top: 40px;
+        margin-bottom:40px;
+    }
     .text-right{ text-align: right;}
     .go_back{ float: left; margin: 0 5px 0 -5px ;}
     
