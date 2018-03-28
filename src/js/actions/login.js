@@ -12,7 +12,7 @@ import {Store_Player_Games} from "./games";
 
 // Fetch all Players Registered With Statto
 
-export function RegisteredPlayers(){
+export function RegisteredPlayers(){ 
 		const request = axios.get("/statto/ajax/player/login/Login-Users.php");
 		request.then(({data}) =>{ 
 			// console.log(data);
@@ -20,6 +20,18 @@ export function RegisteredPlayers(){
 		});
 	
 	}
+
+// Fetch Statto Meta Data
+export function Fetch_Statto_Meta(){
+	const request = axios.get("/statto/wp-json/wp/v2/pages/2");
+	request.then(({data}) =>{ 
+		//console.log(data);
+		store.dispatch({ type:"STORE_STATTO_LOGO", payload:data.acf.statto_logo })
+		store.dispatch({ type:"STORE_STATTO_FORCE_UPDATE_VERSION", payload:data.acf.force_update_version })
+	});
+
+}
+
 
 // Fetch Selected Players Details
 export function StorePlayerProfile(acf)

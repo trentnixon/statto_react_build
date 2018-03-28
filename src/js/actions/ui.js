@@ -4,19 +4,11 @@ import store from "../store/store";
 import axios from 'axios';
 var _ = require('lodash');
 
+ 
 
-// Fetch Statto Meta Data
-export function Fetch_Statto_Meta(){
-		const request = axios.get("/statto/wp-json/wp/v2/pages/2");
-		request.then(({data}) =>{ 
-			//console.log(data);
-			store.dispatch({ type:"STORE_STATTO_LOGO", payload:data.acf.statto_logo })
-			store.dispatch({ type:"STORE_STATTO_FORCE_UPDATE_VERSION", payload:data.acf.force_update_version })
-		});
-	
-	}
+
+
 // Bread Crumbs
-
 export function breadcrumbs(location, path){
 	//breadcrumbs('bowling','parent');
 

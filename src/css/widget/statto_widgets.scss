@@ -1,4 +1,24 @@
 
+// Assign
+.assign_player{
+    text-align:center;
+    padding: 45% 0;
+    height: 100vh;
+
+    img{
+        width: 60px;
+        margin: 0 10px 0 0;
+    }
+    h1{    
+        margin: 0 0 0 10px;
+        line-height: 60px;}
+    h3{
+        line-height: 35px;
+        margin-bottom: 50px;
+    }
+}
+
+
 // Content
 .InfoBadge{
     border:1px $tone2;
