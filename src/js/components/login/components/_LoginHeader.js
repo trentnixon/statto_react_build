@@ -12,10 +12,10 @@ render(){
 						<Logo Logo={this.props.Logo}/>
 				</div>
 				<div class="col-xs-7 nopadding text-left">
-						<h1>{this.props.Header}</h1>
+						<h3>{this.props.Header}</h3>
 				</div>
 				<div class="col-xs-12 nopadding text-center">	
-					<h2>{this.props.SubHeader}</h2>
+						<h4>{this.props.SubHeader}</h4>
 				</div>
 			</div>
 		)

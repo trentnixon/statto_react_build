@@ -15,21 +15,15 @@
 
         .logo{ }
 
-        h1{
-            margin: 0;
-            font-size: 2.5em;
-            line-height: 1.8em;
-            font-weight: 100;
-            color:$bodyBlack;
-
+        h3{ 
+            line-height: 2.5em;
+            font-size: 2em;
         }
-        h2{
-            margin: 0;
+
+        h4{
+            text-align: center;
             font-size: .9em;
-            line-height: 1.3em;
-            font-weight: 100;
-            text-transform: uppercase;
-            color:$bodyBlack;
+            letter-spacing: 1px;
         }
     }
 

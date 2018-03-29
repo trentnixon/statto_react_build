@@ -6,13 +6,13 @@ import Logo from "../../login/components/_Logo";
 import Go_Back from "../../global/go_back";
 
 const iconStyles = { 
-    float:'left',
-    color:'#383838',
+        float:'left',
+        color:'#383838',
 };
   const LabelStyles = {
-   position:'fixed',
-   bottom:0,
-   backgroundColor:'#5b7691'
+        position:'fixed',
+        bottom:0,
+        backgroundColor:'#5b7691'
   };
 
    let hoverColor='#e9e9e9', filter=false;
@@ -52,9 +52,9 @@ export default class Top_Nav_Bar extends React.Component {
                 <div id="header">
                     <div class="row">
                         <div class="col-xs-10">  
-                        <Go_Back {... this.props}/>
-                        <MuiThemeProvider>{Personpin}</MuiThemeProvider>
-                            <h2>{this.props.Player.PLAYER_META.UserName} <small>{this.props.Player.PLAYER_META.GAME_COUNT} games</small></h2>
+                                <Go_Back {... this.props}/>
+                                    <MuiThemeProvider>{Personpin}</MuiThemeProvider>
+                                <h4>{this.props.Player.PLAYER_META.UserName} <small>{this.props.Player.PLAYER_META.GAME_COUNT} games</small></h4>
                         </div>
                         <div class="col-xs-2">
                             <Link to={'/'+this.props.match.params.playerid+"/settings"}>
@@ -65,7 +65,7 @@ export default class Top_Nav_Bar extends React.Component {
                             {filter}
                         </div>
                         <div class="col-xs-6 text-right">
-                        <h3>{this.props.UI.breadcrumbs.parent}</h3>
+                            <p>{this.props.UI.breadcrumbs.parent}</p>
                         </div>
                     </div>
 		        </div>

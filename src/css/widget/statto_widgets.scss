@@ -9,9 +9,7 @@
         width: 60px;
         margin: 0 10px 0 0;
     }
-    h1{    
-        margin: 0 0 0 10px;
-        line-height: 60px;}
+    h1{ }
     h3{
         line-height: 35px;
         margin-bottom: 50px;
@@ -80,11 +78,7 @@
                 font-size: 2.5em;
                 color:$bodyWhite;
             }
-        h1{
-            margin: 5px 0;
-            font-size: 1.8em;
-            line-height: 1em;
-        }
+        h1{}
         h2{
             font-size: 1.2em;
             margin: 0;
@@ -95,11 +89,7 @@
             font-size: 2em;
             color:$bodyBlack;
         }
-        h1{
-            margin: 5px 0 10px;
-            font-size: 1.3em;
-            line-height: 1em;
-        }
+        h1{}
         h2{
             font-size: 1em;
             margin: 0;
@@ -113,9 +103,10 @@
 
     .section-header{
         padding-bottom: 0 !important;
-        h1{
-            color:$bodyWhite !important;
-            font-size: 1em;
+        h1{ 
+            font-size: .7em;
+            line-height: 1em;
+            text-align: center;
         }
     }
     .section-subheader{
@@ -152,10 +143,7 @@
 .Goal{
     margin: 10px 0 50px;
     // border-bottom: .5px solid #b7b7b7;
-
-    h1{
-        font-size: 1.3em;
-    }
+    h1{}
     h3{
         margin: 0 3% 0 0;
         text-align: right;

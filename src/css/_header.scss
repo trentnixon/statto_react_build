@@ -7,21 +7,16 @@
     z-index: 9;
     width: 100%;
 
-    h2{
-        color: $bodyBlack;
-        font-size: 1.1em;
-        margin: 0 0 0 30px;
-        line-height: 1.6em;
+    h4{
+        margin: 0 0 0 18%;
+        line-height: 2em;
         small{
-            color: $bodyBlack;
             font-size: .7em;
         }
     }
-    h3{
-        margin: 2px 0 0;
-        font-size: .8em;
-        text-transform: uppercase;
-        color: $bodyBlack;
+
+    p{
+        text-align: right;
     }
 
     .filteractive{
@@ -70,12 +65,7 @@
                 font-size: 2.3em;
                 margin: 0;
                 padding: 0 0 20px;
-            h1{
-                margin: 0;
-                padding: 0;
             }
-        }
-     
         }
 
      .buttonGroup{
