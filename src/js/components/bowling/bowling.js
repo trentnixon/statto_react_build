@@ -2,6 +2,10 @@ import React from "react";
 
 // Components
 import Section_Navigation from "../_Pages/_Navigation/Section_Navigation";
+import Icon_Bowling from "../global/icons/bowling";
+import Icon_Team from "../global/icons/Team";
+import Icon_History from "../global/icons/History";
+import Icon_Dashboard from "../global/icons/dashboard";
 
 // actions 
 import {breadcrumbs} from  "../../actions/ui";
@@ -20,32 +24,32 @@ export default class Display_Player_Bowling_Home extends React.Component {
         Bowling_Navigation =[
             {
                 title:'Overview',
-                icon:this.props.UI.icons.dashboard,
+                icon:<Icon_Dashboard />,
                 Link:'bowling/overview'
             },
             {
                 title:'Wickets',
-                icon:this.props.UI.icons.bowling,
+                icon:<Icon_Bowling />,
                 Link:'bowling/wickets'
             },
             {
                 title:'A,E,S',
-                icon:this.props.UI.icons.bowling,
+                icon:<Icon_Bowling />,
                 Link:'bowling/aes'
             },
             {
                 title:'Form guide & Goals',
-                icon:this.props.UI.icons.bowling,
+                icon:<Icon_Bowling />,
                 Link:'bowling/goals'
             },
             {
                 title:'Played for',
-                icon:this.props.UI.icons.team,
+                icon:<Icon_Team />,
                 Link:'bowling/playedfor'
             },
             {
                 title:'Opposition',
-                icon:this.props.UI.icons.history,
+                icon:<Icon_History />,
                 Link:'bowling/opposition'
             }
         ];

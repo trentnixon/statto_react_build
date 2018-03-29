@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import Icon_AddPlayer from "../../global/icons/AddPlayer";
 import {orange500, blue500} from 'material-ui/styles/colors';
 
 // Login.js
@@ -123,7 +123,7 @@ export default class Register_User_Form extends React.Component {
 							/>
 					</MuiThemeProvider>
 					</div>
-					<button type="submit" id="FindPlayer" class="btn btn-success btn-block btn-lg">{this.props.UI.icons.addplayer} Register Player</button>
+					<button type="submit" id="FindPlayer" class="btn btn-success btn-block btn-lg"><Icon_AddPlayer /> Register Player</button>
 			</form>
 			
 		)

@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom';
 
 import {Register_Message} from "../../../actions/registration";
 
+import Icon_Batting from "../../global/icons/batting";
+import Icon_Bowling from "../../global/icons/bowling";
+import Icon_Keeping from "../../global/icons/keeping";
+
 import Login_WR from "./Login_WR";
 import Login_Reset from "./reset_login";
 import Store_Player from "./Login_Store_Player_As_Default";
@@ -33,17 +37,17 @@ export default class FindUser extends React.Component {
 					<Login_WR 
 						Title="Batting"
 						Value={wr1}
-						Icon={this.props.UI.icons.batting}
+						Icon= {<Icon_Batting />}
 					/>
 					<Login_WR 
 						Title="Bowling"
 						Value={this.props.Player.bowling_world_ranking["0"].ranking}
-						Icon={this.props.UI.icons.bowling}
+						Icon={<Icon_Bowling />}
 					/>
 					<Login_WR 
 						Title="Keeping"
 						Value={this.props.Player.keeping_world_ranking["0"].ranking}
-						Icon={this.props.UI.icons.keeping}
+						Icon={<Icon_Keeping />}
 					/>
 				</div>
 			

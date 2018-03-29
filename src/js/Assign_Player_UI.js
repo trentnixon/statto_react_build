@@ -5,10 +5,9 @@ import Naked_Wrapper from "./components/global/Naked_wrapper";
 //import { HashRouter as Router, Route, Link} from 'react-router-dom';
 //import { Provider } from "react-redux";
 
-import {RegisteredPlayers,Fetch_Player_Data,Register_Player_Name} from './actions/login';
-import {Fetch_Statto_Meta} from './actions/ui';
-// import {StorePlayerProfile, Register_Player_Name, Register_Player_WP_ID, Reigster_Statto_Player_ID, } from "../../../actions/login";
+import {RegisteredPlayers,Fetch_Player_Data,Register_Player_Name,Fetch_Statto_Meta} from './actions/login';
 
+// import {StorePlayerProfile, Register_Player_Name, Register_Player_WP_ID, Reigster_Statto_Player_ID, } from "../../../actions/login";
 
 RegisteredPlayers();
 Fetch_Statto_Meta(); 
@@ -25,13 +24,12 @@ export default class Assign_Player_UI extends React.Component {
     }
     
     componentWillMount(){ 
-           console.log(this.props.match.params.playerid, this.props.UI.LMS_REGISTERED)
            Username = this.props.match.params.playerid
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
-    console.log(this.props.match.params.playerid , this.props.Player.PLAYER_META.UserName);
+            // console.log(this.props.match.params.playerid , this.props.Player.PLAYER_META.UserName);
 
     if(this.props.Player.PLAYER_META.UserName){Username =this.props.Player.PLAYER_META.UserName }
    

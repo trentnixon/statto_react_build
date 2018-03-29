@@ -46,6 +46,7 @@ var config = {
 };
 
 // Check if build is running in production mode, then change the sourcemap type
+// set NODE_ENV=production
 if (process.env.NODE_ENV === "production") {
   config.devtool = "source-map";
 	plugins: [

@@ -1,5 +1,12 @@
 import React from "react";
 import Section_Nav_Item from "../../global/section_nav";
+import Icon_Batting from "../../global/icons/batting";
+import Icon_Bowling from "../../global/icons/bowling";
+import Icon_Keeping from "../../global/icons/keeping";
+import Icon_Team from "../../global/icons/Team";
+import Icon_History from  "../../global/icons/History";
+import Icon_Dashboard from "../../global/icons/dashboard";
+
 let section_nav=[];
 
 
@@ -13,32 +20,32 @@ export default class Display_Player_Home extends React.Component {
              section_nav=[
                 {
                     title:'overview',
-                    icon:this.props.UI.icons.dashboard,
+                    icon:<Icon_Dashboard />,
                     Link:'overview'
                 },
                 {
                     title:'Batting',
-                    icon:this.props.UI.icons.batting,
+                    icon:<Icon_Batting />,
                     Link:'batting'
                 },
                 {
                     title:'Bowling',
-                    icon:this.props.UI.icons.bowling,
+                    icon:<Icon_Bowling />,
                     Link:'bowling'
                 },
                 {
                     title:'Keeping',
-                    icon:this.props.UI.icons.keeping,
+                    icon:<Icon_Keeping />,
                     Link:'keeping'
                 },
                 {
                     title:'History',
-                    icon:this.props.UI.icons.history,
+                    icon:<Icon_History />,
                     Link:'history'
                 },
                 {
                     title:'By Teams',
-                    icon:this.props.UI.icons.team,
+                    icon:<Icon_Team />,
                     Link:'teams'
                 },
             ];

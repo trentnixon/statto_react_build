@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import AutoComplete from 'material-ui/AutoComplete';
 import MenuItem from 'material-ui/MenuItem';
+import Icon_Login from "../../global/icons/Login";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {orange500, blue500} from 'material-ui/styles/colors';
@@ -123,7 +124,7 @@ export default class LoginForm extends React.Component {
 							/>
 					</MuiThemeProvider>
 					</div>
-					<button type="submit" class="btn btn-success btn-block btn-lg"> {this.props.UI.icons.login} Fetch Career </button>
+					<button type="submit" class="btn btn-success btn-block btn-lg"> <Icon_Login /> Fetch Career </button>
 			</form>
 			
 		)

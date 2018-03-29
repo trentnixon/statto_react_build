@@ -1,7 +1,7 @@
 import React from "react";
 // Components
 import Section_Navigation from "../_Pages/_Navigation/Section_Navigation";
-
+import Icon_Dashboard from "../global/icons/dashboard";
 let Keeping_Navigation=[];
 
 export default class Display_Player_Keeping_Home extends React.Component {
@@ -12,11 +12,11 @@ export default class Display_Player_Keeping_Home extends React.Component {
         Keeping_Navigation =[
             {
                 title:'Overview',
-                icon:this.props.UI.icons.dashboard,
+                icon:<Icon_Dashboard />,
                 Link:'keeping/overview'
             },{
                     title:'Career',
-                    icon:this.props.UI.icons.dashboard,
+                    icon:<Icon_Dashboard />,
                     Link:'keeping/career'
                 }
             ];

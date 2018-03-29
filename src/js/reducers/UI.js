@@ -23,21 +23,6 @@ const InitialState ={
 			runs:'*',
 			wickets:'*'
 	},
-	icons:{
-		login:<i class="fa fa-sign-in"></i>,
-		addplayer:<i class="fa fa-user-plus" aria-hidden="true"></i>,
-		reset:<i class="fa fa-undo" aria-hidden="true"></i>,
-		batting:<i class="fa fa-child" aria-hidden="true"></i>,
-		bowling:<i class="fa fa-futbol-o" aria-hidden="true"></i>,
-		keeping:<i class="fa fa-paw" aria-hidden="true"></i>,
-		team:<i class="fa fa-users" aria-hidden="true"></i>,
-		home:<i class="fa fa-buromobelexperte" aria-hidden="true"></i>,
-		history:<i class="fa fa-history" aria-hidden="true"></i>,
-		dashboard:<i class="fa fa-tachometer" aria-hidden="true"></i>,
-		by:<i class="fa fa-square" aria-hidden="true"></i>,
-		achievements:<i class="fa fa-trophy" aria-hidden="true"></i>,
-		filter:<i class="fa fa-filter" aria-hidden="true"></i>,
-	},
 	breadcrumbs:{
 		parent:'Home',
 		child:false

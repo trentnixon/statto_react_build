@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-
+import Icon_AddPlayer from "../../global/icons/AddPlayer";
 const styles ={
     p:{
         margin:'10px 0'
@@ -19,7 +19,7 @@ render(){
 			<div class="row nomargin">
                 <center>
                     <p style={styles.p}>OR</p>
-                    <Link to="/register" onClick={this.Reset_Login} class="btn btn-warning"> {this.props.UI.icons.addplayer} Register New Player </Link>	
+                    <Link to="/register" onClick={this.Reset_Login} class="btn btn-warning"> <Icon_AddPlayer /> Register New Player </Link>	
                 </center>
             </div>
 		)
