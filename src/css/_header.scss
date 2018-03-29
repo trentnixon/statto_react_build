@@ -9,7 +9,8 @@
 
     h4{
         margin: 0 0 0 18%;
-        line-height: 2em;
+        font-size: 1em;
+        line-height: 1.8em;
         small{
             font-size: .7em;
         }
@@ -17,6 +18,7 @@
 
     p{
         text-align: right;
+        font-size: .9em;
     }
 
     .filteractive{
@@ -59,12 +61,14 @@
         
          .section-header{
 
-                margin: 0px 0% 0px;
-                position: relative;
-                text-align: center;
-                font-size: 2.3em;
-                margin: 0;
-                padding: 0 0 20px;
+                h1{
+                    font-weight:600;
+                    text-align: center;
+                    font-size: 2.8em;
+                    margin: 0;
+                    padding: 0 0 20px;
+                    font-family: $body_font_family;
+                }
             }
         }
 

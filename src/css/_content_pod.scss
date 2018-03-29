@@ -37,19 +37,13 @@
                     margin: -9px 10px 0 0;
                 }
             h4{
-                color:$bodyBlack;
-                font-size: 1.2em;
-                margin: 0 0 3px;
-                font-weight: 100;
                 float: left;
-                font-family: $body_font_family;
             }
-            p.value{
+            h4.value{
                 font-size: 1.2em;
-                font-weight: 100;
                 margin: 0;
-                text-align: right;
-                font-family: $body_font_family;
+                float: right;
+                color: $tone1;
             }
             p.sub{
                 font-size: .8em;
@@ -61,6 +55,7 @@
                 background-color: $tone2;
                 height: 1px;
                 border: none;
+                clear: both;
                 border-radius: 2px;
             }
             }
@@ -109,55 +104,48 @@
 
 }
 
-/*
-.Goals{
-    .goal{
-        i{ display:none;}
-        
-        .Contentpod-Header{
-            h4{ font-size: 1.1em !important;}
-            p.value{ font-size: 1em; clear:both; line-height: 2.5em;}
-        }
-    }
-}
 
-*/
-
-/* Last 10 games listed on dashboard */
+/* List Player History */
 .row{
     .recent-game-item{
 
-            @include content-pod-basic();
-            @include border-radius(3px);
-            margin: 5px 0;
-
-        div{
+            //@include content-pod-basic();
+           // @include border-radius(3px);
             
+            margin: 5px 0 20px 0;
+            border-bottom: .5px solid #b7b7b7;
+            padding: 10px 10px 15px;
+ 
             div.game-header{
                 text-align: center;
-                h4{
-                    color:$bodyBlack;
-                    font-size: 1.6em;
+               
+                h3{
+                    text-align: center;
                     margin: 0 0 7px;
-                    font-weight: 100;
+                    font-weight: 600;
+                    line-height: 1.2em;
                 }
 
-                h5{
+                h4{
                     color: $tone2;
                     font-size: .9em;
                     font-weight: 100;
                     margin:0 0 10px 0;
+                    text-align: center;
                 
                 }
             }
         
             div.info{
-                text-align: right;
-                font-size: 1.1em;
+                text-align: center;
+                font-size: 1.2em;
                 line-height: 1.3em;
                 padding: 0 10px;
-                color:$bodyBlack;
+
+                span{
+                    font-size: .6em;
+                    text-transform: uppercase;
+                }
             }
-        }
     }
 }

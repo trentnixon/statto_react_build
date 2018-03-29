@@ -19,8 +19,8 @@ export default class Wrapper extends React.Component {
             return (
                 <Naked_Wrapper>
                         <div class="Goal">
-                            <h1>{this.props.title}</h1>
-                            <h3>{this.props.value}</h3>
+                            <div class="col-xs-8 nopadding"><h3>{this.props.title}</h3></div>
+                            <div class="col-xs-4 "><h4 class="tone1">{this.props.value}</h4></div>
                             <MuiThemeProvider>
                                 <LinearProgress color="#88acd8" mode="determinate" value={this.props.width} />
                             </MuiThemeProvider>

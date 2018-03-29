@@ -10,6 +10,10 @@
 
 /* Widgets*/
 @import './widget/statto_widgets';
+@import './widget/HomePage-RecentGame-Rotator';
+@import './widget/World_ranking_homepage';
+@import './widget/Assign-Player';
+@import './widget/Top-Teams';
 @import '_buttons';
 @import '_list';
 @import '_filter';
@@ -35,49 +39,39 @@ html {
         background-attachment: fixed;
     */
         
+    h1,h2,h3,h4{
+        color: $bodyBlack;
+        text-transform:capitalize;
+        margin: 0;
+        padding: 0;
+    }
+
     h1{
             font-family: $body_font_semibold;
-            font-size: 1.2em;
-            text-transform:uppercase;
-            text-align: left;
-            margin: 0;
-            padding: 0;
-            line-height: 1.5em;
-            color: $bodyBlack;
+            font-size: 1.7em;
+            line-height: 1.7em;
+            
         }
     h2{
             font-family: $body_font_semibold;
-            color: $bodyBlack;
-            font-size: 1.2em;
-            text-align: left;
-            margin: 0;
-            padding: 0;
-            line-height: 1.5em;
-            text-transform: uppercase;
+            font-size: 1.5em;
+            line-height: 1.7em;
         }
     h3{
             font-family: $body_font_family;
             font-weight: 800;
-            color: $bodyBlack;
             font-size: 1.5em;
-            text-align: left;
-            margin: 0;
-            padding: 0;
             line-height: 1.5em;
-            text-transform: uppercase;
         }
     h4{
             font-family: $body_font_family;
-            font-weight: 600;
-            color: $bodyBlack;
-            font-size: .9em;
-            text-align: left;
-            margin: 0;
-            padding: 0;
-            line-height: 1.5em;
-            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.3em;
+            line-height: 1.3em;
     }
     p{
+            font-size: 1.3em;
+            line-height: 1.3em;
             font-family :$body_font_family;
             color: $bodyBlack;
     }
@@ -97,12 +91,12 @@ html {
             margin: 5px -10px 10px ;
 
             h1{
-                margin: 7px 0 0 !important;
+             /*   margin: 7px 0 0 !important;
                 text-align: right;
                 font-size: 1em !important;
                 border-bottom: .5px solid $bodyBlack;
                 padding-bottom: 10px;
-                color: $bodyBlack;
+                color: $bodyBlack;*/
             }
             h3{
                 text-align: right;
@@ -118,12 +112,12 @@ html {
             margin: 5px -10px 10px ;
 
             h1{
-                margin: 7px 0 0 !important;
+               /* margin: 7px 0 0 !important;
                 text-align: right;
                 font-size: 1em !important;
                 border-bottom: .5px solid $bodyWhite;
                 padding-bottom: 10px;
-                color: $bodyBlack;
+                color: $bodyBlack;*/
             }
             
         }

@@ -57,10 +57,10 @@ export default class Assign_Player_UI extends React.Component {
                             <img src={this.props.UI.Statto_Logo} />
                         </div>
                         <div class="col-xs-6 text-left nopadding">
-                            <h1>Statto</h1>
+                            <h3>Statto</h3>
                         </div>
                         <div class="col-xs-12 ">
-                        <h3>Loading Player <br /> {Username}</h3>
+                            <h4>Loading Player <br /> {Username}</h4>
                             <div class="btn-statto">
                                 <a href="#/">
                                     <p>Find Another Player!</p>

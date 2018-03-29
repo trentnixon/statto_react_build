@@ -94,8 +94,8 @@ export default class Section_Form_Guide extends React.Component {
     render() {
         return(
             <div>
-                <Section_Header header={"Goals for "+this.props.UI.filter.years[0].Year} />
-                <Section_Subheader header="Calculated from your most recent playing year"/>
+    
+                <Section_Subheader header="Goals are Calculated from your most recent playing year"/>
                 <div class="row">
 
 

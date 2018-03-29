@@ -106,6 +106,7 @@ export default class Display_dashboard extends React.Component {
                         
                         <Section_Header header="Career Basics" />
                         <Section_Subheader header="Click to expand"/>
+                        
                         <Naked_Wrapper>
                             <Extendable_Content_Pod data={Runs_Text}/>   
                         </Naked_Wrapper>

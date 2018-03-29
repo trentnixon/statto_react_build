@@ -15,17 +15,17 @@ export default class Display_Recent_Games_Pod extends React.Component {
                 <div class={"recent-game-item "+ this.props.width}>
                     <div class="game-header">
                         <div class="col-xs-11 nopadding">
-                            <h4>{this.props.Team} <small class="tone3">vs</small> {this.props.Opposition}</h4>
-                            <h5>Date : {this.props.Date}</h5>
+                            <h3>{this.props.Team} <small class="tone3">vs</small> {this.props.Opposition}</h3>
+                            <h4>Date : {this.props.Date}</h4>
                         </div>
                         <div class="col-xs-1 nopadding ">
                             <Link_To_Scorecard ID={this.props.ID}/>
                         </div>
             
-                        <div class="col-xs-2 info">{this.props.Runs} <br />Runs</div>
-                        <div class="col-xs-4 info">{this.props.BallsFaced} <br /> Balls Faced </div>
-                        <div class="col-xs-3 info">{this.props.BowlingFigures} <br /> Figures </div>
-                        <div class="col-xs-3 info">{this.props.OversBowled} <br /> Overs</div>
+                        <div class="col-xs-2 info">{this.props.Runs} <br /><span>Runs</span></div>
+                        <div class="col-xs-4 info">{this.props.BallsFaced} <br /> <span>Balls Faced</span> </div>
+                        <div class="col-xs-3 info">{this.props.BowlingFigures} <br /><span> Figures</span> </div>
+                        <div class="col-xs-3 info">{this.props.OversBowled} <br /> <span>Overs</span></div>
                     </div>   
                 </div>
                 </Fade>

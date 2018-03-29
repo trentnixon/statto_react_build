@@ -29,8 +29,8 @@ export default class Display_Player_Settings_Home extends React.Component {
                                                 name='users'
                                                 className='Emoticon'
                                             />
-                                            <h1>{team.Team}</h1>
-                                            <h2>{team.Games.length} Games</h2>
+                                            <h2>{team.Team}</h2>
+                                            <h3>{team.Games.length} Games</h3>
                                         </div>
                                 )
                             }

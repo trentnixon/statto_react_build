@@ -54,11 +54,11 @@ export default class Display_Player_Settings_Home extends React.Component {
                             <Section_Header header={game.Opposition} />
                                 <Section_Sub_Header header={'Played '+ lastUpdate} />
                             <div class="col-xs-5 nopadding">
-                                <h2>Runs : {game.Batting_Runscored}</h2>
+                                <h3>Runs : {game.Batting_Runscored}</h3>
                                 <h4>{game.Batting_BallsFaced} Balls </h4>
                             </div>
                             <div class="col-xs-7 nopadding">
-                                <h2>Figures : {game.Bowling_Figures}</h2>
+                                <h3>Figures : {game.Bowling_Figures}</h3>
                                 <h4>{game.Bowling_OversBowled} Overs </h4>
                             </div>
                             <div class="col-xs-12 nopadding ">

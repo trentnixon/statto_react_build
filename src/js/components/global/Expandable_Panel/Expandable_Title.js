@@ -14,7 +14,7 @@ export default class Expandable_Title extends React.Component {
                 <div>
                     <i class="material-icons tone2 cardIcon">hdr_weak</i>
                     <h4>{this.props.title}</h4>
-                    <p class="value">{this.props.value}</p>
+                    <h4 class="value">{this.props.value}</h4>
                     <hr/>
                 </div>
              ); 
