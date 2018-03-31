@@ -49,7 +49,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     render() {
             return ( 
-                <div id="scorecard_Pie_Chart" class="darkWrapper">
+                <div id="scorecard_Pie_Chart">
                         <Section_Header header="Batting Position Comparisons" />
                         
                         <Bars data={Data} />

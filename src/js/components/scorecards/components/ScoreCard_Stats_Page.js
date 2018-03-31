@@ -24,6 +24,6 @@ export default class Display_Game_Stats extends React.Component {
                     <Batting_Position_Comparison {... this.props} />
                     <Balls_Faced {... this.props}/>
                 </div>
-             ); 
+             );  
       }
   }

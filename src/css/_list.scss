@@ -15,7 +15,20 @@ ul.list{
     }
 }
 
-ul.list.noborder{
+
+#Notable{
+    margin: 20px 0 0 0;
+    
+    li{
+        font-weight: 600;
+        .score{
+            font-size: 1.3em;
+        }
+    }
+}
+
+
+ ul.list.noborder{
     padding: 10px 0;
     li{
         border: none;

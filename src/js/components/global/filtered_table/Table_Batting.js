@@ -43,6 +43,7 @@ export default class ListExampleNested extends React.Component {
     componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
+    
     handleChange(event, value){
         console.log(this.props.TableData, value)
         if(value.length > 2){

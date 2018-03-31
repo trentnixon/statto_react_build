@@ -23,7 +23,7 @@ export default class Batting_Runs extends React.Component {
                         <Chart_Line_Growth {... this.props} />
                     </Half_Circle>  
                     <Content_Wrapper>   
-                        <Info_Badge Text="RUNS" />
+                        <Info_Badge Text={this.props.Player.career_form.Batting_Total_Runs + " RUNS"} />
                         <Section_Runs {... this.props}/> 
                         <Section_Scores {... this.props} />
                     </Content_Wrapper>

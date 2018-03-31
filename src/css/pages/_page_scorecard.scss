@@ -48,6 +48,8 @@
             padding: 0 0 10px 0;
             margin: 10px 0 0;
             min-height: 55px;
+            line-height: 1em;
+            font-size: 1.3em;
         }
         h2{ 
                 color: $bodyWhite;
@@ -217,11 +219,12 @@
 /* Charts */
     #scorecard_Stats{
 
-        .darkWrapper{
-            margin: 0 -3px 15px;
-            padding: 10px;
+        h1{
+            font-family:$body_font_family;
+            font-weight:600;
+            text-align: right;
+            border-bottom: .5px solid #b7b7b7;
         }
-
         .scorecard_Charts{
 
                 .header{

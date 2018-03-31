@@ -32,11 +32,11 @@ export default class Bowling_Most_For_and_Against extends React.Component {
     
     render() {
             return ( 
-                <div class="darkWrapper"> 
+                <div>  
                     <Section_Header header="Most wickets playing :" />
                     <div class="row">
-                        <div class="col-xs-6 text-right tone1"><h4>For </h4> <span class="tone1">{Team[1]} ({Team[0]}) </span></div>
-                        <div class="col-xs-6 tone3"><h4>Against </h4> <span class="tone3"> {against[1]} ({against[0]}) </span></div>
+                         <div class="col-xs-6 text-right tone1"><h4>For</h4> <span class="tone1">{Team[1]} : {Team[0]} {this.props.Tag}</span></div>
+                        <div class="col-xs-6 tone3"><h4>Against </h4> <span class="tone3"> {against[1]} : {against[0]} {this.props.Tag} </span> </div>   
                     </div>
                 </div>
              ); 

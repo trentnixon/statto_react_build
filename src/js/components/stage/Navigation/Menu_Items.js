@@ -4,6 +4,11 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
 
+
+// actions 
+import {breadcrumbs} from  "../../../actions/ui";
+
+
 const styles = {
     containerStyle:{
         boxShadow:'none',
@@ -34,6 +39,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     constructor() { super();  }
     
     handleClose(){
+        
         this.props.closeDrawer();
     }
     buildMenu(data,name)

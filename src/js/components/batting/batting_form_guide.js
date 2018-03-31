@@ -10,6 +10,9 @@ import Form_o_Meter from "./components/batting_Form_o_meter";
 import FormGuidePods  from "../global/form_o_meter/Formguide_Pods";
 import Section_Goals from "./components/Section_Form_Goals";
 
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
+
 let PodData=[], CareerRuns;
 export default class Batting_Goals extends React.Component {
 
@@ -18,7 +21,9 @@ export default class Batting_Goals extends React.Component {
     componentWillMount(){
         // Reset PodData
         PodData=[];
-        
+        // set BC
+       breadcrumbs('batting > Formguide','parent');
+
         let CareerWicketsAveOverTenGames = 10;
         let Career = this.props.Player.career_form;
         let Current = this.props.Player.form_guide;

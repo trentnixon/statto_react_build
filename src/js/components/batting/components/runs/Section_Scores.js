@@ -17,6 +17,7 @@ const styles ={
     },
     label:{
         color:'#383838',
+        fontWeight: '600'
     },
     item:{ },
     filter:{
@@ -116,14 +117,14 @@ export default class batting_runs extends React.Component {
                                 </MuiThemeProvider>
                             }
                     </div>
-                        <ul class="list">
+                        <ul  id="Notable" class="list">
                             {
                                 NotableScores.map((game,i)=>{
                                     return(
                                         <li key={i} class="row nomargin">
                                            
-                                                <div class="col-xs-12 nopadding nomargin text-center tone2">{game.Batting_Runscored}  off {game.Batting_BallsFaced} balls <span class="pull-right"><LinktoScorecard ID={game.GameID}/></span> </div>
-                                                
+                                                <div class="col-xs-12 nopadding nomargin text-center tone2 score">{game.Batting_Runscored}  off {game.Batting_BallsFaced} balls <span class="pull-right"><LinktoScorecard ID={game.GameID}/></span> </div>
+                                                 
                                                 <div class="col-xs-5 text-left  nopadding tone1">{game.Team} </div>
                                                 <div class="col-xs-2 text-center"> vs </div>
                                                 <div class="col-xs-5 text-right nopadding tone3"> {game.Opposition} </div> 

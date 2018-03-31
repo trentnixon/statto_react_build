@@ -50,7 +50,7 @@ const styles = {
     base:[
         {title:'Dashboard', Link:'/' ,icon:"dashboard"},
         {title:'History', Link:'/history' ,icon:"history"},
-        {title:'News Feed', Link:'/news' ,icon:"whatshot"},
+        //{title:'News Feed', Link:'/news' ,icon:"whatshot"},
     ],
     Batting:[
         {title:'Overview', Link:'/batting/', icon:"account_circle"},
@@ -76,7 +76,7 @@ const styles = {
         {title:'Overview', Link:'/keeping/',icon:"account_circle"},
     ], 
     Teams:[
-        {title:'Clubs', Link:'/teams/',icon:"account_circle"},
+         {title:'Clubs', Link:'/teams/',icon:"account_circle"},
     ],
     ChangeProfile:[
         {title:'Search Players', Link:'/search/',icon:"search"},
@@ -107,6 +107,10 @@ export default class DrawerUndockedExample extends React.Component {
   componentWillMount(){}
 
   render() {
+
+    //<Divider style={styles.divider}/>  
+    // <Menu_Items data={CreateMenu.Teams} closeDrawer={this.handleClose} title="Teams" id={this.props.Player.PLAYER_META.WP_ID}/> 
+            
     return (
       <div>
         <MuiThemeProvider>
@@ -143,15 +147,12 @@ export default class DrawerUndockedExample extends React.Component {
             <Nested_Menu_Item data={CreateMenu.Bowling} closeDrawer={this.handleClose} title="Bowling" id={this.props.Player.PLAYER_META.WP_ID}/>
             <Divider style={styles.divider} />
             <Nested_Menu_Item data={CreateMenu.Keeping} closeDrawer={this.handleClose}  title="Keeping" id={this.props.Player.PLAYER_META.WP_ID}/>
-            <Divider style={styles.divider}/>  
-            <Menu_Items data={CreateMenu.Teams} closeDrawer={this.handleClose} title="Teams" id={this.props.Player.PLAYER_META.WP_ID}/> 
             
-            <Nested_Menu_Item data={CreateMenu.ChangeProfile}  closeDrawer={this.handleClose} title="Change Profile" id={this.props.Player.PLAYER_META.WP_ID} />
             <Divider style={styles.divider}/>
             <Menu_Items data={CreateMenu.Final} closeDrawer={this.handleClose} title="Final" id={this.props.Player.PLAYER_META.WP_ID}/> 
                         
                 <img style={styles.Logo} src={this.props.UI.Statto_Logo} />
-            
+                
             <BottomNavigation 
                 className="Menu_Appbar_Bottom"
                 selectedIndex={this.state.selectedIndex}

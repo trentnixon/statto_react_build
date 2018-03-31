@@ -15,6 +15,7 @@ const styles ={
     },
     label:{
         color:'#383838',
+        fontWeight: '600'
     },
     item:{ },
     filter:{
@@ -108,8 +109,8 @@ export default class Bowling_Notable_Table extends React.Component {
     
     render() {
             return ( 
-                <div class="darkWrapper">
-                       <Section_Header header="Notable Bowling Performances"/>
+                <div>
+                    <Section_Header header="Notable Bowling Performances"/>
                     <div class="filter-Container" style={styles.filter}> 
                             {
                                 <MuiThemeProvider>
@@ -132,14 +133,14 @@ export default class Bowling_Notable_Table extends React.Component {
                                 </MuiThemeProvider>
                             }
                     </div>
-                        <ul class="list">
+                        <ul id="Notable" class="list">
                             {
                                 NotableScores.map((game,i)=>{
                                     return(
                                         <li key={i} class="row nomargin">
                                            
-                                                <div class="col-xs-12 nopadding nomargin text-center tone2">{game.Bowling_Figures}  off {game.Bowling_OversBowled} overs <span class="pull-right"><LinktoScorecard ID={game.GameID}/></span> </div>
-                                                
+                                                <div class="col-xs-12 nopadding nomargin text-center tone2 score ">{game.Bowling_Figures}  off {game.Bowling_OversBowled} overs <span class="pull-right"><LinktoScorecard ID={game.GameID}/></span> </div>
+                                                 
                                                 <div class="col-xs-5 text-left  nopadding tone1">{game.Team} </div>
                                                 <div class="col-xs-2 text-center"> vs </div>
                                                 <div class="col-xs-5 text-right nopadding tone3"> {game.Opposition} </div> 

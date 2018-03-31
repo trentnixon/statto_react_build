@@ -71,7 +71,7 @@ export default class Display_Game_Stats extends React.Component {
             SecondInningsStats = this.CreateStats(SecondInnings, this.props.SelectedGame.Second_Overs, this.props.SelectedGame.Second_Score); 
             
             return ( 
-                <div class="scorecard_Charts darkWrapper ballstorunsfaced" >
+                <div class="scorecard_Charts ballstorunsfaced" >
                     
                     <Section_Header header="Runs to Balls Faced by Order" />
 
