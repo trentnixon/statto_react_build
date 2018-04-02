@@ -15,9 +15,10 @@ import World_Ranking_Figures from "./components/World_ranking_Figures_All";
 import Extendable_Content_Pod from "../global/Expandable_Panel/Create_Content_Pods";
 import Top_3_Teams from "./components/Top_3_Teams_Played_For";
 
-
+import Info_Badge from "../global/Info_Badge";
+import Store_To_Fav from "../global/Create_Fav/Save_to_Favorites_Button";
 // import WR_Circle from "./components/world_ranking_circle";
-//import Info_Badge from "../global/Info_Badge";
+
 // import Recent_Scores from "./components/Chart_Bar_Recent_Scores";
 // import Radial from "../_Pages/Career/Radial_Two_Part";
 // 

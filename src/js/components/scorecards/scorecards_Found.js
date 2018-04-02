@@ -90,7 +90,7 @@ export default class Display_Scorecard extends React.Component {
                                     </div>
                             
                                     <div style={styles.slide}>
-                                        <Scorecard_Teamsheet  SelectedGame={this.props.SelectedGame} />
+                                        <Scorecard_Teamsheet SelectedGame={this.props.SelectedGame}   {...this.props} />
                                     </div>
 
                                     <div style={styles.slide}>

@@ -141,7 +141,7 @@
         }
 
         ul{
-            margin: 0;
+            margin: 0 ;
             padding: 0;
             list-style: none;
 
@@ -149,8 +149,31 @@
                 color: $bodyBlack;
                 font-size: 1.1em;
                 font-weight: 100;
-                margin: 0;
+                margin: 0px;
+                min-height: 25px;
                 padding: 1px 0;
+
+                .TeamSheet_Modal_btn{
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    font-family: $body_font_family  !important;
+                    color: $bodyBlack !important; 
+                    height: unset !important;
+                    line-height: unset !important;
+                    
+                    span{
+                        text-transform: capitalize !important;
+                        font-size: 1em !important;
+                        padding: 0 4px !important;
+                    }
+                }
+                .TeamSheet_Eye{
+                    margin: 0 !important;
+                    font-size: .9em !important;
+                    color:$tone2 !important;
+                    height: 18px !important;
+                    width: 18px !important;
+                }
             }
         }
     }

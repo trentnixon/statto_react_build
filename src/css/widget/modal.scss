@@ -1,0 +1,36 @@
+
+.Modal_Overlay{}
+
+.Modal_Content{
+
+    div{ background-color: $bodyBlack;}
+
+    .modal_Title{
+        text-align: center;
+        margin: 10px 0 0;
+        font-size: 1.5em;
+        line-height: 3em;
+        background-color: $bodyBlack;
+    }
+    .Modal_body{
+        padding: 0 14px 0  !important;
+
+        p{
+            font-size: 1em;
+            line-height: 1.3em;
+            font-weight: 600;
+            text-align: center;
+            color: $bodyWhite;
+        }
+    }
+    .Modal_Actions{
+        .View_player_profile{
+            float: left;
+        }
+        .AddPlayer_to_Favs{
+            color:$tone3 !important;
+        }
+        .Remove_Player_From_Favs{ }
+    }
+}
+

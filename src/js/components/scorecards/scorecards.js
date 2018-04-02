@@ -65,7 +65,7 @@ export default class Display_Scorecard extends React.Component {
             else{
                 return ( 
                     <div id="Scorecard">
-                        <Scorecard_Found SelectedGame={SelectedGame} />
+                        <Scorecard_Found SelectedGame={SelectedGame} {... this.props}/>
                     </div>
                  )
             }

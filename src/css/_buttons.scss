@@ -16,6 +16,16 @@ button.btn.btn-warning{
     margin:10px 0;
 }
 
+.View_player_profile{
+    color:$tone2 !important;
+}
+.AddPlayer_to_Favs{
+    color:$bodyWhite !important;
+}
+.Remove_Player_From_Favs{
+    color:$tone4 !important;
+}
+
 .btn-statto{
     @include border-radius(3px);
     background-color: $tone3;

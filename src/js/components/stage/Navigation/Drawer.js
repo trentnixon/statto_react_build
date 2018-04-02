@@ -5,6 +5,8 @@ import Nested_Menu_Item from "./Nested_Menu_Items";
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 
+import Store_To_Fav from "../../global/Create_Fav/Save_to_Favorites_Button";
+
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 
@@ -80,7 +82,7 @@ const styles = {
     ],
     ChangeProfile:[
         {title:'Search Players', Link:'/search/',icon:"search"},
-        {title:'Friends', Link:'/search/',icon:"sentiment_very_satisfied"},
+        {title:'Following', Link:'/following/',icon:"sentiment_very_satisfied"},
    ],
     Final:[
         {title:'Settings', Link:'/settings',icon:"settings"},
@@ -137,7 +139,10 @@ export default class DrawerUndockedExample extends React.Component {
                     iconElementLeft={<Avatar  
                             color="#fff"
                             backgroundColor="#dbaa8b" >{this.props.Player.PLAYER_META.UserName.substring(0,1)}</Avatar>}
-                    iconElementRight={<IconButton><NavigationClose onClick={this.handleClose} /></IconButton>}
+                   // iconElementRight={<IconButton><NavigationClose onClick={this.handleClose} /></IconButton>}
+                   iconElementRight={<Store_To_Fav player_id={this.props.Player.PLAYER_META.WP_ID} />}
+                   
+                        
             />
            
            
@@ -148,6 +153,8 @@ export default class DrawerUndockedExample extends React.Component {
             <Divider style={styles.divider} />
             <Nested_Menu_Item data={CreateMenu.Keeping} closeDrawer={this.handleClose}  title="Keeping" id={this.props.Player.PLAYER_META.WP_ID}/>
             
+            <Divider style={styles.divider}/>
+            <Nested_Menu_Item data={CreateMenu.ChangeProfile} closeDrawer={this.handleClose}  title="Search" id={this.props.Player.PLAYER_META.WP_ID}/>
             <Divider style={styles.divider}/>
             <Menu_Items data={CreateMenu.Final} closeDrawer={this.handleClose} title="Final" id={this.props.Player.PLAYER_META.WP_ID}/> 
                         
