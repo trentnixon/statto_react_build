@@ -67,7 +67,7 @@ export default class LoginForm extends React.Component {
 				})
 			}
 		else{
-					console.log("This is a Number")
+					//console.log("This is a Number")
 					ReturnValue = false;
 			}
 		return ReturnValue;

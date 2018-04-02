@@ -89,3 +89,21 @@ ul.list{
             margin-top: -5px;
         }
 }
+
+#following_list{li{
+    line-height: 2.7;
+
+    .Remove_Player_From_Favs{ 
+        min-width: unset !important;
+
+            span{ display: none;}
+            span.fa{display: block;}
+        }
+    //.View_player_profile{ span{ display: none;}}
+    .AddPlayer_to_Favs{
+        min-width: unset !important;
+        color: $tone3 !important;
+        span{ display: none;}
+        span.fa{display: block;}
+    }
+}}

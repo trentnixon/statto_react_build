@@ -37,7 +37,7 @@ import Keeping from "./components/keeping/keeping";
         import Keeping_overview from "./components/keeping/keeping_overview";
         import Keeping_career from "./components/keeping/keeping_career";
 import Following from "./components/search/Following";
-
+import In_App_Search from "./components/search/search";
 
 import teams from "./components/teams/teams";
 import settings from "./components/settings/settings";
@@ -90,6 +90,7 @@ export default class Display_Player_UI extends React.Component {
                                                 <Route exact path="/:playerid/keeping" render={()=><Keeping_overview {... this.props } />}  />          
                                                 <Route  path="/:playerid/keeping/career"        render={()=><Keeping_career {... this.props } />}       />
                                                
+                                                <Route  path="/:playerid/search/"        render={()=><In_App_Search {... this.props } />}       />
                                                 <Route  path="/:playerid/following/"        render={()=><Following {... this.props } />}       />
                                                 
                                                 <Route exact path="/:playerid/teams" component={teams} />
