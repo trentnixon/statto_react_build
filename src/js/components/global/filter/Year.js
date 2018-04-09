@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 import Checkbox from 'material-ui/Checkbox';
 import Visibility from 'material-ui/svg-icons/action/visibility';

@@ -49,8 +49,20 @@ export default class Icon_Login extends React.Component {
        return Boolean(reactLocalStorage.get('Statto_Store_Favorites'));
    }
 
-    
+makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < 5; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
+  }
+  
+
    handleAdd = () => {
+    
+    reactLocalStorage.setObject('Statto_Favorites_hash', this.makeid());
         if(this.FirstStore() == true){
             
             Store = reactLocalStorage.getObject('Statto_Favorites');
@@ -66,6 +78,7 @@ export default class Icon_Login extends React.Component {
       };
 
     handleRemove=()=>{
+        reactLocalStorage.setObject('Statto_Favorites_hash', this.makeid());
         Store = reactLocalStorage.getObject('Statto_Favorites');
         Logged = this.indexCheck(this.props.player_id,Store);
         Store.splice(Logged,1);
@@ -84,7 +97,6 @@ export default class Icon_Login extends React.Component {
             if(Logged != -1){ this.buttonState(true)} else{ this.buttonState(false) }
 
         } else{ 
-
             //console.log("First Store False", this.FirstStore())
             reactLocalStorage.setObject('Statto_Favorites', []);
             reactLocalStorage.set('Statto_Store_Favorites', Boolean(1)) ;

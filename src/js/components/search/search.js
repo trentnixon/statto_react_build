@@ -4,13 +4,11 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 
 import Half_Circle from "../stage/components/Half_Circle_Top";
 import Section_Header from "../global/Section_Header";
-import Section_Subheader from "../global/Section_Subheader";
 import Content_Wrapper from "../stage/components/Content_Wrapper";
 import Naked_Wrapper from  "../global/Naked_wrapper";
 
 import Player_Form from "../login/components/LoginForm";
-import Following_Item from "./components/Following_Item";
-import No_Followers from "./components/No_Followers";
+import Logo from "../login/components/_Logo";
 
 import {reset_login} from "../../actions/login";
 
@@ -38,9 +36,10 @@ export default class In_App_Search extends React.Component {
                 </Half_Circle>
                 
                 <Content_Wrapper>
-                    <Player_Form {... this.props}/> 
+                    <Naked_Wrapper >
+                        <Player_Form {... this.props}/> 
+                    </Naked_Wrapper>
                 </Content_Wrapper>
-
             </div>
         )   
       }

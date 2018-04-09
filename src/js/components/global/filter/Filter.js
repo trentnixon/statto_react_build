@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';

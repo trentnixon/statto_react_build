@@ -22,7 +22,13 @@ export default class No_Followers extends React.Component {
                     </Half_Circle>
                     <Content_Wrapper>
                         <h2>No Players Found</h2>
-                        <p> Use the <span class="tone3"><AddPlayer /></span> Icon next to players names or with player information to add them to your favorites list</p>
+                        <p> Use the <span class="tone3"><AddPlayer /></span> Icon 
+                        next to a players name to 
+                        add them to your favorites list</p>
+                        <p><span class="tone3"><AddPlayer /></span>  Buttons can be found next to a players name or in the scrore card teamsheets</p>
+                    </Content_Wrapper>
+                    <Content_Wrapper AddClass="Dark_Blue">
+                
                     </Content_Wrapper>
             </div>
         )   

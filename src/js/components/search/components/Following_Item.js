@@ -20,6 +20,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     render() {
         Stored = this.FindName(this.props.UI.LMS_REGISTERED["0"], this.props.player_id)
+      //  console.log(this.props.UI.LMS_REGISTERED["0"], this.props.player_id)
             return ( 
                 <li class="row nopadding ">
                  <div class="col-xs-2 text-center"> <AddToFav player_id={this.props.player_id}/> </div>

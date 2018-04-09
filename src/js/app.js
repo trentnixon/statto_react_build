@@ -22,7 +22,8 @@ import stage from "./stage";
 import store from "./store/store";
 
 
-/**
+/** 
+
  * Updates required
  * Move all of the load functions and player scraps to JS ES6 Classes!
  * 

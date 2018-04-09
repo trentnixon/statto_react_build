@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import Filter_select from "./Filter_Select";
 
 

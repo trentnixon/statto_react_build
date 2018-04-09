@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import ContentAdd from 'material-ui/svg-icons/content/filter-list';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 

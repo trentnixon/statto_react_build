@@ -13,6 +13,8 @@ import Top_Nav_Bar from "./components/stage/components/Top_Nav_Bar";
 // import home from "./components/home/home";
 import dashboard from "./components/home/dashboard";
 import history from "./components/history/history"; 
+
+
 /** Batting */
          import Batting_overview from "./components/batting/batting_overview";
          import Batting_Runs from "./components/batting/batting_runs";
@@ -42,6 +44,7 @@ import In_App_Search from "./components/search/search";
 import teams from "./components/teams/teams";
 import settings from "./components/settings/settings";
 import scorecard from "./components/scorecards/scorecards";
+import News_Feed from './components/newsfeed/newsfeed';
 
 export default class Display_Player_UI extends React.Component {
 
@@ -68,7 +71,10 @@ export default class Display_Player_UI extends React.Component {
                                                 <Route exact path="/:playerid" component={dashboard}/>
                                                 <Route exact path="/:playerid/overview" component={dashboard}/>
                                                 <Route exact path="/:playerid/history" component={history} />
+                                                <Route exact path="/:playerid/news" render={()=><News_Feed {... this.props } />}  />
                                                 
+                                                
+
                                                 <Route exact path="/:playerid/batting" render={()=><Batting_overview {... this.props } />}  />
                                                 <Route exact path="/:playerid/batting/formguide" render={()=><Batting_FormGuide {... this.props } />}  />
                                                 <Route  path="/:playerid/batting/runs"       render={()=><Batting_Runs {... this.props } />}          />

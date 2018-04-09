@@ -7,6 +7,8 @@ import Section_Header from "../global/Section_Header";
 
 import Store_Player_As_Default from "../login/components/Login_Store_Player_As_Default";
 import  Update_Status from "../update/components/Update_Settings_Status";
+import Settings_Icons from "./components/icons";
+
 // actions 
 import {breadcrumbs} from  "../../actions/ui";
 
@@ -58,13 +60,7 @@ export default class Display_Player_Settings_Home extends React.Component {
                         </ul>
 
                         <Section_Header header="Icons" />
-                        <ul className="list">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                        </ul>
+                        <Settings_Icons />
 
                 </Content_Wrapper>
         </div>

@@ -55,7 +55,6 @@ export default class Display_Following extends React.Component {
                         }
                         </ul>
                     </Content_Wrapper>
-
                 </div>
              );
         }

@@ -3,11 +3,6 @@
 import store from "../store/store";
 import axios from 'axios';
 var _ = require('lodash');
-
- 
-
-
-
 // Bread Crumbs
 export function breadcrumbs(location, path){
 	//breadcrumbs('bowling','parent');

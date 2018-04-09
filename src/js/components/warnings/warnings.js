@@ -19,7 +19,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     render() {
             return ( 
                 <div>
-                       This is a Default
+                       Warnings and Errors
                 </div>
              ); 
       }

@@ -99,7 +99,9 @@ ul.list{
             span{ display: none;}
             span.fa{display: block;}
         }
-    //.View_player_profile{ span{ display: none;}}
+    
+        .View_player_profile{ span{ padding-left:0 !important;}}
+
     .AddPlayer_to_Favs{
         min-width: unset !important;
         color: $tone3 !important;

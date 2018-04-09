@@ -6,6 +6,7 @@
 @import  './pages/_page_scorecard.scss';
 @import  './pages/_page_career.scss';
 @import  './pages/_page_dashboard.scss';
+@import './pages/_News.scss';
 @import '_form_guide';
 
 /* Widgets*/
@@ -133,6 +134,7 @@ html {
 #statto-app{
     
     background-image: url($BGTexture);
+    min-height: 100vh;
 
 
     .nopadding{ padding:0;}

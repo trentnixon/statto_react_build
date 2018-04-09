@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import Filter_select from "./Filter_Select";
 
 export default class Display_History_Filter extends React.Component {

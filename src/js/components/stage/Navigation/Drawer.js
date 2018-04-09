@@ -44,6 +44,9 @@ const styles = {
     bottomIcons:{
         fontSize:'1.6em',
         color:'#88acd8'
+    },
+    drawer:{
+        overflowX: 'hidden',
     }
   };
 
@@ -52,7 +55,7 @@ const styles = {
     base:[
         {title:'Dashboard', Link:'/' ,icon:"dashboard"},
         {title:'History', Link:'/history' ,icon:"history"},
-        //{title:'News Feed', Link:'/news' ,icon:"whatshot"},
+        
     ],
     Batting:[
         {title:'Overview', Link:'/batting/', icon:"account_circle"},
@@ -85,6 +88,7 @@ const styles = {
         {title:'Following', Link:'/following/',icon:"sentiment_very_satisfied"},
    ],
     Final:[
+        {title:'News Feed', Link:'/news' ,icon:"whatshot"},
         {title:'Settings', Link:'/settings',icon:"settings"},
     ],
     };
@@ -120,6 +124,7 @@ export default class DrawerUndockedExample extends React.Component {
                 onClick={this.handleToggle}
                 className="DisplayNav"
                 backgroundColor="#88acd8"
+               
             >
                 <MenuIcon />
             </FloatingActionButton>
@@ -131,6 +136,8 @@ export default class DrawerUndockedExample extends React.Component {
                 width={300}
                 open={this.state.open}
                 onRequestChange={(open) => this.setState({open})}
+                swipeAreaWidth={90}
+                style={styles.drawer}
             >
             <AppBar
                     className="Menu_Appbar"
