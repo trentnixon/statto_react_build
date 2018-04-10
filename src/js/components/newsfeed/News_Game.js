@@ -1,12 +1,14 @@
 import React from "react";
 import Identifier from "./News_Identifier";
-
+import LinkToScorecard from "../scorecards/components/Link_to_Scorecard";
 
 export default class News_Milestone extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ }
+    componentWillMount(){ 
+        console.log(this.props)
+    }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
@@ -40,8 +42,10 @@ export default class News_Milestone extends React.Component {
                         {bowling}
                         {keeping}
                         {stumping}
+                        
                     </div>
-                    <div class="col-xs-12 ">{this.props.item.team} vs {this.props.item.Opposition}</div>
+                    <div class="col-xs-10 nopadding">{this.props.item.team} vs {this.props.item.Opposition}</div>
+                    <div class="col-xs-2"><LinkToScorecard ID={this.props.item.Game_ID} /></div>
                 </li>
              ); 
       }

@@ -1,4 +1,8 @@
 import React from "react";
+import LinkToPlayer from "../global/icons/Link_to_Player";
+import { Link } from 'react-router-dom'
+
+import {reset_login} from "../../actions/login";
 
 let Player_Name='';
 export default class News_Player_Name extends React.Component {
@@ -8,20 +12,30 @@ export default class News_Player_Name extends React.Component {
     componentWillMount(){
         
       }
+    handleClose = () => {
+        reset_login();
+    };
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
     
     render() {
         this.props.UI.LMS_REGISTERED["0"].map((player,i)=>{
-            if(player.LMSID == this.props.ID)
+            if(player.LMSID == this.props.ID) 
             {
                 Player_Name = player.username;
             }
         })
             return ( 
                 <div class="News_Player_Header">
-                    <h3>{Player_Name}</h3>
+                    <h3>
+                    <Link 
+                        to={"/"+this.props.ID}
+                        onClick={this.handleClose}
+                    > 
+                        <LinkToPlayer /> {Player_Name}
+                        </Link>
+                    </h3>
                     <p class="tone3">{'Last Game : '+ this.props.Date}</p>
                 </div>
              ); 
