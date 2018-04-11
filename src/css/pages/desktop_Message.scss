@@ -1,0 +1,38 @@
+.desktop-Message{
+    #page-container{
+        .login {
+            padding: 7% 20%;
+            
+            .login-header{
+                .logo{
+                    img{
+                        width:90px !important;
+                    }
+                }
+                h3{
+                    font-size: 3em;
+                }
+                h4{
+                    font-size: 1.8em;
+                    margin: 15px 0 20px;
+                    text-transform: uppercase;
+                }
+                p{
+                    text-align: center;
+                    font-size: 1.8em;
+                    clear: both;
+                    margin: 0 0 40px 0;
+                    line-height: 1.4em;
+
+                    small{
+                        font-size: .8em;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    
+}

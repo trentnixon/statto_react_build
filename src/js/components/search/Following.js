@@ -19,14 +19,9 @@ export default class Display_Following extends React.Component {
     FirstStore(){
         return Boolean(reactLocalStorage.get('Statto_Store_Favorites'));
     }
-    GetStored(){
-        return reactLocalStorage.getObject('Statto_Favorites');
+    GetStored(){  return reactLocalStorage.getObject('Statto_Favorites');
     }
-    componentWillMount(){ 
-            
-            Stored = this.GetStored();
-            console.log(Stored)
-        }
+    componentWillMount(){  Stored = this.GetStored(); }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ 

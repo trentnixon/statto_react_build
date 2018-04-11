@@ -17,7 +17,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
-    
+     
     render() {
         Stored = this.FindName(this.props.UI.LMS_REGISTERED["0"], this.props.player_id)
       //  console.log(this.props.UI.LMS_REGISTERED["0"], this.props.player_id)
