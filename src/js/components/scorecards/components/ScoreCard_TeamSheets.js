@@ -9,9 +9,7 @@ export default class Display_Player_Settings_Home extends React.Component {
         livePlayer(Player,location){
               let Logged, ReturnThis;
               let REGISTERED = this.props.UI.LMS_REGISTERED[0];
-              
-            //  console.log(Player)
-
+        
                 Logged =  _.findIndex(REGISTERED, function(o) { return o.LMSID == Player.Player_ID; });
                
                if(Logged == -1){
@@ -24,11 +22,7 @@ export default class Display_Player_Settings_Home extends React.Component {
                 //console.log(Logged, REGISTERED[Logged]);
         }
 
-    componentWillMount(){ 
-
-        console.log(this.props.SelectedGame["1st_Innings"]);
-    }
-    
+    componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
     

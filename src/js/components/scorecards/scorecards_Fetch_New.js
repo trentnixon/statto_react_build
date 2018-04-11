@@ -16,10 +16,10 @@ export default class Fetch_Scorecards extends React.Component {
     constructor() { super();  }
     
     fetchGame(gameID, PlayerID){
-        Fetch_Game(gameID,PlayerID)
+       // Fetch_Game(gameID,PlayerID)
     }
     componentWillMount(){ 
-            this.fetchGame(this.props.match.params.gameID, this.props.match.params.playerid)
+           // this.fetchGame(this.props.match.params.gameID, this.props.match.params.playerid)
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
@@ -38,7 +38,7 @@ export default class Fetch_Scorecards extends React.Component {
                     <Content_Wrapper AddClass="download_Scorecard">
                         <Naked_Wrapper>
                         
-                        <h2 class="tone1"> 
+                        <h2 class="tone1">  
                             <i class='material-icons tone3 text-center'>file_download</i>
                             Downloading the scorecard for {this.props.match.params.gameID} </h2>
                             <MuiThemeProvider>

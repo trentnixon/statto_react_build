@@ -5,7 +5,6 @@ export default class Display_Player_Settings_Home extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-          console.log(this.props)
          if(this.props.SelectedGame.TeamA_ID == this.props.SelectedGame.Batted_First_ID)
             {
                 ScoreA = this.props.SelectedGame.First_Score;

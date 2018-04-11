@@ -8,7 +8,7 @@ var _ = require('lodash');
 import{Register_New_Player_Name,New_Player_WP_ID,New_Player_LMS_ID,New_Registration,New_Registration_Games_Played} from "./registration";
 import { single_data_points,calculate_team_stats,AES } from "./create_ui_data";
 import {Create_Year_Filter_Array, Create_Team_Filter_Array,Create_Opposition_Filter_Array} from "./filters";
-import {Store_Player_Games} from "./games";
+import {Store_Player_Games,Scorecards} from "./games";
 
 // Fetch all Players Registered With Statto
 
@@ -104,8 +104,9 @@ export function Fetch_Player_Data(processID){
 						StorePlayerProfile(data.acf);
 
 						// Fetch and Store Player Game Data
-						Store_Player_Games(data.acf.game_ids)
-
+						 const  CreateScoreCard = new Scorecards();
+						 CreateScoreCard.ArrayOfGameIds = data.acf.game_ids;
+						 CreateScoreCard.Find_All_Games_In_API();
 						// Set UI Update to False
 						Set_State_To_Update(false);
 						

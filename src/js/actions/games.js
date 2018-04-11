@@ -6,29 +6,88 @@ import axios from 'axios';
 var _ = require('lodash');
 import { Fetch_Player_Data } from "./login";
 
-export function Store_Player_Games(Player_Games){
-    
-    const request = axios.get("/statto/wp-json/wp/v2/statto_game/?slug="+Player_Games);
-				request.then(({data}) =>{  
-                        
-                    let Store_Games=[];
-                      //  console.log(data);
-                        data.map((game,i)=>{
-                           //  console.log(game.acf.game_raw_data)
-                            Store_Games.push(JSON.parse(game.acf.game_raw_data))
-                        })
-            
-                        // console.log(Store_Games);
-                        store.dispatch({ type:"PLAYER_GAME_DATA", payload:Store_Games });
-                        store.dispatch({ type:"PLAYER_GAME_DATA_STORED", payload:true });
-                        
-                    });	
-}
+/**
+ * Purpose of this Function
+ * Fetch Game Data
+ * If present store in reducer
+ * If not Fetch New Game from LMS
+ * Store in WP and Store in reducer
+ * CHange UI State
+ * 
+ */
 
-/** Fetch new game data from LMS */
-export function Fetch_Game(gameID, PlayerID){
-    const request = axios.get("/statto/ajax/team/update/Register_Team_Game.php?GameID="+gameID );
+/** New OOP Approach */
+export function Scorecards(){
+
+/** Set Properties */
+    // Stored ID Array of all Games Listed
+    let ArrayOfGameIds;
+    // ID of Game to be Showen
+    let SearchID;
+    let StoredGames;
+
+
+/** Set Methods */
+
+    // Find all GAmes from the API
+    // This function is triggered on App Load
+    this.Find_All_Games_In_API = function(){
+
+        const request = axios.get("/statto/wp-json/wp/v2/statto_game/?slug="+this.ArrayOfGameIds);
+        request.then(({data}) =>{  
+             
+            let Store_Games=[];
+            data.map((game,i)=>{ Store_Games.push(JSON.parse(game.acf.game_raw_data))})
+
+            //** Dispatch
+            this.UI("PLAYER_GAME_DATA", Store_Games);
+            this.UI("PLAYER_GAME_DATA_STORED", true);
+        });	
+    }
+
+    this.FindGame = function(){
+        
+        //** Dispatch
+        this.UI("SCORECARD_PROGRESSION", false);
+        
+        let findKey = _.findKey(this.StoredGames, { 'GameID': this.SearchID});
+        // If !Key then fetch new game for DB
+        if(findKey === undefined){  this.Fetch() }
+        else{ this.SelectActive(this.StoredGames[findKey]); }
+    }
+
+    this.Fetch = function(){
+        
+        //** Dispatch
+        this.UI("SCORECARD_PROGRESSION", 'searching');
+        
+        const request = axios.get('/statto/ajax/team/update/Register_Team_Game.php?GameID='+this.SearchID);
 		request.then(({data}) =>{  
-            if(data){ Fetch_Player_Data(PlayerID); }
-    });	
+            if(data){ 
+               // Send Active game to Active Function
+                this.SelectActive(data);
+                this.StoreNew(data);
+            }
+        });	
+    }
+
+    this.StoreNew = function(data){
+        // Store new Game in the Reducer Array
+        let findKey = _.findKey(this.StoredGames, { 'GameID': data.GameID});
+        if(findKey === undefined){ 
+            this.StoredGames.push(data)
+            //** Dispatch
+            this.UI("PLAYER_GAME_DATA", this.StoredGames);
+        }
+    }
+    this.SelectActive = function(ActivateThis){
+        
+        //** Dispatch
+        this.UI("STORE_ACTIVE_GAME", ActivateThis);
+        this.UI("SCORECARD_PROGRESSION", true);
+    }
+
+    this.UI = function(TYPE, state){
+        store.dispatch({ type:TYPE, payload:state });
+    }
 }

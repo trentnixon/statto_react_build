@@ -4,14 +4,11 @@ var _ = require('lodash');
 import Batting from "./Scorecard_Batting";
 import Bowling from "./Scorecard_Bowling";
 
-export default class Display_Player_Settings_Home extends React.Component {
+export default class Scorecard_Display extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ 
-        console.log(this.props)
-     
-     }
+    componentWillMount(){ }
     
     render() {
         

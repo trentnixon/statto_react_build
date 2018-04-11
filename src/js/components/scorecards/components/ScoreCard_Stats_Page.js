@@ -5,15 +5,10 @@ import Run_Rate_Comparison from "./ScoreCard_Chart_RunRate_Comparison";
 import Batting_Position_Comparison from "./ScoreCard_Chart_BattingPosition_Comparison";
 import Section_Header from "../../global/Section_Header";
 
-
 export default class Display_Game_Stats extends React.Component {
 
     constructor() { super();  }
-    
-    componentWillMount(){ 
-            console.log( this.props)
-    }
-    
+    componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     

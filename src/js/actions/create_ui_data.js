@@ -336,6 +336,6 @@ while(i < length){
 			for_arr
 	   ]
 
-	   console.log(returnArray);
+	   // console.log(returnArray);
 	   store.dispatch({ type:"PLAYER_OVER_THE_YEARS", payload:returnArray });
 }

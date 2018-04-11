@@ -57,8 +57,7 @@ export default class Display_Game_Stats extends React.Component {
         return CreateInnings;   
     }
 
-    componentWillMount(){  console.log( this.props) }
-    
+    componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     

@@ -10,14 +10,9 @@ export default class Searching_Scorecards extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ 
-            console.log( this.props)
-    }
-    
+    componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-           //console.log(this.props.match.params.playerid, this.props.UI.items.Player) 
-       }
+    componentWillUpdate(nextProps, nextState){ }
     
     render() {
             return ( 
@@ -26,7 +21,7 @@ export default class Searching_Scorecards extends React.Component {
                         <div class="row nomargin">
                                 <div class="col-xs-12">
                                 <Section_Header header="Searching for Scorecard" />
-                                </div>
+                                </div> 
                         </div>
                         </Half_Circle>
 
