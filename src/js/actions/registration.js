@@ -8,10 +8,117 @@ var _ = require('lodash');
 
 import {Set_State_To_Update, Fetch_Player_Data, Register_Player_Name} from "./login"
 
+/**
+ * In app registration
+ * This should be implimented into the login as well at some point
+ * 
+ * The registration should start the cache process
+ * store in Statto
+ * return a result to the UI
+ * 
+ * it should not, log in that user as the active user!
+ */
 
+export function Register_New_Player(){
+    /**
+     * properties
+     */
+    this.FetchID;
+    this.FetchArray=[];
+    this.Registration_Message = 'Add Player';
+
+     /**
+      * Methods
+      */
+     this.consolelog = function(message){
+         console.log(message)
+     }
+     this.Message = function(message){
+        this.Registration_Message = message;
+     }
+     this.reset = function(){
+        this.Message("Add Player");
+        this.consolelog("Reset Function"); 
+        this.FetchID;
+     }
+     this.push = function(data){
+        this.FetchArray.push(data);
+        console.log(this.FetchArray);
+     }
+     this.Fetch_Player = function(){
+
+        this.consolelog("Fetching Data");
+        this.Message("Fetching Player");
+
+            const request = axios.get("ajax/player/register/RegisterNewPlayer.php?UserID="+this.FetchID);
+            request.then(({data}) =>{ 
+                
+                this.consolelog(data)
+                this.push(data)
+
+                if(data.PlayerName == false){
+                    this.consolelog("Data False");
+                }
+                
+                if(data.user_id.error_data != null){
+                    this.consolelog("User already exists");
+                }
+                else{
+                    this.Message("Player Found");
+                    this.consolelog("Player" +this.FetchID +" Found"); 
+                    // Fetch Player Data
+                    this.Player_Data(data.LMS)    
+                }		 
+            });
+    }
+    this.Player_Data = function(LMSID){
+      
+        this.consolelog("Fetch Player Data from LMS " + LMSID); 
+        this.Message("Fetching Career");
+        const request = axios.get("ajax/player/register/RegisterNewPlayerData.php?UserID="+LMSID);
+        request.then(({data}) =>{ 
+                
+                this.consolelog(data, data.gamesPlayed); 
+               
+                this.consolelog("Process Complete, Fire Snackbar"); 
+                this.Message("Career Found");
+                this.Fetch_New_Reg_Players()
+                // Update UI.LMS_REGISTERED[0] with new player
+        });
+    }
+    this.Fetch_New_Reg_Players = function(){
+        
+        const request = axios.get("/statto/ajax/player/login/Login-Users.php");
+		request.then(({data}) =>{ 
+            // console.log(data);
+            this.Message("Registration Completed");
+            this.consolelog("Registration Completed"); 
+            store.dispatch({ type:"FETCH_WP_USER_DATA", payload:data });
+            this.reset();
+            
+		});
+    }
+    this.UI = function(TYPE, state){
+        store.dispatch({ type:TYPE, payload:state });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/**
+ *  OLD Functions /
+ * DO NOT DELETE these until i know 100% they are not being used
+ * 
+ */
 export function Fetch_New_Player(processID){
     
-    console.log("Fetch New Player Name");
 
     const request = axios.get("ajax/player/register/RegisterNewPlayer.php?UserID="+processID);
     request.then(({data}) =>{ 

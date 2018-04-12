@@ -32,7 +32,9 @@ export default class Display_Player_UI extends React.Component {
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
-            // can this be moved into  OOP?
+        
+        // can this be moved into  OOP?
+        // not even sure what it does!
         if(nextProps.UI.filter.process == true){
                         filter_json(nextProps.Player.raw_json, nextProps.UI.filter)
                 }
@@ -45,7 +47,7 @@ export default class Display_Player_UI extends React.Component {
                         <Top_Nav_Bar {... this.props}/>
                                       
                                         <div>  
-                                        
+
                                                 <BaseRoutes />
                                                 <Route path='/:playerid/batting' render={()=> <BattingRoutes {... this.props}/> } />
                                                 <Route path='/:playerid/bowling' render={()=> <BowlingRoutes {... this.props}/> } />

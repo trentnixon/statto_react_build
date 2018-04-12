@@ -23,31 +23,31 @@ export default class Assign_Player_UI extends React.Component {
 		};
     }
     
-    componentWillMount(){  
-     //   console.log(this.props.match.params.playerid);
-
-           Username = this.props.match.params.playerid
-    }
-    
-    shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){
-         //    console.log(this.props.match.params.playerid , this.props.Player.PLAYER_META.UserName);
-
-    if(this.props.Player.PLAYER_META.UserName){Username =this.props.Player.PLAYER_META.UserName }
-   
-    if(nextProps.UI.LMS_REGISTERED  && this.state.Searching == false )
+    FindNewPlayer(data){
+        if(data.UI.LMS_REGISTERED  && this.state.Searching == false )
         {     
-         let merged = Object.assign(...nextProps.UI.LMS_REGISTERED);
+         let merged = Object.assign(...data.UI.LMS_REGISTERED);
          merged.map((player,i)=>{
-                if(player.LMSID == nextProps.match.params.playerid)
+                if(player.LMSID == data.match.params.playerid)
                 {
                     this.setState({ Searching:true,PlayerName:player.username  })
                     Register_Player_Name(player.username);
                     Fetch_Player_Data(player.LMSID);
                 }
             })
-     }  
+     }
+    }
+
+    componentWillMount(){  
+        this.FindNewPlayer(this.props)
+        Username = this.props.match.params.playerid
+    }
     
+    shouldComponentUpdate(nextProps, nextState){ return true;}
+    componentWillUpdate(nextProps, nextState){
+        
+        if(nextProps.Player.PLAYER_META.UserName){Username =nextProps.Player.PLAYER_META.UserName }
+        this.FindNewPlayer(nextProps)
     }
     
     render() {
