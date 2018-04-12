@@ -11,37 +11,14 @@ let routes=[];
 export default class BattingRoutes extends React.Component {
 
     constructor() { super(); }
-    
-    componentWillMount(){ 
-        
-         routes = [
-            {
-              path: "/:playerid/keeping",
-              component: <Keeping_overview {... this.props } />,
-              exact: true,
-            },
-            {
-              path: "/:playerid/keeping/career",
-              component: <Keeping_career {... this.props } />, 
-              exact: true,
-            }
-          ];
-    }
+    componentWillMount(){}
 
     render() {
         
             return ( 
                 <div>
-                    {
-                        routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                render={()=>route.component }  
-                            />
-                        ))
-                    }
+                    <Route  exact path='/:playerid/keeping' render={()=> <Keeping_overview {... this.props}/> } />
+                    <Route exact  path='/:playerid/keeping/career' render={()=> <Keeping_career {... this.props}/> } />
                 </div>
              ); 
       }

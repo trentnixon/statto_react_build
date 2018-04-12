@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import { matchPath } from 'react-router'
 var _ = require('lodash');
+
 
 import Section_Header from "../global/Section_Header";
 import Scorecard_Found from "./scorecards_Found";
@@ -10,6 +12,7 @@ import Fetch_Scorecard from "./scorecards_Fetch_New";
 import {Scorecards} from '../../actions/games';
 const Scorecard = new Scorecards();
  
+let url;
 @connect((store) =>{
     return{
         UI: store.UI,
@@ -21,23 +24,37 @@ export default class Display_Scorecard extends React.Component {
 
     constructor(props) {super(props); }
 
+    
+
     FetchGameStart(){
+        
+        const match = matchPath(this.props.location.pathname, {
+            path: '/:playerid/scorecard/:gameID',
+            exact: true,
+            strict: false
+          })
+        
         if(this.props.GAMES.Game_Data.length > 0){
             Scorecard.StoredGames = this.props.GAMES.Game_Data;
-            Scorecard.SearchID = this.props.match.params.gameID;
+            Scorecard.SearchID = match.params.gameID;
             Scorecard.FindGame();
         }
     }
 
-    componentWillMount(){ this.FetchGameStart() }
-    shouldComponentUpdate(nextProps, nextState){ return true;}
+    componentWillMount(){     
+      // console.log("componentWillMount", this.props)
+       
+        this.FetchGameStart() 
+    }
     componentWillUpdate(nextProps, nextState){
+     //  console.log("componentWillUpdate",nextProps, nextProps.GAMES.Scorecard_Progression)
         if(nextProps.GAMES.Scorecard_Progression == false){
             this.FetchGameStart()
         }
     } 
     
     render() {
+       
            if(this.props.GAMES.Scorecard_Progression == false){  
                 return(     
                     <div id="Scorecard">

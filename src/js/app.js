@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Link} from 'react-router-dom';
+import { HashRouter as Router,BrowserRouter , Route, Link} from 'react-router-dom';
 import { Provider } from "react-redux";
 // import axios from 'axios';
 
@@ -39,7 +39,7 @@ let url ='/statto/ajax/player/login/Login-Users.php'
 		
 const Statto = ({ match }) => (
   <Router>  	 
-    	<div id="statto-app">
+    	<div id="statto-app">	
 			<Route exact path="/" component={Login}/>
 			<Route exact path="/register" component={register}/>
 			<Route path="/:playerid" component={stage} />

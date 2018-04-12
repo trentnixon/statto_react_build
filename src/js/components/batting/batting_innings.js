@@ -12,7 +12,7 @@ import Pie_Metric_over_the_years from  "./components/Chart_Pie_Metric_Innings_ov
 import List_Best_AES from "../_Pages/AES/List_Best_AES";
 import Triple_Line from "./components/Chart_Line_avg_sr_ec";
 
-export default class Display_Player_Settings_Home extends React.Component {
+export default class Batting_Innings extends React.Component {
 
     constructor() { super();  }
     componentWillMount(){}

@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Link} from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import { Provider } from "react-redux";
+
 // Actions
- 
 import {filter_json} from "./actions/filters";
+
 // Structure
 import Bottom_Nav_Bar from "./components/stage/components/Bottom_Nav_Bar";
 import Drawer from "./components/stage/Navigation/Drawer";
@@ -15,8 +16,12 @@ import BaseRoutes from "./components/stage/routes/baseRoutes";
 import BattingRoutes from "./components/stage/routes/battingRoutes";
 import BowlingRoutes from "./components/stage/routes/bowlingRoutes";
 import KeepingRoutes from "./components/stage/routes/keepingRoutes";
-import SearchRoutes from "./components/stage/routes/SearchRoutes";
-import Scorecard from "./components/stage/routes/ScorecardRoutes";
+
+// Stand Along pages (No Children)
+import Following from "./components/search/Following";
+import In_App_Search from "./components/search/search";
+import News_Feed from './components/newsfeed/newsfeed';
+import Scorecard from "./components/scorecards/scorecards";
 
 
 export default class Display_Player_UI extends React.Component {
@@ -27,6 +32,7 @@ export default class Display_Player_UI extends React.Component {
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
+            // can this be moved into  OOP?
         if(nextProps.UI.filter.process == true){
                         filter_json(nextProps.Player.raw_json, nextProps.UI.filter)
                 }
@@ -35,20 +41,23 @@ export default class Display_Player_UI extends React.Component {
 
     render() {
             return (  
-        <div>
-                <Top_Nav_Bar {... this.props}/>
-                        <Router>
-                                <div>  	
-                                        <BaseRoutes />
-                                        <BattingRoutes {...this.props}  />
-                                        <BowlingRoutes {...this.props}  />
-                                        <KeepingRoutes {... this.props} />    
-                                        <SearchRoutes  {... this.props} />
-                                        <Scorecard  {... this.props}  />
-                                </div>
-                        </Router>
-                <Drawer {... this.props} /> 
-        </div>
+                <div>   
+                        <Top_Nav_Bar {... this.props}/>
+                                      
+                                        <div>  
+                                        
+                                                <BaseRoutes />
+                                                <Route path='/:playerid/batting' render={()=> <BattingRoutes {... this.props}/> } />
+                                                <Route path='/:playerid/bowling' render={()=> <BowlingRoutes {... this.props}/> } />
+                                                <Route path='/:playerid/keeping' render={()=> <KeepingRoutes {... this.props}/> } />
+                                                <Route path='/:playerid/search' render={()=> <In_App_Search {... this.props}/> } />
+                                                <Route path='/:playerid/following' render={()=> <Following {... this.props}/> } />
+                                                <Route path='/:playerid/news' render={()=> <News_Feed {... this.props}/> } />
+                                                <Route  exact path='/:playerid/scorecard/:gameID' render={()=> <Scorecard {... this.props} /> } />
+                                        
+                                        </div>
+                        <Drawer {... this.props} /> 
+                </div>
              ); 
       }
   }

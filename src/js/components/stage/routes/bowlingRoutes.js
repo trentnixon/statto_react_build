@@ -18,56 +18,18 @@ let routes=[];
 export default class BowlingRoutes extends React.Component {
 
     constructor() { super(); }
-    
-    componentWillMount(){ 
-         routes = [
-            {
-              path: "/:playerid/bowling",
-              component: <Bowling_overview {... this.props } />,
-              exact: true,
-            },
-            {
-              path: "/:playerid/bowling/formguide",
-              component: <Bowling_FormGuide {... this.props } />, 
-              exact: true,
-            },
-            {
-                path: "/:playerid/bowling/wickets",
-                component: <Bowling_Wickets {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/bowling/aes",
-                component: <Bowling_AES {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/bowling/goals",
-                component: <Bowling_Goals {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/bowling/playedfor",
-                component: <Bowling_Played_For {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/bowling/opposition",
-                component: <Bowling_Opposition {... this.props } />
-            }
-          ];
-    }
-
+    componentWillMount(){}
     render() {
         
             return ( 
                 <div>
-                    {
-                        routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                render={()=>route.component }  
-                            />
-                        ))
-                    }
+                    <Route  exact path='/:playerid/bowling' render={()=> <Bowling_overview {... this.props}/> } />
+                    <Route exact  path='/:playerid/bowling/formguide' render={()=> <Bowling_FormGuide {... this.props}/> } />
+                    <Route  exact path='/:playerid/bowling/wickets' render={()=> <Bowling_Wickets {... this.props}/> } />
+                    <Route  exact path='/:playerid/bowling/aes' render={()=> <Bowling_AES {... this.props}/> } />
+                    <Route  exact path='/:playerid/bowling/goals' render={()=> <Bowling_Goals {... this.props}/> } />
+                    <Route  exact path='/:playerid/bowling/playedfor' render={()=> <Bowling_Played_For {... this.props}/> } />
+                    <Route  exact path='/:playerid/bowling/opposition' render={()=> <Bowling_Opposition {... this.props}/> } />
                 </div>
              ); 
       }

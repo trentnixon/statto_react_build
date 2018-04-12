@@ -23,13 +23,15 @@ export default class Assign_Player_UI extends React.Component {
 		};
     }
     
-    componentWillMount(){ 
+    componentWillMount(){  
+     //   console.log(this.props.match.params.playerid);
+
            Username = this.props.match.params.playerid
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
-            // console.log(this.props.match.params.playerid , this.props.Player.PLAYER_META.UserName);
+         //    console.log(this.props.match.params.playerid , this.props.Player.PLAYER_META.UserName);
 
     if(this.props.Player.PLAYER_META.UserName){Username =this.props.Player.PLAYER_META.UserName }
    

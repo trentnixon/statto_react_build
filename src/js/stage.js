@@ -16,9 +16,7 @@ export default class MainStage extends React.Component {
      
     constructor() { super();  }
     
-    componentWillMount(){
-        console.log( )
-     }
+    componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
 

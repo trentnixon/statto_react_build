@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {  Router, Route, Link, Switch } from "react-router-dom";
 
 // Import Base Components
 
@@ -21,58 +21,20 @@ export default class BattingRoutes extends React.Component {
     constructor() { super(); }
     
     componentWillMount(){ 
-/*      To Add 
-        <Route  path="/:playerid/batting/positions"     render={()=><Batting_positions {... this.props } />}    />
-        <Route  path="/:playerid/batting/dismissals"    render={()=><Batting_dismissals {... this.props } />}   />
-  */          
-         routes = [
-            {
-              path: "/:playerid/batting",
-              component: <Batting_overview {... this.props } />,
-              exact: true,
-            },
-            {
-                path: "/:playerid/batting/formguide",
-              component: <Batting_FormGuide {... this.props } />, 
-              exact: true,
-            },
-            {
-                path: "/:playerid/batting/runs",
-                component: <Batting_Runs {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/batting/innings",
-                component: <Batting_Innings {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/batting/goals",
-                component: <Batting_Goals {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/batting/teams",
-                component: <Batting_Teams {... this.props } /> ,
-            },
-            {
-                path: "/:playerid/batting/opposition",
-                component: <Batting_Oppo {... this.props } />
-            }
-          ];
+        console.log("Batting Routes")
     }
 
     render() {
         
             return ( 
                 <div>
-                    {
-                        routes.map((route, index) => (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                render={()=>route.component }  
-                            />
-                        ))
-                    }
+                    <Route  exact path='/:playerid/batting' render={()=> <Batting_overview {... this.props}/> } />
+                    <Route exact  path='/:playerid/batting/formguide' render={()=> <Batting_FormGuide {... this.props}/> } />
+                    <Route  exact path='/:playerid/batting/runs' render={()=> <Batting_Runs {... this.props}/> } />
+                    <Route  exact path='/:playerid/batting/innings' render={()=> <Batting_Innings {... this.props}/> } />
+                    <Route  exact path='/:playerid/batting/goals' render={()=> <Batting_Goals {... this.props}/> } />
+                    <Route  exact path='/:playerid/batting/teams' render={()=> <Batting_Teams {... this.props}/> } />
+                    <Route  exact path='/:playerid/batting/opposition' render={()=> <Batting_Oppo {... this.props}/> } />
                 </div>
              ); 
       }

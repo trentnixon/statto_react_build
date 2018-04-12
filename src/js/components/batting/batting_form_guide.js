@@ -14,7 +14,7 @@ import Section_Goals from "./components/Section_Form_Goals";
 import {breadcrumbs} from  "../../actions/ui";
 
 let PodData=[], CareerRuns;
-export default class Batting_Goals extends React.Component {
+export default class Batting_FormGuide extends React.Component {
 
     constructor() { super();  }
     

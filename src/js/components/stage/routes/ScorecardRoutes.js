@@ -13,18 +13,16 @@ export default class BattingRoutes extends React.Component {
     constructor() { super(); }
     
     componentWillMount(){ 
-     
+       // console.log(this.props.match);
         routes = [
             {
-              path: "/:playerid/scorecard/",
-              component: <Scorecard {... this.props } />,
-              exact: true,
-            },
+                path: "/:playerid/scorecard/",
+                component: <Scorecard  />,
+              } ,
             {
               path: "/:playerid/scorecard/:gameID",
-              component: <Scorecard {... this.props } />, 
-              exact: true,
-            }
+              component: <Scorecard  />, 
+            } 
           ];
     }
 
@@ -38,7 +36,7 @@ export default class BattingRoutes extends React.Component {
                                 key={index}
                                 path={route.path}
                                 exact={route.exact}
-                                render={()=>route.component }  
+                                component={route.component} 
                             />
                         ))
                     }

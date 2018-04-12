@@ -6,13 +6,7 @@ let TeamResults,ColClass;
 export default class Display_Player_Settings_Home extends React.Component {
 
     constructor() { super();  }
-    
-    componentWillMount(){ 
-            console.log( this.props.Teams)
-            TeamResults =  _.orderBy(this.props.Teams, ['Games'],['desc']);
-            console.log(TeamResults);
-    }
-    
+    componentWillMount(){ TeamResults =  _.orderBy(this.props.Teams, ['Games'],['desc']); }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
     

@@ -33,6 +33,7 @@ export function Scorecards(){
     // This function is triggered on App Load
     this.Find_All_Games_In_API = function(){
 
+        //console.log("Find_All_Games_In_API Runnings")
         const request = axios.get("/statto/wp-json/wp/v2/statto_game/?slug="+this.ArrayOfGameIds);
         request.then(({data}) =>{  
              
@@ -52,6 +53,7 @@ export function Scorecards(){
         
         let findKey = _.findKey(this.StoredGames, { 'GameID': this.SearchID});
         // If !Key then fetch new game for DB
+       // console.log("findKey = ",findKey, this.StoredGames, this.SearchID)
         if(findKey === undefined){  this.Fetch() }
         else{ this.SelectActive(this.StoredGames[findKey]); }
     }

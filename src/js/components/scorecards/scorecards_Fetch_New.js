@@ -31,7 +31,7 @@ export default class Fetch_Scorecards extends React.Component {
                     <Half_Circle>
                             <div class="row nomargin">
                                 <div class="col-xs-12">
-                                    <Section_Header header={'Downloading Scorecard '+ this.props.match.params.gameID} />
+                                    <Section_Header header={'Downloading Scorecard '} />
                                 </div>
                             </div>
                     </Half_Circle>
@@ -40,7 +40,7 @@ export default class Fetch_Scorecards extends React.Component {
                         
                         <h2 class="tone1">  
                             <i class='material-icons tone3 text-center'>file_download</i>
-                            Downloading the scorecard for {this.props.match.params.gameID} </h2>
+                            Building Game Data ... </h2>
                             <MuiThemeProvider>
                                 <LinearProgress mode="indeterminate" color='#73b393'/>
                             </MuiThemeProvider>
