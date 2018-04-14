@@ -10,7 +10,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-            console.log( this.props)
+        // console.log( this.props)
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

@@ -44,7 +44,7 @@ export default class batting_runs extends React.Component {
     }
 
     componentWillMount(){ 
-          //  console.log( this.props)
+        // console.log( this.props)
             LineChart_By_Year = this.SingleRunsForLine(this.props.Player.filtered_json);
     }
     

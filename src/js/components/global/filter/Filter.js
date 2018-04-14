@@ -35,7 +35,7 @@ export default class Display_History_Filter extends React.Component {
 
     componentWillMount(){  }
     displayFilter(){
-        console.log("Toggle Display Filter")
+    // console.log("Toggle Display Filter")
         if(this.state.value == 'hide'){
             this.setState({value:'show'});
         }

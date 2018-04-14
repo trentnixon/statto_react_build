@@ -10,7 +10,7 @@ export default class batting_runs extends React.Component {
     constructor() { super();  }
     
     BarData(data){
-        console.log(data)
+        // console.log(data)
         data.map((game,i)=>{
                 //{name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
                 if( game.Batting_BallsFaced_Int != 0)
@@ -19,13 +19,13 @@ export default class batting_runs extends React.Component {
                 }
         })
 
-        console.log(BarData);
+        // console.log(BarData);
         return BarData.reverse();
     }
 
     
     componentWillMount(){ 
-           //  console.log( this.props)
+           // console.log( this.props)
            BarData=[];
             BarData = this.BarData(this.props.Player.filtered_json);
             Years =CollectYears(this.props.Player.filtered_json);

@@ -40,11 +40,8 @@ export default class Display_Player_Settings_Home extends React.Component {
     }
 
     componentWillMount(){ 
-            console.log( this.props.Player.last_ten_games)
             let lastUpdate;
-            
-
-                           
+                       
             Last5Games = this.props.Player.last_ten_games.map((game,i)=>{
                 //   console.log(game) 
                    if(i < 5){ 

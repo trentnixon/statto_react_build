@@ -53,7 +53,7 @@ export default class Bowling_Notable_Table extends React.Component {
         NotableScores = this.removeZero(NotableScores,MinrunLimt,MaxrunLimit);
         NotableScores = _.sortBy(NotableScores, filter);
         
-        console.log(NotableScores);
+    // console.log(NotableScores);
 
        // NotableScores.map((game,i)=>{ console.log(game.notout)})
 

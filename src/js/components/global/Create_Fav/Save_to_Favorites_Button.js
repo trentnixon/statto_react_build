@@ -10,7 +10,7 @@ const AddFollower = new Followers();
 
 
 //  let Store =[],Logged,SetFavs, icon,label,iconClass, Action;
-export default class Icon_Login extends React.Component {
+export default class Icon_Set_Fav extends React.Component {
    
     constructor() { super(); }
      state = {
@@ -54,6 +54,7 @@ export default class Icon_Login extends React.Component {
      }
 
     componentWillMount(){ 
+       
         AddFollower.PlayerID = this.props.player_id;
        this.buttonState(AddFollower.ButtonState())
     }

@@ -23,7 +23,7 @@ export default class batting_career extends React.Component {
 
     constructor() { super();  }
     componentWillMount(){ 
-        console.log(this.props)
+    // console.log(this.props)
     }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}

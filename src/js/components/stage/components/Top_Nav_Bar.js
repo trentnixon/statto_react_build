@@ -36,8 +36,7 @@ export default class Top_Nav_Bar extends React.Component {
     }
 
     componentWillMount(){ 
-            console.log(this.props)
-            filter = this.setFilter(this.props.Player.raw_json.length, this.props.Player.filtered_json.length);
+        filter = this.setFilter(this.props.Player.raw_json.length, this.props.Player.filtered_json.length);
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

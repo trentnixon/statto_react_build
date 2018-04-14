@@ -99,7 +99,7 @@ const User_reducer = (state=InitialState, action) =>{
 			case "SET_STATTO_UPDATE_IN_PROGRESS":{
 				return {...state, UPDATE_IN_PROGRESS:action.payload}
 				break
-			}
+			} 
 			
 
 			

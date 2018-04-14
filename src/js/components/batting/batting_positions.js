@@ -5,9 +5,7 @@ export default class batting_Position extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ 
-            console.log( this.props)
-    }
+    componentWillMount(){ }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}

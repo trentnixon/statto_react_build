@@ -88,7 +88,9 @@ export function AddGameArrayToWP(Games)
 								// Stop the Loop
 								if(ArrayCount.length == Games_Played ){  clearInterval(intervalId) }				
 						})
-					  request.catch(function(reason) { console.log(reason) })	
+					  request.catch(function(reason) { 
+						  //console.log(reason) 
+						})	
 					}
 				i++;
 

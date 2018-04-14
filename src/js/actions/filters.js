@@ -21,7 +21,7 @@ function stripYear(json, filter, Filtered){
 function stripTeam(filter, Filtered)
     {
         let New_Filter=[];
-    console.log('filter.selectedTeam', filter.selectedTeam)
+    //console.log('filter.selectedTeam', filter.selectedTeam)
     if(filter.selectedTeam != false)
     {
         
@@ -30,11 +30,11 @@ function stripTeam(filter, Filtered)
             // FIND A WAY TO REMOVE ITEMS FROM THE YEARS ARRAY
             if(game.Team == filter.teams[filter.selectedTeam])
                 {
-                    console.log(game.Team, filter.teams[filter.selectedTeam])
+                    //console.log(game.Team, filter.teams[filter.selectedTeam])
                     New_Filter.push(game);
                 }
             })
-            console.log(New_Filter)
+            //console.log(New_Filter)
             return New_Filter;
     }
     else{
@@ -46,7 +46,7 @@ function stripTeam(filter, Filtered)
 function stripOpposition(filter, Filtered)
     {
         let New_Filter=[];
-    console.log('filter.selectedOpposition', filter.selectedOpposition)
+   // console.log('filter.selectedOpposition', filter.selectedOpposition)
     if(filter.selectedOpposition != false)
     {
         
@@ -55,11 +55,11 @@ function stripOpposition(filter, Filtered)
             // FIND A WAY TO REMOVE ITEMS FROM THE YEARS ARRAY
             if(game.Opposition == filter.opposition[filter.selectedOpposition])
                 {
-                    console.log(game.Opposition, filter.opposition[filter.selectedOpposition])
+                   // console.log(game.Opposition, filter.opposition[filter.selectedOpposition])
                     New_Filter.push(game);
                 }
             })
-            console.log(New_Filter)
+           // console.log(New_Filter)
             return New_Filter;
     }
     else{

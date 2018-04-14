@@ -65,7 +65,7 @@ export default class Icon_Login extends React.Component {
 
       componentWillMount(){ 
         this.buttonState(false)
-        console.log(this.props)
+    // console.log(this.props)
         Reg.FetchID = this.props.player_id
     }
 

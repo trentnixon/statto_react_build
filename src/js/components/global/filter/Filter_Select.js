@@ -21,7 +21,7 @@ export default class DropDownMenuLongMenuExample extends Component {
 
   handleChange = (event, index, value) => {
    
-    console.log(value, this.props.type)
+console.log(value, this.props.type)
     Amend_Team(value, this.props.type);
    
     force_filter_update(true)

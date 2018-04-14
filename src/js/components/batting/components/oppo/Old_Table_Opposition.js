@@ -64,7 +64,7 @@ export default class ListExampleNested extends React.Component {
           const filtered = _.filter(this.props.Player.opposition_stats, function(o) {
             return o.Team.toLowerCase().indexOf(value) > -1;
           });
-          console.log(filtered.length);
+        // console.log(filtered.length);
           
             if(filtered.length > 0){
               this.setState({

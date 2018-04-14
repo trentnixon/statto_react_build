@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import {Fetch_New_Player_Data} from "../../../actions/registration"
-import {Set_State_To_Update} from "../../../actions/login"
-
-import Update_The_Snackbar from "./Update_The_Snackbar";
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+
+import { updater } from "../../../actions/updater";
+const update  = new updater();
+
 
 let Value=0, Icon, lastUpdate, UpdateText='Statto is updating ';
 
@@ -18,14 +19,7 @@ let Value=0, Icon, lastUpdate, UpdateText='Statto is updating ';
   })
 export default class UPdate_Status extends React.Component {
 
-   UpdatePlayer(UpdatePlayer)
-    {
-        console.log('Statto Update State, Inside UpdatePlayer', UpdatePlayer)
-        if(UpdatePlayer == false)  { Set_State_To_Update(true);  }
-   } 
-    
    timeDifference(date1,date2,UpdatePlayer) {
-    
 
         let difference = date1.toFixed(0) - date2.toFixed(0);
         difference = difference.toFixed(0);
@@ -42,9 +36,6 @@ export default class UPdate_Status extends React.Component {
         let secondsDifference = Math.floor(difference);
 
         if(daysDifference > 0){ 
-            if(daysDifference >= 5){
-                this.UpdatePlayer(UpdatePlayer)
-            }
             return daysDifference + ' Days Ago'; 
         } 
         
@@ -55,18 +46,24 @@ export default class UPdate_Status extends React.Component {
     }
 
     componentWillMount(){ 
-        lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(this.props.Player.PLAYER_META.Last_update),this.props.UI.updateStatto ) 
+       lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(this.props.Player.PLAYER_META.Last_update),this.props.UI.updateStatto ) 
      }
 
     shouldComponentUpdate(newProps, newState) { return true; }
     
     componentWillUpdate(nextProps, nextState){
-        lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(nextProps.Player.PLAYER_META.Last_update),nextProps.UI.updateStatto ) 
+      lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(nextProps.Player.PLAYER_META.Last_update),nextProps.UI.updateStatto ) 
+        if(nextProps.Player.PLAYER_META.PLAYER_SET == true){
+            update.stattoVersion = nextProps.UI.STORE_STATTO_FORCE_UPDATE_VERSION;
+            update.runningVersion = nextProps.Player.PLAYER_META.STORE_PLAYER_FORCE_UPDATE_VERSION;
+            update.last_update = nextProps.Player.PLAYER_META.Last_update;
+            update.CheckID = nextProps.Player.PLAYER_META.WP_ID;
+        }
     }
 
     forceUpdate(){  
-        Set_State_To_Update(true);
-        Fetch_New_Player_Data(this.props.Player.PLAYER_META.WP_ID)
+        console.log("Clicked")
+        update.updatePlayer();
     }
    render(){
 
@@ -85,7 +82,6 @@ export default class UPdate_Status extends React.Component {
                 />
             </MuiThemeProvider>
             
-            <Update_The_Snackbar Status={UpdateText}  {... this.props} />
         </div>
         )
 	}			

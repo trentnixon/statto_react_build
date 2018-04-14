@@ -76,8 +76,8 @@ export function StorePlayerProfile(acf)
 						store.dispatch({ type:"SET_TRUE", payload:true });
 						store.dispatch({ type:"SET_UI_PLAYER_FETCHED", payload:true });
 						//store.dispatch({ type:"SET_STATTO_UPDATE", payload:false });
-						Set_State_To_Update(false);
-						Update_In_Progress(false);
+						//Set_State_To_Update(false);
+						//Update_In_Progress(false);
 
 						//Meta
 						store.dispatch({ type:"GAME_COUNT", payload:JSON.parse(acf.raw_json).length });
@@ -142,7 +142,7 @@ export function Set_State_To_Update(value){
 	store.dispatch({ type:"SET_STATTO_UPDATE", payload:value });
 }
 export function Update_In_Progress(value){
-	store.dispatch({ type:"SET_STATTO_UPDATE_IN_PROGRESS", payload:value });
+	 // store.dispatch({ type:"SET_STATTO_UPDATE_IN_PROGRESS", payload:value });
 	}
 
 export function Store_This_Player(value){
@@ -155,7 +155,7 @@ export function reset_login(){
 //	console.log("Reset UI")
 	store.dispatch({ type:"SET_TRUE", payload:false });
 	store.dispatch({ type:"SET_STATTO_UPDATE", payload:false });
-	store.dispatch({ type:"SET_STATTO_UPDATE_IN_PROGRESS", payload:false });
+	//store.dispatch({ type:"SET_STATTO_UPDATE_IN_PROGRESS", payload:false });
 	store.dispatch({ type:"SET_UI_STATTO_PLAYER_WP_ID", payload:false });
 	store.dispatch({ type:"SET_UI_PLAYER_WP_ID", payload:false });
 	store.dispatch({ type:"SET_UI_PLAYER_NAME", payload:false });

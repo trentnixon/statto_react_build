@@ -24,7 +24,7 @@ export default class Display_Player_Settings_Home extends React.Component {
     
     componentWillMount(){ breadcrumbs('Settings','parent'); }
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){}
+    componentWillUpdate(nextProps, nextState){ }
     
     render() {
             return ( 
@@ -36,17 +36,17 @@ export default class Display_Player_Settings_Home extends React.Component {
                 <Section_Header header="About" />
                 <ul class="list">
                         <li>
-                                        <p>Profile Name : {this.props.Player.PLAYER_META.UserName}</p>
-                                </li>
-                                <li>
-                                        <p>Games Found : {this.props.Player.raw_json.length}</p>
-                                </li>
-                                <li>
-                                        <p>Statto Version : {this.props.UI.STORE_STATTO_FORCE_UPDATE_VERSION}</p>
-                                </li>
-                                <li>
-                                        <p>Running Version : {this.props.Player.PLAYER_META.STORE_PLAYER_FORCE_UPDATE_VERSION}</p>
-                                </li>
+                                <p>Profile Name : {this.props.Player.PLAYER_META.UserName}</p>
+                        </li>
+                        <li>
+                                <p>Games Found : {this.props.Player.raw_json.length}</p>
+                        </li>
+                        <li>
+                                <p>Statto Version : {this.props.UI.STORE_STATTO_FORCE_UPDATE_VERSION}</p>
+                        </li>
+                        <li>
+                                <p>Running Version : {this.props.Player.PLAYER_META.STORE_PLAYER_FORCE_UPDATE_VERSION}</p>
+                        </li>
                                 
                         </ul>
                         <Section_Header header="Store Player" />

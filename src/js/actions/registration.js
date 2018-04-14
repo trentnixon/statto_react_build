@@ -17,6 +17,11 @@ import {Set_State_To_Update, Fetch_Player_Data, Register_Player_Name} from "./lo
  * return a result to the UI
  * 
  * it should not, log in that user as the active user!
+ * 
+ * 
+ * AMendments
+ * Hook into the "Statto Update Status Reducer in the UI Reducer"
+ * 
  */
 
 export function Register_New_Player(){
@@ -31,20 +36,25 @@ export function Register_New_Player(){
       * Methods
       */
      this.consolelog = function(message){
-         console.log(message)
+         // console.log(message)
      }
      this.Message = function(message){
         this.Registration_Message = message;
      }
      this.reset = function(){
+        
         this.Message("Add Player");
         this.consolelog("Reset Function"); 
+        this.UI("SET_STATTO_UPDATE_IN_PROGRESS", false);
+        this.UI("Snack_State", false);
+        
         this.FetchID;
      }
      this.push = function(data){
         this.FetchArray.push(data);
-        console.log(this.FetchArray);
+        //console.log(this.FetchArray);
      }
+
      this.Fetch_Player = function(){
 
         this.consolelog("Fetching Data");
@@ -56,7 +66,7 @@ export function Register_New_Player(){
                 
                 this.consolelog(data)
                 this.push(data)
-
+ 
                 if(data.PlayerName == false){
                     this.consolelog("Data False");
                     this.UI("Snack_State", false);
@@ -79,13 +89,16 @@ export function Register_New_Player(){
       
         this.consolelog("Fetch Player Data from LMS " + LMSID); 
         this.Message("Fetching Career");
+        this.UI("SET_STATTO_UPDATE_IN_PROGRESS", true);
+        this.UI("Snack_State", true);
         const request = axios.get("ajax/player/register/RegisterNewPlayerData.php?UserID="+LMSID);
         request.then(({data}) =>{ 
                 
                 this.consolelog(data, data.gamesPlayed); 
                
                 this.Message("Career Found");
-                this.Fetch_New_Reg_Players()
+                this.Fetch_New_Reg_Players();
+                return true;
                 // Update UI.LMS_REGISTERED[0] with new player
         });
     }
@@ -99,8 +112,8 @@ export function Register_New_Player(){
 
             this.Message("Registration Completed");
             this.consolelog("Registration Completed");
+            
             this.reset();
-            this.UI("Snack_State", false);
             
 		});
     }
@@ -126,7 +139,7 @@ export function Fetch_New_Player(processID){
     const request = axios.get("ajax/player/register/RegisterNewPlayer.php?UserID="+processID);
     request.then(({data}) =>{ 
             
-        console.log(data)
+        //console.log(data)
             
             if(data.PlayerName == false){
                 Register_Message("No Player Exists with this LMS ID")
@@ -134,13 +147,13 @@ export function Fetch_New_Player(processID){
             }
             
             if(data.user_id.error_data != null){
-                console.log("User already exists")
+                //console.log("User already exists")
                 Register_Message("This Player is already Registered with Statto")
                 jQuery("#FindPlayer").prop("disabled", false);
                 return false 
             }
             else{                
-               console.log(data,processID);	
+               //console.log(data,processID);	
                    New_Player_LMS_ID(processID); 
                    Register_New_Player_Name(data.PlayerName);
                    New_Player_WP_ID(data.user_id);
@@ -154,11 +167,11 @@ export function Fetch_New_Player(processID){
 
 export function Fetch_New_Player_Data(New_Player_LMS_ID){
 
-    console.log("Fetch Player Data from LMS")
+    //console.log("Fetch Player Data from LMS")
     const request = axios.get("ajax/player/register/RegisterNewPlayerData.php?UserID="+New_Player_LMS_ID);
     request.then(({data}) =>{ 
            
-            console.log("Data Back from LMS ", data, data.gamesPlayed)
+            //console.log("Data Back from LMS ", data, data.gamesPlayed)
             New_Registration_Games_Played(data.gamesPlayed)
             Fetch_Player_Data(New_Player_LMS_ID);
             
@@ -185,7 +198,7 @@ export function New_Player_WP_ID(ID){
  export function New_Player_LMS_ID(ID){
     // const request = axios.get("/statto/ajax/player/login/Login-Users.php");
     //  request.then(({data}) =>{ });
-    console.log(ID);
+    //console.log(ID);
     store.dispatch({ type:"New_Player_LMS_ID", payload:ID })
  }
 

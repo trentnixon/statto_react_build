@@ -46,10 +46,10 @@ export default class ListExampleNested extends React.Component {
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     handleChange(event, value){
-        console.log(this.props.TableData, value)
+      // console.log(this.props.TableData, value)
         if(value.length > 2){
           const filtered = _.filter(this.props.TableData, function(o) {
-          //  console.log(o.Team)
+          // console.log(o.Team)
             return o.Team.toLowerCase().indexOf(value) > -1;
           });
          // console.log(filtered.length);

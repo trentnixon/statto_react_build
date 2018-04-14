@@ -9,9 +9,7 @@ export default class Batting_Opposition extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ 
-            console.log( this.props)
-    }
+    componentWillMount(){ }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}

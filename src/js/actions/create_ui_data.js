@@ -54,7 +54,7 @@ function collect_Team_Names(data, filter){
 		else{ teamArray.push(games[filter]); }
         
     })
-	// console.log(teamArray);
+	//console.log(teamArray);
     return foo(teamArray);
 }
 
@@ -138,7 +138,7 @@ function calc_Stats(team,data,filter){
 export function calculate_team_stats(data, filter){
 	let Opposition,PlayedFor, ReturnOppo=[], ReturnPlayedFor=[];
 	
-	// console.log(data);
+	//console.log(data);
 	Opposition = collect_Team_Names(data, 'Opposition');
 	PlayedFor = collect_Team_Names(data, 'Team');
 

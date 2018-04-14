@@ -8,7 +8,7 @@ export default class Display_History_Filter extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-       console.log(this.props.UI.filter)
+    // console.log(this.props.UI.filter)
      }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

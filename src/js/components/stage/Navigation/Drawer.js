@@ -111,7 +111,9 @@ export default class DrawerUndockedExample extends React.Component {
   handleClose = () => this.setState({open: false});
  
   componentWillMount(){}
-
+  shouldComponentUpdate(nextProps, nextState){ return true;}
+  componentWillUpdate(nextProps, nextState){ }
+  
   render() {
 
     //<Divider style={styles.divider}/>  
@@ -147,9 +149,7 @@ export default class DrawerUndockedExample extends React.Component {
                             color="#fff"
                             backgroundColor="#dbaa8b" >{this.props.Player.PLAYER_META.UserName.substring(0,1)}</Avatar>}
                    // iconElementRight={<IconButton><NavigationClose onClick={this.handleClose} /></IconButton>}
-                   iconElementRight={<Store_To_Fav player_id={this.props.Player.PLAYER_META.WP_ID} />}
-                   
-                        
+                   iconElementRight={<Store_To_Fav player_id={this.props.Player.PLAYER_META.WP_ID} />}      
             />
            
            

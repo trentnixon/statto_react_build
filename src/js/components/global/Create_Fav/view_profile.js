@@ -10,10 +10,7 @@ export default class Icon_Login extends React.Component {
     handleClose = () => {
         reset_login();
       };
-      componentWillMount(){ 
-
-        console.log(this.props);
-    }
+      componentWillMount(){ }
     render() {
             return ( 
                 <MuiThemeProvider>
