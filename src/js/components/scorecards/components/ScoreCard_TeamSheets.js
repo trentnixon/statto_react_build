@@ -4,12 +4,15 @@ import Register_Modal from "../../global/Create_Fav/register_player_modal";
 
 var _ = require('lodash');
 
+let followed=false, Followers;
 export default class Display_Player_Settings_Home extends React.Component {
 
     constructor() { super();  }
     
         livePlayer(Player,location){
-              let Logged, ReturnThis;
+                
+              Followers = this.props.FOLLOWERS.Followers;
+              let Logged, ReturnThis; 
               let REGISTERED = this.props.UI.LMS_REGISTERED[0];
         
                 Logged =  _.findIndex(REGISTERED, function(o) { return o.LMSID == Player.Player_ID; });
@@ -18,15 +21,16 @@ export default class Display_Player_Settings_Home extends React.Component {
                         ReturnThis = <Register_Modal location={location} player_name={Player.Player_Name} player_id={Player.Player_ID}/>;
                }
                else if(Logged != -1){
-                        ReturnThis = <Favorite_Modal location={location} player_name={Player.Player_Name} player_id={Player.Player_ID}/>;
+                     
+                        if(Followers.indexOf(Player.Player_ID) != -1){followed=true} else{followed=false}
+                        ReturnThis = <Favorite_Modal followed={followed} location={location} player_name={Player.Player_Name} player_id={Player.Player_ID}/>;
                }
                return ReturnThis;
-                //console.log(Logged, REGISTERED[Logged]);
         }
 
     componentWillMount(){}
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){ }
+    componentWillUpdate(nextProps, nextState){}
     
     render() {
         

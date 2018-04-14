@@ -18,6 +18,7 @@ let url;
         UI: store.UI,
         Player: store.PLAYER,
         GAMES: store.GAMES,
+        FOLLOWERS: store.FOLLOWERS
     }
 })
 export default class Display_Scorecard extends React.Component {

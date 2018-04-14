@@ -27,9 +27,6 @@ export default class No_Followers extends React.Component {
                         add them to your favorites list</p>
                         <p><span class="tone3"><AddPlayer /></span>  Buttons can be found next to a players name or in the scrore card teamsheets</p>
                     </Content_Wrapper>
-                    <Content_Wrapper AddClass="Dark_Blue">
-                
-                    </Content_Wrapper>
             </div>
         )   
       }

@@ -2,6 +2,7 @@ import React from "react";
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Eye from 'material-ui/svg-icons/image/remove-red-eye';
+import Following from 'material-ui/svg-icons/social/sentiment-very-satisfied';
 import Close from 'material-ui/svg-icons/navigation/close';
 import AddPlayer from "../icons/AddPlayer";
 
@@ -9,7 +10,7 @@ import Go_To_Profile from "./view_profile";
 import Add_To_Favs from "./Save_to_Favorites_Button";
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+let Icon;
 class Modal_Title extends React.Component{
   render(){
     return(
@@ -33,14 +34,17 @@ export default class Favoriate_Modal extends React.Component {
       handleClose = () => {
         this.setState({open: false});
       };
+      
     componentWillMount(){}
-    
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
     
     render() {
 
-        const actions = [
+      if(this.props.followed == true){Icon = <Following color="#88acd8" className="TeamSheet_Eye" />;}
+      else if(this.props.followed == false)  {Icon = <Eye color="#73b393" className="TeamSheet_Eye" />;} 
+      
+      const actions = [
               <Go_To_Profile {... this.props}/>,
               <Add_To_Favs player_id={this.props.player_id} />
           ];
@@ -55,7 +59,7 @@ export default class Favoriate_Modal extends React.Component {
                                 onClick={this.handleOpen}
                                 labelPosition={this.props.location}
                                 className="TeamSheet_Modal_btn"
-                                icon={<Eye color="#73b393" className="TeamSheet_Eye" />}
+                                icon={Icon}
                                 />
 
 

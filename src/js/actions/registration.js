@@ -49,6 +49,7 @@ export function Register_New_Player(){
 
         this.consolelog("Fetching Data");
         this.Message("Fetching Player");
+        this.UI("Snack_State", true);
 
             const request = axios.get("ajax/player/register/RegisterNewPlayer.php?UserID="+this.FetchID);
             request.then(({data}) =>{ 
@@ -58,10 +59,12 @@ export function Register_New_Player(){
 
                 if(data.PlayerName == false){
                     this.consolelog("Data False");
+                    this.UI("Snack_State", false);
                 }
                 
                 if(data.user_id.error_data != null){
                     this.consolelog("User already exists");
+                    this.UI("Snack_State", false);
                 }
                 else{
                     this.Message("Player Found");
@@ -71,6 +74,7 @@ export function Register_New_Player(){
                 }		 
             });
     }
+    
     this.Player_Data = function(LMSID){
       
         this.consolelog("Fetch Player Data from LMS " + LMSID); 
@@ -80,7 +84,6 @@ export function Register_New_Player(){
                 
                 this.consolelog(data, data.gamesPlayed); 
                
-                this.consolelog("Process Complete, Fire Snackbar"); 
                 this.Message("Career Found");
                 this.Fetch_New_Reg_Players()
                 // Update UI.LMS_REGISTERED[0] with new player
@@ -91,10 +94,13 @@ export function Register_New_Player(){
         const request = axios.get("/statto/ajax/player/login/Login-Users.php");
 		request.then(({data}) =>{ 
             // console.log(data);
-            this.Message("Registration Completed");
-            this.consolelog("Registration Completed"); 
+
             store.dispatch({ type:"FETCH_WP_USER_DATA", payload:data });
+
+            this.Message("Registration Completed");
+            this.consolelog("Registration Completed");
             this.reset();
+            this.UI("Snack_State", false);
             
 		});
     }
@@ -102,9 +108,6 @@ export function Register_New_Player(){
         store.dispatch({ type:TYPE, payload:state });
     }
 }
-
-
-
 
 
 

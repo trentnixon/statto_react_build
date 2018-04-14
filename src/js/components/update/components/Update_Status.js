@@ -6,7 +6,7 @@ import {Set_State_To_Update} from "../../../actions/login"
 
 import Update_The_Snackbar from "./Update_The_Snackbar";
 
-let Value=0, Icon, lastUpdate, UpdateText='Statto if updating ';
+let Value=0, Icon, lastUpdate, UpdateText='Statto is updating ';
 
 @connect((store) =>{
     return{
@@ -68,15 +68,15 @@ export default class UPdate_Status extends React.Component {
                         if(nextProps.UI.STORE_STATTO_FORCE_UPDATE_VERSION > nextProps.Player.PLAYER_META.STORE_PLAYER_FORCE_UPDATE_VERSION)
                         {
                            // console.log("Force UPDATE")
-                            this.UpdatePlayer(false); 
-                            UpdateText='Statto is updating to the latest version';
+                         //   this.UpdatePlayer(false);  
+                         //   UpdateText='Statto is updating to the latest version';
                         }
                       
                         else{
                             //console.log("Check Time difference")
-                            lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(nextProps.Player.PLAYER_META.Last_update),nextProps.UI.updateStatto ) 
+                          //  lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(nextProps.Player.PLAYER_META.Last_update),nextProps.UI.updateStatto ) 
                             // Store lastUpdate in reducer for UI
-                            UpdateText='Statto is updating this profile';
+                          //  UpdateText='Statto is updating this profile';
                         }
                 }
         }

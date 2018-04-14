@@ -5,103 +5,57 @@ import AddPlayer from "../icons/AddPlayer";
 import RemovePlayer from "../icons/RemovePlayer";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import {reactLocalStorage} from 'reactjs-localstorage';
+import { Followers } from "../../../actions/followers";
+const AddFollower = new Followers();
 
-let Store =[],Logged,SetFavs, icon,label,iconClass, Action;
+
+//  let Store =[],Logged,SetFavs, icon,label,iconClass, Action;
 export default class Icon_Login extends React.Component {
    
     constructor() { super(); }
      state = {
-        icon:<AddPlayer />,
-        label:'Add',
-        iconClass:'AddPlayer_to_Favs',
-        Action:this.handleAdd,
+            icon:<AddPlayer />,
+            label:'Add',
+            iconClass:'AddPlayer_to_Favs',
+            Action:this.handleAdd,
       };
 
    // FIX ALL OF THIS
    buttonState(btn){
 
-    if(btn == false)
-    {
-        this.setState({
-                icon:<AddPlayer />,
-                label:'Add',
-                iconClass:'AddPlayer_to_Favs',
-                Action:this.handleAdd,
-        });
-    }
-    else{
-        this.setState({
-            icon:<RemovePlayer />,
-            label:'Saved',
-            iconClass:'Remove_Player_From_Favs',
-            Action:this.handleRemove,
-        });
-    }
-   
-}
-
-   indexCheck(playerid,checkStored){
-        return checkStored.indexOf(playerid)
+        if(btn == false)
+            {
+                this.setState({
+                        icon:<AddPlayer />,
+                        label:'Add',
+                        iconClass:'AddPlayer_to_Favs',
+                        Action:this.handleAdd,
+                });
+            }
+            else{
+                this.setState({
+                    icon:<RemovePlayer />,
+                    label:'Saved',
+                    iconClass:'Remove_Player_From_Favs',
+                    Action:this.handleRemove,
+                });
+            }
    }
 
-   FirstStore(){
-       return Boolean(reactLocalStorage.get('Statto_Store_Favorites'));
-   }
-
-makeid() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  
-    for (var i = 0; i < 5; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-  
-    return text;
-  }
-  
 
    handleAdd = () => {
-    
-    reactLocalStorage.setObject('Statto_Favorites_hash', this.makeid());
-        if(this.FirstStore() == true){
-            
-            Store = reactLocalStorage.getObject('Statto_Favorites');
-            Logged = this.indexCheck(this.props.player_id,Store);
-            // If ID is not found 
-            if(Logged == -1)
-                {
-                    Store.push(this.props.player_id)
-                    reactLocalStorage.setObject('Statto_Favorites', Store);
-                    this.buttonState(true)
-                }
-        }
-      };
+        AddFollower.add();
+        this.buttonState(true)
+    };
 
     handleRemove=()=>{
-        reactLocalStorage.setObject('Statto_Favorites_hash', this.makeid());
-        Store = reactLocalStorage.getObject('Statto_Favorites');
-        Logged = this.indexCheck(this.props.player_id,Store);
-        Store.splice(Logged,1);
-        reactLocalStorage.setObject('Statto_Favorites', Store);
-        this.buttonState(false)
-    }
+        AddFollower.remove();
+        this.buttonState(false);
+     }
 
-      componentWillMount(){ 
-        
-        // Check to see if a Player has been stored.
-        // Then display the correct action
-        
-        if(this.FirstStore() == true){
-           // console.log("First Store True", this.FirstStore())
-            Logged = this.indexCheck(this.props.player_id,reactLocalStorage.getObject('Statto_Favorites',true));
-            if(Logged != -1){ this.buttonState(true)} else{ this.buttonState(false) }
-
-        } else{ 
-            //console.log("First Store False", this.FirstStore())
-            reactLocalStorage.setObject('Statto_Favorites', []);
-            reactLocalStorage.set('Statto_Store_Favorites', Boolean(1)) ;
-            this.buttonState(false)
-        }
+    componentWillMount(){ 
+        AddFollower.PlayerID = this.props.player_id;
+       this.buttonState(AddFollower.ButtonState())
     }
 
     shouldComponentUpdate(nextProps, nextState){ return true;}

@@ -5,11 +5,15 @@ import { Provider } from "react-redux";
 
 // Actions
 import {filter_json} from "./actions/filters";
+import {Followers} from "./actions/followers";
+
+const GetFollowers = new Followers();
 
 // Structure
 import Bottom_Nav_Bar from "./components/stage/components/Bottom_Nav_Bar";
 import Drawer from "./components/stage/Navigation/Drawer";
 import Top_Nav_Bar from "./components/stage/components/Top_Nav_Bar";
+import SnackBar from "./components/global/snackbar/Snackbar";
 
 // Import Routes
 import BaseRoutes from "./components/stage/routes/baseRoutes";
@@ -28,11 +32,15 @@ export default class Display_Player_UI extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ }
+    componentWillMount(){ 
+       
+        GetFollowers.store();
+    }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
         
+
         // can this be moved into  OOP?
         // not even sure what it does!
         if(nextProps.UI.filter.process == true){
@@ -59,6 +67,7 @@ export default class Display_Player_UI extends React.Component {
                                         
                                         </div>
                         <Drawer {... this.props} /> 
+                        <SnackBar />
                 </div>
              ); 
       }

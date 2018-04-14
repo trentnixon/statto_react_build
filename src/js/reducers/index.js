@@ -5,6 +5,8 @@ import PLAYER from "./PlayerStats";
 import REGISTRATION from "./New_Registration";
 import GAMES from "./Games";
 import NewsFeed from "./NewsFeed";
+import SNACKBAR from "./SnackBar";
+import FOLLOWERS from "./Followers";
 
 
 const reducers = combineReducers({
@@ -12,7 +14,9 @@ const reducers = combineReducers({
 		PLAYER:PLAYER,
 		REGISTRATION:REGISTRATION,
 		GAMES:GAMES,
-		NewsFeed:NewsFeed
+		NewsFeed:NewsFeed,
+		SNACKBAR:SNACKBAR,
+		FOLLOWERS:FOLLOWERS
 	})
 
 export default reducers;

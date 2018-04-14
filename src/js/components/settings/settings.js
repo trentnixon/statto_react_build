@@ -42,10 +42,10 @@ export default class Display_Player_Settings_Home extends React.Component {
                                         <p>Games Found : {this.props.Player.raw_json.length}</p>
                                 </li>
                                 <li>
-                                        <p>Statto Version : 2.{this.props.UI.STORE_STATTO_FORCE_UPDATE_VERSION}</p>
+                                        <p>Statto Version : {this.props.UI.STORE_STATTO_FORCE_UPDATE_VERSION}</p>
                                 </li>
                                 <li>
-                                        <p>Running Version : 2.{this.props.Player.PLAYER_META.STORE_PLAYER_FORCE_UPDATE_VERSION}</p>
+                                        <p>Running Version : {this.props.Player.PLAYER_META.STORE_PLAYER_FORCE_UPDATE_VERSION}</p>
                                 </li>
                                 
                         </ul>
