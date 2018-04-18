@@ -1,59 +1,94 @@
 import React from "react";
+import { connect } from "react-redux";
 import Section_Header from "../../global/Section_Header";
 import Section_Subheader from "../../global/Section_Subheader";
 
 import Sprial_Form_o_Meter from "../../global/recharts/Spiral/Form-o-meter";
 import Form_Status from "../../global/form_o_meter/Form_Status";
+import Radial from "../../global/recharts/radial/Radial_two_part";
+
+
+import {form_status} from "../../../actions/form_status";
+const fs = new form_status();
 
 let perc_SR=0,perc_AVG=0,perc_EC=0,perc_runs=0,perc_wickets=0, data=[];
+let Expected_Runs, Expected_Notouts, Expected_Balls;
+@connect((store) =>{
+    return{
+        FORM_GUIDE: store.FORM_GUIDE,
+    }
+})
 export default class Form_o_Meter extends React.Component {
 
     constructor() { super();  }
     
-    perc_check(perc){
-      /*  if(perc > 100){
-            return 100
-        }
-        else{
-            
-        }*/ 
-        return perc;
+    fecth_Form(data){
+         // Fetch Form Guide Data
+         fs.Metric = [
+            {name:'Batting_Average', value:0},
+            {name:'Batting_Fifties', value:1},
+            {name:'Batting_NotOuts',value:1},
+            {name:'Batting_StrikeRate',value:0},
+            {name:'Batting_TotalBallsFaced',value:1},
+            {name:'Batting_Total_Runs', value:1}];
+        fs.perc_data=[];
+        fs.Store_Analysis=[];
+        fs.Career = data.Player.career_form;
+        fs.CarrerBy = data.Player.career_form.Batting_Innings_Count 
+        fs.Current = data.Player.form_guide;
+        fs.CurrentBy  =data.Player.form_guide.Batting_Innings_Count;
+        fs.PlayerID = data.Player.PLAYER_META.WP_ID
+        fs.calculate();
     }
 
     componentWillMount(){ 
-            // Clear Data[]
-            data=[];
+        // Fetch Form Guide
+        this.fecth_Form(this.props)
+        
+        data=[];
+        let Career = this.props.Player.career_form;
+        let Current = this.props.Player.form_guide;
+        
+        Expected_Runs = Career.Batting_Average * Current.Batting_Innings_Count;
+        Expected_Notouts = Career.Batting_NotOuts / Current.Batting_Innings_Count;
+        Expected_Balls = (Career.Batting_TotalBallsFaced / Career.Batting_Innings_Count) * Current.Batting_Innings_Count;
+/**
+ * Need checks to see if values are NaN
+ */
 
-            let Career = this.props.Player.career_form;
-            let Current = this.props.Player.form_guide;
-
-            perc_runs = Career.Batting_Total_Runs / Career.Batting_Innings_Count;
-            perc_runs = perc_runs * Current.Batting_Innings_Count;
-
-            perc_runs = (perc_runs/Current.Batting_Total_Runs)*100;
-          
-            perc_SR = (Career.Batting_StrikeRate/Current.Batting_StrikeRate)*100;
-            perc_AVG = (Career.Batting_Average/Current.Batting_Average)*100;
-           
-           
-            data.push(
-                {name: 'Runs',       uv: this.perc_check(perc_runs.toFixed(0)), pv:perc_runs.toFixed(0),  fill: '#dbaa8b'},
-                {name: 'Average', uv: this.perc_check(perc_AVG.toFixed(0)),    pv:perc_AVG.toFixed(0),  fill: '#73b393'},
-                {name: 'Strike Rate',   uv: this.perc_check(perc_SR.toFixed(0)),      pv:perc_SR.toFixed(0),   fill: '#b37383'},
-                {name: '',   uv: 200,      pv:200,   fill: 'transparent'},
-        )
-   
+           data.push(
+            {name: 'Average',       uv: parseInt(Current.Batting_Average.toFixed(2)),       pv:parseInt(Career.Batting_Average.toFixed(2))},
+            {name: 'Strike Rate',   uv: parseInt(Current.Batting_StrikeRate.toFixed(2)),    pv:parseInt(Career.Batting_StrikeRate.toFixed(2))},
+            {name: 'Balls Faced',   uv:  parseInt(Current.Batting_TotalBallsFaced.toFixed(2)) ,    pv:parseInt(Expected_Balls.toFixed(2)) },
+            {name: 'Runs',          uv: Current.Batting_Total_Runs,                         pv:parseInt(Expected_Runs.toFixed(0)) },
+        ) 
  }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){ }
-    //      
-                       
+    componentWillUpdate(nextProps, nextState){ 
+         // Fetch Form Guide
+         if(nextProps.Player.PLAYER_META.WP_ID != nextProps.FORM_GUIDE.Form_Analysis[2].playerID )
+         {this.fecth_Form(nextProps);}
+    }
+                 
     render() {
+        // console.log(data)
             return ( 
                 <div> 
-                            <Sprial_Form_o_Meter data={data} />
-                            <Form_Status data={data} Name={this.props.Player.PLAYER_META.UserName} />
+                         <Radial 
+                            data={data}
+                            radar2name="Actual"
+                            radar2key="uv"
+                            radar1name="Expected"
+                            radar1key="pv"
+                            AxisKey="name"
+                            SelectTheme="Light"
+                            />
+                            <Form_Status 
+                                {... this.props}
+                                metric="batting"
+                            />
+               
                 </div>
              ); 
       }

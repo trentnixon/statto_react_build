@@ -7,6 +7,7 @@ import GAMES from "./Games";
 import NewsFeed from "./NewsFeed";
 import SNACKBAR from "./SnackBar";
 import FOLLOWERS from "./Followers";
+import FORM_GUIDE from "./Form_Guide";
 
 
 const reducers = combineReducers({
@@ -16,7 +17,8 @@ const reducers = combineReducers({
 		GAMES:GAMES,
 		NewsFeed:NewsFeed,
 		SNACKBAR:SNACKBAR,
-		FOLLOWERS:FOLLOWERS
+		FOLLOWERS:FOLLOWERS,
+		FORM_GUIDE:FORM_GUIDE
 	})
 
 export default reducers;

@@ -20,8 +20,10 @@ var config = {
           loader: 'babel-loader',
           options: { presets: ['react', 'es2015', 'stage-0'],
 		  			plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties'],
-					},
-        }]
+          },
+          
+        }],
+        exclude: /node_modules/
       },
       {
         test: /\.(sass|scss|css)$/, //Check for sass or scss file names
