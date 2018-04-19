@@ -24,12 +24,10 @@ let data=[], items = [], SelectTheme='Dark', Theme;
 export default class One_Column_Bar_Chart extends React.Component {
     componentWillMount(){ 
         data=[];
-
         if(this.props.Theme){ SelectTheme = this.props.Theme;}
         Theme = this.props.UI.Themes[SelectTheme];
     }
     render () {
-        console.log(this.props.data);
         if(this.props.data == false){data=[];}
         else{data = this.props.data} 
 

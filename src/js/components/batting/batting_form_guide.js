@@ -14,11 +14,10 @@ import Bar_with_Lines from "./components/Form_Bar_with_Line";
 
 // actions 
 import {breadcrumbs} from  "../../actions/ui";
-
 import {form_status} from "../../actions/form_status";
+
 const fs = new form_status();
 
-let PodData=[], CareerRuns;
 @connect((store) =>{
         return{
             FORM_GUIDE: store.FORM_GUIDE,
@@ -49,62 +48,9 @@ export default class Batting_FormGuide extends React.Component {
 
 
     componentWillMount(){
-        // Reset PodData
-        PodData=[];
         // set BC
        breadcrumbs('Batting > Formguide','parent');
-       this.fecth_Form(this.props)  
-       console.log(this.props);
-
-        let CareerWicketsAveOverTenGames = 10;
-        let Career = this.props.Player.career_form;
-        let Current = this.props.Player.form_guide;
-       // console.log(Career, Current)
-        
-        CareerRuns  = Career.Batting_Total_Runs/(Career.Batting_Innings_Count-Career.Batting_NotOuts);
-        CareerRuns = CareerRuns * Current.Bowling_Innings_Count;
-        
-        PodData.push(
-                {
-                        title:"Runs" ,
-                        value:Current.Batting_Total_Runs.toFixed(2),
-                        sub:'Expected Runs over '+Current.Bowling_Innings_Count+' Games : '+CareerRuns.toFixed(2),
-                        width:"col-xs-12"
-                },
-                {
-                        title:"Average" ,
-                        value:Current.Batting_Average.toFixed(2),
-                        sub:'Career : '+Career.Batting_Average.toFixed(2)+ ' runs',
-                        width:"col-xs-12"
-                },
-                {
-                        title:"Strike Rate" ,
-                        value:Current.Batting_StrikeRate.toFixed(2),
-                        sub:'Career : '+Career.Batting_StrikeRate.toFixed(2)+ ' runs',
-                        width:"col-xs-12"
-                },
-                {
-                        title:"Balls Faced" ,
-                        value:Current.Batting_TotalBallsFaced,
-                        sub:'Career : '+Career.Batting_TotalBallsFaced+ ' Balls Faced',
-                        width:"col-xs-12"
-                },{
-                        title:"Not Outs" ,
-                        value:Current.Batting_NotOuts,
-                        sub:'Career Not Outs : '+Career.Batting_NotOuts,
-                        width:"col-xs-12"                      
-                },{
-                        title:"Fifties" ,
-                        value:Current.Batting_Fifties,
-                        sub:'Career Fifties : '+Career.Batting_Fifties,
-                        width:"col-xs-12"                       
-                },{
-                        title:"Ducks" ,
-                        value:Current.Batting_Ducks,
-                        sub:'Career Ducks : '+Career.Batting_Ducks,
-                        width:"col-xs-12"                       
-                }
-        )
+       this.fecth_Form(this.props);
     }
     
     
@@ -125,19 +71,13 @@ export default class Batting_FormGuide extends React.Component {
                         
                         <Content_Wrapper>
                                 <Info_Badge Text="FORM GUIDE" />
-                                
-                                
                                 <Section_Subheader Icon={<i class="material-icons">info_outline</i>} header="Form Guide is based on a % of your current form against your career stats" />
-                                
+                                <Section_Header header={"Last "+this.props.Player.last_ten_games.length+" Games"} />
+                                <Section_Subheader header={this.props.Player.form_guide.Batting_Innings_Count + ' Innings counted'}/>
                                 <Bar_with_Lines 
                                         {... this.props}
                                 />
-                                
-                                <Section_Header header={"Last "+this.props.Player.last_ten_games.length+" Games"} />
-                                <Section_Subheader header={this.props.Player.form_guide.Bowling_Innings_Count + ' Innings counted'}/>
-                    
-                                <FormGuidePods {...this.props} PodData={PodData}/>
-                                
+                                <FormGuidePods {...this.props} /> 
                         </Content_Wrapper>
                 </div>
              ); 

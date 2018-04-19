@@ -13,3 +13,39 @@
     }
     p{ font-size: .9em;  color: $bodyWhite; }
 }
+
+#Form_Text_Stats{
+    
+    margin: 30px 0;
+
+    .text_Stat_Block:nth-child(even){border-bottom: .5px solid;}
+    .text_Stat_Block:nth-child(odd){ border-bottom: .5px solid; border-right: .5px solid;}
+    .text_Stat_Block:nth-last-child(2),.text_Stat_Block:nth-last-child(1)
+    {border-bottom: none;}
+    
+    .text_Stat_Block{
+        text-align: center;
+        
+        padding: 1em;
+
+        h2{
+                font-size: 1.3em;
+                line-height: 1em;
+                color: $bodyBlack;
+            }
+        h3{
+                font-size: 1.1em;
+                line-height: 1.8em;
+                color: $bodyBlack;
+        }
+        h4{
+            font-size: .9em;
+            line-height: 2em;
+            text-transform: uppercase;
+            border-top: .5px solid;
+            margin-top: 8px;
+            letter-spacing: .5px;
+            color: $tone2;
+        }
+    }
+}

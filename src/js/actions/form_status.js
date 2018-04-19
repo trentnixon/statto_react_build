@@ -20,6 +20,15 @@ export function form_status(){
        //  console.log(msg)
     }
 
+    
+    this.stripStr= (string, strip)=>{
+        string = string.replace( /_/g,' ');
+        string = string.replace( 'Batting',' ');
+        string = string.replace( 'Bowling',' ');
+        string = string.replace( 'Keeping',' ');
+        return string;
+    }
+
     this.difference = (item, value)=>{
         let Carrer = this.Career[item]
         if(value == 1){
@@ -28,11 +37,16 @@ export function form_status(){
         }
     
         let Store = (this.Current[item]/Carrer.toFixed(0))*100;        
+     
+        // tidy this up
         if(isNaN(Store)){Store=0;}
-
+        if(this.Current[item] == null){this.Current[item] = 0;}
+        //
+        
         this.perc_data.push(
                 {
                     Item:item,
+                    Title:this.stripStr(item),
                     Percent:Store.toFixed(0)+'%',
                     value:parseFloat(Store.toFixed(0)),
                     Current:parseFloat(this.Current[item].toFixed(2)),
