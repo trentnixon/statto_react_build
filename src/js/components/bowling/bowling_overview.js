@@ -22,7 +22,7 @@ export default class Bowling_Overview extends React.Component {
     componentWillMount(){ 
         // set BC
     // console.log(this.props);
-        breadcrumbs('bowling > Overview','parent');
+        breadcrumbs('Bowling > Overview','parent');
     }
 
     shouldComponentUpdate(nextProps, nextState){ return true;}

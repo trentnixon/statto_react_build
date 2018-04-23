@@ -17,7 +17,7 @@ export function form_status(){
     this.Store_Analysis=[];
 
     this.echo =(msg)=>{
-       //  console.log(msg)
+        // console.log(msg)
     }
 
     
@@ -29,15 +29,20 @@ export function form_status(){
         return string;
     }
 
-    this.difference = (item, value)=>{
+    this.difference = (item, value, gauge, title, radial)=>{
         let Carrer = this.Career[item]
         if(value == 1){
             Carrer = Carrer/this.CarrerBy;
             Carrer  = Carrer*this.CurrentBy;
         }
-    
-        let Store = (this.Current[item]/Carrer.toFixed(0))*100;        
+        
+        let Store;
+        if(gauge == 1){Store = (this.Current[item]/Carrer.toFixed(0))*100;}
+        else if(gauge == 0){Store = (Carrer.toFixed(0)/this.Current[item])*100;}
+                 
      
+
+        this.echo(Store);
         // tidy this up
         if(isNaN(Store)){Store=0;}
         if(this.Current[item] == null){this.Current[item] = 0;}
@@ -46,11 +51,12 @@ export function form_status(){
         this.perc_data.push(
                 {
                     Item:item,
-                    Title:this.stripStr(item),
+                    Title:title,
+                    Radial:radial,
                     Percent:Store.toFixed(0)+'%',
                     value:parseFloat(Store.toFixed(0)),
-                    Current:parseFloat(this.Current[item].toFixed(2)),
-                    Career:parseFloat(Carrer.toFixed(2))
+                    Actual:parseFloat(this.Current[item].toFixed(2)),
+                    Expected:parseFloat(Carrer.toFixed(2))
                 }
         )
     }
@@ -91,11 +97,11 @@ export function form_status(){
     }
 
     this.calculate = ()=>{
-        this.echo(this.Career);
-        this.echo(this.Current);
+     //   this.echo(this.Career);
+     //   this.echo(this.Current);
 
         this.Metric.map((item,i)=>{    
-            this.difference(item.name, item.value);
+            this.difference(item.name, item.value, item.gauge, item.title, item.radial);
         })
 
         // Store Breakdown in Reducer

@@ -34,13 +34,13 @@ export default class PieChart_Semi extends React.Component {
         return ( 
             <div>
                 <Interactive />
-            <ResponsiveContainer width='100%' height={260}>
+            <ResponsiveContainer width='100%' height={210}>
     
                     <PieChart>
                         <Pie
                             data={data} 
-                            cx="50%" 
-                            cy={110} 
+                            cx="60%" 
+                            cy="50%" 
                             innerRadius={50}
                             outerRadius={60} 
                             fill="#e9e9e9"
@@ -59,7 +59,13 @@ export default class PieChart_Semi extends React.Component {
                                 labelStyle={Theme.Tooltip.label}
                                 itemStyle={Theme.Tooltip.Style}
                         />  
-                        <Legend wrapperStyle={Theme.Legend} verticalAlign="bottom" iconType="circle" align="center"/>   
+                        <Legend 
+                            wrapperStyle={Theme.Legend} 
+                            verticalAlign="bottom" 
+                            iconType="circle" 
+                            align="left"
+                            layout="vertical"
+                        />   
                     </PieChart>
             </ResponsiveContainer>
             </div>

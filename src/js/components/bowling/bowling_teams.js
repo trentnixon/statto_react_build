@@ -4,11 +4,17 @@ import Half_Circle from "../stage/components/Half_Circle_Top";
 import Content_Wrapper from "../stage/components/Content_Wrapper";
 import TeamTable from "../global/filtered_table/Table_Bowling";
 
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
+
 export default class Table_Bowling_Teams extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){}
+    componentWillMount(){
+        // set BC
+        breadcrumbs('Bowling > Teams','parent');
+    }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     

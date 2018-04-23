@@ -23,7 +23,7 @@ export default class batting_career extends React.Component {
     setUI(){}
     componentWillMount(){ 
        // set BC
-       breadcrumbs('batting > Overview','parent');
+       breadcrumbs('Batting > Overview','parent');
        
     }
 

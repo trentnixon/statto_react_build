@@ -24,7 +24,7 @@ const InitialState ={
 			wickets:'*'
 	},
 	breadcrumbs:{
-		parent:'Home',
+		parent:'Dashboard',
 		child:false
 	},
 	Themes:{

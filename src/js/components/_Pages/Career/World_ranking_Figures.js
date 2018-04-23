@@ -18,24 +18,35 @@ export default class Batting_Career_World_Ranking_Progression extends React.Comp
     constructor() { super();  }
     difference (a, b) { return Math.abs(a - b); }
 
-    componentWillMount(){ 
-          
-            current = this.props.Rankings["0"].ranking;
+    FindSmiley(){
+        //Reset Ints
 
-            this.props.Rankings.map((ranking,i)=>{
-                if(ranking.ranking < best){best = ranking.ranking;}
-                if(ranking.ranking > worst && ranking.ranking != 0){worst = ranking.ranking;}
-            })
+        current;
+        best=99999;
+        worst=0;
 
-            difference = this.difference(current,best)
-            if(difference == 0){CurrentIcon=Trending_icon.smile.icon}
-            else if(difference  < 200){CurrentIcon=Trending_icon.smile.icon}
-            else if(difference  < 500){CurrentIcon=Trending_icon.meh.icon}
-            else if(difference  > 500){CurrentIcon=Trending_icon.frown.icon}
+        current = this.props.Rankings["0"].ranking;
+
+        this.props.Rankings.map((ranking,i)=>{
+            if(ranking.ranking < best){best = ranking.ranking;}
+            if(ranking.ranking > worst && ranking.ranking != 0){worst = ranking.ranking;}
+        })
+
+        difference = this.difference(current,best)
+        if(difference == 0){CurrentIcon=Trending_icon.smile.icon}
+        else if(difference  < 200){CurrentIcon=Trending_icon.smile.icon}
+        else if(difference  < 500){CurrentIcon=Trending_icon.meh.icon}
+        else if(difference  > 500){CurrentIcon=Trending_icon.frown.icon}
+    }
+
+    componentWillMount(){       
+           this.FindSmiley();
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){ } 
+    componentWillUpdate(nextProps, nextState){ 
+            this.FindSmiley();
+    } 
     
     render() {
             return ( 

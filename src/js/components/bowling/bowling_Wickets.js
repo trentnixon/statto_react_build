@@ -11,10 +11,16 @@ import Naked_Wrapper from "../global/Naked_wrapper";
 import Notable_Bowling from "./components/notable_bowling";
 import List_Best_AES from "../_Pages/AES/List_Best_AES";
 
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
+
 
 export default class batting_runs extends React.Component {
 
-    componentWillMount(){ }
+    componentWillMount(){
+        // set BC
+        breadcrumbs('Bowling > Wickets','parent');
+     }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
     

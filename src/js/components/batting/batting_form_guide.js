@@ -12,7 +12,7 @@ import FormGuidePods  from "../global/form_o_meter/Formguide_Pods";
 import Section_Goals from "./components/Section_Form_Goals";
 import Bar_with_Lines from "./components/Form_Bar_with_Line";
 
-// actions 
+// actions  
 import {breadcrumbs} from  "../../actions/ui";
 import {form_status} from "../../actions/form_status";
 
@@ -30,12 +30,12 @@ export default class Batting_FormGuide extends React.Component {
     fecth_Form(data){
         // Fetch Form Guide Data
         fs.Metric = [
-           {name:'Batting_Average', value:0},
-           {name:'Batting_Fifties', value:1},
-           {name:'Batting_NotOuts',value:1},
-           {name:'Batting_StrikeRate',value:0},
-           {name:'Batting_TotalBallsFaced',value:1},
-           {name:'Batting_Total_Runs', value:1}];
+           {name:'Batting_Average', value:0,gauge:1, title:'Average',radial:1},
+           {name:'Batting_Fifties', value:1,gauge:1, title:'Fifties',radial:0},
+           {name:'Batting_NotOuts',value:1,gauge:1, title:'Not Outs',radial:0},
+           {name:'Batting_StrikeRate',value:0,gauge:1, title:'Strike Rate',radial:1},
+           {name:'Batting_TotalBallsFaced',value:1,gauge:1, title:'Balls Faced',radial:1},
+           {name:'Batting_Total_Runs', value:1,gauge:1, title:'Runs',radial:1}];
        fs.perc_data=[];
        fs.Store_Analysis=[];
        fs.Career = data.Player.career_form;

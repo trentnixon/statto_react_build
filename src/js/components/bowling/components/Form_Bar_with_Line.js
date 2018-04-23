@@ -16,8 +16,8 @@ export default class Form_Bar_With_Line extends React.Component {
             return ( 
                 <Bar_With_Line 
                     data={this.props.FORM_GUIDE.Form_Breakdown}
-                    bar="Career"
-                    line="Current"
+                    bar="Expected"
+                    line="Actual"
                     name="Item"
                 />
              ); 

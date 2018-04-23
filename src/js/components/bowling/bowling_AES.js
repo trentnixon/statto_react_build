@@ -7,6 +7,8 @@ import Content_Wrapper from "../stage/components/Content_Wrapper";
 import Info_Badge from "../global/Info_Badge";
 // Import Components
 import Triple_Line from "./components/Chart_Line_avg_sr_ec";
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
 
 // Charts
 import Pie_Metric_over_the_years from "./components/Chart_Pie_Metric_Over_The_Years";
@@ -16,7 +18,10 @@ import List_Best_AEC from "../_Pages/AES/List_Best_AES";
 let AES;
 export default class batting_runs extends React.Component {
 
-    componentWillMount(){ }
+    componentWillMount(){ 
+        // set BC
+        breadcrumbs('Bowling > Meta','parent');
+    }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}
      

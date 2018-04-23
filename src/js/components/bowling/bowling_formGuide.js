@@ -21,18 +21,18 @@ const fs = new form_status();
     return{
         FORM_GUIDE: store.FORM_GUIDE,
     }
-})
+}) 
 export default class batting_runs extends React.Component {
 
     fecth_Form(data){
         // Fetch Form Guide Data
         fs.Metric = [
-           {name:'Bowling_Average', value:0},
-           {name:'Bowling_Economy_Rate', value:0},
-           {name:'Bowling_RunsConceded',value:1},
-           {name:'Bowling_Strike_Rate',value:0},
-           {name:'Bowling_Wickets',value:1},
-           {name:'Bowling_oversBowled', value:1}];
+            {name:'Bowling_Wickets',value:1,gauge:1, title:'Wickets',radial:1},
+            {name:'Bowling_Average', value:0,gauge:0, title:'Average',radial:1},
+           {name:'Bowling_Economy_Rate', value:0,gauge:0, title:'Economy Rate',radial:1},
+           {name:'Bowling_RunsConceded',value:1,gauge:0, title:'Runs Conceded',radial:0},
+           {name:'Bowling_Strike_Rate',value:0,gauge:0, title:'Strike Rate',radial:1},
+           {name:'Bowling_oversBowled', value:1,gauge:1, title:'Overs',radial:1}];
 
        fs.perc_data=[];
        fs.Store_Analysis=[];
@@ -46,7 +46,7 @@ export default class batting_runs extends React.Component {
 
     componentWillMount(){ 
         // set BC
-        breadcrumbs('bowling > Form Guide','parent');
+        breadcrumbs('Bowling > Form Guide','parent');
         this.fecth_Form(this.props)  
     }
     
@@ -75,7 +75,7 @@ export default class batting_runs extends React.Component {
                         <FormGuidePods 
                             {...this.props}
                         />
-                        
+
                     </Content_Wrapper>
                 </div>
              );

@@ -11,9 +11,9 @@ export default class Display_Dashboard extends React.Component {
             
             return(
                 <div key={i} class="col-xs-6 text_Stat_Block">
-                    <h2>{pod.Current}</h2>
+                    <h2>{pod.Actual}</h2>
                     <h3>{pod.Title}</h3>
-                    <h4>Expected: {pod.Career}</h4>
+                    <h4>Expected: {pod.Expected}</h4>
                 </div>
             )
         })

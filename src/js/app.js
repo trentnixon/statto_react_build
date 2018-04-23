@@ -30,7 +30,7 @@ import store from "./store/store";
  */
 // Fire Function to Fetch Logged Players
 
-console.log(window.location.hostname); 
+// console.log(window.location.hostname); 
 
 let url ='/statto/ajax/player/login/Login-Users.php'
 

@@ -4,12 +4,16 @@ import Half_Circle from "../stage/components/Half_Circle_Top";
 import Content_Wrapper from "../stage/components/Content_Wrapper";
 
 import OppoTable from "../global/filtered_table/Table_Batting";
-
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
 export default class Batting_Opposition extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ }
+    componentWillMount(){ 
+        // set BC
+        breadcrumbs('Batting > Opposition','parent');
+    }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){}

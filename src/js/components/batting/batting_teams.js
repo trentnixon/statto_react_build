@@ -5,12 +5,17 @@ import Content_Wrapper from "../stage/components/Content_Wrapper";
 
 import Section_Header from "../global/Section_Header";
 import TeamTable from "../global/filtered_table/Table_Batting";
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
 
 export default class Batting_Teams extends React.Component {
 
     constructor() { super();  }
     
-    componentWillMount(){ }
+    componentWillMount(){ 
+                // set BC
+                breadcrumbs('Batting > Teams','parent');
+    }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }

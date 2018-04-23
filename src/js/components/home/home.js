@@ -19,7 +19,7 @@ export default class Display_Player_Home extends React.Component {
     
     componentWillMount(){ 
          // set BC
-        breadcrumbs('Home','parent');
+       //  breadcrumbs('Home','parent');
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

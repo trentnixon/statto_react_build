@@ -28,7 +28,13 @@ export default class batting_runs extends React.Component {
                             <Chart_Pie_Runs_Over_Years {... this.props}/>
                         </NakedWrapper>
                         <NakedWrapper>
-                            <Radial title="Runs against Balls" data={RadialData} />
+                            <Radial 
+                                title="Runs against Balls" 
+                                data={RadialData} 
+                                legendLayout="vertical"
+                                legendvertical="middle"
+                                LegendAlign="left"
+                            />
                         </NakedWrapper>
                         <NakedWrapper> 
                             <Bar_Chart_Runs {... this.props}/>

@@ -15,7 +15,7 @@ export default class batting_runs extends React.Component {
 
     componentWillMount(){ 
         // set BC
-        breadcrumbs('bowling > Goals','parent');
+        breadcrumbs('Bowling > Goals','parent');
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

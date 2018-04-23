@@ -9,13 +9,19 @@ import Section_Header from "../global/Section_Header";
 import Runs_Stacked from "./components/Chart_Bar_Stacked_Runs_Balls";
 import Pie_Metric_over_the_years from  "./components/Chart_Pie_Metric_Innings_over_The_Years";
 
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
+
 import List_Best_AES from "../_Pages/AES/List_Best_AES";
 import Triple_Line from "./components/Chart_Line_avg_sr_ec";
 
 export default class Batting_Innings extends React.Component {
 
     constructor() { super();  }
-    componentWillMount(){}
+    componentWillMount(){
+        // set BC
+        breadcrumbs('Batting > Innings','parent');
+    }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ }
     

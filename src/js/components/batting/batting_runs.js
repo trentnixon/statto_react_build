@@ -5,12 +5,17 @@ import Info_Badge from "../global/Info_Badge";
 import Section_Header from "../global/Section_Header";
 import Section_Runs from "./components/runs/Section_Runs";
 import Section_Scores from "./components/runs/Section_Scores";
+// actions 
+import {breadcrumbs} from  "../../actions/ui";
 
 import Chart_Line_Growth from "./components/runs/Chart_Line_Run_Growth";
 export default class Batting_Runs extends React.Component {
 
     constructor() { super();  }
-    componentWillMount(){}
+    componentWillMount(){
+        // set BC
+        breadcrumbs('Batting > Runs','parent');
+    }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
            //console.log(this.props.match.params.playerid, this.props.UI.items.Player) 

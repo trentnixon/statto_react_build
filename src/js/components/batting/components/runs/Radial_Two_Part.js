@@ -22,6 +22,10 @@ export default class Radial_Two_Part extends React.Component {
                         radar2name="Balls"
                         radar2key="Balls"
                         AxisKey="year"
+                        legendLayout="vertical"
+                        legendvertical="middle"
+                        LegendAlign="left"
+
                      />
                 </div>
         );  

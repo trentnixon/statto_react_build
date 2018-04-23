@@ -53,7 +53,7 @@ export default class batting_career extends React.Component {
       };
     componentWillMount(){ 
        // set BC
-       breadcrumbs('batting > Career','parent');
+       breadcrumbs('Batting > Career','parent');
       
     }
 

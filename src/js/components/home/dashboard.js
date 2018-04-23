@@ -90,7 +90,9 @@ export default class Display_dashboard extends React.Component {
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){ breadcrumbs('Dashboard','parents'); } 
+    componentWillUpdate(nextProps, nextState){ 
+        // set BC
+        breadcrumbs('Dashboard','parents'); } 
     
     render() { 
         // <WR_Circle {...this.props}/>
