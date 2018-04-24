@@ -25,8 +25,11 @@ export function RegisteredPlayers(){
 export function Fetch_Statto_Meta(){
 	const request = axios.get("/statto/wp-json/wp/v2/pages/2");
 	request.then(({data}) =>{ 
-		//console.log(data);
+		// console.log(data);
 		store.dispatch({ type:"STORE_STATTO_LOGO", payload:data.acf.statto_logo })
+		store.dispatch({ type:"STORE_STATTO_LOGO_DARK", payload:data.acf.statto_logo_dark })
+		store.dispatch({ type:"STORE_STATTO_LOGO_FULL_WHITE", payload:data.acf.statto_logo_full_white_bg })
+		store.dispatch({ type:"STORE_STATTO_LOGO_FULL_DARK", payload:data.acf.statto_logo_full_dark_bg })
 		store.dispatch({ type:"STORE_STATTO_FORCE_UPDATE_VERSION", payload:data.acf.force_update_version })
 	});
 
@@ -36,7 +39,7 @@ export function Fetch_Statto_Meta(){
 // Fetch Selected Players Details
 export function StorePlayerProfile(acf)
 		{
-					//	console.log(acf.raw_json);
+						// console.log(acf);
 
 						// Settings
 						store.dispatch({ type:"STORE_ITERATION", payload:acf.update_interation });

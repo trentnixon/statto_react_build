@@ -38,7 +38,10 @@ export function Scorecards(){
         request.then(({data}) =>{  
              
             let Store_Games=[];
-            data.map((game,i)=>{ Store_Games.push(JSON.parse(game.acf.game_raw_data))})
+            
+            data.map((game,i)=>{ 
+                    Store_Games.push(JSON.parse(game.acf.game_raw_data))
+            })
 
             //** Dispatch
             this.UI("PLAYER_GAME_DATA", Store_Games);

@@ -6,6 +6,9 @@ const InitialState ={
 	updateStatto:false,
 	UPDATE_IN_PROGRESS:false,
 	Statto_Logo:false,
+	Statto_Logo_Dark:false,
+	Statto_Logo_Full_White:false,
+	Statto_Logo_Full_Dark:false,
 	STORE_STATTO_FORCE_UPDATE_VERSION:0,
 	LMS_REGISTERED:false,
 	Dismissals:['Bowled','Caught','LBW','Not out','Stumped','Run out', 'NA','Other'],
@@ -76,6 +79,19 @@ const User_reducer = (state=InitialState, action) =>{
 					return {...state, Statto_Logo:action.payload}
 					break
 				}
+			case "STORE_STATTO_LOGO_DARK":{
+					return {...state, Statto_Logo_Dark:action.payload}
+					break
+				}
+			case "STORE_STATTO_LOGO_FULL_WHITE":{
+					return {...state, Statto_Logo_Full_White:action.payload}
+					break
+				}
+			case "STORE_STATTO_LOGO_FULL_DARK":{
+					return {...state, Statto_Logo_Full_Dark:action.payload}
+					break
+				}
+	
 			case "STORE_STATTO_FORCE_UPDATE_VERSION":{
 				return {...state, STORE_STATTO_FORCE_UPDATE_VERSION:action.payload}
 				break

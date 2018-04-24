@@ -23,7 +23,7 @@ export default class Form_o_Meter extends React.Component {
         })
         return thisData;
     }
-    componentWillMount(){ }
+    componentWillMount(){ } 
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){ 

@@ -1,3 +1,20 @@
+
+.Nav_Container{
+    
+    h4{
+        color:$bodyBlack;
+        text-indent: 14px;
+        font-weight: 100;
+        padding: 20px 0 0px;
+        margin: 0;
+    }
+}
+
+
+.Nav_Light{}
+.Nav_Dark{ //background-color: #2d353c;
+}
+
 .DisplayNav{
     position: fixed;
     bottom:10px;

@@ -36,9 +36,9 @@ const styles = {
         height:'auto',
     },
     Logo:{
-        width:'50px',
-        height:'50px',
-        margin: '20px auto',
+        width:'35%',
+        height:'auto',
+        margin: '20px auto 30px',
         display: 'block',
     },
     bottomIcons:{
@@ -83,11 +83,9 @@ const styles = {
     Teams:[
          {title:'Clubs', Link:'/teams/',icon:"account_circle"},
     ],
-    ChangeProfile:[
+    Final:[
         {title:'Search Players', Link:'/search/',icon:"search"},
         {title:'Following', Link:'/following/',icon:"sentiment_very_satisfied"},
-   ],
-    Final:[
         {title:'News Feed', Link:'/news' ,icon:"whatshot"},
         {title:'Settings', Link:'/settings',icon:"settings"},
     ],
@@ -151,8 +149,8 @@ export default class DrawerUndockedExample extends React.Component {
                    // iconElementRight={<IconButton><NavigationClose onClick={this.handleClose} /></IconButton>}
                    iconElementRight={<Store_To_Fav player_id={this.props.Player.PLAYER_META.WP_ID} />}      
             />
-           
-           
+    <div class="Nav_Light Nav_Container">       
+           <h4>Active Player Stats</h4>
             <Menu_Items data={CreateMenu.base} closeDrawer={this.handleClose} title="base" id={this.props.Player.PLAYER_META.WP_ID}/>
             <Nested_Menu_Item data={CreateMenu.Batting}  closeDrawer={this.handleClose} title="Batting" id={this.props.Player.PLAYER_META.WP_ID} />
             <Divider style={styles.divider}/>
@@ -161,12 +159,13 @@ export default class DrawerUndockedExample extends React.Component {
             <Nested_Menu_Item data={CreateMenu.Keeping} closeDrawer={this.handleClose}  title="Keeping" id={this.props.Player.PLAYER_META.WP_ID}/>
             
             <Divider style={styles.divider}/>
-            <Nested_Menu_Item data={CreateMenu.ChangeProfile} closeDrawer={this.handleClose}  title="Search" id={this.props.Player.PLAYER_META.WP_ID}/>
-            <Divider style={styles.divider}/>
+    </div>
+    <div class="Nav_Dark Nav_Container">
+            <h4>My Statto</h4>
             <Menu_Items data={CreateMenu.Final} closeDrawer={this.handleClose} title="Final" id={this.props.Player.PLAYER_META.WP_ID}/> 
                         
-                <img style={styles.Logo} src={this.props.UI.Statto_Logo} />
-                
+                <img style={styles.Logo} src={this.props.UI.Statto_Logo_Full_White} />
+    </div>          
             <BottomNavigation 
                 className="Menu_Appbar_Bottom"
                 selectedIndex={this.state.selectedIndex}

@@ -4,8 +4,8 @@ import React from "react";
 /* This component has been Signed OFF*/
 const styles={
 	logo:{
-		width:'50px',
-		margin:'5px 10px 0 0'
+		width:'60%',
+		margin:'10px -2% 10px 0 '
 	}
 }
 export default class Statto_Logo extends React.Component {

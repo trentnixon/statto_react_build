@@ -33,20 +33,18 @@ export default class Login extends React.Component {
 
 	if(Store_Player == 'true')
 		{
-			console.log(Store_Player,Store_Player_ID);
+			//console.log(Store_Player,Store_Player_ID);
 			this.props.history.push('/'+Store_Player_ID);
 		}
-
-
-
 
 		Header = this.props.UI.items.SiteName;
 		SubHeader = this.props.UI.items.SubHeader;
 	}	
 	
   componentWillUpdate(NewProps, NewState){
+	  		//console.log(NewProps.UI)
 			Header = NewProps.UI.items.SiteName;
-			logo = NewProps.UI.Statto_Logo
+			logo = NewProps.UI.Statto_Logo_Full_White
 			
 			if(NewProps.UI.updateStatto == true && 
 				NewProps.UI.UPDATE_IN_PROGRESS == false)
@@ -59,7 +57,7 @@ export default class Login extends React.Component {
   render() {
 	return (
 		<div id="page-container">
-			<div class="login animated fadeInDown">
+			<div id="Login_Form" class="login animated fadeInDown">
 				<LoginHeader Header={Header} SubHeader={SubHeader} Logo={logo}/>  
 				<div class="login-content">
 				  	<FindUser {...this.props} /> 

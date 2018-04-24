@@ -10,6 +10,7 @@
    
 
     .login-header{
+        transition: all 1s ease;
         padding: 110px 15px 0;
         color: $bodyWhite;
 
@@ -87,6 +88,23 @@
     }
 }
 }
+
+
+
+/**
+    If Mobile Keyboard
+*/
+
+    #statto-app{
+        #Login_Form.Keyboard{
+    
+            .login-header{
+                padding: 10px 50px 0 !important;
+                transition: all 1s ease;
+            }
+        }
+    }
+
 
 
 /* ********************************************************************************** */

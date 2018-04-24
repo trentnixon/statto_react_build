@@ -54,11 +54,8 @@ export default class Assign_Player_UI extends React.Component {
             return ( 
                 <Naked_Wrapper>
                     <div class="assign_player">
-                        <div class="col-xs-6 text-right nopadding">
-                            <img src={this.props.UI.Statto_Logo} />
-                        </div>
-                        <div class="col-xs-6 text-left nopadding">
-                            <h3>Statto</h3>
+                        <div class="col-xs-12 text-center nopadding">
+                            <img src={this.props.UI.Statto_Logo_Full_White} />
                         </div>
                         <div class="col-xs-12 ">
                             <h4>Loading Player <br /> {Username}</h4>
@@ -68,6 +65,9 @@ export default class Assign_Player_UI extends React.Component {
                                     <i class="material-icons white">launch</i>
                                 </a>
                             </div>
+                        </div>
+                        <div class="col-xs-12 ">
+                            Save Statto to your Home Screen.
                         </div>
                    </div>
                 </Naked_Wrapper>

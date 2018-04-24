@@ -73,7 +73,18 @@ export default class LoginForm extends React.Component {
 		return ReturnValue;
 	}
 		
-		
+	handleUpdateInput(){
+		console.log("Did i do something or Update?? ");
+	}
+
+	HandleOnFocus(){
+		document.getElementById("Login_Form").className += " Keyboard";
+	}	
+	
+	HandleOnBlur(){
+		setTimeout(function(){document.getElementById("Login_Form").classList.remove("Keyboard");}, 1000)
+	}
+	
 	handleSubmit(event) {
 		
 		event.preventDefault();
@@ -121,6 +132,8 @@ export default class LoginForm extends React.Component {
 							  floatingLabelShrinkStyle={styles.MainColor}
 							  floatingLabelStyle={styles.MainColor}
 							  inputStyle={styles.MainColor}
+							  onFocus={() => {this.HandleOnFocus() }}
+							  onBlur ={() => {this.HandleOnBlur() }}
 							/>
 					</MuiThemeProvider>
 					</div>
