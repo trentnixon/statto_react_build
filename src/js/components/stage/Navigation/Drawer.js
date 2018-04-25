@@ -96,7 +96,7 @@ const styles = {
     const favoritesIcon = <i style={styles.bottomIcons} class="fa fa-twitter-square"></i>;
     const nearbyIcon = <i style={styles.bottomIcons} class="fa fa-share-alt"></i>;
 
-
+let PlayerName='';
 export default class DrawerUndockedExample extends React.Component {
 
   constructor(props) {
@@ -108,7 +108,12 @@ export default class DrawerUndockedExample extends React.Component {
 
   handleClose = () => this.setState({open: false});
  
-  componentWillMount(){}
+  componentWillMount(){
+      if(this.props.Player.PLAYER_META.UserName != false){
+        PlayerName = this.props.Player.PLAYER_META.UserName.substring(0,1)
+      }
+    
+  }
   shouldComponentUpdate(nextProps, nextState){ return true;}
   componentWillUpdate(nextProps, nextState){ }
   
@@ -145,7 +150,7 @@ export default class DrawerUndockedExample extends React.Component {
                     titleStyle={styles.titleStyle}
                     iconElementLeft={<Avatar  
                             color="#fff"
-                            backgroundColor="#dbaa8b" >{this.props.Player.PLAYER_META.UserName.substring(0,1)}</Avatar>}
+                            backgroundColor="#dbaa8b" >{PlayerName}</Avatar>}
                    // iconElementRight={<IconButton><NavigationClose onClick={this.handleClose} /></IconButton>}
                    iconElementRight={<Store_To_Fav player_id={this.props.Player.PLAYER_META.WP_ID} />}      
             />

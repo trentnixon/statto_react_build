@@ -5,7 +5,6 @@
 import store from "../store/store";
 import axios from 'axios';
 var _ = require('lodash');
-
 import {reactLocalStorage} from 'reactjs-localstorage';
 
 
@@ -51,11 +50,13 @@ export function Followers(){
         let Remove = this.stored.slice()
         Remove.splice(this.indexCheck(),1);
         this.stored = Remove;
-        // console.log(Remove, this.stored)
-        
+       
         this.store()
     }
 
+    this.fetch = ()=>{
+        store.dispatch({ type:"Local_Followers", payload:reactLocalStorage.getObject('Statto_Favorites') });
+    }
     this.store = function(){
         // Check for first visit and create ARRAY if it is
         if(this.FirstStore() == false){ this.stored=[]; }

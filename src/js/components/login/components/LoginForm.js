@@ -19,7 +19,9 @@ const dataSourceConfig = {
   text: 'username',
   value: 'LMSID',
 };
+
 const MSG = ({ name }) => <div>{name}</div>
+
 const styles = {
   errorStyle: {
     color: orange500,
@@ -43,13 +45,19 @@ var dataSource3 = [],  process=false, msg='';
 
 export default class LoginForm extends React.Component {
 	
-	componentWillMount(){ }
+	CreateAutoList(data){
+		if(data.length > 0){
+			let merged = Object.assign(...data);
+			dataSource3 = merged;
+		}
+	}
+
+	componentWillMount(){ 
+		this.CreateAutoList(this.props.UI.LMS_REGISTERED);
+	}
 	shouldComponentUpdate(newProps, newState) { return true; }
 	componentWillUpdate(nextProps, nextState){
-			if(nextProps.UI.LMS_REGISTERED.length > 0){
-				let merged = Object.assign(...nextProps.UI.LMS_REGISTERED);
-				dataSource3 = merged;
-			}
+		this.CreateAutoList(nextProps.UI.LMS_REGISTERED);
 		}
 		
 	CheckValue(value){
@@ -73,11 +81,19 @@ export default class LoginForm extends React.Component {
 	handleUpdateInput(){}
 
 	HandleOnFocus(){
-		document.getElementById("Login_Form").className += " Keyboard";
+		if(document.getElementById("Login_Form")){
+			document.getElementById("Login_Form").className += " Keyboard";
+		}
 	}	
 	
 	HandleOnBlur(){
-		setTimeout(function(){document.getElementById("Login_Form").classList.remove("Keyboard");}, 10)
+		if(document.getElementById("Login_Form")){
+			setTimeout(
+				function(){
+					document.getElementById("Login_Form").classList.remove("Keyboard");}, 
+					20000
+			)
+		}
 	}
 	
 	handleSubmit(event) {
@@ -98,9 +114,9 @@ export default class LoginForm extends React.Component {
 					const options = {
 							onOpen: props => console.log(props.foo),
 							onClose: props => console.log(props.foo),
-							autoClose: 6000
+							autoClose: 3000
 						};
-					 toast(<MSG name="Player Name not found. To Register new Player use the LMS Player ID found at the LMS Website and the 'Register New Player' Button." />,options);
+					 toast(<MSG name="Player Name not found." />,options);
 		}
 	}
 	

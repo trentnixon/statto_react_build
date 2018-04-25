@@ -33,8 +33,7 @@ export default class Display_Player_UI extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
-       
-        GetFollowers.store();
+        GetFollowers.fetch();
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

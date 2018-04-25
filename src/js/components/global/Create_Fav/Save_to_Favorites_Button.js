@@ -44,23 +44,28 @@ export default class Icon_Set_Fav extends React.Component {
 
 
    handleAdd = () => {
+        // console.log('Add Player', this.props.player_id);
+        AddFollower.PlayerID = this.props.player_id;    
+        
         AddFollower.add();
         this.buttonState(true)
     };
 
     handleRemove=()=>{
+       // console.log('Remove Player', this.props.player_id);
+        AddFollower.PlayerID = this.props.player_id;
         AddFollower.remove();
         this.buttonState(false);
      }
 
     componentWillMount(){ 
-       
-        AddFollower.PlayerID = this.props.player_id;
-       this.buttonState(AddFollower.ButtonState())
+        AddFollower.PlayerID = this.props.player_id
+        this.buttonState(AddFollower.ButtonState()) 
     }
-
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){ }
+    componentWillUpdate(nextProps, nextState){
+        
+     }
 
     render() {
             return ( 

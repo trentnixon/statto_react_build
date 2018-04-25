@@ -31,7 +31,6 @@ export default class Assign_Player_UI extends React.Component {
          merged.map((player,i)=>{
                 if(player.LMSID == data.match.params.playerid)
                 {
-                    console.log(player.username, player.LMSID);
                     this.setState({ Searching:true,PlayerName:player.username  })
                     LG.PlayerID=player.LMSID;
                     LG.PlayerName=player.username;

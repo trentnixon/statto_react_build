@@ -8,6 +8,30 @@
     }
 }
 
+
+
+.toastify--top-right{
+    top: 0;
+    right: 0;
+}
+.toastify{
+    
+    color: $bodyWhite;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+
+    .toastify-content{
+        background:$DarkOpacity;
+        .toastify__body{
+            font-size: 1.2em;
+            text-transform: uppercase;
+            line-height: 3em;
+        }
+    }
+}
+
+
 // Content
 .InfoBadge{
     border:1px $tone2;
