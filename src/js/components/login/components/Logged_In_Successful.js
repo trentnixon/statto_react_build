@@ -1,8 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-import {Register_Message} from "../../../actions/registration";
-
 import Icon_Batting from "../../global/icons/batting";
 import Icon_Bowling from "../../global/icons/bowling";
 import Icon_Keeping from "../../global/icons/keeping";
@@ -13,15 +11,7 @@ import Store_Player from "./Login_Store_Player_As_Default";
 let wr1,wr2,wr3;
 export default class FindUser extends React.Component {
 	
-    componentWillMount(){ 
-		Register_Message("Login Complete.")
-		
-	}
-    
-	shouldComponentUpdate(newProps, newState) { return true; }
-	
-	componentWillUpdate(nextProps, nextState){}
-	
+
 	render(){
 		wr1= this.props.Player.batting_world_ranking["0"].ranking;
 	return(
@@ -52,15 +42,13 @@ export default class FindUser extends React.Component {
 				</div>
 			
 				</div>
-
+				
 			<Link to={'/'+this.props.Player.PLAYER_META.WP_ID} class="login_btn btn row btn-success btn-block btn-lg">
 				<div class="col-md-12">
 					View Career Stats
 				</div>
 			</Link>
 			
-		
-
 			<Store_Player {... this.props}/>
 			
 		</div>

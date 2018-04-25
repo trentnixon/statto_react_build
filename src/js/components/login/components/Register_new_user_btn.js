@@ -6,13 +6,16 @@ const styles ={
         margin:'10px 0'
     }
 }
-import {reset_login} from "../../../actions/login";
+// import {reset_login} from "../../../actions/login";
+import {Login} from "../../../actions/login";
+const LG = new Login();
+
 export default class ReseRegister_User_Btn  extends React.Component {
 
     Reset_Login(){   }
     componentWillMount(){ 
         // Experimental .. this might cause problems being here
-        reset_login(); 
+        LG.Reset_Player_UI();
     }
 render(){
 	return(

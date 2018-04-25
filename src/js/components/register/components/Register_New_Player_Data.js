@@ -9,7 +9,7 @@ let GamesFound=0,LoggedIn;
 export default class Register_New_Player_Data extends React.Component {
     
 componentWillMount(){ 
-        Fetch_New_Player_Data(this.props.REGISTRATION.New_Player_LMS_ID); 
+        // Fetch_New_Player_Data(this.props.REGISTRATION.New_Player_LMS_ID); 
         Register_Message('This process may take a while, but only needs to be done once. Please do not close this browser window')
     }	
 

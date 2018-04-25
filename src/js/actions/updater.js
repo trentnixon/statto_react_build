@@ -2,7 +2,8 @@ import store from "../store/store";
 import axios from 'axios';
 var _ = require('lodash');
 
-import {Fetch_Player_Data} from "./login";
+import {Login} from "./login";
+const LG = new Login();
 
 export function updater(){
 
@@ -54,8 +55,12 @@ export function updater(){
                 this.echo("UPdate Complete"); 
                 this.echo(data, data.gamesPlayed); 
 
-                Fetch_Player_Data(this.CheckID)
-                // Reset
+               // Fetch_Player_Data(this.CheckID)
+               LG.PlayerID=this.CheckID;
+             //   LG.PlayerName=this.PlayerName;
+               LG.Start_Player();
+
+               // Reset
                 this.reset()
         });
         

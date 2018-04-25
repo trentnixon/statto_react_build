@@ -7,12 +7,11 @@ import { Provider } from "react-redux";
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 import { ToastContainer } from 'react-toastify';
-
-import {RegisteredPlayers, Fetch_Statto_Meta} from './actions/login';
+import {SetUI} from "./actions/SetUI";
 
 // Stylesheets
-   require( 'react-toastify/dist/ReactToastify.min.css'); 
-   require('../css/app.scss');
+require( 'react-toastify/dist/ReactToastify.min.css'); 
+require('../css/app.scss');
  
 // Components
 import Update_Status from "./components/update/components/Update_Status";
@@ -22,20 +21,9 @@ import stage from "./stage";
 import store from "./store/store";
 
 
-/** 
-
- * Updates required
- * Move all of the load functions and player scraps to JS ES6 Classes!
- * 
- */
 // Fire Function to Fetch Logged Players
-
-// console.log(window.location.hostname); 
-
-let url ='/statto/ajax/player/login/Login-Users.php'
-
-	RegisteredPlayers();
-	Fetch_Statto_Meta(); 
+	const UI = new SetUI();
+	UI.SetUI();
 		
 const Statto = ({ match }) => (
   <Router>  	 

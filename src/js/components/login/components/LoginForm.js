@@ -8,11 +8,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {orange500, blue500} from 'material-ui/styles/colors';
 
-import {FindPlayersStats, SetLiveStats, CreateUserUI} from "../../../actions/";
+//import {FindPlayersStats, SetLiveStats, CreateUserUI} from "../../../actions/";
+//import {StorePlayerProfile, Register_Player_Name, Register_Player_WP_ID, Reigster_Statto_Player_ID, Fetch_Player_Data} from "../../../actions/login";
+
 // Login.js
-import {StorePlayerProfile, Register_Player_Name, Register_Player_WP_ID, Reigster_Statto_Player_ID, Fetch_Player_Data} from "../../../actions/login";
-
-
+import {Login} from "../../../actions/login";
+const LG = new Login();
 
 const dataSourceConfig = {
   text: 'username',
@@ -44,12 +45,10 @@ export default class LoginForm extends React.Component {
 	
 	componentWillMount(){ }
 	shouldComponentUpdate(newProps, newState) { return true; }
-
 	componentWillUpdate(nextProps, nextState){
-			//console.log(nextProps.UI.LMS_REGISTERED);
 			if(nextProps.UI.LMS_REGISTERED.length > 0){
 				let merged = Object.assign(...nextProps.UI.LMS_REGISTERED);
-				dataSource3 = merged
+				dataSource3 = merged;
 			}
 		}
 		
@@ -57,7 +56,6 @@ export default class LoginForm extends React.Component {
 		
 		var ReturnValue = false;
 		if(isNaN(parseInt(value))){
-				//console.log("This is TEXT")
 				let FindInmerged = Object.assign(...this.props.UI.LMS_REGISTERED);
 				FindInmerged.map((user,i)=>{
 					if(user.username == value)
@@ -67,22 +65,19 @@ export default class LoginForm extends React.Component {
 				})
 			}
 		else{
-					//console.log("This is a Number")
-					ReturnValue = false;
+				ReturnValue = false;
 			}
 		return ReturnValue;
 	}
 		
-	handleUpdateInput(){
-		console.log("Did i do something or Update?? ");
-	}
+	handleUpdateInput(){}
 
 	HandleOnFocus(){
 		document.getElementById("Login_Form").className += " Keyboard";
 	}	
 	
 	HandleOnBlur(){
-		setTimeout(function(){document.getElementById("Login_Form").classList.remove("Keyboard");}, 1000)
+		setTimeout(function(){document.getElementById("Login_Form").classList.remove("Keyboard");}, 10)
 	}
 	
 	handleSubmit(event) {
@@ -90,17 +85,13 @@ export default class LoginForm extends React.Component {
 		event.preventDefault();
 		var UserID = jQuery("form#PlayerID").find('#id').val();	
 
-		// Store Player Name
-		Register_Player_Name(UserID)
-		
 		var processID = this.CheckValue(UserID)	
 
 		if(processID != false)
 			{
-				
-				/* Replace this with a action function */
-				Fetch_Player_Data(processID);
-	
+				LG.PlayerID=processID;
+				LG.PlayerName=UserID;
+				LG.Start_Player();	
 			}
 		else if(processID == false)
 			{

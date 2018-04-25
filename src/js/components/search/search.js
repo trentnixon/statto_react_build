@@ -10,7 +10,8 @@ import Naked_Wrapper from  "../global/Naked_wrapper";
 import Player_Form from "../login/components/LoginForm";
 import Logo from "../login/components/_Logo";
 
-import {reset_login} from "../../actions/login";
+import {Login} from "../../actions/login";
+const LG = new Login();
 
 let Stored;
 export default class In_App_Search extends React.Component {
@@ -23,7 +24,7 @@ export default class In_App_Search extends React.Component {
         
         if(this.props.Player.PLAYER_META.WP_ID != nextProps.Player.PLAYER_META.WP_ID)
         { 
-            reset_login();
+            LG.Reset_Player_UI();
             this.props.history.push("/"+nextProps.Player.PLAYER_META.WP_ID);
         }
     }

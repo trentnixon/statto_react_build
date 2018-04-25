@@ -2,7 +2,9 @@ import React from "react";
 import LinkToPlayer from "../global/icons/Link_to_Player";
 import { Link } from 'react-router-dom'
 
-import {reset_login} from "../../actions/login";
+//import {reset_login} from "../../actions/login";
+import {Login} from "../../actions/login";
+const LG = new Login();
 
 let Player_Name='';
 export default class News_Player_Name extends React.Component {
@@ -13,7 +15,7 @@ export default class News_Player_Name extends React.Component {
         
       }
     handleClose = () => {
-        reset_login();
+        LG.Reset_Player_UI();
     };
     
     shouldComponentUpdate(nextProps, nextState){ return true;}

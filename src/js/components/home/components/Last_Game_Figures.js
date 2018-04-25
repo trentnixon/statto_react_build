@@ -39,7 +39,39 @@ export default class Display_Player_Settings_Home extends React.Component {
 
     }
 
+    CreateCarousel(){
+        let lastUpdate;
+                       
+        Last5Games = this.props.Player.last_ten_games.map((game,i)=>{
+            //   console.log(game) 
+               if(i < 5){ 
+                lastUpdate = this.timeDifference( new Date().getTime()/1000, parseInt(game.timestamp) ) 
+        
+               return(<div key={i}>
+                        <Section_Header header={game.Opposition} />
+                            <Section_Sub_Header header={'Played '+ lastUpdate} />
+                        <div class="col-xs-5 nopadding">
+                            <h3>Runs : {game.Batting_Runscored}</h3>
+                            <h4>{game.Batting_BallsFaced} Balls </h4>
+                        </div>
+                        <div class="col-xs-7 nopadding">
+                            <h3>Figures : {game.Bowling_Figures}</h3>
+                            <h4>{game.Bowling_OversBowled} Overs </h4>
+                        </div>
+                        <div class="col-xs-12 nopadding ">
+                            <Link_to_scorecard ID={game.GameID}/>       
+                        </div>
+                    </div>
+                  )
+               } 
+           })
+    }
+
+
     componentWillMount(){ 
+
+            this.CreateCarousel(this.props.Player.last_ten_games);
+            /*
             let lastUpdate;
                        
             Last5Games = this.props.Player.last_ten_games.map((game,i)=>{
@@ -64,11 +96,13 @@ export default class Display_Player_Settings_Home extends React.Component {
                         </div>
                       )
                    } 
-               })
+               })*/
     }
     
     shouldComponentUpdate(nextProps, nextState){ return true;}
-    componentWillUpdate(nextProps, nextState){ }
+    componentWillUpdate(nextProps, nextState){ 
+        this.CreateCarousel(nextProps.Player.last_ten_games);
+    }
     
     render() {
             return ( 

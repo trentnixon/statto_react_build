@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom'
 import Eye from 'material-ui/svg-icons/image/remove-red-eye';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import {reset_login} from "../../../actions/login";
+import {Login} from "../../../actions/login";
+const LG = new Login();
+
 export default class Icon_Login extends React.Component {
     handleClose = () => {
-        reset_login();
+        LG.Reset_Player_UI();
       };
       componentWillMount(){ }
     render() {

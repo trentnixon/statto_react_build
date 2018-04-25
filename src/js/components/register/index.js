@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import {Fetch_Player_Data,reset_login} from "../../actions/login";
+// Login.js
+import {Login} from "../../actions/login";
+const LG = new Login();
+
 
 import RegisterHeader from "../login/components/_LoginHeader";
 import Register_User_Form_Shell from "./components/Register_User_Form_Shell";
@@ -31,9 +34,9 @@ export default class Register_Login extends React.Component {
 	
 	shouldComponentUpdate(NewProps, NewState){ return true;}
   
- componentWillMount(){
+ 	componentWillMount(){
 		 
-	reset_login(); 
+		LG.Reset_Player_UI();
 
 		Header = this.props.UI.items.SiteName;
 		SubHeader = this.props.UI.items.SubHeader;
@@ -46,9 +49,14 @@ export default class Register_Login extends React.Component {
  
 			// Update UI
 			Header = NewProps.UI.items.SiteName;
-			logo = NewProps.UI.Statto_Logo
+			logo = NewProps.UI.Statto_Logo_Full_White
 			
-			console.log(NewProps.REGISTRATION.New_Registration, NewProps.Player.PLAYER_META.PLAYER_SET)
+			console.log(
+				NewProps.REGISTRATION,
+					'New_Registration',NewProps.REGISTRATION.New_Registration, 
+					'PLAYER_SET',NewProps.Player.PLAYER_META.PLAYER_SET
+			)
+			
 			if(NewProps.REGISTRATION.New_Registration == false){ 
 					Register_UI = <Register_User_Form_Shell {...NewProps}/>
 					BackBtn=<div class="row"><div class="col-md-12 m-t-10"><Reset_UI {...this.props} /></div></div>
@@ -90,9 +98,7 @@ export default class Register_Login extends React.Component {
 					<Register_MSG {...this.props}/>
 					{BackBtn}
 				</div>
-				
 			</div>
-			
 		</div>
     );
   }

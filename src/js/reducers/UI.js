@@ -3,7 +3,7 @@ import React from "react";
 const InitialState ={
 	
 	SearchBar:false,
-	updateStatto:false,
+	updateStatto:false, 
 	UPDATE_IN_PROGRESS:false,
 	Statto_Logo:false,
 	Statto_Logo_Dark:false,

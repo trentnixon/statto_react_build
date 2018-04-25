@@ -10,7 +10,7 @@
    
 
     .login-header{
-        transition: all 1s ease;
+        transition: all 0.3s ease;
         padding: 110px 15px 0;
         color: $bodyWhite;
 
@@ -100,7 +100,7 @@
     
             .login-header{
                 padding: 10px 50px 0 !important;
-                transition: all 1s ease;
+                transition: all 0.3s ease;
             }
         }
     }

@@ -2,15 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Naked_Wrapper from "./components/global/Naked_wrapper";
 
-//import { HashRouter as Router, Route, Link} from 'react-router-dom';
-//import { Provider } from "react-redux";
 
-import {RegisteredPlayers,Fetch_Player_Data,Register_Player_Name,Fetch_Statto_Meta} from './actions/login';
-
-// import {StorePlayerProfile, Register_Player_Name, Register_Player_WP_ID, Reigster_Statto_Player_ID, } from "../../../actions/login";
-
-RegisteredPlayers();
-Fetch_Statto_Meta(); 
+import {Fetch_Player_Data,Register_Player_Name} from './actions/login';
+// UI Setup
+import {SetUI} from "./actions/SetUI";
+// Login.js
+import {Login} from "./actions/login";
+// Fire Function to Fetch Logged Players
+    const UI = new SetUI();
+    UI.SetUI();
+    const LG = new Login();
 
 let Username='Fetching';
 export default class Assign_Player_UI extends React.Component {
@@ -30,9 +31,11 @@ export default class Assign_Player_UI extends React.Component {
          merged.map((player,i)=>{
                 if(player.LMSID == data.match.params.playerid)
                 {
+                    console.log(player.username, player.LMSID);
                     this.setState({ Searching:true,PlayerName:player.username  })
-                    Register_Player_Name(player.username);
-                    Fetch_Player_Data(player.LMSID);
+                    LG.PlayerID=player.LMSID;
+                    LG.PlayerName=player.username;
+                    LG.Start_Player();
                 }
             })
      }

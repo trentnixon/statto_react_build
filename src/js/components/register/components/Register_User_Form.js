@@ -9,11 +9,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Icon_AddPlayer from "../../global/icons/AddPlayer";
 import {orange500, blue500} from 'material-ui/styles/colors';
 
-// Login.js
-import {Register_Player_Name,reset_login} from "../../../actions/login"
 // Register.js
-import {Fetch_New_Player, Register_New_Player_Name,New_Player_WP_ID,New_Player_LMS_ID,New_Registration,Register_Message} from "../../../actions/registration"
+//import {Fetch_New_Player, Register_New_Player_Name,New_Player_WP_ID,New_Player_LMS_ID,New_Registration,Register_Message} from "../../../actions/registration"
 
+import {Register_New_Player} from "../../../actions/registration"
+const RG = new Register_New_Player();
 
 
 const dataSourceConfig = {
@@ -52,7 +52,7 @@ export default class Register_User_Form extends React.Component {
 			let merged = Object.assign(...nextProps.UI.LMS_REGISTERED);
 			dataSource3 = merged;
 		}
-		}
+	}
 		
 	CheckValue(value){
 		
@@ -83,9 +83,11 @@ export default class Register_User_Form extends React.Component {
 		var processID = this.CheckValue(UserID)	
 
 		if(processID != false)
-			{
-				Fetch_New_Player(processID)
-				Register_Message("Fetching Player Name")
+			{ 
+				console.log(processID)
+				RG.FetchID=processID;
+				RG.process_Login=true;
+				RG.Fetch_Player();
 
 			}
 		else if(processID == false)

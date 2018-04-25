@@ -8,7 +8,7 @@ const InitialState ={
 	New_Registration_MSG:'Use your LMS ID to Register with STATTO'
 }
 
-const New_User = (state=InitialState, action) =>{
+const New_User = (state=InitialState, action) =>{ 
 		switch(action.type){
 			
 			// Fetch New_Registration Details

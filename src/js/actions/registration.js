@@ -5,8 +5,9 @@ import store from "../store/store";
 import axios from 'axios';
 var _ = require('lodash');
 
+import {Login} from "./login";
+const LG = new Login();
 
-import {Set_State_To_Update, Fetch_Player_Data, Register_Player_Name} from "./login"
 
 /**
  * In app registration
@@ -29,36 +30,62 @@ export function Register_New_Player(){
      * properties
      */
     this.FetchID;
+    this.PlayerName=false;
+	this.WordpressID = false;
     this.FetchArray=[];
     this.Registration_Message = 'Add Player';
+    this.process_Login = false;
+	
 
      /**
       * Methods
       */
      this.consolelog = function(message){
-         // console.log(message)
+        // console.log(message)
      }
      this.Message = function(message){
         this.Registration_Message = message;
      }
-     this.reset = function(){
+     this.Register_Message = (msg) => {
+        this.UI('New_Registration_MSG',msg)
+    }
+    this.UI = function(TYPE, state){
+        store.dispatch({ type:TYPE, payload:state });
+    }
+
+    
+    this.reset = function(){
+        this.Message("Registration Completed");
+        this.consolelog("Registration Completed");
         
         this.Message("Add Player");
         this.consolelog("Reset Function"); 
         this.UI("SET_STATTO_UPDATE_IN_PROGRESS", false);
         this.UI("Snack_State", false);
+        this.UI('New_Registration', false);
         
         this.FetchID;
      }
+
      this.push = function(data){
         this.FetchArray.push(data);
-        //console.log(this.FetchArray);
      }
 
+     this.Login_New_Reg = ()=>{
+
+        LG.PlayerID=this.FetchID;
+		LG.PlayerName=this.PlayerName;
+        LG.Start_Player();
+        
+        this.Register_Message("Registration Complete");
+        this.UI("Snack_State", false);
+        //this.reset();
+     }
      this.Fetch_Player = function(){
 
         this.consolelog("Fetching Data");
         this.Message("Fetching Player");
+        this.Register_Message("Fetching Player")
         this.UI("Snack_State", true);
 
             const request = axios.get("ajax/player/register/RegisterNewPlayer.php?UserID="+this.FetchID);
@@ -70,57 +97,87 @@ export function Register_New_Player(){
                 if(data.PlayerName == false){
                     this.consolelog("Data False");
                     this.UI("Snack_State", false);
+                    jQuery("#FindPlayer").prop("disabled", false);
+                    this.Register_Message("No Player Exists with this LMS ID")
                 }
                 
                 if(data.user_id.error_data != null){
                     this.consolelog("User already exists");
+                    this.Register_Message("This Player is already Registered with Statto")
+                    jQuery("#FindPlayer").prop("disabled", false);
                     this.UI("Snack_State", false);
                 }
                 else{
                     this.Message("Player Found");
                     this.consolelog("Player" +this.FetchID +" Found"); 
+                     
+                    this.PlayerName = data.PlayerName;
+                    this.WordpressID = data.user_id;
+                    // Store Data
+                    this.UI("New_Player_LMS_ID", this.FetchID); 
+                    this.UI('New_Player_Name', this.PlayerName);
+                    this.UI('New_Player_WP_ID',this.WordpressID);
+                    this.UI('New_Registration', true);
+
                     // Fetch Player Data
-                    this.Player_Data(data.LMS)    
+                    this.Player_Data(data.LMS) 
+
                 }		 
             });
     }
     
     this.Player_Data = function(LMSID){
       
-        this.consolelog("Fetch Player Data from LMS " + LMSID); 
+       
         this.Message("Fetching Career");
+
         this.UI("SET_STATTO_UPDATE_IN_PROGRESS", true);
         this.UI("Snack_State", true);
+
         const request = axios.get("ajax/player/register/RegisterNewPlayerData.php?UserID="+LMSID);
         request.then(({data}) =>{ 
                 
-                this.consolelog(data, data.gamesPlayed); 
-               
                 this.Message("Career Found");
+            
+                this.UI('New_Registration_Games_Played',data.gamesPlayed)
                 this.Fetch_New_Reg_Players();
+
                 return true;
-                // Update UI.LMS_REGISTERED[0] with new player
         });
     }
     this.Fetch_New_Reg_Players = function(){
         
         const request = axios.get("/statto/ajax/player/login/Login-Users.php");
 		request.then(({data}) =>{ 
-            // console.log(data);
-
-            store.dispatch({ type:"FETCH_WP_USER_DATA", payload:data });
-
-            this.Message("Registration Completed");
-            this.consolelog("Registration Completed");
+            this.UI('FETCH_WP_USER_DATA',data)
             
-            this.reset();
+            // If from form, log new player
+            if(this.process_Login == true) {this.Login_New_Reg()}
+            // if in app reg, reset function
+            else{ this.reset(); }
             
 		});
     }
-    this.UI = function(TYPE, state){
-        store.dispatch({ type:TYPE, payload:state });
-    }
 }
+
+
+
+/*** END NEW OOP  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,7 +189,7 @@ export function Register_New_Player(){
  *  OLD Functions /
  * DO NOT DELETE these until i know 100% they are not being used
  * 
- */
+ 
 export function Fetch_New_Player(processID){
     
 
@@ -154,7 +211,8 @@ export function Fetch_New_Player(processID){
             }
             else{                
                //console.log(data,processID);	
-                   New_Player_LMS_ID(processID); 
+                   New_Player_LMS_ID(processID);
+                    
                    Register_New_Player_Name(data.PlayerName);
                    New_Player_WP_ID(data.user_id);
                    New_Registration(true);
@@ -183,12 +241,13 @@ export function Fetch_New_Player_Data(New_Player_LMS_ID){
 
 }
 
+
+/*
 export function Register_New_Player_Name(Name){
    // const request = axios.get("/statto/ajax/player/login/Login-Users.php");
    //  request.then(({data}) =>{ });
    store.dispatch({ type:"New_Player_Name", payload:Name })
 }
-
 export function New_Player_WP_ID(ID){
     // const request = axios.get("/statto/ajax/player/login/Login-Users.php");
     //  request.then(({data}) =>{ });
@@ -213,6 +272,8 @@ export function New_Player_WP_ID(ID){
     store.dispatch({ type:"New_Registration_Games_Played", payload:games })
  }
 
- export function Register_Message(msg){
+ 
+*/
+export function Register_Message(msg){
     store.dispatch({ type:"New_Registration_MSG", payload:msg })
  }

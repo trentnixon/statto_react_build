@@ -1,10 +1,14 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import Icon_Reset from "../../global/icons/Reset";
-import {reset_login} from "../../../actions/login";
+
+
+import {Login} from "../../../actions/login";
+const LG = new Login();
+
 export default class Reset_Login extends React.Component {
     Reset_Login(){
-        reset_login();
+        LG.Reset_Player_UI();
     }
     render(){
 	    return(
