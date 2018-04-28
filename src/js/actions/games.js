@@ -40,6 +40,7 @@ export function Scorecards(){
             let Store_Games=[];
             
             data.map((game,i)=>{ 
+                  //  console.log(game.acf.game_raw_data);
                     Store_Games.push(JSON.parse(game.acf.game_raw_data))
             })
 
@@ -92,6 +93,96 @@ export function Scorecards(){
         this.UI("SCORECARD_PROGRESSION", true);
     }
 
+    this.UI = function(TYPE, state){
+        store.dispatch({ type:TYPE, payload:state });
+    }
+}
+
+
+
+
+/**
+ *  In APP Cron to fetch Games
+ */
+
+export function InApp_Fetch_Games_Cron(){
+
+  
+    this.GamesPlayed=false;
+    this.GamesStored=false;
+
+    this.SearchID=false;
+    this.ID=0;
+
+    this.msg = (msg)=>{
+        // console.log(msg)
+    }
+    this.StoreNew = function(data){
+        // Store new Game in the Reducer Array
+        let findKey = _.findKey(this.GamesStored, { 'GameID': data.GameID});
+        if(findKey === undefined){ 
+            this.msg('Stored'+ data.GameID)
+            this.GamesStored.push(data)
+            //** Dispatch
+            this.UI("PLAYER_GAME_DATA", this.GamesStored);
+            setTimeout(this.check(),500)
+        }
+    }
+    
+    this.Fetch = function(){
+        //** Dispatch
+        this.msg(this.SearchID);
+        if(this.SearchID == undefined){ 
+            this.msg("Undefined so stop");  
+            this.end();
+        }
+        else{
+            const request = axios.get('/statto/ajax/team/update/Register_Team_Game.php?GameID='+this.SearchID);
+            request.then(({data}) =>{  
+                if(data){ 
+                // Send Active game to Active Function
+                this.msg('data fetched')
+                    this.StoreNew(data);
+                }
+            });	
+        }
+    }
+    this.check =()=>{
+        
+        this.msg(this.SearchID)
+        let findKey = _.findKey(this.GamesStored, { 'GameID': this.SearchID});
+ 
+        if(findKey === undefined){
+            this.msg('fetch new game')
+            this.Fetch();
+        }
+        else{
+            this.msg("Game Stored");
+           
+            this.ID++;
+            this.start();
+        }
+    }
+
+    this.start = ()=>{
+        this.UI('GAME_CRON', true);
+    
+        this.msg(this.GamesStored.length + ", "+ this.GamesPlayed.length);
+        
+        if(this.GamesStored.length > 0){
+            this.SearchID = this.GamesPlayed[this.ID];
+            this.check();
+        }
+        else{
+            this.end();
+        }
+        
+    }
+    
+    this.end = ()=>{
+        this.msg('END')
+        this.UI('GAME_CRON', 'completed')
+    }
     this.UI = function(TYPE, state){
         store.dispatch({ type:TYPE, payload:state });
     }

@@ -14,7 +14,7 @@ import Last_Game_Figures from "./components/Last_Game_Figures";
 import World_Ranking_Figures from "./components/World_ranking_Figures_All";
 import Extendable_Content_Pod from "../global/Expandable_Panel/Create_Content_Pods";
 import Top_3_Teams from "./components/Top_3_Teams_Played_For";
-
+import Games_Stored from "./components/Games_Stored_vs_Games_Played";
 import Info_Badge from "../global/Info_Badge";
 import Store_To_Fav from "../global/Create_Fav/Save_to_Favorites_Button";
 // import WR_Circle from "./components/world_ranking_circle";
@@ -32,6 +32,7 @@ let Runs_Text=[],Wickets_Text=[],RadialData, NumofYears=0, OvertheYears;
 @connect((store) =>{
     return{
         UI: store.UI,
+        GAMES: store.GAMES,
         Player: store.PLAYER
     }
 })
@@ -100,6 +101,7 @@ export default class Display_dashboard extends React.Component {
                 <div>
                     <Half_Circle>
                         <Last_Game_Figures {... this.props}/>
+                        <Games_Stored {... this.props}/>
                     </Half_Circle>
                     
                     <Content_Wrapper>
@@ -121,6 +123,7 @@ export default class Display_dashboard extends React.Component {
                             <Top_3_Teams Teams={this.props.Player.team_played_for_stats}/>
                         </div>
                     </Content_Wrapper>
+                    
                 </div>
              ); 
       }

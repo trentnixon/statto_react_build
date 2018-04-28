@@ -1,5 +1,6 @@
 const InitialState ={
     Scorecard_Progression:false,
+    Cron_in_Progress:false,
     ActiveGame:false,
     GameIDs:false,
     Game_Data:false,
@@ -28,7 +29,12 @@ const Games = (state=InitialState, action) =>{
             case "STORE_ACTIVE_GAME":{
                 return {...state, ActiveGame:action.payload}
 				break
-            }            
+            } 
+            case "GAME_CRON":{
+                return {...state, Cron_in_Progress:action.payload}
+				break
+            }     
+                   
 		}
 		return state;
 	}

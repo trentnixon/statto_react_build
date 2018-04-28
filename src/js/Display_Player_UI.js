@@ -6,9 +6,10 @@ import { Provider } from "react-redux";
 // Actions
 import {filter_json} from "./actions/filters";
 import {Followers} from "./actions/followers";
+import {InApp_Fetch_Games_Cron} from  "./actions/games";
 
 const GetFollowers = new Followers();
-
+const FG= new InApp_Fetch_Games_Cron();
 // Structure
 import Bottom_Nav_Bar from "./components/stage/components/Bottom_Nav_Bar";
 import Drawer from "./components/stage/Navigation/Drawer";
@@ -45,8 +46,19 @@ export default class Display_Player_UI extends React.Component {
         if(nextProps.UI.filter.process == true){
                         filter_json(nextProps.Player.raw_json, nextProps.UI.filter)
                 }
-        }
-    componentDidUpdate(){ }
+             
+        // Start Game CRON!        
+        
+        if(nextProps.GAMES.Game_Data != false &&
+            nextProps.GAMES.Cron_in_Progress == false){
+                
+                console.log(nextProps.GAMES.Game_Data, nextProps.GAMES.GameIDs)
+                FG.GamesPlayed = nextProps.GAMES.GameIDs;
+                FG.GamesStored = nextProps.GAMES.Game_Data; 
+                FG.start();
+        } 
+    }
+    componentDidUpdate(){  }
 
     render() {
             return (  

@@ -124,6 +124,14 @@ import {Store_Player_Games,Scorecards} from "./games";
 				this.Store('New_Player_LMS_ID',false);
 				this.Store('New_Registration',false);
 				this.Store('New_Registration_Games_Played',false);
+				// Reset Game Data Reducer
+				this.Store('GAME_CRON', false)
+				this.Store('PLAYER_GAME_DATA', false)
+				this.Store('Game_Data_Stored', false)
+				this.Store('GameIDs', false)
+				
+				
+				
 		}
 
 		this.Set_True = ()=>{
