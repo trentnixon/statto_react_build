@@ -109,7 +109,7 @@ import {Store_Player_Games,Scorecards} from "./games";
 				// would love a call back before this i fired
 				this.Set_True();
 		}
-
+ 
 		this.Reset_Player_UI =()=>{
 				//console.log("Reset UI");
 
@@ -129,9 +129,7 @@ import {Store_Player_Games,Scorecards} from "./games";
 				this.Store('PLAYER_GAME_DATA', false)
 				this.Store('Game_Data_Stored', false)
 				this.Store('GameIDs', false)
-				
-				
-				
+				this.Store('BATTING_COMPLETE', false)	
 		}
 
 		this.Set_True = ()=>{

@@ -9,7 +9,8 @@ let Display_This_UI='Updating UI';
     return{
         UI: store.UI,
         Player: store.PLAYER,
-        GAMES: store.GAMES
+        GAMES: store.GAMES,
+        BATTING: store.BATTING
     }
 })
 export default class MainStage extends React.Component {

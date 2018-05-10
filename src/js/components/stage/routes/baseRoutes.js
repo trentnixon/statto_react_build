@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Dashboard from "../../home/dashboard"
 import Player_History from "../../history/history"; 
 import Settings from "../../settings/settings";
+import ClearData from "../../settings/clearData";
 
 ////////////////////////////////////////////////////////////
 // then our route config

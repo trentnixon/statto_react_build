@@ -29,7 +29,6 @@ let data=[],items = [], SelectTheme='Dark', Theme;
 })
 export default class Two_Column_Bar_Chart extends React.Component {
     
-
     state = { value: 0, };
     
       handleChange = (event, index, value) => {
@@ -53,9 +52,13 @@ export default class Two_Column_Bar_Chart extends React.Component {
 
     componentWillMount(){ 
         data=[],items = [];
+        
+        
         data = this.props.data;
 
         items.push(<MenuItem value={0} key={1000} primaryText="All" />);
+    
+        console.log(this.props.Years);
         
          this.props.Years.map((year,i)=>{
                 items.push(<MenuItem value={year} key={i} primaryText={year} />);
@@ -63,7 +66,7 @@ export default class Two_Column_Bar_Chart extends React.Component {
 
         if(this.props.Theme){ SelectTheme = this.props.Theme;}
         Theme = this.props.UI.Themes[SelectTheme];
-
+ 
      }
     render () {
 
@@ -82,9 +85,7 @@ export default class Two_Column_Bar_Chart extends React.Component {
                                 labelStyle={Theme.label}
                                 fullWidth={true}
                             >
-                            
-                                    {items}
-                            
+                                {items}
                             </SelectField>
                         </MuiThemeProvider>
                     }
@@ -97,7 +98,7 @@ export default class Two_Column_Bar_Chart extends React.Component {
                     barGap={0}
                     barCategoryGap={0}
             >
-            <XAxis dataKey="name" stroke={Theme.axis}/>
+            <XAxis dataKey={this.props.name} stroke={Theme.axis}/>
             <YAxis stroke={Theme.axis}/>
                 
                 <Tooltip 

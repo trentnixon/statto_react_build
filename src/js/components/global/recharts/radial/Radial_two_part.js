@@ -12,15 +12,21 @@ let  SelectTheme='Dark', Theme, cx="50%";
 
 export default class Radial_Two_Part extends React.Component {
     componentWillMount(){ 
-        console.log(this.props.data)
+   
         if(this.props.Theme){ SelectTheme = this.props.Theme;}
         Theme = this.props.UI.Themes[SelectTheme];
 
         if(this.props.legendvertical == 'bottom'){cx="50%"}
         else{cx="50%"}
     }
+
+    shouldComponentUpdate(nextProps, nextState){ return true;}
+    componentWillUpdate(nextProps, nextState){
+        
+    }
 	render () {
   	return (
+          
         <ResponsiveContainer width='100%' height={280}>
             <RadarChart cx={cx}  cy="50%" outerRadius={90}  stroke={Theme.colors[0]} fill={Theme.colors[0]} data={this.props.data}>
             

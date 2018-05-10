@@ -9,10 +9,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,ResponsiveContainer} from 'recharts';
+var _ = require('lodash');
 
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
@@ -39,43 +39,60 @@ let data=[],items = [], SelectTheme='Dark', Theme;
 export default class One_Column_Bar_Chart_With_Filter extends React.Component {
     
 
-    state = { value: 0, };
+    state = { value: "Not out", first:false };
     
-      handleChange = (event, index, value) => {
-        this.setState({value});
+    BarData(){
         data=[];
-        if(value != 0){
-            this.props.data.map((game,i)=>{
-                if(game.Year == value)
-                    {
-                        //console.log(game)
-                        data.push(game)
-                    }
+        if(this.props.data.length != 0){
+            let DismissalKey = _.findKey(this.props.data, { 'term': this.state.value});
+
+            this.props.Structure.map((item,i)=>{
+                data.push({
+                    name:item,
+                    Runs:this.props.data[DismissalKey]['runArray'][i],
+                    Balls:this.props.data[DismissalKey]['ballsArray'][i],
+                })
             })
+            this.setState({first:true});
         }
-        else{
-            data = this.props.data;
-        }
-      };
+    }
+
+
+    handleChange = (event, index, value) => {
+        this.setState({value:value},() => this.BarData());
+    };
+
+    CreateItems(data){
+        items = [];
+        this.props.type.map((type,i)=>{
+               items.push(<MenuItem value={type} key={i} primaryText={type} />);
+        })
+      }
 
     componentWillMount(){ 
-        data=[],items = [];
-        data = this.props.data;
-        console.log('Stacked Data = ',this.props.data, this.props.Years)
-        
-        items.push(<MenuItem value={0} key={1000} primaryText="All" />);
-        
-         this.props.Years.map((year,i)=>{
-                items.push(<MenuItem value={year} key={i} primaryText={year} />);
-        })
 
+        // Create Theme
         if(this.props.Theme){ SelectTheme = this.props.Theme;}
         Theme = this.props.UI.Themes[SelectTheme];
- 
+
+        // Find Date
+        this.BarData()
+
+        // Create Filter
+        this.CreateItems(this.props.type)
+
      }
+    shouldComponentUpdate(nextProps, nextState){ return true;}
+    componentWillUpdate(nextProps, nextState){
+      if(this.state.first == false){
+        
+            this.BarData()
+            this.CreateItems(nextProps.type)
+      }
+    }
+    
+    
     render () {
-
-
   	return (
           <div>
                <div class="filter-Container" style={styles.filter}> 
@@ -85,14 +102,12 @@ export default class One_Column_Bar_Chart_With_Filter extends React.Component {
                                 value={this.state.value}
                                 onChange={this.handleChange}
                                 maxHeight={200}
-                                floatingLabelText="Filter Runs by Year"
+                                floatingLabelText="Filter by Dismissal"
                                 floatingLabelStyle={Theme.label}
                                 labelStyle={Theme.label}
                                 fullWidth={true}
                             >
-                            
-                                    {items}
-                            
+                                {items}
                             </SelectField>
                         </MuiThemeProvider>
                     }
@@ -105,8 +120,8 @@ export default class One_Column_Bar_Chart_With_Filter extends React.Component {
                     barGap={0}
                     barCategoryGap={0}
             >
-            <XAxis dataKey="name"  stroke={Theme.axis}/>
-            <YAxis  stroke={Theme.axis}/>
+            <XAxis dataKey="name" stroke={Theme.axis}/>
+            <YAxis  stroke={Theme.axis} label="#" />
                 
                 <Tooltip 
                     offset={20} 
@@ -114,12 +129,13 @@ export default class One_Column_Bar_Chart_With_Filter extends React.Component {
                     labelStyle={Theme.Tooltip.label}
                     itemStyle={Theme.Tooltip.Style}
                 />
-                <Bar dataKey={this.props.datakey} fill={Theme.colors[0]} />
+                <Bar dataKey="Runs"  fill={Theme.colors[0]} />
+                <Bar dataKey="Balls"  fill={Theme.colors[1]} />
+                <Legend verticalAlign="top" wrapperStyle={Theme.Legend} iconType="circle" align="right"/>
+
             </BarChart>
         </ResponsiveContainer>
-
-        <p class="tone1" style={styles.p}> {this.props.countType} {data.length} </p>
-        </div>
+    </div>
     );
   }
 }

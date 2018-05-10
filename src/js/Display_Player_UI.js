@@ -34,6 +34,7 @@ export default class Display_Player_UI extends React.Component {
     constructor() { super();  }
     
     componentWillMount(){ 
+        GetFollowers.FirstStore();
         GetFollowers.fetch();
     }
     
@@ -52,7 +53,7 @@ export default class Display_Player_UI extends React.Component {
         if(nextProps.GAMES.Game_Data != false &&
             nextProps.GAMES.Cron_in_Progress == false){
                 
-                console.log(nextProps.GAMES.Game_Data, nextProps.GAMES.GameIDs)
+                // console.log(nextProps.GAMES.Game_Data, nextProps.GAMES.GameIDs)
                 FG.GamesPlayed = nextProps.GAMES.GameIDs;
                 FG.GamesStored = nextProps.GAMES.Game_Data; 
                 FG.start();

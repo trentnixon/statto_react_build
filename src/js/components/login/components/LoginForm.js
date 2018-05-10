@@ -90,8 +90,11 @@ export default class LoginForm extends React.Component {
 		if(document.getElementById("Login_Form")){
 			setTimeout(
 				function(){
-					document.getElementById("Login_Form").classList.remove("Keyboard");}, 
-					20000
+					if(document.getElementById("Login_Form")){
+						document.getElementById("Login_Form").classList.remove("Keyboard");
+					}
+				}, 
+				20000
 			)
 		}
 	}

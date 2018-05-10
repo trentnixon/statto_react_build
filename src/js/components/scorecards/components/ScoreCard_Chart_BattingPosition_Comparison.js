@@ -52,7 +52,11 @@ export default class Display_Player_Settings_Home extends React.Component {
                 <div id="scorecard_Pie_Chart">
                         <Section_Header header="Batting Position Comparisons" />
                         
-                        <Bars data={Data} />
+                        <Bars 
+                            data={Data}
+                            datakey1="First"
+                            datakey2="Second"
+                         />
 
                         <div class="row nomargin">
                         <div class="col-xs-6 text-center tone1">

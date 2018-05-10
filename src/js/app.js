@@ -19,7 +19,7 @@ import Login from "./components/login/";
 import register from "./components/register"
 import stage from "./stage";
 import store from "./store/store";
-
+import ClearData from "./components/settings/clearData";
 
 // Fire Function to Fetch Logged Players
 	const UI = new SetUI();
@@ -31,6 +31,8 @@ const Statto = ({ match }) => (
 			<Route exact path="/" component={Login}/>
 			<Route exact path="/register" component={register}/>
 			<Route path="/:playerid" component={stage} />
+			<Route path="/cleardata" component={ClearData} />
+			
 			<ToastContainer />
 			<Update_Status />
 		</div>

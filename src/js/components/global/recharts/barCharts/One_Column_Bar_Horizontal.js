@@ -74,7 +74,8 @@ export default class One_Column_Bar_Chart extends React.Component {
      }
      
     render () {
-    
+        console.log(this.props.data);
+
   	return (
           <div>
             <ResponsiveContainer width='100%' height={200}> 
@@ -83,6 +84,7 @@ export default class One_Column_Bar_Chart extends React.Component {
                         margin={{top: 20, right: 0, left: -30, bottom: 5}}
                         barGap={0}
                         barCategoryGap={0}
+                        layout="vertical"
                 >
                 <XAxis dataKey="name"  stroke={Theme.axis}/>
                 <YAxis  stroke={Theme.axis}/>
@@ -94,8 +96,6 @@ export default class One_Column_Bar_Chart extends React.Component {
                         itemStyle={Theme.Tooltip.Style}
                     />
                     <Bar dataKey={this.props.datakey} fill={Theme.colors[0]} />
-                    <Legend verticalAlign="top" wrapperStyle={Theme.Legend} iconType="circle" align="right"/>
-
                 </BarChart>
             </ResponsiveContainer>
         </div>

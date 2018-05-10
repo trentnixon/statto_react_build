@@ -42,6 +42,7 @@ export default class batting_runs extends React.Component {
                             datakey1="Balls_Faced" 
                             datakey2="Runs" 
                             Years={Years} 
+                            name="name"
                             countType="Innings Count : "
                             filterTitle='Filter Runs by Year'
                         />

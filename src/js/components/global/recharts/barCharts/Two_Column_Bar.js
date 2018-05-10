@@ -20,7 +20,7 @@ export default class Two_Column_Bar_Chart extends React.Component {
   	return (
         <ResponsiveContainer width='100%' height={200}>
             <BarChart  
-                    data={data}
+                    data={this.props.data}
                     margin={{top: 20, right: 0, left: -30, bottom: 5}}
                     barGap={2}
                     barCategoryGap={5}
@@ -34,9 +34,10 @@ export default class Two_Column_Bar_Chart extends React.Component {
                     labelStyle={Theme.Tooltip.label}
                     itemStyle={Theme.Tooltip.Style}
                 />
-                <Bar dataKey="First" fill={Theme.colors[0]} />
-                <Bar dataKey="Second" fill={Theme.colors[1]} />
-            
+                <Bar dataKey={this.props.datakey1} fill={Theme.colors[0]} />
+                <Bar dataKey={this.props.datakey2} fill={Theme.colors[1]} />
+                <Legend verticalAlign="top" wrapperStyle={Theme.Legend} iconType="circle" align="right"/>
+
             </BarChart>
         </ResponsiveContainer>
     );

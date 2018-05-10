@@ -66,7 +66,7 @@ export default class Batting_Innings extends React.Component {
                                         <Section_Header header="Balls Faced over the Years" />
                                         <Pie_Metric_over_the_years data={this.props.Player.over_the_years[0]} filter="Batting_Balls_Faced"/>
                                 </Naked_Wrapper>
-                                <Naked_Wrapper>
+                                <Naked_Wrapper> 
                                         <Runs_Stacked {...this.props}/>
                                 </Naked_Wrapper>
                                 

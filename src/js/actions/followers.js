@@ -11,7 +11,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 export function Followers(){
     
     /** Properties */
-    this.stored = reactLocalStorage.getObject('Statto_Favorites');
+    this.Favorites = reactLocalStorage.getObject('Statto_Favorites');
     this.PlayerID;
     this.hash = reactLocalStorage.getObject('Statto_Favorites_hash');
     this.possible;
@@ -28,28 +28,25 @@ export function Followers(){
     this.add = function(){
 
         this.Createhash();
-       
-        if(this.FirstStore() == true){
-            if(this.indexCheck() == -1)
-                { 
-                    // Add to Array
-                    this.stored.push(this.PlayerID)
-                    
-                    // Store to Local
-                    this.store()
-                }
+     
+        if(this.indexCheck() == -1)
+            { 
+                // Add to Array
+                this.Favorites.push(this.PlayerID)
+                // Store to Local
+                this.store()
         }
+        else if(this.FirstStore() == false){ this.Favorites=[]; }
     }
 
 
     this.remove = function(){
 
         this.Createhash();
-        // console.log(this.stored, this.indexCheck())
-       
-        let Remove = this.stored.slice()
+        
+        let Remove = this.Favorites.slice()
         Remove.splice(this.indexCheck(),1);
-        this.stored = Remove;
+        this.Favorites = Remove;
        
         this.store()
     }
@@ -58,14 +55,12 @@ export function Followers(){
         store.dispatch({ type:"Local_Followers", payload:reactLocalStorage.getObject('Statto_Favorites') });
     }
     this.store = function(){
-        // Check for first visit and create ARRAY if it is
-        if(this.FirstStore() == false){ this.stored=[]; }
-        
+
         // Update Localhost
-        reactLocalStorage.setObject('Statto_Favorites', this.stored);
+        reactLocalStorage.setObject('Statto_Favorites', this.Favorites);
         reactLocalStorage.setObject('Statto_Store_Favorites', true);
          // Update Reducer
-         store.dispatch({ type:"Local_Followers", payload:this.stored });
+         store.dispatch({ type:"Local_Followers", payload:this.Favorites });
     }
 
     this.Createhash = function(){  
@@ -76,10 +71,24 @@ export function Followers(){
     }
     this.indexCheck = function(){
         // Fetch latest version to make sure;
-        this.stored = reactLocalStorage.getObject('Statto_Favorites');
-        return this.stored.indexOf(this.PlayerID)
+        this.Favorites = reactLocalStorage.getObject('Statto_Favorites');
+        if(Array.isArray(this.Favorites)){
+            return this.Favorites.indexOf(this.PlayerID)
+        } else{return -1;}
+        
     }
     this.FirstStore = function(){
-        return Boolean(reactLocalStorage.get('Statto_Store_Favorites'));
+        let IsFirst = Boolean(reactLocalStorage.get('Statto_Store_Favorites'));
+        console.log(IsFirst)
+        if(IsFirst == false){ 
+                this.Favorites=[]; 
+                this.store();
+        }
+    }
+    this.ClearData = ()=>{
+        let stored=['Statto_Favorites','Statto_Favorites_hash','Statto_Store_Favorites','Store_ID','Store_Player']
+        stored.map((key,i)=>{
+            localStorage.removeItem(key);
+        })
     }
 }
