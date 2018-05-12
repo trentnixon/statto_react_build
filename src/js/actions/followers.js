@@ -31,10 +31,12 @@ export function Followers(){
      
         if(this.indexCheck() == -1)
             { 
-                // Add to Array
-                this.Favorites.push(this.PlayerID)
-                // Store to Local
-                this.store()
+                if(this.PlayerID != false){
+                    // Add to Array
+                    this.Favorites.push(this.PlayerID)
+                    // Store to Local
+                    this.store()
+                } 
         }
         else if(this.FirstStore() == false){ this.Favorites=[]; }
     }
@@ -68,7 +70,7 @@ export function Followers(){
         this.hash='';
         for (var i = 0; i < 10; i++) this.hash += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
         reactLocalStorage.setObject('Statto_Favorites_hash', this.hash);
-    }
+    } 
     this.indexCheck = function(){
         // Fetch latest version to make sure;
         this.Favorites = reactLocalStorage.getObject('Statto_Favorites');

@@ -11,7 +11,7 @@ import Position_Radial from "./components/Batting_Position_Radial";
 import Batting_Highest_Scores from "./components/Batting_Position_Highest_Scores";
 import Batting_Position_Bar from "./components/Batting_Position_Horizontal_Totals";
 import Batting_Position_Strikerate_Average from "./components/Batting_Position_Average_Strikerate";
-
+import Batting_Position_Runs_Scored_Pie  from "./components/Batting_Position_Runs_Scores_Pie";
 export default class batting_Position extends React.Component {
 
     constructor() { super();  }
@@ -27,8 +27,9 @@ export default class batting_Position extends React.Component {
                     </Half_Circle>
                         <Content_Wrapper>
                                 <Info_Badge  Text="Batting Order" />
-                        <Section_Header header="Batting Order" />
+                        <Section_Header header="Runs by Position" />
                             <Batting_Position_Bar {... this.props}/>
+                            <Batting_Position_Runs_Scored_Pie {... this.props}/> 
                         <Section_Header header="Runs to Balls by Batting Order" />
                             <Position_Radial {... this.props}/>
                         <Section_Header header="High Scores" />

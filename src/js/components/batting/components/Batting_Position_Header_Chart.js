@@ -13,7 +13,7 @@ export default class Pie_strikeRate_over_the_years extends React.Component {
         PieArray=[]
         data.map((order,i)=>{
           //  console.log(order)
-            PieArray.push({'name':order.Order, 'value':order.Runs})
+            PieArray.push({'name':order.Order, 'value':order.inningsCount})
         })
     }
     componentWillMount(){
@@ -34,7 +34,7 @@ export default class Pie_strikeRate_over_the_years extends React.Component {
                 <div class="Header_Line_Chart">
                      <Full_Pie 
                         data={PieArray}
-                        Theme="Dark"
+                        Theme="Header"
                     />
                 </div>
              ); 

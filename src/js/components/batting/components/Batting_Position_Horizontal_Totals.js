@@ -17,6 +17,7 @@ export default class Pie_strikeRate_over_the_years extends React.Component {
     }
     componentWillMount(){
         if(this.props.BATTING.Batting_Data_Complete == true){
+            console.log(this.props.BATTING.Batting_Order_Data);
             this.createPie(this.props.BATTING.Batting_Order_Data);
         }
     }

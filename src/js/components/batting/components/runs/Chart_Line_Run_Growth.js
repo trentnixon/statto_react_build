@@ -39,7 +39,7 @@ export default class batting_runs extends React.Component {
                     <Simple_Line_Chart 
                         Data={LineChart_By_Year} 
                         dataKey="Runs" 
-                        Theme="Light" />
+                        Theme="Header" />
                 </div>
              ); 
       }

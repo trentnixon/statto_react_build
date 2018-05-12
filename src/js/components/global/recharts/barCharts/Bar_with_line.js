@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import  {ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer}  from 'recharts';
-
+import Interactive from "../../icons/interactive";
 
 const styles ={
     filter:{
@@ -32,6 +32,8 @@ export default class One_Column_Bar_Chart extends React.Component {
         else{data = this.props.data} 
 
         return (
+        <div>
+             <Interactive />
             <ResponsiveContainer width='100%' height={200}> 
                 <ComposedChart 
                     data={data}
@@ -53,6 +55,7 @@ export default class One_Column_Bar_Chart extends React.Component {
                     <Line type='monotone' dataKey={this.props.line} stroke={Theme.colors[3]} dot={false}/>
                 </ComposedChart>
             </ResponsiveContainer>
+        </div>
       );
     }
 }

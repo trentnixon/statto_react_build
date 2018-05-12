@@ -40,6 +40,7 @@ export default class Form_o_Meter extends React.Component {
                             legendLayout="horizontal"
                             legendvertical="bottom"
                             LegendAlign="center"
+                            Theme="Header"
 
                             />
                             <Form_Status 

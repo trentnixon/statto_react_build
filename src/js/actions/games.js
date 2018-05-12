@@ -40,8 +40,8 @@ export function Scorecards(){
             let Store_Games=[];
             
             data.map((game,i)=>{ 
-                  //  console.log(game.acf.game_raw_data);
-                    Store_Games.push(JSON.parse(game.acf.game_raw_data))
+                // console.log('Game', game.acf.game_raw_data);
+                Store_Games.push(JSON.parse(game.acf.game_raw_data))
             })
 
             //** Dispatch

@@ -7,20 +7,24 @@ export default class Pie_strikeRate_over_the_years extends React.Component {
     constructor() { super();  }
 
     createPie(data){
+
+        console.log(data)
+        
         PieArray=[]
         data.map((order,i)=>{
-            PieArray.push({'name':order.term, 'value':order.count})
+          //  console.log(order)
+            PieArray.push({'name':order.Order, 'value':order.Runs})
         })
     }
     componentWillMount(){
         if(this.props.BATTING.Batting_Data_Complete == true){
-            this.createPie(this.props.BATTING.Batting_Dismissal_Data);
+            this.createPie(this.props.BATTING.Batting_Order_Data);
         }
     }
     shouldComponentUpdate(nextProps, nextState){ return true;}
     componentWillUpdate(nextProps, nextState){
         if(nextProps.BATTING.Batting_Data_Complete == true){
-            this.createPie(nextProps.BATTING.Batting_Dismissal_Data);
+            this.createPie(nextProps.BATTING.Batting_Order_Data);
         }
     }
     
@@ -30,7 +34,7 @@ export default class Pie_strikeRate_over_the_years extends React.Component {
                 <div class="Header_Line_Chart">
                      <Full_Pie 
                         data={PieArray}
-                        Theme="Header"
+                        Theme="Dark"
                     />
                 </div>
              ); 

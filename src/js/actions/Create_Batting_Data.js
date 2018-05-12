@@ -15,15 +15,11 @@ export function batting_data(){
     /* ************************************************ */
     // Subsidery Methods
     /* ************************************************ */
-    this.SingleArray = (data) => {
-
-    }
+    this.SingleArray = (data) => {}
 
     this.InningsOnly = ()=>{
         this.inningsOnly=[];
-        console.log(this.inningsOnly);
         this.GameData.map((game,i)=>{
-               // console.log(game);
                let findKey
                findKey = _.findKey(game["1st_Innings"], { 'Player_ID': this.PlayerID});
                
@@ -83,7 +79,10 @@ export function batting_data(){
             let findKey = _.findKey(game, { 'Player_ID': this.PlayerID});
            
             // If a ball has been Faced then pull the data
-            if(parseFloat(game[findKey].Balls_Faced) > 0){
+           // console.log(findKey, game[findKey], game, this.PlayerID);
+
+            if( findKey != undefined && 
+                parseFloat(game[findKey].Balls_Faced) > 0){
 
                 let DismissalKey = _.findKey(Dismissals, { 'term': game[findKey].How_Out});
         
@@ -150,8 +149,11 @@ export function batting_data(){
         
             let findKey = _.findKey(game, { 'Player_ID': this.PlayerID});
         
+    
             //  High Score Text
-            if(game[findKey].batting_position != 0 && game[findKey].batting_position < 9){
+            if( findKey != undefined && 
+                game[findKey].batting_position != 0 && 
+                game[findKey].batting_position < 9){
            
                 if(!PieArray[game[findKey].batting_position]){
                     PieArray[game[findKey].batting_position]= 
@@ -206,19 +208,15 @@ export function batting_data(){
        //  console.log(this.GameData);
         
             this.Store("BATTING_INPROGRESS", true);
-
         // Clean Game data to only include Players Game
         // Create a new Aray to pass around
             this.InningsOnly();
-
         // Create Batting Positions
             this.BattingOrderObject();
-
         // Create Battibng Dismissals
             this.BattingDismissal();
 
         // Add the rest of the batting data in here!
-
 
         // Complete Process
             this.Complete();

@@ -7,7 +7,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import  {PieChart, Pie, Legend,Sector, Cell,ResponsiveContainer,Tooltip} from 'recharts';
-import Interactive from "../../icons/interactive";
+import Interactive from "../../icons/interactive"; 
 
 const RADIAN = Math.PI / 180;  
 let data=[], SelectTheme='Dark', Theme;

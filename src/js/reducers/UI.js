@@ -32,7 +32,7 @@ const InitialState ={
 	},
 	Themes:{
 		Dark:{
-			colors:[ '#b37383','#67c2c4','#996b4e', '#dbaa8b', '#73b393','#5bbeba', '#bebb5b','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
+			colors:['#996b4e', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
 			axis:'#383838',
 			label:{
 				color:'#383838',
@@ -51,7 +51,9 @@ const InitialState ={
 			Legend:{color:'#383838',}
 		},
 		Header:{
-			colors:['#996b4e', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
+			colors:[ 	
+				'#996b4e', '#5bbeba', '#dbaa8b', '#73b393', '#b37383', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'
+					],
 			axis:'#383838',
 			label:{
 				color:'#383838',
@@ -70,7 +72,7 @@ const InitialState ={
 			Legend:{color:'#383838',}
 		},
 		Light:{
-			colors:['#996b4e', '#dbaa8b', '#73b393', '#b37383','#5bbeba', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
+			colors:['#996b4e', '#5bbeba', '#dbaa8b', '#73b393', '#b37383', '#bebb5b','#67c2c4','#c47e67', '#be5b5e', '#5b5ebe','#c46795','#95c467'],
 			axis:'#fff',
 			label:'#383838',
 			Tooltip:{
