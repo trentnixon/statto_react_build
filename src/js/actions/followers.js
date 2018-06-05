@@ -40,12 +40,11 @@ export function Followers(){
         }
         else if(this.FirstStore() == false){ this.Favorites=[]; }
     }
-
-
+ 
     this.remove = function(){
 
-        this.Createhash();
-        
+        this.Createhash(); 
+    
         let Remove = this.Favorites.slice()
         Remove.splice(this.indexCheck(),1);
         this.Favorites = Remove;

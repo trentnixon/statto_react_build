@@ -9,7 +9,7 @@ import SNACKBAR from "./SnackBar";
 import FOLLOWERS from "./Followers";
 import FORM_GUIDE from "./Form_Guide";
 import BATTING from "./batting_data";
-
+import TEAMS from "./Teams";
 
 const reducers = combineReducers({
 		UI:UI_DATA,
@@ -20,7 +20,8 @@ const reducers = combineReducers({
 		SNACKBAR:SNACKBAR,
 		FOLLOWERS:FOLLOWERS,
 		FORM_GUIDE:FORM_GUIDE,
-		BATTING:BATTING
+		BATTING:BATTING,
+		TEAMS:TEAMS
 	})
 
 export default reducers;
