@@ -22,7 +22,6 @@ function foo(arr) {
     return [a, b];
 }
 
-
 export function piechartYears(data, filter, add){
     
     let returnThis=[], StartHere=data[0][filter], AddThis=0;
